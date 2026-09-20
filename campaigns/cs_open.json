@@ -1,0 +1,60 @@
+{
+ "_comment": "The CS experiments, minus the one that does not fit.\n\nC_sim on CS is NOT runnable on a 24 GB card and P14 cannot be tested here.\nMeasured: CS alone peaks at 18.9 GB, and SimSample raises the sampled-edge count\nby roughly 1.4x on graphs whose nodes sit below the sampling budget (the recorded\nfigures are 1.38x on Photo and 1.36x on Computers) because deterministic top-k\ntakes every neighbour where sample-with-replacement-then-dedup takes fewer. CS has\n89% of its nodes in that band, so the combination needs ~25 GB and OOMs. This is\nthe second CS arm lost to memory, after DEMO.\n\nGetting there also required a real fix: the SimSample similarity ordering built a\nsingle [E, D] tensor, which on CS is 163,788 x 6,805 = 4.46 GB - past the\n2^32-byte boundary where some torch 2.0 CPU gather kernels overflow a 32-bit\noffset and segfault. Every CS SimSample run died at ~1.8 min with 721 GB of host\nmemory free. utils.py now computes it in chunks; verified numerically identical\nby analysis/scripts/check_invariance.py. That fix stands regardless of whether\nCS ever runs - it would have hit any wide-feature graph.\n\nL_lean on CS does fit, and comfortably: removing pseudo-labelling removes the\nfull-pool pass, taking the peak from 18.9 GB to 10.8 GB and running several times\nfaster. CS is the only dataset where the lean configuration is untested, and it\nis the tie-breaker for the two-regime story - its anomalies are feature-visible,\nso self-training should matter there as it does on Photo.\n",
+ "jobs": [
+  {
+   "dataset": "cs",
+   "seed": 42,
+   "tag": "L_lean",
+   "priority": 1,
+   "shard_rotations": true,
+   "set": {
+    "use_atlas_gate": false,
+    "use_pl": false
+   }
+  },
+  {
+   "dataset": "cs",
+   "seed": 0,
+   "tag": "L_lean",
+   "priority": 1,
+   "shard_rotations": true,
+   "set": {
+    "use_atlas_gate": false,
+    "use_pl": false
+   }
+  },
+  {
+   "dataset": "cs",
+   "seed": 1,
+   "tag": "L_lean",
+   "priority": 1,
+   "shard_rotations": true,
+   "set": {
+    "use_atlas_gate": false,
+    "use_pl": false
+   }
+  },
+  {
+   "dataset": "cs",
+   "seed": 2,
+   "tag": "L_lean",
+   "priority": 1,
+   "shard_rotations": true,
+   "set": {
+    "use_atlas_gate": false,
+    "use_pl": false
+   }
+  },
+  {
+   "dataset": "cs",
+   "seed": 3,
+   "tag": "L_lean",
+   "priority": 1,
+   "shard_rotations": true,
+   "set": {
+    "use_atlas_gate": false,
+    "use_pl": false
+   }
+  }
+ ]
+}

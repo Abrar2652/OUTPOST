@@ -1,0 +1,9 @@
+{
+ "_comment": "ogbn-mag, seeds 0-3, to put the paper's strongest claim on more than one seed.\n\nSeed 42 (campaigns/mag.json) returned ROC 0.5913 / PR 0.0102 against a published\nfield sitting at chance: DEMO 0.4967, ConsisGAD 0.4909, NSReg 0.4836, SpaceGNN\n0.4626. That is the largest margin anywhere in the paper and the only result a\nreviewer cannot answer with 'not SOTA on Photo', because it is a different\nregime rather than a bigger number. At n=1 it is also the most dismissible\nresult in the paper - a single seed on a single graph, with no spread to quote.\nFour more seeds turn it into a mean with a standard deviation and let the\nrotation set carry a paired test against the published field.\n\nMeasured from the seed-42 shards rather than estimated: 5.5 h per rotation-job,\n82 GPU-hours per seed, 11.83 GB peak allocated. Four seeds is 60 rotation-jobs\nand ~330 GPU-hours; on the five free cards at three jobs each that is ~22 h\nwall-clock. GPUs 0-2 are held by another user and are not in the pool.\n\nFull 400-epoch protocol budget, matching seed 42 exactly - a shorter run scores\nlower under best-over-epochs selection and would bias these seeds against the\none already measured, which is the direction that flatters our pre-registered\nP5 ('OUTPOST stays below 0.60'). P5 is already close to the line at 0.5913, so\nthe budget must not move.",
+ "jobs": [
+  {"dataset": "ogbn-mag", "seed": 0, "tag": "A_main", "priority": 1, "shard_rotations": true, "mem_gb": 14.0},
+  {"dataset": "ogbn-mag", "seed": 1, "tag": "A_main", "priority": 1, "shard_rotations": true, "mem_gb": 14.0},
+  {"dataset": "ogbn-mag", "seed": 2, "tag": "A_main", "priority": 1, "shard_rotations": true, "mem_gb": 14.0},
+  {"dataset": "ogbn-mag", "seed": 3, "tag": "A_main", "priority": 1, "shard_rotations": true, "mem_gb": 14.0}
+ ]
+}

@@ -1,0 +1,32 @@
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lcccccccccc}
+\toprule
+Method & Yelp ROC & Yelp PR & Amazon ROC & Amazon PR & T-Finance ROC & T-Finance PR & ogbn-arxiv ROC & ogbn-arxiv PR & ogbn-mag ROC & ogbn-mag PR \\
+\midrule
+ANOMALOUS & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+DOMINANT & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+AnomalyDAE & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+GAAN & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+CoLA & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+CONAD & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+ConsisGAD & 0.6988 & 0.2970 & -- & -- & -- & -- & 0.6216 & 0.3148 & 0.4909 & 0.0043 \\
+GGAD & 0.6613 & 0.2549 & -- & -- & -- & -- & 0.6007 & 0.2843 & -- & -- \\
+TAM & 0.5319 & 0.0977 & -- & -- & -- & -- & -- & -- & -- & -- \\
+OGCNN & 0.6410 & 0.1118 & -- & -- & -- & -- & -- & -- & -- & -- \\
+ANO-S & 0.6567 & 0.1076 & -- & -- & -- & -- & 0.4510 & 0.1463 & -- & -- \\
+DOM-S & 0.6506 & 0.1048 & -- & -- & -- & -- & 0.4505 & 0.1482 & -- & -- \\
+SpaceGNN & 0.6853 & 0.2916 & -- & -- & -- & -- & 0.6133 & 0.3301 & 0.4626 & 0.0043 \\
+NSReg & 0.7015 & 0.3029 & -- & -- & -- & -- & 0.6182 & 0.3230 & 0.4836 & 0.0041 \\
+GNN+OpenMax & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+DEMO & 0.7097 & 0.2238 & -- & -- & -- & -- & 0.6364 & 0.3329 & 0.4967 & 0.0054 \\
+DEMO (re-run, ours) & 0.7246 $\pm$ 0.0127 & 0.3372 $\pm$ 0.0230 & 0.9505 $\pm$ 0.0076 & \textbf{0.8296 $\pm$ 0.0125} & 0.9029 $\pm$ 0.0083 & 0.6560 $\pm$ 0.0739 & 0.6037 $\pm$ 0.0069 & 0.2871 $\pm$ 0.0071 & -- & -- \\
+NSReg (re-run, ours) & 0.7247 $\pm$ 0.0150 & 0.3377 $\pm$ 0.0245 & \textbf{0.9540 $\pm$ 0.0082} & 0.8288 $\pm$ 0.0166 & \textbf{0.9156 $\pm$ 0.0085} & \textbf{0.6682 $\pm$ 0.0449} & \textbf{0.6298 $\pm$ 0.0078} & \textbf{0.3001 $\pm$ 0.0098} & -- & -- \\
+\midrule
+\textbf{OUTPOST} & \textbf{0.7425 $\pm$ 0.0168} & \textbf{0.3706 $\pm$ 0.0338} & 0.9420 $\pm$ 0.0094 & 0.8180 $\pm$ 0.0216 & 0.8946 $\pm$ 0.0125 & 0.6432 $\pm$ 0.0377 & 0.6058 $\pm$ 0.0084 & 0.2948 $\pm$ 0.0079 & \textbf{0.5725 $\pm$ 0.0031} & \textbf{0.0090 $\pm$ 0.0006} \\
+\bottomrule
+\end{tabular}
+\caption{AUC-ROC and AUC-PR on the five large-scale datasets. Rows above the rule are transcribed from their own papers and were produced under those papers' protocols and budgets; the three rows below it (DEMO, NSReg, OUTPOST) were re-run here under one protocol at identical seeds and splits. \textbf{Bold} marks the best value among those three comparable rows only. NSReg's Amazon row is at the configuration its own validation-only sweep selected, which is stronger than its released one; its Photo row is not, because that selection does not survive ten seeds. Both baselines are absent on ogbn-mag for structural reasons, not for want of compute: DEMO is defined on a dense PPR matrix, 2.17\,TB at this graph's 736{,}389 nodes, and NSReg's normal-structure regulariser is defined over all ordered pairs of labelled normals, 1.34 billion here against 50 million on ogbn-arxiv. Model selection at the peak-validation epoch (deployable), not the per-metric maximum over epochs.}
+\label{tab:table2_large_valsel}
+\end{table}

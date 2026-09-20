@@ -1,0 +1,19 @@
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lccccc}
+\toprule
+Dataset & $n$ & $\Delta$ ROC (oracle) & $p$ & $\Delta$ PR (oracle) & $\Delta$ ROC (val-sel.) \\
+\midrule
+Photo & 10 & -0.0002 (6/0/4) & 0.769 & -0.0052 (7/0/3) & -0.0053 (4/0/6) \\
+Computers & 10 & -0.0016 (5/0/5) & 0.625 & -0.0018 (4/0/6) & -0.0006 (3/0/7) \\
+CS & 10 & +0.0001 (6/0/4) & 0.375 & +0.0001 (4/0/6) & -0.0014 (1/0/9) \\
+Yelp & 10 & +0.0005 (5/0/5) & 0.625 & +0.0011 (6/0/4) & -0.0007 (3/0/7) \\
+Amazon & 10 & -0.0002 (3/0/7) & 0.322 & -0.0001 (5/0/5) & +0.0043 (7/0/3) \\
+T-Finance & 10 & -0.0000 (4/0/6) & 0.922 & -0.0024 (4/0/6) & +0.0034 (7/0/3) \\
+ogbn-arxiv & 5 & -0.0012 (1/0/4) & 0.188 & -0.0002 (2/0/3) & -0.0001 (3/0/2) \\
+\bottomrule
+\end{tabular}
+\caption{Removing the atlas gate at the paper's protocol: gate-off minus gate-on, OUTPOST, paired on seed (W/T/L). Null on every graph tested. The atlas gate is a \emph{non-parametric} quantile veto, so this is an accuracy result and not a size one: OUTPOST holds 0.157$\times$ DEMO's parameters on Photo with the gate on or off. (An earlier caption cited 0.289$\times$ "with the gate"; that figure belongs to the spectral fview gate, which is disabled in every reported arm.)}
+\label{tab:gate_off}
+\end{table}

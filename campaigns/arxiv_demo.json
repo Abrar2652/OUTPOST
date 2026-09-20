@@ -1,0 +1,145 @@
+{
+ "_comment": "DEMO (full published method, mixup ON) on ogbn-arxiv. Previously listed as infeasible because mixup needs a dense NxN PPR: at N=169,343 that is 114.7 GB. Built 2026-09-13 in 481s (data/ogbn_arxiv/ppr_matrix.npy) - the node has 699 GB RAM and 14 TB free disk, so the file sits in page cache and mixup's per-step slice is only the ~6k sampled neighbourhood. Fills the DEMO ogbn-arxiv cells of Table 2, which were the only empty cells in our own rows apart from mag (2.17 TB, still out of reach). EPOCHS: set num_epochs=400 explicitly in every job. DEMO does NOT inherit the dataset's epoch count - load_config() takes only input_dim and eval_batch_mult from the dataset block, and demo_default is 200. The first four jobs ran at 200 and are quarantined in results/wrong_budget/.",
+ "jobs": [
+  {
+   "dataset": "ogbn-arxiv",
+   "method": "demo",
+   "seed": 0,
+   "tag": "B_demo_mix",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 20.0,
+   "set": {
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "ogbn-arxiv",
+   "method": "demo",
+   "seed": 1,
+   "tag": "B_demo_mix",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 20.0,
+   "set": {
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "ogbn-arxiv",
+   "method": "demo",
+   "seed": 2,
+   "tag": "B_demo_mix",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 20.0,
+   "set": {
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "ogbn-arxiv",
+   "method": "demo",
+   "seed": 3,
+   "tag": "B_demo_mix",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 20.0,
+   "set": {
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "ogbn-arxiv",
+   "method": "demo",
+   "seed": 4,
+   "tag": "B_demo_mix",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 20.0,
+   "set": {
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "ogbn-arxiv",
+   "method": "demo",
+   "seed": 5,
+   "tag": "B_demo_mix",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 20.0,
+   "set": {
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "ogbn-arxiv",
+   "method": "demo",
+   "seed": 6,
+   "tag": "B_demo_mix",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 20.0,
+   "set": {
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "ogbn-arxiv",
+   "method": "demo",
+   "seed": 7,
+   "tag": "B_demo_mix",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 20.0,
+   "set": {
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "ogbn-arxiv",
+   "method": "demo",
+   "seed": 8,
+   "tag": "B_demo_mix",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 20.0,
+   "set": {
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "ogbn-arxiv",
+   "method": "demo",
+   "seed": 42,
+   "tag": "B_demo_mix",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 20.0,
+   "set": {
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  }
+ ]
+}

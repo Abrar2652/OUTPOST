@@ -1,0 +1,105 @@
+{
+ "_comment": "NSReg (released code) on ogbn-arxiv at 400 epochs. Previously listed as infeasible ('its full-graph pass does not fit'); that was never tested - the wrapper's dataset list simply omitted OGB. It runs at a 2.17 GB peak: CS's memory problem came from 6,805-dim features, OGB has 128. EPOCHS: set 400 explicitly - NSReg's own default is 201, and E400_nsreg reaches 400 only via this override (the same trap DEMO has with its 200 default). mem_gb lowered 5.0 -> 2.5 to the measured 2.17 GB peak so it can use cards whose memory is held by idle servers; this is a scheduling hint and changes nothing about the run.",
+ "jobs": [
+  {
+   "dataset": "ogbn-arxiv",
+   "method": "nsreg",
+   "seed": 0,
+   "tag": "E400_nsreg",
+   "priority": 2,
+   "epochs": 400,
+   "shard_rotations": true,
+   "mem_gb": 2.5
+  },
+  {
+   "dataset": "ogbn-arxiv",
+   "method": "nsreg",
+   "seed": 1,
+   "tag": "E400_nsreg",
+   "priority": 2,
+   "epochs": 400,
+   "shard_rotations": true,
+   "mem_gb": 2.5
+  },
+  {
+   "dataset": "ogbn-arxiv",
+   "method": "nsreg",
+   "seed": 2,
+   "tag": "E400_nsreg",
+   "priority": 2,
+   "epochs": 400,
+   "shard_rotations": true,
+   "mem_gb": 2.5
+  },
+  {
+   "dataset": "ogbn-arxiv",
+   "method": "nsreg",
+   "seed": 3,
+   "tag": "E400_nsreg",
+   "priority": 2,
+   "epochs": 400,
+   "shard_rotations": true,
+   "mem_gb": 2.5
+  },
+  {
+   "dataset": "ogbn-arxiv",
+   "method": "nsreg",
+   "seed": 4,
+   "tag": "E400_nsreg",
+   "priority": 2,
+   "epochs": 400,
+   "shard_rotations": true,
+   "mem_gb": 2.5
+  },
+  {
+   "dataset": "ogbn-arxiv",
+   "method": "nsreg",
+   "seed": 5,
+   "tag": "E400_nsreg",
+   "priority": 2,
+   "epochs": 400,
+   "shard_rotations": true,
+   "mem_gb": 2.5
+  },
+  {
+   "dataset": "ogbn-arxiv",
+   "method": "nsreg",
+   "seed": 6,
+   "tag": "E400_nsreg",
+   "priority": 2,
+   "epochs": 400,
+   "shard_rotations": true,
+   "mem_gb": 2.5
+  },
+  {
+   "dataset": "ogbn-arxiv",
+   "method": "nsreg",
+   "seed": 7,
+   "tag": "E400_nsreg",
+   "priority": 2,
+   "epochs": 400,
+   "shard_rotations": true,
+   "mem_gb": 2.5
+  },
+  {
+   "dataset": "ogbn-arxiv",
+   "method": "nsreg",
+   "seed": 8,
+   "tag": "E400_nsreg",
+   "priority": 2,
+   "epochs": 400,
+   "shard_rotations": true,
+   "mem_gb": 2.5
+  },
+  {
+   "dataset": "ogbn-arxiv",
+   "method": "nsreg",
+   "seed": 42,
+   "tag": "E400_nsreg",
+   "priority": 2,
+   "epochs": 400,
+   "shard_rotations": true,
+   "mem_gb": 2.5
+  }
+ ]
+}

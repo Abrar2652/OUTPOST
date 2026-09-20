@@ -1,0 +1,72 @@
+{
+ "dataset": "cs",
+ "method": "outpost",
+ "seed": 0,
+ "train_seed": null,
+ "tag": "A_main",
+ "config": {
+  "alpha_plus": 0.05,
+  "alpha_r": 0.1,
+  "atlas_gate_q": 0.9,
+  "batch_size": 512,
+  "hidden_dim": 64,
+  "lambda_halo": 0.2,
+  "lambda_mixup": 0.2,
+  "lambda_un": 1.0,
+  "lr": 0.001,
+  "margin": 0.1,
+  "n_layers": 2,
+  "optimiser": "adam",
+  "sampling_sizes": [
+   25,
+   10
+  ],
+  "tau_minus": 0.05,
+  "tau_mu": 0.05,
+  "tau_plus": 0.95,
+  "use_atlas_gate": true,
+  "use_conformal": true,
+  "use_pl": true,
+  "version": 4,
+  "weight_decay": 0.0005,
+  "K_p": 8,
+  "drop_out": 0.5,
+  "input_dim": 6805,
+  "num_epochs": 200,
+  "eval_batch_mult": 1,
+  "sim_topk_frac": 0.0,
+  "use_atlas_loss": true,
+  "use_halo": true,
+  "use_mixup": true,
+  "warmup_epochs": 5,
+  "use_fview_gate": false,
+  "use_hybrid": false
+ },
+ "rotations": [
+  {
+   "best": {
+    "auroc_all": 0.9871539257267467,
+    "aupr_all": 0.964449556464224,
+    "auroc_unknown": 0.9873275833034506,
+    "aupr_unknown": 0.963205133251691
+   },
+   "val_selected": {
+    "val_auc": 0.9891252955082742,
+    "auroc_all": 0.9866104014199852,
+    "aupr_all": 0.9638012676273302,
+    "auroc_unknown": 0.9867594615959157,
+    "aupr_unknown": 0.9624259253076672
+   },
+   "final": {
+    "auroc_all": 0.9863921324939389,
+    "aupr_all": 0.9620079850537215,
+    "auroc_unknown": 0.9868355981464129,
+    "aupr_unknown": 0.9610163252082193
+   },
+   "n_params": 889793,
+   "rotation_class": 6,
+   "seconds": 6248.7,
+   "peak_gpu_gb": 18.799
+  }
+ ]
+}

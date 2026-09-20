@@ -1,0 +1,1610 @@
+{
+ "_comment": "Generate the GPU-7 campaign: everything except cs, priority-ordered.\n\nKept as a script rather than hand-written JSON so the experiment matrix reads as\nintent - which arm tests which claim - instead of 200 near-identical objects.\n\nOrdering matters more than it looks. Measured on this hardware, a post-warmup\nepoch costs ~18 s on computers and the pseudo-label pass runs over the whole\nunlabelled pool, so one computers seed is ~5 GPU-hours and the full queue is\ndays rather than hours. The bands below are therefore ordered by what each run\nBUYS, not by dataset size:\n\n   1  Yelp main + paired DEMO      the headline claim, the only real-fraud graph\n   2  Photo main + paired DEMO     cheapest complete dataset + pairing\n   3  Yelp component ablations     what the method's parts are worth\n   4  DEMO energy term on/off      is our Photo gap a crippled baseline?\n   5  Yelp dose-response           makes the SimSample effect causal, not incidental\n   6  Photo tuning sweep           validation-only, pre-registered; also sensitivity\n   7  Computers main + paired DEMO a further main-table cell with pairing\n   8  cross-dataset SimSample      the sign-change prediction on sparse graphs\n\nThe two OGB graphs are NOT here - they run on GPU 6 (campaigns/build_gpu6.py)\nsince cs freed that card.\n\nAn interrupted campaign then leaves the top of that list finished rather than\nevery band half-done.\n\nONE RUNNER PER GPU. The energy and tuning sweeps live in this queue rather than\nin runners of their own, because each runner keeps its own memory budget and\nthey cannot see each other: three runners on one card believed they had 21 + 9 +\n9 GB of a 24 GB device between them, and the driver-level free-memory check is\nracy when two of them look at the same moment. Adding a campaign means adding a\nband here, not starting a second process on the same device.\n",
+ "seeds": [
+  42,
+  0,
+  1,
+  2,
+  3
+ ],
+ "jobs": [
+  {
+   "dataset": "yelp",
+   "seed": 42,
+   "tag": "A_main",
+   "priority": 1,
+   "method": "outpost"
+  },
+  {
+   "dataset": "yelp",
+   "seed": 0,
+   "tag": "A_main",
+   "priority": 1,
+   "method": "outpost"
+  },
+  {
+   "dataset": "yelp",
+   "seed": 1,
+   "tag": "A_main",
+   "priority": 1,
+   "method": "outpost"
+  },
+  {
+   "dataset": "yelp",
+   "seed": 2,
+   "tag": "A_main",
+   "priority": 1,
+   "method": "outpost"
+  },
+  {
+   "dataset": "yelp",
+   "seed": 3,
+   "tag": "A_main",
+   "priority": 1,
+   "method": "outpost"
+  },
+  {
+   "dataset": "yelp",
+   "seed": 4,
+   "tag": "A_main",
+   "priority": 1,
+   "method": "outpost"
+  },
+  {
+   "dataset": "yelp",
+   "seed": 5,
+   "tag": "A_main",
+   "priority": 1,
+   "method": "outpost"
+  },
+  {
+   "dataset": "yelp",
+   "seed": 6,
+   "tag": "A_main",
+   "priority": 1,
+   "method": "outpost"
+  },
+  {
+   "dataset": "yelp",
+   "seed": 7,
+   "tag": "A_main",
+   "priority": 1,
+   "method": "outpost"
+  },
+  {
+   "dataset": "yelp",
+   "seed": 8,
+   "tag": "A_main",
+   "priority": 1,
+   "method": "outpost"
+  },
+  {
+   "dataset": "yelp",
+   "seed": 42,
+   "tag": "B_demo",
+   "priority": 1,
+   "method": "demo",
+   "set": {
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 0,
+   "tag": "B_demo",
+   "priority": 1,
+   "method": "demo",
+   "set": {
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 1,
+   "tag": "B_demo",
+   "priority": 1,
+   "method": "demo",
+   "set": {
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 2,
+   "tag": "B_demo",
+   "priority": 1,
+   "method": "demo",
+   "set": {
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 3,
+   "tag": "B_demo",
+   "priority": 1,
+   "method": "demo",
+   "set": {
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 4,
+   "tag": "B_demo",
+   "priority": 1,
+   "method": "demo",
+   "set": {
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 5,
+   "tag": "B_demo",
+   "priority": 1,
+   "method": "demo",
+   "set": {
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 6,
+   "tag": "B_demo",
+   "priority": 1,
+   "method": "demo",
+   "set": {
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 7,
+   "tag": "B_demo",
+   "priority": 1,
+   "method": "demo",
+   "set": {
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 8,
+   "tag": "B_demo",
+   "priority": 1,
+   "method": "demo",
+   "set": {
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 42,
+   "tag": "A_main",
+   "priority": 2,
+   "method": "outpost"
+  },
+  {
+   "dataset": "photo",
+   "seed": 0,
+   "tag": "A_main",
+   "priority": 2,
+   "method": "outpost"
+  },
+  {
+   "dataset": "photo",
+   "seed": 1,
+   "tag": "A_main",
+   "priority": 2,
+   "method": "outpost"
+  },
+  {
+   "dataset": "photo",
+   "seed": 2,
+   "tag": "A_main",
+   "priority": 2,
+   "method": "outpost"
+  },
+  {
+   "dataset": "photo",
+   "seed": 3,
+   "tag": "A_main",
+   "priority": 2,
+   "method": "outpost"
+  },
+  {
+   "dataset": "photo",
+   "seed": 42,
+   "tag": "B_demo",
+   "priority": 2,
+   "method": "demo",
+   "set": {
+    "energy_loss": false
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 0,
+   "tag": "B_demo",
+   "priority": 2,
+   "method": "demo",
+   "set": {
+    "energy_loss": false
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 1,
+   "tag": "B_demo",
+   "priority": 2,
+   "method": "demo",
+   "set": {
+    "energy_loss": false
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 2,
+   "tag": "B_demo",
+   "priority": 2,
+   "method": "demo",
+   "set": {
+    "energy_loss": false
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 3,
+   "tag": "B_demo",
+   "priority": 2,
+   "method": "demo",
+   "set": {
+    "energy_loss": false
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 42,
+   "tag": "C_nosim",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 0,
+   "tag": "C_nosim",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 1,
+   "tag": "C_nosim",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 2,
+   "tag": "C_nosim",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 3,
+   "tag": "C_nosim",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 4,
+   "tag": "C_nosim",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 5,
+   "tag": "C_nosim",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 6,
+   "tag": "C_nosim",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 7,
+   "tag": "C_nosim",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 8,
+   "tag": "C_nosim",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 42,
+   "tag": "C_simplacebo",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "sim_shuffle": true
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 0,
+   "tag": "C_simplacebo",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "sim_shuffle": true
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 1,
+   "tag": "C_simplacebo",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "sim_shuffle": true
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 2,
+   "tag": "C_simplacebo",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "sim_shuffle": true
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 3,
+   "tag": "C_simplacebo",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "sim_shuffle": true
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 4,
+   "tag": "C_simplacebo",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "sim_shuffle": true
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 5,
+   "tag": "C_simplacebo",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "sim_shuffle": true
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 6,
+   "tag": "C_simplacebo",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "sim_shuffle": true
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 7,
+   "tag": "C_simplacebo",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "sim_shuffle": true
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 8,
+   "tag": "C_simplacebo",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "sim_shuffle": true
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 42,
+   "tag": "C_nogate",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "use_atlas_gate": false
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 0,
+   "tag": "C_nogate",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "use_atlas_gate": false
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 1,
+   "tag": "C_nogate",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "use_atlas_gate": false
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 2,
+   "tag": "C_nogate",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "use_atlas_gate": false
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 3,
+   "tag": "C_nogate",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "use_atlas_gate": false
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 4,
+   "tag": "C_nogate",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "use_atlas_gate": false
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 5,
+   "tag": "C_nogate",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "use_atlas_gate": false
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 6,
+   "tag": "C_nogate",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "use_atlas_gate": false
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 7,
+   "tag": "C_nogate",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "use_atlas_gate": false
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 8,
+   "tag": "C_nogate",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "use_atlas_gate": false
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 42,
+   "tag": "C_nopl",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "use_pl": false
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 0,
+   "tag": "C_nopl",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "use_pl": false
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 1,
+   "tag": "C_nopl",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "use_pl": false
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 2,
+   "tag": "C_nopl",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "use_pl": false
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 3,
+   "tag": "C_nopl",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "use_pl": false
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 4,
+   "tag": "C_nopl",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "use_pl": false
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 5,
+   "tag": "C_nopl",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "use_pl": false
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 6,
+   "tag": "C_nopl",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "use_pl": false
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 7,
+   "tag": "C_nopl",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "use_pl": false
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 8,
+   "tag": "C_nopl",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "use_pl": false
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 42,
+   "tag": "C_noconformal",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "use_conformal": false
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 0,
+   "tag": "C_noconformal",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "use_conformal": false
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 1,
+   "tag": "C_noconformal",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "use_conformal": false
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 2,
+   "tag": "C_noconformal",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "use_conformal": false
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 3,
+   "tag": "C_noconformal",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "use_conformal": false
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 42,
+   "tag": "C_synth",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "use_mixup": true,
+    "use_halo": true
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 0,
+   "tag": "C_synth",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "use_mixup": true,
+    "use_halo": true
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 1,
+   "tag": "C_synth",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "use_mixup": true,
+    "use_halo": true
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 2,
+   "tag": "C_synth",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "use_mixup": true,
+    "use_halo": true
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 3,
+   "tag": "C_synth",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "use_mixup": true,
+    "use_halo": true
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 42,
+   "tag": "C_hopmix",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "use_hybrid": true
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 0,
+   "tag": "C_hopmix",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "use_hybrid": true
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 1,
+   "tag": "C_hopmix",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "use_hybrid": true
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 2,
+   "tag": "C_hopmix",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "use_hybrid": true
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 3,
+   "tag": "C_hopmix",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "use_hybrid": true
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 42,
+   "tag": "C_fview",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "use_fview_gate": true
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 0,
+   "tag": "C_fview",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "use_fview_gate": true
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 1,
+   "tag": "C_fview",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "use_fview_gate": true
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 2,
+   "tag": "C_fview",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "use_fview_gate": true
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 3,
+   "tag": "C_fview",
+   "priority": 3,
+   "method": "outpost",
+   "set": {
+    "use_fview_gate": true
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 42,
+   "method": "demo",
+   "tag": "E_demo_energy",
+   "priority": 4,
+   "set": {
+    "energy_loss": true
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 42,
+   "method": "demo",
+   "tag": "E_demo_noenergy",
+   "priority": 4,
+   "set": {
+    "energy_loss": false
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 0,
+   "method": "demo",
+   "tag": "E_demo_energy",
+   "priority": 4,
+   "set": {
+    "energy_loss": true
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 0,
+   "method": "demo",
+   "tag": "E_demo_noenergy",
+   "priority": 4,
+   "set": {
+    "energy_loss": false
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 1,
+   "method": "demo",
+   "tag": "E_demo_energy",
+   "priority": 4,
+   "set": {
+    "energy_loss": true
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 1,
+   "method": "demo",
+   "tag": "E_demo_noenergy",
+   "priority": 4,
+   "set": {
+    "energy_loss": false
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 42,
+   "tag": "D_sim0.25",
+   "priority": 5,
+   "method": "outpost",
+   "set": {
+    "sim_topk_frac": 0.25
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 0,
+   "tag": "D_sim0.25",
+   "priority": 5,
+   "method": "outpost",
+   "set": {
+    "sim_topk_frac": 0.25
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 1,
+   "tag": "D_sim0.25",
+   "priority": 5,
+   "method": "outpost",
+   "set": {
+    "sim_topk_frac": 0.25
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 2,
+   "tag": "D_sim0.25",
+   "priority": 5,
+   "method": "outpost",
+   "set": {
+    "sim_topk_frac": 0.25
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 3,
+   "tag": "D_sim0.25",
+   "priority": 5,
+   "method": "outpost",
+   "set": {
+    "sim_topk_frac": 0.25
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 42,
+   "tag": "D_sim0.5",
+   "priority": 5,
+   "method": "outpost",
+   "set": {
+    "sim_topk_frac": 0.5
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 0,
+   "tag": "D_sim0.5",
+   "priority": 5,
+   "method": "outpost",
+   "set": {
+    "sim_topk_frac": 0.5
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 1,
+   "tag": "D_sim0.5",
+   "priority": 5,
+   "method": "outpost",
+   "set": {
+    "sim_topk_frac": 0.5
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 2,
+   "tag": "D_sim0.5",
+   "priority": 5,
+   "method": "outpost",
+   "set": {
+    "sim_topk_frac": 0.5
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 3,
+   "tag": "D_sim0.5",
+   "priority": 5,
+   "method": "outpost",
+   "set": {
+    "sim_topk_frac": 0.5
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 42,
+   "tag": "D_sim0.75",
+   "priority": 5,
+   "method": "outpost",
+   "set": {
+    "sim_topk_frac": 0.75
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 0,
+   "tag": "D_sim0.75",
+   "priority": 5,
+   "method": "outpost",
+   "set": {
+    "sim_topk_frac": 0.75
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 1,
+   "tag": "D_sim0.75",
+   "priority": 5,
+   "method": "outpost",
+   "set": {
+    "sim_topk_frac": 0.75
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 2,
+   "tag": "D_sim0.75",
+   "priority": 5,
+   "method": "outpost",
+   "set": {
+    "sim_topk_frac": 0.75
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 3,
+   "tag": "D_sim0.75",
+   "priority": 5,
+   "method": "outpost",
+   "set": {
+    "sim_topk_frac": 0.75
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 42,
+   "tag": "T_lambda_un0.5",
+   "priority": 6,
+   "method": "outpost",
+   "set": {
+    "lambda_un": 0.5
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 0,
+   "tag": "T_lambda_un0.5",
+   "priority": 6,
+   "method": "outpost",
+   "set": {
+    "lambda_un": 0.5
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 1,
+   "tag": "T_lambda_un0.5",
+   "priority": 6,
+   "method": "outpost",
+   "set": {
+    "lambda_un": 0.5
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 42,
+   "tag": "T_lambda_un1.5",
+   "priority": 6,
+   "method": "outpost",
+   "set": {
+    "lambda_un": 1.5
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 0,
+   "tag": "T_lambda_un1.5",
+   "priority": 6,
+   "method": "outpost",
+   "set": {
+    "lambda_un": 1.5
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 1,
+   "tag": "T_lambda_un1.5",
+   "priority": 6,
+   "method": "outpost",
+   "set": {
+    "lambda_un": 1.5
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 42,
+   "tag": "T_Kp4",
+   "priority": 6,
+   "method": "outpost",
+   "set": {
+    "K_p": 4
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 0,
+   "tag": "T_Kp4",
+   "priority": 6,
+   "method": "outpost",
+   "set": {
+    "K_p": 4
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 1,
+   "tag": "T_Kp4",
+   "priority": 6,
+   "method": "outpost",
+   "set": {
+    "K_p": 4
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 42,
+   "tag": "T_Kp12",
+   "priority": 6,
+   "method": "outpost",
+   "set": {
+    "K_p": 12
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 0,
+   "tag": "T_Kp12",
+   "priority": 6,
+   "method": "outpost",
+   "set": {
+    "K_p": 12
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 1,
+   "tag": "T_Kp12",
+   "priority": 6,
+   "method": "outpost",
+   "set": {
+    "K_p": 12
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 42,
+   "tag": "T_hidden32",
+   "priority": 6,
+   "method": "outpost",
+   "set": {
+    "hidden_dim": 32
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 0,
+   "tag": "T_hidden32",
+   "priority": 6,
+   "method": "outpost",
+   "set": {
+    "hidden_dim": 32
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 1,
+   "tag": "T_hidden32",
+   "priority": 6,
+   "method": "outpost",
+   "set": {
+    "hidden_dim": 32
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 42,
+   "tag": "T_hidden128",
+   "priority": 6,
+   "method": "outpost",
+   "set": {
+    "hidden_dim": 128
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 0,
+   "tag": "T_hidden128",
+   "priority": 6,
+   "method": "outpost",
+   "set": {
+    "hidden_dim": 128
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 1,
+   "tag": "T_hidden128",
+   "priority": 6,
+   "method": "outpost",
+   "set": {
+    "hidden_dim": 128
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 42,
+   "tag": "T_warmup15",
+   "priority": 6,
+   "method": "outpost",
+   "set": {
+    "warmup_epochs": 15
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 0,
+   "tag": "T_warmup15",
+   "priority": 6,
+   "method": "outpost",
+   "set": {
+    "warmup_epochs": 15
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 1,
+   "tag": "T_warmup15",
+   "priority": 6,
+   "method": "outpost",
+   "set": {
+    "warmup_epochs": 15
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 42,
+   "tag": "T_drop0.3",
+   "priority": 6,
+   "method": "outpost",
+   "set": {
+    "drop_out": 0.3
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 0,
+   "tag": "T_drop0.3",
+   "priority": 6,
+   "method": "outpost",
+   "set": {
+    "drop_out": 0.3
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 1,
+   "tag": "T_drop0.3",
+   "priority": 6,
+   "method": "outpost",
+   "set": {
+    "drop_out": 0.3
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 42,
+   "tag": "T_lean",
+   "priority": 6,
+   "method": "outpost",
+   "set": {
+    "use_mixup": false,
+    "use_halo": false
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 0,
+   "tag": "T_lean",
+   "priority": 6,
+   "method": "outpost",
+   "set": {
+    "use_mixup": false,
+    "use_halo": false
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 1,
+   "tag": "T_lean",
+   "priority": 6,
+   "method": "outpost",
+   "set": {
+    "use_mixup": false,
+    "use_halo": false
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 42,
+   "tag": "T_alpha0.01",
+   "priority": 6,
+   "method": "outpost",
+   "set": {
+    "alpha_plus": 0.01
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 0,
+   "tag": "T_alpha0.01",
+   "priority": 6,
+   "method": "outpost",
+   "set": {
+    "alpha_plus": 0.01
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 1,
+   "tag": "T_alpha0.01",
+   "priority": 6,
+   "method": "outpost",
+   "set": {
+    "alpha_plus": 0.01
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 42,
+   "tag": "T_gateq0.8",
+   "priority": 6,
+   "method": "outpost",
+   "set": {
+    "atlas_gate_q": 0.8
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 0,
+   "tag": "T_gateq0.8",
+   "priority": 6,
+   "method": "outpost",
+   "set": {
+    "atlas_gate_q": 0.8
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 1,
+   "tag": "T_gateq0.8",
+   "priority": 6,
+   "method": "outpost",
+   "set": {
+    "atlas_gate_q": 0.8
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 42,
+   "tag": "T_lr0.003",
+   "priority": 6,
+   "method": "outpost",
+   "set": {
+    "lr": 0.003
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 0,
+   "tag": "T_lr0.003",
+   "priority": 6,
+   "method": "outpost",
+   "set": {
+    "lr": 0.003
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 1,
+   "tag": "T_lr0.003",
+   "priority": 6,
+   "method": "outpost",
+   "set": {
+    "lr": 0.003
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 42,
+   "tag": "C_sim",
+   "priority": 8,
+   "method": "outpost",
+   "set": {
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 0,
+   "tag": "C_sim",
+   "priority": 8,
+   "method": "outpost",
+   "set": {
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 1,
+   "tag": "C_sim",
+   "priority": 8,
+   "method": "outpost",
+   "set": {
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 2,
+   "tag": "C_sim",
+   "priority": 8,
+   "method": "outpost",
+   "set": {
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 3,
+   "tag": "C_sim",
+   "priority": 8,
+   "method": "outpost",
+   "set": {
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 42,
+   "tag": "C_nosynth",
+   "priority": 8,
+   "method": "outpost",
+   "set": {
+    "use_mixup": false,
+    "use_halo": false
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 0,
+   "tag": "C_nosynth",
+   "priority": 8,
+   "method": "outpost",
+   "set": {
+    "use_mixup": false,
+    "use_halo": false
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 1,
+   "tag": "C_nosynth",
+   "priority": 8,
+   "method": "outpost",
+   "set": {
+    "use_mixup": false,
+    "use_halo": false
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 2,
+   "tag": "C_nosynth",
+   "priority": 8,
+   "method": "outpost",
+   "set": {
+    "use_mixup": false,
+    "use_halo": false
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 3,
+   "tag": "C_nosynth",
+   "priority": 8,
+   "method": "outpost",
+   "set": {
+    "use_mixup": false,
+    "use_halo": false
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 42,
+   "tag": "C_nogate",
+   "priority": 8,
+   "method": "outpost",
+   "set": {
+    "use_atlas_gate": false
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 0,
+   "tag": "C_nogate",
+   "priority": 8,
+   "method": "outpost",
+   "set": {
+    "use_atlas_gate": false
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 1,
+   "tag": "C_nogate",
+   "priority": 8,
+   "method": "outpost",
+   "set": {
+    "use_atlas_gate": false
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 2,
+   "tag": "C_nogate",
+   "priority": 8,
+   "method": "outpost",
+   "set": {
+    "use_atlas_gate": false
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 3,
+   "tag": "C_nogate",
+   "priority": 8,
+   "method": "outpost",
+   "set": {
+    "use_atlas_gate": false
+   }
+  }
+ ]
+}

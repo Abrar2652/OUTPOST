@@ -1,0 +1,84 @@
+{
+ "dataset": "photo",
+ "method": "demo",
+ "seed": 42,
+ "train_seed": null,
+ "tag": "E_demo_noenergy",
+ "config": {
+  "alpha_plus": 0.05,
+  "alpha_r": 0.1,
+  "atlas_gate_q": 0.9,
+  "batch_size": 512,
+  "hidden_dim": 64,
+  "lambda_halo": 0.2,
+  "lambda_mixup": 0.2,
+  "lambda_un": 1.0,
+  "lr": 0.001,
+  "margin": 0.1,
+  "n_layers": 2,
+  "optimiser": "adam",
+  "sampling_sizes": [
+   25,
+   10
+  ],
+  "tau_minus": 0.05,
+  "tau_mu": 0.05,
+  "tau_plus": 0.95,
+  "use_atlas_gate": true,
+  "use_conformal": true,
+  "use_pl": true,
+  "version": 4,
+  "weight_decay": 0.0001,
+  "loss": "bce",
+  "num_epochs": 200,
+  "ebd_dim": 64,
+  "drop_out": 0.5,
+  "gamma": 0.1,
+  "damping": 0.001,
+  "p_cutoff": [
+   0.05,
+   0.95
+  ],
+  "unlabeled_loss": 0.5,
+  "mixup_loss": 0.1,
+  "energy_loss_weight": 0.1,
+  "used_unlabeled_data": true,
+  "energy_loss": false,
+  "mixup": false,
+  "thresh_warmup": true,
+  "used_augment_for_anormaly": true,
+  "batch_size_for_anormaly": 20,
+  "sample_size_for_anormaly": 25,
+  "div_loss_alpha": 0.5,
+  "mixup_loss_type": "consistency",
+  "device": 0,
+  "input_dim": 745
+ },
+ "rotations": [
+  {
+   "best": {
+    "auroc_all": 0.8829589887141208,
+    "aupr_all": 0.6224531282606637,
+    "auroc_unknown": 0.7850425892172663,
+    "aupr_unknown": 0.11828542184171457
+   },
+   "val_selected": {
+    "auroc_all": 0.863395440228285,
+    "aupr_all": 0.5898746427429185,
+    "auroc_unknown": 0.7493279402095662,
+    "aupr_unknown": 0.09235076733321404,
+    "val_auc": 0.9980676328502415
+   },
+   "final": {
+    "auroc_all": 0.8701965895514282,
+    "aupr_all": 0.5995563765079776,
+    "auroc_unknown": 0.7620182415568298,
+    "aupr_unknown": 0.09863613358906552
+   },
+   "n_params": 725819,
+   "rotation_class": 0,
+   "seconds": 477.2,
+   "peak_gpu_gb": 3.349
+  }
+ ]
+}

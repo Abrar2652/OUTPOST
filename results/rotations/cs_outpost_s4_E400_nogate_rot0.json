@@ -1,0 +1,77 @@
+{
+ "dataset": "cs",
+ "method": "outpost",
+ "seed": 4,
+ "train_seed": null,
+ "tag": "E400_nogate",
+ "config": {
+  "alpha_plus": 0.05,
+  "alpha_r": 0.1,
+  "atlas_gate_q": 0.9,
+  "batch_size": 512,
+  "hidden_dim": 64,
+  "lambda_halo": 0.2,
+  "lambda_mixup": 0.2,
+  "lambda_un": 1.0,
+  "lr": 0.001,
+  "margin": 0.1,
+  "n_layers": 2,
+  "optimiser": "adam",
+  "sampling_sizes": [
+   25,
+   10
+  ],
+  "tau_minus": 0.05,
+  "tau_mu": 0.05,
+  "tau_plus": 0.95,
+  "use_atlas_gate": false,
+  "use_conformal": true,
+  "use_pl": true,
+  "version": 4,
+  "weight_decay": 0.0005,
+  "K_p": 8,
+  "drop_out": 0.5,
+  "input_dim": 6805,
+  "num_epochs": 400,
+  "eval_batch_mult": 1,
+  "sim_topk_frac": 0.0,
+  "use_atlas_loss": true,
+  "use_halo": true,
+  "use_mixup": true,
+  "warmup_epochs": 5,
+  "use_fview_gate": false,
+  "use_hybrid": false
+ },
+ "host": "ckg12",
+ "gpu": "NVIDIA RTX A6000",
+ "torch": "2.7.1+cu126",
+ "python": "3.10.12",
+ "rotations": [
+  {
+   "best": {
+    "auroc_all": 0.9838746575030575,
+    "aupr_all": 0.9548474016415672,
+    "auroc_unknown": 0.9821260498765075,
+    "aupr_unknown": 0.9401561502714949
+   },
+   "val_selected": {
+    "val_auc": 1.0,
+    "auroc_all": 0.9754322763323058,
+    "aupr_all": 0.944961704654503,
+    "auroc_unknown": 0.9723269596380961,
+    "aupr_unknown": 0.926439662771082
+   },
+   "final": {
+    "auroc_all": 0.9835129549741574,
+    "aupr_all": 0.9536211485106516,
+    "auroc_unknown": 0.9817017554255967,
+    "aupr_unknown": 0.938136475680369
+   },
+   "n_params": 889793,
+   "rotation_class": 0,
+   "split_sha": "2ef70bec4cd20c9d",
+   "seconds": 4612.6,
+   "peak_gpu_gb": 18.567
+  }
+ ]
+}

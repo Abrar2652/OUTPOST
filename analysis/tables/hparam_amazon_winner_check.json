@@ -1,0 +1,131 @@
+{
+ "seeds": [
+  0,
+  1,
+  42
+ ],
+ "default": "A_sim0.0",
+ "winner": "T_hidden16",
+ "n_sweep_arms": 13,
+ "duplicate_of_default": [
+  "T_alpha0.10"
+ ],
+ "val_margin": 0.0057,
+ "default_val_sd_10seeds": 0.014,
+ "default_val_se_3seeds": 0.0081,
+ "paired": {
+  "val_auc": {
+   "winner": 0.9808,
+   "default": 0.9751,
+   "delta": 0.0057,
+   "p_ttest": 0.326
+  },
+  "test_oracle_roc": {
+   "winner": 0.9406,
+   "default": 0.9477,
+   "delta": -0.0071,
+   "p_ttest": 0.065
+  },
+  "test_valsel_roc": {
+   "winner": 0.9342,
+   "default": 0.9353,
+   "delta": -0.0011,
+   "p_ttest": 0.666
+  },
+  "test_oracle_pr": {
+   "winner": 0.8181,
+   "default": 0.8268,
+   "delta": -0.0088,
+   "p_ttest": 0.04
+  }
+ },
+ "spearman_val_test": {
+  "rho": 0.532,
+  "p": 0.061
+ },
+ "best_test_arm": "T_Kp2",
+ "best_test_roc": 0.9511,
+ "bonus": 0.0105,
+ "test_spread": 0.0166,
+ "val_spread": 0.009,
+ "arms": [
+  {
+   "tag": "T_hidden16",
+   "val": 0.9808,
+   "test": 0.9406,
+   "valsel": 0.9342
+  },
+  {
+   "tag": "T_warmup20",
+   "val": 0.9783,
+   "test": 0.9501,
+   "valsel": 0.9361
+  },
+  {
+   "tag": "T_lr0.003",
+   "val": 0.9783,
+   "test": 0.9501,
+   "valsel": 0.938
+  },
+  {
+   "tag": "T_Kp2",
+   "val": 0.9779,
+   "test": 0.9511,
+   "valsel": 0.9459
+  },
+  {
+   "tag": "T_warmup5",
+   "val": 0.9778,
+   "test": 0.9487,
+   "valsel": 0.9367
+  },
+  {
+   "tag": "T_hidden64",
+   "val": 0.9771,
+   "test": 0.9493,
+   "valsel": 0.9421
+  },
+  {
+   "tag": "T_Kp6",
+   "val": 0.9763,
+   "test": 0.9428,
+   "valsel": 0.9381
+  },
+  {
+   "tag": "T_drop0.1",
+   "val": 0.9761,
+   "test": 0.9486,
+   "valsel": 0.9369
+  },
+  {
+   "tag": "T_alpha0.01",
+   "val": 0.9757,
+   "test": 0.9489,
+   "valsel": 0.9394
+  },
+  {
+   "tag": "T_alpha0.10",
+   "val": 0.9751,
+   "test": 0.9477,
+   "valsel": 0.9353
+  },
+  {
+   "tag": "A_sim0.0",
+   "val": 0.9751,
+   "test": 0.9477,
+   "valsel": 0.9353
+  },
+  {
+   "tag": "T_drop0.4",
+   "val": 0.9741,
+   "test": 0.9425,
+   "valsel": 0.9317
+  },
+  {
+   "tag": "T_synth",
+   "val": 0.9718,
+   "test": 0.9344,
+   "valsel": 0.924
+  }
+ ]
+}

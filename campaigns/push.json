@@ -1,0 +1,760 @@
+{
+ "_comment": "The two experiments the review said were compute-fixable.\n\nA. THE CRITERION CURVE, WITHIN ONE GRAPH  (P17-P19, prediction_curve.md)\n   The SimSample effect is non-monotone across datasets and three mechanisms for\n   it have been falsified. With five points from five different graphs, a referee\n   can call the ordering confounded with graph identity. Photo spans the whole\n   range on its own once the budget is varied - 85.1% of nodes above budget at\n   b=5, 3.8% at b=100 - so the cross-dataset pattern can be tested with nothing\n   varying but the budget. b=25 is already measured.\n\nB. THE DEMO REPRODUCTION GAP  (diagnostic, no prediction registered)\n   Two independent implementations land ~0.07 below published DEMO on Photo,\n   with the config verified key-for-key against the authors' repo. The Devil's\n   Advocate calls this CRITICAL: \"you beat your reproduction of DEMO, not DEMO.\"\n   This varies one protocol quantity at a time to see whether ANY plausible\n   setting reaches their 0.9023 - a larger label budget, more normals, or the\n   longer epoch budget. A null result is still worth having: it bounds the gap\n   to something not reachable by the protocol knobs we can guess, which is a\n   more defensible sentence than \"unexplained\".\n\nPhoto is the right vehicle for both - two rotations, ~13 min each - so the whole\nthing is ~20 GPU-hours. Runs on GPUs 3-5; ogbn-mag keeps 6-7.\n",
+ "jobs": [
+  {
+   "dataset": "photo",
+   "seed": 42,
+   "tag": "G_b5_sim1.0",
+   "priority": 1,
+   "mem_gb": 15.0,
+   "set": {
+    "sampling_sizes": [
+     5,
+     10
+    ],
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 0,
+   "tag": "G_b5_sim1.0",
+   "priority": 1,
+   "mem_gb": 15.0,
+   "set": {
+    "sampling_sizes": [
+     5,
+     10
+    ],
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 1,
+   "tag": "G_b5_sim1.0",
+   "priority": 1,
+   "mem_gb": 15.0,
+   "set": {
+    "sampling_sizes": [
+     5,
+     10
+    ],
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 2,
+   "tag": "G_b5_sim1.0",
+   "priority": 1,
+   "mem_gb": 15.0,
+   "set": {
+    "sampling_sizes": [
+     5,
+     10
+    ],
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 3,
+   "tag": "G_b5_sim1.0",
+   "priority": 1,
+   "mem_gb": 15.0,
+   "set": {
+    "sampling_sizes": [
+     5,
+     10
+    ],
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 42,
+   "tag": "G_b5_sim0.0",
+   "priority": 1,
+   "mem_gb": 15.0,
+   "set": {
+    "sampling_sizes": [
+     5,
+     10
+    ],
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 0,
+   "tag": "G_b5_sim0.0",
+   "priority": 1,
+   "mem_gb": 15.0,
+   "set": {
+    "sampling_sizes": [
+     5,
+     10
+    ],
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 1,
+   "tag": "G_b5_sim0.0",
+   "priority": 1,
+   "mem_gb": 15.0,
+   "set": {
+    "sampling_sizes": [
+     5,
+     10
+    ],
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 2,
+   "tag": "G_b5_sim0.0",
+   "priority": 1,
+   "mem_gb": 15.0,
+   "set": {
+    "sampling_sizes": [
+     5,
+     10
+    ],
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 3,
+   "tag": "G_b5_sim0.0",
+   "priority": 1,
+   "mem_gb": 15.0,
+   "set": {
+    "sampling_sizes": [
+     5,
+     10
+    ],
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 42,
+   "tag": "G_b10_sim1.0",
+   "priority": 1,
+   "mem_gb": 15.0,
+   "set": {
+    "sampling_sizes": [
+     10,
+     10
+    ],
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 0,
+   "tag": "G_b10_sim1.0",
+   "priority": 1,
+   "mem_gb": 15.0,
+   "set": {
+    "sampling_sizes": [
+     10,
+     10
+    ],
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 1,
+   "tag": "G_b10_sim1.0",
+   "priority": 1,
+   "mem_gb": 15.0,
+   "set": {
+    "sampling_sizes": [
+     10,
+     10
+    ],
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 2,
+   "tag": "G_b10_sim1.0",
+   "priority": 1,
+   "mem_gb": 15.0,
+   "set": {
+    "sampling_sizes": [
+     10,
+     10
+    ],
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 3,
+   "tag": "G_b10_sim1.0",
+   "priority": 1,
+   "mem_gb": 15.0,
+   "set": {
+    "sampling_sizes": [
+     10,
+     10
+    ],
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 42,
+   "tag": "G_b10_sim0.0",
+   "priority": 1,
+   "mem_gb": 15.0,
+   "set": {
+    "sampling_sizes": [
+     10,
+     10
+    ],
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 0,
+   "tag": "G_b10_sim0.0",
+   "priority": 1,
+   "mem_gb": 15.0,
+   "set": {
+    "sampling_sizes": [
+     10,
+     10
+    ],
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 1,
+   "tag": "G_b10_sim0.0",
+   "priority": 1,
+   "mem_gb": 15.0,
+   "set": {
+    "sampling_sizes": [
+     10,
+     10
+    ],
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 2,
+   "tag": "G_b10_sim0.0",
+   "priority": 1,
+   "mem_gb": 15.0,
+   "set": {
+    "sampling_sizes": [
+     10,
+     10
+    ],
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 3,
+   "tag": "G_b10_sim0.0",
+   "priority": 1,
+   "mem_gb": 15.0,
+   "set": {
+    "sampling_sizes": [
+     10,
+     10
+    ],
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 42,
+   "tag": "G_b50_sim1.0",
+   "priority": 1,
+   "mem_gb": 15.0,
+   "set": {
+    "sampling_sizes": [
+     50,
+     10
+    ],
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 0,
+   "tag": "G_b50_sim1.0",
+   "priority": 1,
+   "mem_gb": 15.0,
+   "set": {
+    "sampling_sizes": [
+     50,
+     10
+    ],
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 1,
+   "tag": "G_b50_sim1.0",
+   "priority": 1,
+   "mem_gb": 15.0,
+   "set": {
+    "sampling_sizes": [
+     50,
+     10
+    ],
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 2,
+   "tag": "G_b50_sim1.0",
+   "priority": 1,
+   "mem_gb": 15.0,
+   "set": {
+    "sampling_sizes": [
+     50,
+     10
+    ],
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 3,
+   "tag": "G_b50_sim1.0",
+   "priority": 1,
+   "mem_gb": 15.0,
+   "set": {
+    "sampling_sizes": [
+     50,
+     10
+    ],
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 42,
+   "tag": "G_b50_sim0.0",
+   "priority": 1,
+   "mem_gb": 15.0,
+   "set": {
+    "sampling_sizes": [
+     50,
+     10
+    ],
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 0,
+   "tag": "G_b50_sim0.0",
+   "priority": 1,
+   "mem_gb": 15.0,
+   "set": {
+    "sampling_sizes": [
+     50,
+     10
+    ],
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 1,
+   "tag": "G_b50_sim0.0",
+   "priority": 1,
+   "mem_gb": 15.0,
+   "set": {
+    "sampling_sizes": [
+     50,
+     10
+    ],
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 2,
+   "tag": "G_b50_sim0.0",
+   "priority": 1,
+   "mem_gb": 15.0,
+   "set": {
+    "sampling_sizes": [
+     50,
+     10
+    ],
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 3,
+   "tag": "G_b50_sim0.0",
+   "priority": 1,
+   "mem_gb": 15.0,
+   "set": {
+    "sampling_sizes": [
+     50,
+     10
+    ],
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 42,
+   "tag": "G_b100_sim1.0",
+   "priority": 1,
+   "mem_gb": 15.0,
+   "set": {
+    "sampling_sizes": [
+     100,
+     10
+    ],
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 0,
+   "tag": "G_b100_sim1.0",
+   "priority": 1,
+   "mem_gb": 15.0,
+   "set": {
+    "sampling_sizes": [
+     100,
+     10
+    ],
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 1,
+   "tag": "G_b100_sim1.0",
+   "priority": 1,
+   "mem_gb": 15.0,
+   "set": {
+    "sampling_sizes": [
+     100,
+     10
+    ],
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 2,
+   "tag": "G_b100_sim1.0",
+   "priority": 1,
+   "mem_gb": 15.0,
+   "set": {
+    "sampling_sizes": [
+     100,
+     10
+    ],
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 3,
+   "tag": "G_b100_sim1.0",
+   "priority": 1,
+   "mem_gb": 15.0,
+   "set": {
+    "sampling_sizes": [
+     100,
+     10
+    ],
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 42,
+   "tag": "G_b100_sim0.0",
+   "priority": 1,
+   "mem_gb": 15.0,
+   "set": {
+    "sampling_sizes": [
+     100,
+     10
+    ],
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 0,
+   "tag": "G_b100_sim0.0",
+   "priority": 1,
+   "mem_gb": 15.0,
+   "set": {
+    "sampling_sizes": [
+     100,
+     10
+    ],
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 1,
+   "tag": "G_b100_sim0.0",
+   "priority": 1,
+   "mem_gb": 15.0,
+   "set": {
+    "sampling_sizes": [
+     100,
+     10
+    ],
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 2,
+   "tag": "G_b100_sim0.0",
+   "priority": 1,
+   "mem_gb": 15.0,
+   "set": {
+    "sampling_sizes": [
+     100,
+     10
+    ],
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 3,
+   "tag": "G_b100_sim0.0",
+   "priority": 1,
+   "mem_gb": 15.0,
+   "set": {
+    "sampling_sizes": [
+     100,
+     10
+    ],
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 42,
+   "method": "demo",
+   "tag": "H_anom100",
+   "priority": 2,
+   "mem_gb": 16.0,
+   "set": {
+    "train_anormaly_num": 100,
+    "mixup": true,
+    "energy_loss": false
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 0,
+   "method": "demo",
+   "tag": "H_anom100",
+   "priority": 2,
+   "mem_gb": 16.0,
+   "set": {
+    "train_anormaly_num": 100,
+    "mixup": true,
+    "energy_loss": false
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 1,
+   "method": "demo",
+   "tag": "H_anom100",
+   "priority": 2,
+   "mem_gb": 16.0,
+   "set": {
+    "train_anormaly_num": 100,
+    "mixup": true,
+    "energy_loss": false
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 42,
+   "method": "demo",
+   "tag": "H_anom200",
+   "priority": 2,
+   "mem_gb": 16.0,
+   "set": {
+    "train_anormaly_num": 200,
+    "mixup": true,
+    "energy_loss": false
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 0,
+   "method": "demo",
+   "tag": "H_anom200",
+   "priority": 2,
+   "mem_gb": 16.0,
+   "set": {
+    "train_anormaly_num": 200,
+    "mixup": true,
+    "energy_loss": false
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 1,
+   "method": "demo",
+   "tag": "H_anom200",
+   "priority": 2,
+   "mem_gb": 16.0,
+   "set": {
+    "train_anormaly_num": 200,
+    "mixup": true,
+    "energy_loss": false
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 42,
+   "method": "demo",
+   "tag": "H_norm0.10",
+   "priority": 2,
+   "mem_gb": 16.0,
+   "set": {
+    "train_normal_ratio": 0.1,
+    "mixup": true,
+    "energy_loss": false
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 0,
+   "method": "demo",
+   "tag": "H_norm0.10",
+   "priority": 2,
+   "mem_gb": 16.0,
+   "set": {
+    "train_normal_ratio": 0.1,
+    "mixup": true,
+    "energy_loss": false
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 1,
+   "method": "demo",
+   "tag": "H_norm0.10",
+   "priority": 2,
+   "mem_gb": 16.0,
+   "set": {
+    "train_normal_ratio": 0.1,
+    "mixup": true,
+    "energy_loss": false
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 42,
+   "method": "demo",
+   "tag": "H_norm0.20",
+   "priority": 2,
+   "mem_gb": 16.0,
+   "set": {
+    "train_normal_ratio": 0.2,
+    "mixup": true,
+    "energy_loss": false
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 0,
+   "method": "demo",
+   "tag": "H_norm0.20",
+   "priority": 2,
+   "mem_gb": 16.0,
+   "set": {
+    "train_normal_ratio": 0.2,
+    "mixup": true,
+    "energy_loss": false
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 1,
+   "method": "demo",
+   "tag": "H_norm0.20",
+   "priority": 2,
+   "mem_gb": 16.0,
+   "set": {
+    "train_normal_ratio": 0.2,
+    "mixup": true,
+    "energy_loss": false
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 42,
+   "method": "demo",
+   "tag": "H_ep400",
+   "priority": 2,
+   "mem_gb": 16.0,
+   "set": {
+    "num_epochs": 400,
+    "mixup": true,
+    "energy_loss": false
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 0,
+   "method": "demo",
+   "tag": "H_ep400",
+   "priority": 2,
+   "mem_gb": 16.0,
+   "set": {
+    "num_epochs": 400,
+    "mixup": true,
+    "energy_loss": false
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 1,
+   "method": "demo",
+   "tag": "H_ep400",
+   "priority": 2,
+   "mem_gb": 16.0,
+   "set": {
+    "num_epochs": 400,
+    "mixup": true,
+    "energy_loss": false
+   }
+  }
+ ]
+}

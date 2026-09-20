@@ -1,0 +1,68 @@
+{
+ "fold_unit": "dataset",
+ "regime": "propagation (smoothing gain > 0)",
+ "feature_visible_is_definitional": {
+  "n_feature_visible": 16,
+  "best_equals_hop0": 13,
+  "mean_abs_gap": 0.00299
+ },
+ "n_folds": 5,
+ "n_classes": 21,
+ "pooled_mae_same_frac_line": 0.2389,
+ "pooled_mae_intercept_only": 0.1663,
+ "improvement": -0.0726,
+ "folds_line_better": 3,
+ "folds": [
+  {
+   "held_out": "computers",
+   "n_classes": 5,
+   "mae_same_frac_line": 0.1011,
+   "mae_intercept_only": 0.177,
+   "line_better": true
+  },
+  {
+   "held_out": "cs",
+   "n_classes": 2,
+   "mae_same_frac_line": 0.1433,
+   "mae_intercept_only": 0.285,
+   "line_better": true
+  },
+  {
+   "held_out": "ogbn-arxiv",
+   "n_classes": 4,
+   "mae_same_frac_line": 0.1181,
+   "mae_intercept_only": 0.0475,
+   "line_better": false
+  },
+  {
+   "held_out": "ogbn-mag",
+   "n_classes": 9,
+   "mae_same_frac_line": 0.4084,
+   "mae_intercept_only": 0.1809,
+   "line_better": false
+  },
+  {
+   "held_out": "photo",
+   "n_classes": 1,
+   "mae_same_frac_line": 0.0763,
+   "mae_intercept_only": 0.2184,
+   "line_better": true
+  }
+ ],
+ "without_ogb": {
+  "n_folds": 2,
+  "n_classes": 3,
+  "pooled_mae_same_frac_line": 0.0204,
+  "pooled_mae_intercept_only": 0.1608,
+  "folds_line_better": 2,
+  "caveat": "rests on very few classes; not evidence on its own"
+ },
+ "classes_per_dataset": {
+  "computers": 5,
+  "cs": 2,
+  "ogbn-arxiv": 4,
+  "ogbn-mag": 9,
+  "photo": 1
+ },
+ "p_wilcoxon_classes": 0.1373
+}

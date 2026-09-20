@@ -1,0 +1,385 @@
+{
+ "_comment": "AMAZON-FRAUD: a second real anomaly dataset, and the first out-of-sample test\nof the detectability law. Predictions P23-P25 are registered in\nanalysis/tables/prediction_amazon.md, written before this campaign ran.\n\nWHY. Two of the paper's claims rest on Yelp alone. Oracle inflation is\n0.045-0.08 on the three semi-synthetic graphs and 0.0023 on Yelp - a 34x\ncontrast with n=1 on the side carrying the thesis. And pseudo-labelling is the\nonly load-bearing component (Computers -0.0645, CS -0.0648) yet is HARMFUL on\nYelp (+0.0058, p=0.027); whether that is real-data behaviour or Yelp behaviour\nis unanswerable at n=1. Amazon makes both n=2 for ~20 GPU-hours.\n\nTHE DATA IS VALIDATED, NOT ASSUMED. analysis/scripts/make_amazon.py applies a\nhomogenisation recipe that, run on DGL's FraudYelpDataset, reproduces this\nrepo's data/yelp/yelp.zip exactly - identical labels, features allclose, and\nidentical edge sets over all 7,693,958 edges. The same function then builds\nAmazon, so the conversion is known-correct rather than plausible.\n\nARMS. sim_topk_frac is the one setting that cannot be transferred from Yelp by\nfiat: it helps Yelp (+0.0263) and hurts Photo (-0.0586). Both arms run and\nVALIDATION AUC alone selects between them. Everything else is Yelp's config\nverbatim except input_dim - an untuned transfer is a stronger claim than a\ntuned fit, and tuning here would forfeit it.\n\nC_nopl (P25) is deliberately NOT in this campaign. It must run under whichever\nsim arm validation picks, and that is not known until these finish.\n\nCOST. Amazon is 11,944 nodes / 8.8M edges against Yelp's 45,954 / 7.7M, so\nexpect at or below Yelp's 53 min (outpost) and 27 min (demo) per run. 30 jobs,\none rotation each, ~20 GPU-hours.",
+ "jobs": [
+  {
+   "dataset": "amazon",
+   "method": "outpost",
+   "seed": 0,
+   "tag": "A_sim1.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 10.0,
+   "set": {
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "amazon",
+   "method": "outpost",
+   "seed": 0,
+   "tag": "A_sim0.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 10.0,
+   "set": {
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "amazon",
+   "method": "demo",
+   "seed": 0,
+   "tag": "B_demo_mix",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 14.0,
+   "set": {
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "amazon",
+   "method": "outpost",
+   "seed": 1,
+   "tag": "A_sim1.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 10.0,
+   "set": {
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "amazon",
+   "method": "outpost",
+   "seed": 1,
+   "tag": "A_sim0.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 10.0,
+   "set": {
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "amazon",
+   "method": "demo",
+   "seed": 1,
+   "tag": "B_demo_mix",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 14.0,
+   "set": {
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "amazon",
+   "method": "outpost",
+   "seed": 2,
+   "tag": "A_sim1.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 10.0,
+   "set": {
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "amazon",
+   "method": "outpost",
+   "seed": 2,
+   "tag": "A_sim0.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 10.0,
+   "set": {
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "amazon",
+   "method": "demo",
+   "seed": 2,
+   "tag": "B_demo_mix",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 14.0,
+   "set": {
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "amazon",
+   "method": "outpost",
+   "seed": 3,
+   "tag": "A_sim1.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 10.0,
+   "set": {
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "amazon",
+   "method": "outpost",
+   "seed": 3,
+   "tag": "A_sim0.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 10.0,
+   "set": {
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "amazon",
+   "method": "demo",
+   "seed": 3,
+   "tag": "B_demo_mix",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 14.0,
+   "set": {
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "amazon",
+   "method": "outpost",
+   "seed": 4,
+   "tag": "A_sim1.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 10.0,
+   "set": {
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "amazon",
+   "method": "outpost",
+   "seed": 4,
+   "tag": "A_sim0.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 10.0,
+   "set": {
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "amazon",
+   "method": "demo",
+   "seed": 4,
+   "tag": "B_demo_mix",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 14.0,
+   "set": {
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "amazon",
+   "method": "outpost",
+   "seed": 5,
+   "tag": "A_sim1.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 10.0,
+   "set": {
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "amazon",
+   "method": "outpost",
+   "seed": 5,
+   "tag": "A_sim0.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 10.0,
+   "set": {
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "amazon",
+   "method": "demo",
+   "seed": 5,
+   "tag": "B_demo_mix",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 14.0,
+   "set": {
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "amazon",
+   "method": "outpost",
+   "seed": 6,
+   "tag": "A_sim1.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 10.0,
+   "set": {
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "amazon",
+   "method": "outpost",
+   "seed": 6,
+   "tag": "A_sim0.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 10.0,
+   "set": {
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "amazon",
+   "method": "demo",
+   "seed": 6,
+   "tag": "B_demo_mix",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 14.0,
+   "set": {
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "amazon",
+   "method": "outpost",
+   "seed": 7,
+   "tag": "A_sim1.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 10.0,
+   "set": {
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "amazon",
+   "method": "outpost",
+   "seed": 7,
+   "tag": "A_sim0.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 10.0,
+   "set": {
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "amazon",
+   "method": "demo",
+   "seed": 7,
+   "tag": "B_demo_mix",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 14.0,
+   "set": {
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "amazon",
+   "method": "outpost",
+   "seed": 8,
+   "tag": "A_sim1.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 10.0,
+   "set": {
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "amazon",
+   "method": "outpost",
+   "seed": 8,
+   "tag": "A_sim0.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 10.0,
+   "set": {
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "amazon",
+   "method": "demo",
+   "seed": 8,
+   "tag": "B_demo_mix",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 14.0,
+   "set": {
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "amazon",
+   "method": "outpost",
+   "seed": 42,
+   "tag": "A_sim1.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 10.0,
+   "set": {
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "amazon",
+   "method": "outpost",
+   "seed": 42,
+   "tag": "A_sim0.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 10.0,
+   "set": {
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "amazon",
+   "method": "demo",
+   "seed": 42,
+   "tag": "B_demo_mix",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 14.0,
+   "set": {
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  }
+ ]
+}

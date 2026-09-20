@@ -1,0 +1,293 @@
+{
+ "_comment": "P36 correction. The yelp/amazon DT_* arms ran at DEMO's default 200 epochs while their B_demo_mix default runs at 400 (its job spec sets num_epochs=400). Scoring a 400-epoch default against 200-epoch challengers measures the budget gap, not the selection rule. These re-run both datasets' grids at 400 under E400_DT_* so the comparison is like-for-like, matching what photo/computers already had.",
+ "jobs": [
+  {
+   "dataset": "yelp",
+   "method": "demo",
+   "seed": 0,
+   "tag": "E400_DT_lr0.003_wd0.0001",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 12.0,
+   "set": {
+    "lr": 0.003,
+    "weight_decay": 0.0001,
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "yelp",
+   "method": "demo",
+   "seed": 1,
+   "tag": "E400_DT_lr0.003_wd0.0001",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 12.0,
+   "set": {
+    "lr": 0.003,
+    "weight_decay": 0.0001,
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "yelp",
+   "method": "demo",
+   "seed": 42,
+   "tag": "E400_DT_lr0.003_wd0.0001",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 12.0,
+   "set": {
+    "lr": 0.003,
+    "weight_decay": 0.0001,
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "amazon",
+   "method": "demo",
+   "seed": 0,
+   "tag": "E400_DT_lr0.003_wd0.0001",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 10.0,
+   "set": {
+    "lr": 0.003,
+    "weight_decay": 0.0001,
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "amazon",
+   "method": "demo",
+   "seed": 1,
+   "tag": "E400_DT_lr0.003_wd0.0001",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 10.0,
+   "set": {
+    "lr": 0.003,
+    "weight_decay": 0.0001,
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "amazon",
+   "method": "demo",
+   "seed": 42,
+   "tag": "E400_DT_lr0.003_wd0.0001",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 10.0,
+   "set": {
+    "lr": 0.003,
+    "weight_decay": 0.0001,
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "yelp",
+   "method": "demo",
+   "seed": 0,
+   "tag": "E400_DT_lr0.003_wd0.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 12.0,
+   "set": {
+    "lr": 0.003,
+    "weight_decay": 0.0,
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "yelp",
+   "method": "demo",
+   "seed": 1,
+   "tag": "E400_DT_lr0.003_wd0.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 12.0,
+   "set": {
+    "lr": 0.003,
+    "weight_decay": 0.0,
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "yelp",
+   "method": "demo",
+   "seed": 42,
+   "tag": "E400_DT_lr0.003_wd0.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 12.0,
+   "set": {
+    "lr": 0.003,
+    "weight_decay": 0.0,
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "amazon",
+   "method": "demo",
+   "seed": 0,
+   "tag": "E400_DT_lr0.003_wd0.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 10.0,
+   "set": {
+    "lr": 0.003,
+    "weight_decay": 0.0,
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "amazon",
+   "method": "demo",
+   "seed": 1,
+   "tag": "E400_DT_lr0.003_wd0.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 10.0,
+   "set": {
+    "lr": 0.003,
+    "weight_decay": 0.0,
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "amazon",
+   "method": "demo",
+   "seed": 42,
+   "tag": "E400_DT_lr0.003_wd0.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 10.0,
+   "set": {
+    "lr": 0.003,
+    "weight_decay": 0.0,
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "yelp",
+   "method": "demo",
+   "seed": 0,
+   "tag": "E400_DT_lr0.001_wd0.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 12.0,
+   "set": {
+    "lr": 0.001,
+    "weight_decay": 0.0,
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "yelp",
+   "method": "demo",
+   "seed": 1,
+   "tag": "E400_DT_lr0.001_wd0.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 12.0,
+   "set": {
+    "lr": 0.001,
+    "weight_decay": 0.0,
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "yelp",
+   "method": "demo",
+   "seed": 42,
+   "tag": "E400_DT_lr0.001_wd0.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 12.0,
+   "set": {
+    "lr": 0.001,
+    "weight_decay": 0.0,
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "amazon",
+   "method": "demo",
+   "seed": 0,
+   "tag": "E400_DT_lr0.001_wd0.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 10.0,
+   "set": {
+    "lr": 0.001,
+    "weight_decay": 0.0,
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "amazon",
+   "method": "demo",
+   "seed": 1,
+   "tag": "E400_DT_lr0.001_wd0.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 10.0,
+   "set": {
+    "lr": 0.001,
+    "weight_decay": 0.0,
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "amazon",
+   "method": "demo",
+   "seed": 42,
+   "tag": "E400_DT_lr0.001_wd0.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 10.0,
+   "set": {
+    "lr": 0.001,
+    "weight_decay": 0.0,
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  }
+ ]
+}

@@ -1,0 +1,71 @@
+{
+ "dataset": "ogbn-arxiv",
+ "method": "outpost",
+ "seed": 1,
+ "train_seed": null,
+ "tag": "A_main",
+ "config": {
+  "alpha_plus": 0.05,
+  "alpha_r": 0.1,
+  "atlas_gate_q": 0.9,
+  "batch_size": 512,
+  "hidden_dim": 64,
+  "lambda_halo": 0.2,
+  "lambda_mixup": 0.2,
+  "lambda_un": 1.0,
+  "lr": 0.001,
+  "margin": 0.1,
+  "n_layers": 2,
+  "optimiser": "adam",
+  "sampling_sizes": [
+   25,
+   10
+  ],
+  "tau_minus": 0.05,
+  "tau_mu": 0.05,
+  "tau_plus": 0.95,
+  "use_atlas_gate": true,
+  "use_conformal": true,
+  "use_pl": true,
+  "version": 4,
+  "weight_decay": 0.0005,
+  "input_dim": 128,
+  "K_p": 8,
+  "drop_out": 0.5,
+  "num_epochs": 400,
+  "warmup_epochs": 10,
+  "use_mixup": true,
+  "use_halo": true,
+  "use_atlas_loss": true,
+  "use_fview_gate": false,
+  "use_hybrid": false,
+  "sim_topk_frac": 0.0
+ },
+ "rotations": [
+  {
+   "best": {
+    "auroc_all": 0.6578422162718863,
+    "aupr_all": 0.3446467445416662,
+    "auroc_unknown": 0.5859806259839988,
+    "aupr_unknown": 0.1866716800661268
+   },
+   "val_selected": {
+    "val_auc": 0.9649469964664312,
+    "auroc_all": 0.6215636277219011,
+    "aupr_all": 0.33366402352846253,
+    "auroc_unknown": 0.5385242797001865,
+    "aupr_unknown": 0.16340438124045173
+   },
+   "final": {
+    "auroc_all": 0.6187879393342057,
+    "aupr_all": 0.3308477469676536,
+    "auroc_unknown": 0.5359907542096656,
+    "aupr_unknown": 0.16189962293731308
+   },
+   "n_params": 35137,
+   "rotation_class": 4,
+   "seconds": 4244.1,
+   "peak_gpu_gb": 1.846
+  }
+ ]
+}

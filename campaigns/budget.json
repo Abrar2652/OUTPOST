@@ -1,0 +1,482 @@
+{
+ "_comment": "Generate the sampling-budget sweep on Yelp.\n\nPredictions P10-P12 are pre-registered in analysis/tables/prediction_budget.md,\nwritten before these runs. Read that first: this experiment is built to be able\nto destroy the paper's main effect, and the conditions for that are fixed there.\n\nThe criterion under test is \"SimSample helps iff degree > sampling budget\". It\nhas so far been tested by varying DEGREE across graphs at a fixed budget of 25 -\nobservational, since degree co-varies with everything else about a graph. This\nvaries the BUDGET on one fixed graph, so nothing about Yelp changes except the\nquantity the criterion names. Yelp's median degree is 168, so the inequality\nflips between b=100 and b=200, inside the sweep.\n\n  b in {50, 100, 200} x {sim_topk_frac 1.0, 0.0} x 5 seeds\n  b = 25 is already measured at 10 seeds per arm (A_main and C_nosim)\n\nMeasured, not extrapolated: peak memory is 1.56 GB at b=50 and 2.69 GB at b=200\nagainst ~1.2 GB at b=25, so these pack several to a card. Largest budget first,\nsince it is the slowest and the one P11 turns on.\n",
+ "seeds": [
+  42,
+  0,
+  1,
+  2,
+  3
+ ],
+ "jobs": [
+  {
+   "dataset": "yelp",
+   "seed": 42,
+   "tag": "F_b200_sim1.0",
+   "priority": 1,
+   "set": {
+    "sampling_sizes": [
+     200,
+     10
+    ],
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 0,
+   "tag": "F_b200_sim1.0",
+   "priority": 1,
+   "set": {
+    "sampling_sizes": [
+     200,
+     10
+    ],
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 1,
+   "tag": "F_b200_sim1.0",
+   "priority": 1,
+   "set": {
+    "sampling_sizes": [
+     200,
+     10
+    ],
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 2,
+   "tag": "F_b200_sim1.0",
+   "priority": 1,
+   "set": {
+    "sampling_sizes": [
+     200,
+     10
+    ],
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 3,
+   "tag": "F_b200_sim1.0",
+   "priority": 1,
+   "set": {
+    "sampling_sizes": [
+     200,
+     10
+    ],
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 42,
+   "tag": "F_b200_sim0.0",
+   "priority": 1,
+   "set": {
+    "sampling_sizes": [
+     200,
+     10
+    ],
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 0,
+   "tag": "F_b200_sim0.0",
+   "priority": 1,
+   "set": {
+    "sampling_sizes": [
+     200,
+     10
+    ],
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 1,
+   "tag": "F_b200_sim0.0",
+   "priority": 1,
+   "set": {
+    "sampling_sizes": [
+     200,
+     10
+    ],
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 2,
+   "tag": "F_b200_sim0.0",
+   "priority": 1,
+   "set": {
+    "sampling_sizes": [
+     200,
+     10
+    ],
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 3,
+   "tag": "F_b200_sim0.0",
+   "priority": 1,
+   "set": {
+    "sampling_sizes": [
+     200,
+     10
+    ],
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 42,
+   "tag": "F_b100_sim1.0",
+   "priority": 2,
+   "set": {
+    "sampling_sizes": [
+     100,
+     10
+    ],
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 0,
+   "tag": "F_b100_sim1.0",
+   "priority": 2,
+   "set": {
+    "sampling_sizes": [
+     100,
+     10
+    ],
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 1,
+   "tag": "F_b100_sim1.0",
+   "priority": 2,
+   "set": {
+    "sampling_sizes": [
+     100,
+     10
+    ],
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 2,
+   "tag": "F_b100_sim1.0",
+   "priority": 2,
+   "set": {
+    "sampling_sizes": [
+     100,
+     10
+    ],
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 3,
+   "tag": "F_b100_sim1.0",
+   "priority": 2,
+   "set": {
+    "sampling_sizes": [
+     100,
+     10
+    ],
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 42,
+   "tag": "F_b100_sim0.0",
+   "priority": 2,
+   "set": {
+    "sampling_sizes": [
+     100,
+     10
+    ],
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 0,
+   "tag": "F_b100_sim0.0",
+   "priority": 2,
+   "set": {
+    "sampling_sizes": [
+     100,
+     10
+    ],
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 1,
+   "tag": "F_b100_sim0.0",
+   "priority": 2,
+   "set": {
+    "sampling_sizes": [
+     100,
+     10
+    ],
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 2,
+   "tag": "F_b100_sim0.0",
+   "priority": 2,
+   "set": {
+    "sampling_sizes": [
+     100,
+     10
+    ],
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 3,
+   "tag": "F_b100_sim0.0",
+   "priority": 2,
+   "set": {
+    "sampling_sizes": [
+     100,
+     10
+    ],
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 42,
+   "tag": "F_b50_sim1.0",
+   "priority": 3,
+   "set": {
+    "sampling_sizes": [
+     50,
+     10
+    ],
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 0,
+   "tag": "F_b50_sim1.0",
+   "priority": 3,
+   "set": {
+    "sampling_sizes": [
+     50,
+     10
+    ],
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 1,
+   "tag": "F_b50_sim1.0",
+   "priority": 3,
+   "set": {
+    "sampling_sizes": [
+     50,
+     10
+    ],
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 2,
+   "tag": "F_b50_sim1.0",
+   "priority": 3,
+   "set": {
+    "sampling_sizes": [
+     50,
+     10
+    ],
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 3,
+   "tag": "F_b50_sim1.0",
+   "priority": 3,
+   "set": {
+    "sampling_sizes": [
+     50,
+     10
+    ],
+    "sim_topk_frac": 1.0
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 42,
+   "tag": "F_b50_sim0.0",
+   "priority": 3,
+   "set": {
+    "sampling_sizes": [
+     50,
+     10
+    ],
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 0,
+   "tag": "F_b50_sim0.0",
+   "priority": 3,
+   "set": {
+    "sampling_sizes": [
+     50,
+     10
+    ],
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 1,
+   "tag": "F_b50_sim0.0",
+   "priority": 3,
+   "set": {
+    "sampling_sizes": [
+     50,
+     10
+    ],
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 2,
+   "tag": "F_b50_sim0.0",
+   "priority": 3,
+   "set": {
+    "sampling_sizes": [
+     50,
+     10
+    ],
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "yelp",
+   "seed": 3,
+   "tag": "F_b50_sim0.0",
+   "priority": 3,
+   "set": {
+    "sampling_sizes": [
+     50,
+     10
+    ],
+    "sim_topk_frac": 0.0
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 4,
+   "tag": "A_main",
+   "priority": 0
+  },
+  {
+   "dataset": "photo",
+   "seed": 4,
+   "tag": "L_lean",
+   "priority": 0,
+   "set": {
+    "use_atlas_gate": false,
+    "use_pl": false
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 5,
+   "tag": "A_main",
+   "priority": 0
+  },
+  {
+   "dataset": "photo",
+   "seed": 5,
+   "tag": "L_lean",
+   "priority": 0,
+   "set": {
+    "use_atlas_gate": false,
+    "use_pl": false
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 6,
+   "tag": "A_main",
+   "priority": 0
+  },
+  {
+   "dataset": "photo",
+   "seed": 6,
+   "tag": "L_lean",
+   "priority": 0,
+   "set": {
+    "use_atlas_gate": false,
+    "use_pl": false
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 7,
+   "tag": "A_main",
+   "priority": 0
+  },
+  {
+   "dataset": "photo",
+   "seed": 7,
+   "tag": "L_lean",
+   "priority": 0,
+   "set": {
+    "use_atlas_gate": false,
+    "use_pl": false
+   }
+  },
+  {
+   "dataset": "photo",
+   "seed": 8,
+   "tag": "A_main",
+   "priority": 0
+  },
+  {
+   "dataset": "photo",
+   "seed": 8,
+   "tag": "L_lean",
+   "priority": 0,
+   "set": {
+    "use_atlas_gate": false,
+    "use_pl": false
+   }
+  }
+ ]
+}

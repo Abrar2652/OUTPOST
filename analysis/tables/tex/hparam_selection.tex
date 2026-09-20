@@ -1,0 +1,19 @@
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lcclclcc}
+\toprule
+Dataset & Epochs & Arms & Validation picked & Test ROC & Best test arm & Test ROC & Gap \\
+\midrule
+Photo & 200 & 14 & A\_main & 0.8367 & T\_lr0.003 & 0.8532 & +0.0166 \\
+Photo & 400 & 14 & E400\_outpost & 0.8703 & E400\_T\_lr0.003 & 0.8867 & +0.0164 \\
+Computers & 200 & 11 & A\_main & 0.8193 & T\_lambda\_un1.5 & 0.8261 & +0.0068 \\
+Computers & 400 & 11 & E400\_outpost & 0.8485 & E400\_T\_lambda\_un1.5 & 0.8527 & +0.0042 \\
+CS & 200 & 11 & A\_main & 0.9838 & T\_nosynth & 0.9841 & +0.0003 \\
+Yelp & 400 & 14 & A\_main & 0.7580 & T\_drop0.4 & 0.7618 & +0.0038 \\
+Amazon & 400 & 14 & T\_hidden16 & 0.9406 & T\_Kp2 & 0.9511 & +0.0105 \\
+\bottomrule
+\end{tabular}
+\caption{Hyperparameter selection gap: the arm validation chose -- mean val AUC over the three selection seeds, 0.002 tie band, ties broken toward the smaller model and then toward the repository default -- against the best arm on test. Every arm, the default included, is scored on those same three seeds. The gap is what tuning on the test split would have bought. Amazon is the only dataset where validation leaves the default: it picks an arm 0.0071 \emph{worse} on test, so two-thirds of its 0.0105 gap is the cost of following validation rather than the reward for searching.}
+\label{tab:hparam}
+\end{table}

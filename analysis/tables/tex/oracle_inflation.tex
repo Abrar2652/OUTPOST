@@ -1,0 +1,20 @@
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lccccc}
+\toprule
+Dataset & $n$ & Oracle & Val-selected & Inflation & Inflation (unseen) \\
+\midrule
+Computers & 10 & 0.8510 & 0.7715 & +0.0795 & +0.0972 \\
+Photo & 10 & 0.8703 & 0.7914 & +0.0789 & +0.1779 \\
+CS & 10 & 0.9842 & 0.9389 & +0.0453 & +0.0506 \\
+ogbn-mag & 10 & 0.5928 & 0.5724 & +0.0204 & +0.0258 \\
+ogbn-arxiv & 10 & 0.6229 & 0.6058 & +0.0171 & +0.0441 \\
+T-Finance & 10 & 0.9087 & 0.8946 & +0.0141 & -- \\
+Amazon & 10 & 0.9534 & 0.9420 & +0.0114 & -- \\
+Yelp & 10 & 0.7448 & 0.7425 & +0.0023 & -- \\
+\bottomrule
+\end{tabular}
+\caption{Oracle inflation: best-over-epochs minus peak-validation AUC-ROC for OUTPOST, all anomalies and unseen classes only. Binary graphs (Yelp, Amazon) have no unseen class.}
+\label{tab:inflation}
+\end{table}

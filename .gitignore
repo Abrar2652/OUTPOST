@@ -1,0 +1,39 @@
+# Datasets: downloaded or unpacked on first use, never committed.
+data/
+dataset.zip
+*.npz
+
+# Per-node score arrays. Regenerate with main.py --save-scores; 246 MB here.
+results/scores/
+
+# Run logs and checkpoints.
+runs/
+logs/
+nohup.out
+*.log
+
+# Third-party baselines, fetched by baselines/fetch_baselines.sh.
+baselines/GGAD/
+baselines/NSReg/
+baselines/ConsisGAD/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+*.tmp
+*.swp
+
+# Never commit credentials.
+.env
+.env.*
+*.key
+*.pem

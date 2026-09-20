@@ -1,0 +1,89 @@
+{
+ "dataset": "cs",
+ "method": "demo",
+ "seed": 6,
+ "train_seed": null,
+ "tag": "E400_demo",
+ "config": {
+  "alpha_plus": 0.05,
+  "alpha_r": 0.1,
+  "atlas_gate_q": 0.9,
+  "batch_size": 512,
+  "hidden_dim": 64,
+  "lambda_halo": 0.2,
+  "lambda_mixup": 0.2,
+  "lambda_un": 1.0,
+  "lr": 0.001,
+  "margin": 0.1,
+  "n_layers": 2,
+  "optimiser": "adam",
+  "sampling_sizes": [
+   25,
+   10
+  ],
+  "tau_minus": 0.05,
+  "tau_mu": 0.05,
+  "tau_plus": 0.95,
+  "use_atlas_gate": true,
+  "use_conformal": true,
+  "use_pl": true,
+  "version": 4,
+  "weight_decay": 0.0001,
+  "loss": "bce",
+  "num_epochs": 400,
+  "ebd_dim": 64,
+  "drop_out": 0.5,
+  "gamma": 0.1,
+  "damping": 0.001,
+  "p_cutoff": [
+   0.05,
+   0.95
+  ],
+  "unlabeled_loss": 0.5,
+  "mixup_loss": 0.1,
+  "energy_loss_weight": 0.1,
+  "used_unlabeled_data": true,
+  "energy_loss": false,
+  "mixup": true,
+  "thresh_warmup": true,
+  "used_augment_for_anormaly": true,
+  "batch_size_for_anormaly": 20,
+  "sample_size_for_anormaly": 25,
+  "div_loss_alpha": 0.5,
+  "mixup_loss_type": "consistency",
+  "device": 0,
+  "input_dim": 6805,
+  "eval_batch_mult": 1
+ },
+ "host": "ckg12",
+ "gpu": "NVIDIA RTX A6000",
+ "torch": "2.7.1+cu126",
+ "python": "3.10.12",
+ "rotations": [
+  {
+   "best": {
+    "auroc_all": 0.9872421090590298,
+    "aupr_all": 0.9655616947338871,
+    "auroc_unknown": 0.987798350077563,
+    "aupr_unknown": 0.9647395782109659
+   },
+   "val_selected": {
+    "auroc_all": 0.8209328335725886,
+    "aupr_all": 0.5668059716465352,
+    "auroc_unknown": 0.8088659160655451,
+    "aupr_unknown": 0.4935026023832858,
+    "val_auc": 0.9988179669030732
+   },
+   "final": {
+    "auroc_all": 0.9860337324703888,
+    "aupr_all": 0.9631661763177563,
+    "auroc_unknown": 0.9864765597294508,
+    "aupr_unknown": 0.9619974215024922
+   },
+   "n_params": 47648399,
+   "rotation_class": 6,
+   "seconds": 5300.0,
+   "peak_gpu_gb": 28.69
+  }
+ ]
+}

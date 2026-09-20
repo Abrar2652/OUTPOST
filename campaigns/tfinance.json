@@ -1,0 +1,785 @@
+{
+ "_comment": "T-FINANCE: the third real anomaly-detection graph and the eighth overall. The\ntwo-regime law was written after Amazon falsified the one-regime form and owes\nits own out-of-sample test (METHODOLOGY 6.3, threat 10.1-6); the PL-on-real-data\nclaim rests on n=2 (Yelp harmful, Amazon null). Predictions P26-P28 are in\nanalysis/tables/prediction_tfinance.md, written from the training-free\ndiagnostic before any of these ran.\n\nConfig is Yelp's block verbatim except input_dim=10 (untuned by design, as\nAmazon); the SimSample arm is chosen on validation from A_sim1.0 / A_sim0.0.\nC_nopl runs under BOTH arms so the decomposition is available for whichever\nvalidation picks. DEMO is the full published method with an APPNP PPR\n(analysis/scripts/make_ppr.py --dataset tfinance, 6.2 GB). NSReg from its\nreleased code. Per-node scores saved for the per-class law test.",
+ "jobs": [
+  {
+   "dataset": "tfinance",
+   "method": "outpost",
+   "seed": 0,
+   "tag": "A_sim1.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 8.0,
+   "set": {
+    "sim_topk_frac": 1.0
+   },
+   "save_scores": true
+  },
+  {
+   "dataset": "tfinance",
+   "method": "outpost",
+   "seed": 0,
+   "tag": "C_nopl_sim1.0",
+   "priority": 3,
+   "shard_rotations": true,
+   "mem_gb": 8.0,
+   "set": {
+    "sim_topk_frac": 1.0,
+    "use_pl": false
+   },
+   "save_scores": true
+  },
+  {
+   "dataset": "tfinance",
+   "method": "outpost",
+   "seed": 0,
+   "tag": "A_sim0.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 8.0,
+   "set": {
+    "sim_topk_frac": 0.0
+   },
+   "save_scores": true
+  },
+  {
+   "dataset": "tfinance",
+   "method": "outpost",
+   "seed": 0,
+   "tag": "C_nopl_sim0.0",
+   "priority": 3,
+   "shard_rotations": true,
+   "mem_gb": 8.0,
+   "set": {
+    "sim_topk_frac": 0.0,
+    "use_pl": false
+   },
+   "save_scores": true
+  },
+  {
+   "dataset": "tfinance",
+   "method": "demo",
+   "seed": 0,
+   "tag": "B_demo_mix",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 22.0,
+   "set": {
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "tfinance",
+   "method": "nsreg",
+   "seed": 0,
+   "tag": "E400_nsreg",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 12.0,
+   "epochs": 400
+  },
+  {
+   "dataset": "tfinance",
+   "method": "outpost",
+   "seed": 1,
+   "tag": "A_sim1.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 8.0,
+   "set": {
+    "sim_topk_frac": 1.0
+   },
+   "save_scores": true
+  },
+  {
+   "dataset": "tfinance",
+   "method": "outpost",
+   "seed": 1,
+   "tag": "C_nopl_sim1.0",
+   "priority": 3,
+   "shard_rotations": true,
+   "mem_gb": 8.0,
+   "set": {
+    "sim_topk_frac": 1.0,
+    "use_pl": false
+   },
+   "save_scores": true
+  },
+  {
+   "dataset": "tfinance",
+   "method": "outpost",
+   "seed": 1,
+   "tag": "A_sim0.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 8.0,
+   "set": {
+    "sim_topk_frac": 0.0
+   },
+   "save_scores": true
+  },
+  {
+   "dataset": "tfinance",
+   "method": "outpost",
+   "seed": 1,
+   "tag": "C_nopl_sim0.0",
+   "priority": 3,
+   "shard_rotations": true,
+   "mem_gb": 8.0,
+   "set": {
+    "sim_topk_frac": 0.0,
+    "use_pl": false
+   },
+   "save_scores": true
+  },
+  {
+   "dataset": "tfinance",
+   "method": "demo",
+   "seed": 1,
+   "tag": "B_demo_mix",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 22.0,
+   "set": {
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "tfinance",
+   "method": "nsreg",
+   "seed": 1,
+   "tag": "E400_nsreg",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 12.0,
+   "epochs": 400
+  },
+  {
+   "dataset": "tfinance",
+   "method": "outpost",
+   "seed": 2,
+   "tag": "A_sim1.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 8.0,
+   "set": {
+    "sim_topk_frac": 1.0
+   },
+   "save_scores": true
+  },
+  {
+   "dataset": "tfinance",
+   "method": "outpost",
+   "seed": 2,
+   "tag": "C_nopl_sim1.0",
+   "priority": 3,
+   "shard_rotations": true,
+   "mem_gb": 8.0,
+   "set": {
+    "sim_topk_frac": 1.0,
+    "use_pl": false
+   },
+   "save_scores": true
+  },
+  {
+   "dataset": "tfinance",
+   "method": "outpost",
+   "seed": 2,
+   "tag": "A_sim0.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 8.0,
+   "set": {
+    "sim_topk_frac": 0.0
+   },
+   "save_scores": true
+  },
+  {
+   "dataset": "tfinance",
+   "method": "outpost",
+   "seed": 2,
+   "tag": "C_nopl_sim0.0",
+   "priority": 3,
+   "shard_rotations": true,
+   "mem_gb": 8.0,
+   "set": {
+    "sim_topk_frac": 0.0,
+    "use_pl": false
+   },
+   "save_scores": true
+  },
+  {
+   "dataset": "tfinance",
+   "method": "demo",
+   "seed": 2,
+   "tag": "B_demo_mix",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 22.0,
+   "set": {
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "tfinance",
+   "method": "nsreg",
+   "seed": 2,
+   "tag": "E400_nsreg",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 12.0,
+   "epochs": 400
+  },
+  {
+   "dataset": "tfinance",
+   "method": "outpost",
+   "seed": 3,
+   "tag": "A_sim1.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 8.0,
+   "set": {
+    "sim_topk_frac": 1.0
+   },
+   "save_scores": true
+  },
+  {
+   "dataset": "tfinance",
+   "method": "outpost",
+   "seed": 3,
+   "tag": "C_nopl_sim1.0",
+   "priority": 3,
+   "shard_rotations": true,
+   "mem_gb": 8.0,
+   "set": {
+    "sim_topk_frac": 1.0,
+    "use_pl": false
+   },
+   "save_scores": true
+  },
+  {
+   "dataset": "tfinance",
+   "method": "outpost",
+   "seed": 3,
+   "tag": "A_sim0.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 8.0,
+   "set": {
+    "sim_topk_frac": 0.0
+   },
+   "save_scores": true
+  },
+  {
+   "dataset": "tfinance",
+   "method": "outpost",
+   "seed": 3,
+   "tag": "C_nopl_sim0.0",
+   "priority": 3,
+   "shard_rotations": true,
+   "mem_gb": 8.0,
+   "set": {
+    "sim_topk_frac": 0.0,
+    "use_pl": false
+   },
+   "save_scores": true
+  },
+  {
+   "dataset": "tfinance",
+   "method": "demo",
+   "seed": 3,
+   "tag": "B_demo_mix",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 22.0,
+   "set": {
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "tfinance",
+   "method": "nsreg",
+   "seed": 3,
+   "tag": "E400_nsreg",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 12.0,
+   "epochs": 400
+  },
+  {
+   "dataset": "tfinance",
+   "method": "outpost",
+   "seed": 4,
+   "tag": "A_sim1.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 8.0,
+   "set": {
+    "sim_topk_frac": 1.0
+   },
+   "save_scores": true
+  },
+  {
+   "dataset": "tfinance",
+   "method": "outpost",
+   "seed": 4,
+   "tag": "C_nopl_sim1.0",
+   "priority": 3,
+   "shard_rotations": true,
+   "mem_gb": 8.0,
+   "set": {
+    "sim_topk_frac": 1.0,
+    "use_pl": false
+   },
+   "save_scores": true
+  },
+  {
+   "dataset": "tfinance",
+   "method": "outpost",
+   "seed": 4,
+   "tag": "A_sim0.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 8.0,
+   "set": {
+    "sim_topk_frac": 0.0
+   },
+   "save_scores": true
+  },
+  {
+   "dataset": "tfinance",
+   "method": "outpost",
+   "seed": 4,
+   "tag": "C_nopl_sim0.0",
+   "priority": 3,
+   "shard_rotations": true,
+   "mem_gb": 8.0,
+   "set": {
+    "sim_topk_frac": 0.0,
+    "use_pl": false
+   },
+   "save_scores": true
+  },
+  {
+   "dataset": "tfinance",
+   "method": "demo",
+   "seed": 4,
+   "tag": "B_demo_mix",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 22.0,
+   "set": {
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "tfinance",
+   "method": "nsreg",
+   "seed": 4,
+   "tag": "E400_nsreg",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 12.0,
+   "epochs": 400
+  },
+  {
+   "dataset": "tfinance",
+   "method": "outpost",
+   "seed": 5,
+   "tag": "A_sim1.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 8.0,
+   "set": {
+    "sim_topk_frac": 1.0
+   },
+   "save_scores": true
+  },
+  {
+   "dataset": "tfinance",
+   "method": "outpost",
+   "seed": 5,
+   "tag": "C_nopl_sim1.0",
+   "priority": 3,
+   "shard_rotations": true,
+   "mem_gb": 8.0,
+   "set": {
+    "sim_topk_frac": 1.0,
+    "use_pl": false
+   },
+   "save_scores": true
+  },
+  {
+   "dataset": "tfinance",
+   "method": "outpost",
+   "seed": 5,
+   "tag": "A_sim0.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 8.0,
+   "set": {
+    "sim_topk_frac": 0.0
+   },
+   "save_scores": true
+  },
+  {
+   "dataset": "tfinance",
+   "method": "outpost",
+   "seed": 5,
+   "tag": "C_nopl_sim0.0",
+   "priority": 3,
+   "shard_rotations": true,
+   "mem_gb": 8.0,
+   "set": {
+    "sim_topk_frac": 0.0,
+    "use_pl": false
+   },
+   "save_scores": true
+  },
+  {
+   "dataset": "tfinance",
+   "method": "demo",
+   "seed": 5,
+   "tag": "B_demo_mix",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 22.0,
+   "set": {
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "tfinance",
+   "method": "nsreg",
+   "seed": 5,
+   "tag": "E400_nsreg",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 12.0,
+   "epochs": 400
+  },
+  {
+   "dataset": "tfinance",
+   "method": "outpost",
+   "seed": 6,
+   "tag": "A_sim1.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 8.0,
+   "set": {
+    "sim_topk_frac": 1.0
+   },
+   "save_scores": true
+  },
+  {
+   "dataset": "tfinance",
+   "method": "outpost",
+   "seed": 6,
+   "tag": "C_nopl_sim1.0",
+   "priority": 3,
+   "shard_rotations": true,
+   "mem_gb": 8.0,
+   "set": {
+    "sim_topk_frac": 1.0,
+    "use_pl": false
+   },
+   "save_scores": true
+  },
+  {
+   "dataset": "tfinance",
+   "method": "outpost",
+   "seed": 6,
+   "tag": "A_sim0.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 8.0,
+   "set": {
+    "sim_topk_frac": 0.0
+   },
+   "save_scores": true
+  },
+  {
+   "dataset": "tfinance",
+   "method": "outpost",
+   "seed": 6,
+   "tag": "C_nopl_sim0.0",
+   "priority": 3,
+   "shard_rotations": true,
+   "mem_gb": 8.0,
+   "set": {
+    "sim_topk_frac": 0.0,
+    "use_pl": false
+   },
+   "save_scores": true
+  },
+  {
+   "dataset": "tfinance",
+   "method": "demo",
+   "seed": 6,
+   "tag": "B_demo_mix",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 22.0,
+   "set": {
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "tfinance",
+   "method": "nsreg",
+   "seed": 6,
+   "tag": "E400_nsreg",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 12.0,
+   "epochs": 400
+  },
+  {
+   "dataset": "tfinance",
+   "method": "outpost",
+   "seed": 7,
+   "tag": "A_sim1.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 8.0,
+   "set": {
+    "sim_topk_frac": 1.0
+   },
+   "save_scores": true
+  },
+  {
+   "dataset": "tfinance",
+   "method": "outpost",
+   "seed": 7,
+   "tag": "C_nopl_sim1.0",
+   "priority": 3,
+   "shard_rotations": true,
+   "mem_gb": 8.0,
+   "set": {
+    "sim_topk_frac": 1.0,
+    "use_pl": false
+   },
+   "save_scores": true
+  },
+  {
+   "dataset": "tfinance",
+   "method": "outpost",
+   "seed": 7,
+   "tag": "A_sim0.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 8.0,
+   "set": {
+    "sim_topk_frac": 0.0
+   },
+   "save_scores": true
+  },
+  {
+   "dataset": "tfinance",
+   "method": "outpost",
+   "seed": 7,
+   "tag": "C_nopl_sim0.0",
+   "priority": 3,
+   "shard_rotations": true,
+   "mem_gb": 8.0,
+   "set": {
+    "sim_topk_frac": 0.0,
+    "use_pl": false
+   },
+   "save_scores": true
+  },
+  {
+   "dataset": "tfinance",
+   "method": "demo",
+   "seed": 7,
+   "tag": "B_demo_mix",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 22.0,
+   "set": {
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "tfinance",
+   "method": "nsreg",
+   "seed": 7,
+   "tag": "E400_nsreg",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 12.0,
+   "epochs": 400
+  },
+  {
+   "dataset": "tfinance",
+   "method": "outpost",
+   "seed": 8,
+   "tag": "A_sim1.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 8.0,
+   "set": {
+    "sim_topk_frac": 1.0
+   },
+   "save_scores": true
+  },
+  {
+   "dataset": "tfinance",
+   "method": "outpost",
+   "seed": 8,
+   "tag": "C_nopl_sim1.0",
+   "priority": 3,
+   "shard_rotations": true,
+   "mem_gb": 8.0,
+   "set": {
+    "sim_topk_frac": 1.0,
+    "use_pl": false
+   },
+   "save_scores": true
+  },
+  {
+   "dataset": "tfinance",
+   "method": "outpost",
+   "seed": 8,
+   "tag": "A_sim0.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 8.0,
+   "set": {
+    "sim_topk_frac": 0.0
+   },
+   "save_scores": true
+  },
+  {
+   "dataset": "tfinance",
+   "method": "outpost",
+   "seed": 8,
+   "tag": "C_nopl_sim0.0",
+   "priority": 3,
+   "shard_rotations": true,
+   "mem_gb": 8.0,
+   "set": {
+    "sim_topk_frac": 0.0,
+    "use_pl": false
+   },
+   "save_scores": true
+  },
+  {
+   "dataset": "tfinance",
+   "method": "demo",
+   "seed": 8,
+   "tag": "B_demo_mix",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 22.0,
+   "set": {
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "tfinance",
+   "method": "nsreg",
+   "seed": 8,
+   "tag": "E400_nsreg",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 12.0,
+   "epochs": 400
+  },
+  {
+   "dataset": "tfinance",
+   "method": "outpost",
+   "seed": 42,
+   "tag": "A_sim1.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 8.0,
+   "set": {
+    "sim_topk_frac": 1.0
+   },
+   "save_scores": true
+  },
+  {
+   "dataset": "tfinance",
+   "method": "outpost",
+   "seed": 42,
+   "tag": "C_nopl_sim1.0",
+   "priority": 3,
+   "shard_rotations": true,
+   "mem_gb": 8.0,
+   "set": {
+    "sim_topk_frac": 1.0,
+    "use_pl": false
+   },
+   "save_scores": true
+  },
+  {
+   "dataset": "tfinance",
+   "method": "outpost",
+   "seed": 42,
+   "tag": "A_sim0.0",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 8.0,
+   "set": {
+    "sim_topk_frac": 0.0
+   },
+   "save_scores": true
+  },
+  {
+   "dataset": "tfinance",
+   "method": "outpost",
+   "seed": 42,
+   "tag": "C_nopl_sim0.0",
+   "priority": 3,
+   "shard_rotations": true,
+   "mem_gb": 8.0,
+   "set": {
+    "sim_topk_frac": 0.0,
+    "use_pl": false
+   },
+   "save_scores": true
+  },
+  {
+   "dataset": "tfinance",
+   "method": "demo",
+   "seed": 42,
+   "tag": "B_demo_mix",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 22.0,
+   "set": {
+    "mixup": true,
+    "energy_loss": false,
+    "num_epochs": 400
+   }
+  },
+  {
+   "dataset": "tfinance",
+   "method": "nsreg",
+   "seed": 42,
+   "tag": "E400_nsreg",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 12.0,
+   "epochs": 400
+  }
+ ]
+}

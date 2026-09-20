@@ -1,0 +1,121 @@
+{
+ "tie_band": 0.002,
+ "min_shared_seeds": 3,
+ "statistic": "sd of the paired per-seed difference between two arms of the same method, on their shared seeds",
+ "datasets": [
+  {
+   "dataset": "photo",
+   "arm_pairs": 1076,
+   "paired_diff_sd": 0.0073,
+   "se_3_seeds": 0.0042,
+   "se_10_seeds": 0.0023,
+   "band_below_noise_at_3": true,
+   "band_below_noise_at_10": true,
+   "seeds_needed_for_band": 14,
+   "widest_arm": {
+    "tag": "C_nopl",
+    "method": "outpost",
+    "n": 5,
+    "min": 0.9488,
+    "max": 0.9928,
+    "range": 0.044
+   }
+  },
+  {
+   "dataset": "computers",
+   "arm_pairs": 371,
+   "paired_diff_sd": 0.0077,
+   "se_3_seeds": 0.0044,
+   "se_10_seeds": 0.0024,
+   "band_below_noise_at_3": true,
+   "band_below_noise_at_10": true,
+   "seeds_needed_for_band": 15,
+   "widest_arm": {
+    "tag": "E400_nsreg",
+    "method": "nsreg",
+    "n": 10,
+    "min": 0.9491,
+    "max": 1.0,
+    "range": 0.0509
+   }
+  },
+  {
+   "dataset": "cs",
+   "arm_pairs": 140,
+   "paired_diff_sd": 0.0094,
+   "se_3_seeds": 0.0054,
+   "se_10_seeds": 0.003,
+   "band_below_noise_at_3": true,
+   "band_below_noise_at_10": true,
+   "seeds_needed_for_band": 23,
+   "widest_arm": {
+    "tag": "C_nogate",
+    "method": "outpost",
+    "n": 5,
+    "min": 0.97,
+    "max": 1.0,
+    "range": 0.03
+   }
+  },
+  {
+   "dataset": "yelp",
+   "arm_pairs": 633,
+   "paired_diff_sd": 0.0134,
+   "se_3_seeds": 0.0077,
+   "se_10_seeds": 0.0042,
+   "band_below_noise_at_3": true,
+   "band_below_noise_at_10": true,
+   "seeds_needed_for_band": 45,
+   "widest_arm": {
+    "tag": "C_simplacebo",
+    "method": "outpost",
+    "n": 10,
+    "min": 0.6263,
+    "max": 0.7783,
+    "range": 0.152
+   }
+  },
+  {
+   "dataset": "amazon",
+   "arm_pairs": 217,
+   "paired_diff_sd": 0.0066,
+   "se_3_seeds": 0.0038,
+   "se_10_seeds": 0.0021,
+   "band_below_noise_at_3": true,
+   "band_below_noise_at_10": true,
+   "seeds_needed_for_band": 11,
+   "widest_arm": {
+    "tag": "E400_nsreg",
+    "method": "nsreg",
+    "n": 10,
+    "min": 0.8667,
+    "max": 0.9868,
+    "range": 0.1201
+   }
+  },
+  {
+   "dataset": "tfinance",
+   "arm_pairs": 15,
+   "paired_diff_sd": 0.0141,
+   "se_3_seeds": 0.0082,
+   "se_10_seeds": 0.0045,
+   "band_below_noise_at_3": true,
+   "band_below_noise_at_10": true,
+   "seeds_needed_for_band": 51,
+   "widest_arm": {
+    "tag": "A_sim1.0",
+    "method": "outpost",
+    "n": 10,
+    "min": 0.8732,
+    "max": 0.9586,
+    "range": 0.0854
+   }
+  }
+ ],
+ "summary": {
+  "n_datasets": 6,
+  "band_below_noise_at_3": 6,
+  "band_below_noise_at_10": 6,
+  "max_seeds_needed": 51
+ }
+}

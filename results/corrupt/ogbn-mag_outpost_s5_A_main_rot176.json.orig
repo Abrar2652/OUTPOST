@@ -1,0 +1,83 @@
+{
+ "dataset": "ogbn-mag",
+ "method": "outpost",
+ "seed": 5,
+ "train_seed": null,
+ "tag": "A_main",
+ "config": {
+  "alpha_plus": 0.05,
+  "alpha_r": 0.1,
+  "atlas_gate_q": 0.9,
+  "batch_size": 256,
+  "hidden_dim": 64,
+  "lambda_halo": 0.2,
+  "lambda_mixup": 0.2,
+  "lambda_un": 1.0,
+  "lr": 0.001,
+  "margin": 0.1,
+  "n_layers": 2,
+  "optimiser": "adam",
+  "sampling_sizes": [
+   25,
+   10
+  ],
+  "tau_minus": 0.05,
+  "tau_mu": 0.05,
+  "tau_plus": 0.95,
+  "use_atlas_gate": true,
+  "use_conformal": true,
+  "use_pl": true,
+  "version": 4,
+  "weight_decay": 0.0005,
+  "input_dim": 128,
+  "K_p": 8,
+  "drop_out": 0.5,
+  "num_epochs": 400,
+  "warmup_epochs": 10,
+  "use_mixup": true,
+  "use_halo": true,
+  "use_atlas_loss": true,
+  "use_fview_gate": false,
+  "use_hybrid": false,
+  "sim_topk_frac": 0.0,
+  "eval_batch_mult": 1,
+  "record_scores": true
+ },
+ "host": "ckg10",
+ "gpu": "NVIDIA RTX A5000",
+ "torch": "2.7.1+cu126",
+ "python": "3.10.12",
+ "rotations": [
+  {
+   "best": {
+    "auroc_all": 0.5616406157356644,
+    "aupr_all": 0.02921907618429823,
+    "auroc_unknown": 0.5669982830055347,
+    "aupr_unknown": 0.005052027747275339
+   },
+   "val_selected": {
+    "val_auc": 0.9994999090743771,
+    "auroc_all": 0.5019830492086368,
+    "aupr_all": 0.023085759634234107,
+    "auroc_unknown": 0.4786820930240817,
+    "aupr_unknown": 0.00418515149269005
+   },
+   "final": {
+    "auroc_all": 0.5047451022332687,
+    "aupr_all": 0.02814590586952012,
+    "auroc_unknown": 0.48155413001941516,
+    "aupr_unknown": 0.004181433825125826
+   },
+   "n_params": 35137,
+   "rotation_class": 176,
+   "split_sha": "d7d60d2ca977a9cf",
+   "scores_saved": {
+    "best_epoch": 1,
+    "valsel_epoch": 228
+   },
+   "seconds": 22079.6,
+   "peak_gpu_gb": 11.369
+  }
+ ]
+}]
+}

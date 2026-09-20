@@ -1,0 +1,155 @@
+{
+ "prediction": "P8: mag class 263 stays the best-detected class under a trained model",
+ "per_class": [
+  {
+   "class": 216,
+   "n_rotations": 70,
+   "mean_auc": 0.6767,
+   "sd": 0.143,
+   "rank": 1
+  },
+  {
+   "class": 282,
+   "n_rotations": 70,
+   "mean_auc": 0.6635,
+   "sd": 0.1105,
+   "rank": 2
+  },
+  {
+   "class": 206,
+   "n_rotations": 70,
+   "mean_auc": 0.6562,
+   "sd": 0.1421,
+   "rank": 3
+  },
+  {
+   "class": 195,
+   "n_rotations": 70,
+   "mean_auc": 0.6491,
+   "sd": 0.1215,
+   "rank": 4
+  },
+  {
+   "class": 231,
+   "n_rotations": 70,
+   "mean_auc": 0.616,
+   "sd": 0.1891,
+   "rank": 5
+  },
+  {
+   "class": 263,
+   "n_rotations": 70,
+   "mean_auc": 0.6155,
+   "sd": 0.0765,
+   "rank": 6
+  },
+  {
+   "class": 143,
+   "n_rotations": 70,
+   "mean_auc": 0.6126,
+   "sd": 0.1497,
+   "rank": 7
+  },
+  {
+   "class": 341,
+   "n_rotations": 70,
+   "mean_auc": 0.612,
+   "sd": 0.1467,
+   "rank": 8
+  },
+  {
+   "class": 151,
+   "n_rotations": 70,
+   "mean_auc": 0.6037,
+   "sd": 0.0657,
+   "rank": 9
+  },
+  {
+   "class": 321,
+   "n_rotations": 70,
+   "mean_auc": 0.576,
+   "sd": 0.1801,
+   "rank": 10
+  },
+  {
+   "class": 327,
+   "n_rotations": 70,
+   "mean_auc": 0.554,
+   "sd": 0.1212,
+   "rank": 11
+  },
+  {
+   "class": 39,
+   "n_rotations": 70,
+   "mean_auc": 0.4855,
+   "sd": 0.1354,
+   "rank": 12
+  },
+  {
+   "class": 215,
+   "n_rotations": 70,
+   "mean_auc": 0.4844,
+   "sd": 0.1573,
+   "rank": 13
+  },
+  {
+   "class": 176,
+   "n_rotations": 70,
+   "mean_auc": 0.4749,
+   "sd": 0.1568,
+   "rank": 14
+  },
+  {
+   "class": 2,
+   "n_rotations": 70,
+   "mean_auc": 0.4135,
+   "sd": 0.1421,
+   "rank": 15
+  }
+ ],
+ "best_class": 216,
+ "best_auc": 0.6767,
+ "class_263": {
+  "class": 263,
+  "n_rotations": 70,
+  "mean_auc": 0.6155,
+  "sd": 0.0765,
+  "rank": 6
+ },
+ "diagnostic_vs_trained": {
+  "n_classes": 15,
+  "y": "trained mean AUC on unseen rotations",
+  "against": {
+   "med_same_frac": {
+    "spearman_rho": -0.1604,
+    "p_value": 0.5679
+   },
+   "ceiling": {
+    "spearman_rho": 0.1607,
+    "p_value": 0.5672
+   },
+   "auc_hop0": {
+    "spearman_rho": -0.0214,
+    "p_value": 0.9396
+   }
+  },
+  "spearman_rho": -0.0214,
+  "p_value": 0.9396,
+  "x": "auc_hop0",
+  "largest_overprediction": [
+   {
+    "class": 176,
+    "ceiling_minus_trained": 0.3364
+   },
+   {
+    "class": 143,
+    "ceiling_minus_trained": 0.2615
+   },
+   {
+    "class": 263,
+    "ceiling_minus_trained": 0.2384
+   }
+  ]
+ },
+ "confirmed": false
+}

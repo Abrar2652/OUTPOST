@@ -1,0 +1,365 @@
+{
+ "_comment": "Generate the GPU-6 queue: cs, which needs a whole card to itself.\n\ncs is the expensive dataset: 6805-dimensional features, 8 rotations, and a\npseudo-label pass over the full unlabelled pool every epoch. Measured at ~12 s\nper epoch with the feature table on the device, that is ~40 min per rotation and\n~5.3 GPU-hours per seed.\n\nOrdering is seed-major, so an interruption leaves COMPLETE seeds rather than a\nscatter of rotations that no row can be built from.\n\nTHERE IS NO DEMO ARM HERE, and the reason is a hardware limit rather than a\nchoice. Both methods retain the autograd graph over the whole unlabelled pool to\ntake one full-batch step per epoch, and on cs that pool is ~17,000 nodes whose\nfeatures are 6805-dimensional. OUTPOST peaks at 18.3 GB and fits a 24 GB A5000;\nDEMO needs ~22 GB allocated and does not, failing partway through the first\nunlabelled pass. Measured after both memory fixes to the DEMO port (cached\nevaluation loader, no-grad weak view) and after tightening the allocator with\n`max_split_size_mb:128`, which recovered 5 GB of fragmentation and still left it\nshort. A card of 32 GB or more would run it unchanged; nothing else would.\n\nThe paired cs comparison is therefore unavailable on this hardware and cs uses\nthe transcribed DEMO constant, flagged as such in METHODOLOGY section 4. The\nGPU-hours that would have gone to it go to cs seeds 2 and 3 instead, so the cs\nmain-table cell is five seeds rather than three.\n",
+ "jobs": [
+  {
+   "dataset": "cs",
+   "seed": 42,
+   "tag": "A_main",
+   "rotations": [
+    0
+   ],
+   "priority": 1
+  },
+  {
+   "dataset": "cs",
+   "seed": 42,
+   "tag": "A_main",
+   "rotations": [
+    1
+   ],
+   "priority": 1
+  },
+  {
+   "dataset": "cs",
+   "seed": 42,
+   "tag": "A_main",
+   "rotations": [
+    3
+   ],
+   "priority": 1
+  },
+  {
+   "dataset": "cs",
+   "seed": 42,
+   "tag": "A_main",
+   "rotations": [
+    6
+   ],
+   "priority": 1
+  },
+  {
+   "dataset": "cs",
+   "seed": 42,
+   "tag": "A_main",
+   "rotations": [
+    8
+   ],
+   "priority": 1
+  },
+  {
+   "dataset": "cs",
+   "seed": 42,
+   "tag": "A_main",
+   "rotations": [
+    9
+   ],
+   "priority": 1
+  },
+  {
+   "dataset": "cs",
+   "seed": 42,
+   "tag": "A_main",
+   "rotations": [
+    12
+   ],
+   "priority": 1
+  },
+  {
+   "dataset": "cs",
+   "seed": 42,
+   "tag": "A_main",
+   "rotations": [
+    14
+   ],
+   "priority": 1
+  },
+  {
+   "dataset": "cs",
+   "seed": 0,
+   "tag": "A_main",
+   "rotations": [
+    0
+   ],
+   "priority": 1
+  },
+  {
+   "dataset": "cs",
+   "seed": 0,
+   "tag": "A_main",
+   "rotations": [
+    1
+   ],
+   "priority": 1
+  },
+  {
+   "dataset": "cs",
+   "seed": 0,
+   "tag": "A_main",
+   "rotations": [
+    3
+   ],
+   "priority": 1
+  },
+  {
+   "dataset": "cs",
+   "seed": 0,
+   "tag": "A_main",
+   "rotations": [
+    6
+   ],
+   "priority": 1
+  },
+  {
+   "dataset": "cs",
+   "seed": 0,
+   "tag": "A_main",
+   "rotations": [
+    8
+   ],
+   "priority": 1
+  },
+  {
+   "dataset": "cs",
+   "seed": 0,
+   "tag": "A_main",
+   "rotations": [
+    9
+   ],
+   "priority": 1
+  },
+  {
+   "dataset": "cs",
+   "seed": 0,
+   "tag": "A_main",
+   "rotations": [
+    12
+   ],
+   "priority": 1
+  },
+  {
+   "dataset": "cs",
+   "seed": 0,
+   "tag": "A_main",
+   "rotations": [
+    14
+   ],
+   "priority": 1
+  },
+  {
+   "dataset": "cs",
+   "seed": 1,
+   "tag": "A_main",
+   "rotations": [
+    0
+   ],
+   "priority": 1
+  },
+  {
+   "dataset": "cs",
+   "seed": 1,
+   "tag": "A_main",
+   "rotations": [
+    1
+   ],
+   "priority": 1
+  },
+  {
+   "dataset": "cs",
+   "seed": 1,
+   "tag": "A_main",
+   "rotations": [
+    3
+   ],
+   "priority": 1
+  },
+  {
+   "dataset": "cs",
+   "seed": 1,
+   "tag": "A_main",
+   "rotations": [
+    6
+   ],
+   "priority": 1
+  },
+  {
+   "dataset": "cs",
+   "seed": 1,
+   "tag": "A_main",
+   "rotations": [
+    8
+   ],
+   "priority": 1
+  },
+  {
+   "dataset": "cs",
+   "seed": 1,
+   "tag": "A_main",
+   "rotations": [
+    9
+   ],
+   "priority": 1
+  },
+  {
+   "dataset": "cs",
+   "seed": 1,
+   "tag": "A_main",
+   "rotations": [
+    12
+   ],
+   "priority": 1
+  },
+  {
+   "dataset": "cs",
+   "seed": 1,
+   "tag": "A_main",
+   "rotations": [
+    14
+   ],
+   "priority": 1
+  },
+  {
+   "dataset": "cs",
+   "seed": 2,
+   "tag": "A_main",
+   "rotations": [
+    0
+   ],
+   "priority": 1
+  },
+  {
+   "dataset": "cs",
+   "seed": 2,
+   "tag": "A_main",
+   "rotations": [
+    1
+   ],
+   "priority": 1
+  },
+  {
+   "dataset": "cs",
+   "seed": 2,
+   "tag": "A_main",
+   "rotations": [
+    3
+   ],
+   "priority": 1
+  },
+  {
+   "dataset": "cs",
+   "seed": 2,
+   "tag": "A_main",
+   "rotations": [
+    6
+   ],
+   "priority": 1
+  },
+  {
+   "dataset": "cs",
+   "seed": 2,
+   "tag": "A_main",
+   "rotations": [
+    8
+   ],
+   "priority": 1
+  },
+  {
+   "dataset": "cs",
+   "seed": 2,
+   "tag": "A_main",
+   "rotations": [
+    9
+   ],
+   "priority": 1
+  },
+  {
+   "dataset": "cs",
+   "seed": 2,
+   "tag": "A_main",
+   "rotations": [
+    12
+   ],
+   "priority": 1
+  },
+  {
+   "dataset": "cs",
+   "seed": 2,
+   "tag": "A_main",
+   "rotations": [
+    14
+   ],
+   "priority": 1
+  },
+  {
+   "dataset": "cs",
+   "seed": 3,
+   "tag": "A_main",
+   "rotations": [
+    0
+   ],
+   "priority": 1
+  },
+  {
+   "dataset": "cs",
+   "seed": 3,
+   "tag": "A_main",
+   "rotations": [
+    1
+   ],
+   "priority": 1
+  },
+  {
+   "dataset": "cs",
+   "seed": 3,
+   "tag": "A_main",
+   "rotations": [
+    3
+   ],
+   "priority": 1
+  },
+  {
+   "dataset": "cs",
+   "seed": 3,
+   "tag": "A_main",
+   "rotations": [
+    6
+   ],
+   "priority": 1
+  },
+  {
+   "dataset": "cs",
+   "seed": 3,
+   "tag": "A_main",
+   "rotations": [
+    8
+   ],
+   "priority": 1
+  },
+  {
+   "dataset": "cs",
+   "seed": 3,
+   "tag": "A_main",
+   "rotations": [
+    9
+   ],
+   "priority": 1
+  },
+  {
+   "dataset": "cs",
+   "seed": 3,
+   "tag": "A_main",
+   "rotations": [
+    12
+   ],
+   "priority": 1
+  },
+  {
+   "dataset": "cs",
+   "seed": 3,
+   "tag": "A_main",
+   "rotations": [
+    14
+   ],
+   "priority": 1
+  }
+ ]
+}

@@ -1,0 +1,495 @@
+{
+ "_comment": "THE MECHANISM EXPERIMENT. Closes the gap that keeps this a TMLR paper rather\nthan an ICLR one: OUTPOST beats DEMO on Computers (+0.0728, 10/0/0) and CS\n(+0.0196, 10/0/0) and the paper cannot say why.\n\nTWO FACTS MOTIVATE IT.\n\n1. The single-flag ablations are systematically misleading here. On Photo the\n   atlas gate alone is +0.0003 (p=1.00, dead), but gate AND pseudo-labelling\n   together are -0.0382 (0/10, p=0.0020). On CS the pair is -0.0648 (0/5).\n   Components that each look inert are jointly load-bearing - they are\n   redundant substitutes, and one-at-a-time ablation cannot see that. There is\n   a mechanism in the code: the conformal threshold thr_a is computed inside\n   `if use_pl`, so use_pl=False silently disables conformal too, which is why\n   the pair is not the sum of its parts.\n\n2. The ablation suite was run on Photo and Yelp - the two datasets where\n   OUTPOST ties or wins by the least. Computers and CS, which carry the wins,\n   have only C_sim. So 'the components do nothing' is established exactly\n   where the method does not win and untested exactly where it does. A\n   reviewer will notice; better we run it.\n\nDESIGN. Staged, cheapest-decisive-first.\n  Priority 1  Computers, 5 seeds: L_lean, C_nogate, C_nopl, C_noconformal.\n              20 seed-arms x 5 rotations x 23.5 min = 100 jobs, 39 GPU-h,\n              ~8 h wall. Answers first whether the Photo/CS interaction\n              pattern is general or a CS quirk.\n  Priority 2  CS, 5 seeds: C_nogate, C_nopl, C_noconformal. CS L_lean already\n              has its 5 seeds, so those 40 jobs resume as no-ops. 120 jobs x\n              77 min = 154 GPU-h; this is the expensive half.\n  Total 220 new jobs, 193 GPU-h, ~40 h wall on five cards.\n\nPRE-REGISTERED, before the runs (P20-P22).\n  P20 The redundancy is general: on Computers, L_lean is more negative than\n      either C_nogate or C_nopl alone, and by more than their sum. If instead\n      L_lean is approximately additive, the interaction is a Photo/CS quirk\n      and the mechanism claim dies.\n  P21 C_nopl is more negative than C_nogate on both datasets, because PL-off\n      also disables conformal while gate-off disables only the gate.\n  P22 C_noconformal alone stays near zero on both, as it is on Yelp (-0.0002),\n      because conformal only acts through the PL branch that is still on.\n      P21 and P22 together are the code-level explanation's own prediction: if\n      conformal is inert alone but PL-off costs more than gate-off, the extra\n      cost is the conformal threshold going down with it.\n\nFalsification: if L_lean is additive on Computers, or if C_nopl and C_nogate\nare indistinguishable, the redundancy story is wrong and section 5.1 keeps the\nhonest 'real effect, no established cause' it has now.",
+ "jobs": [
+  {
+   "dataset": "computers",
+   "method": "outpost",
+   "seed": 0,
+   "tag": "L_lean",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 22.0,
+   "set": {
+    "use_atlas_gate": false,
+    "use_pl": false
+   }
+  },
+  {
+   "dataset": "computers",
+   "method": "outpost",
+   "seed": 1,
+   "tag": "L_lean",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 22.0,
+   "set": {
+    "use_atlas_gate": false,
+    "use_pl": false
+   }
+  },
+  {
+   "dataset": "computers",
+   "method": "outpost",
+   "seed": 2,
+   "tag": "L_lean",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 22.0,
+   "set": {
+    "use_atlas_gate": false,
+    "use_pl": false
+   }
+  },
+  {
+   "dataset": "computers",
+   "method": "outpost",
+   "seed": 3,
+   "tag": "L_lean",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 22.0,
+   "set": {
+    "use_atlas_gate": false,
+    "use_pl": false
+   }
+  },
+  {
+   "dataset": "computers",
+   "method": "outpost",
+   "seed": 42,
+   "tag": "L_lean",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 22.0,
+   "set": {
+    "use_atlas_gate": false,
+    "use_pl": false
+   }
+  },
+  {
+   "dataset": "computers",
+   "method": "outpost",
+   "seed": 0,
+   "tag": "C_nogate",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 22.0,
+   "set": {
+    "use_atlas_gate": false
+   }
+  },
+  {
+   "dataset": "computers",
+   "method": "outpost",
+   "seed": 1,
+   "tag": "C_nogate",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 22.0,
+   "set": {
+    "use_atlas_gate": false
+   }
+  },
+  {
+   "dataset": "computers",
+   "method": "outpost",
+   "seed": 2,
+   "tag": "C_nogate",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 22.0,
+   "set": {
+    "use_atlas_gate": false
+   }
+  },
+  {
+   "dataset": "computers",
+   "method": "outpost",
+   "seed": 3,
+   "tag": "C_nogate",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 22.0,
+   "set": {
+    "use_atlas_gate": false
+   }
+  },
+  {
+   "dataset": "computers",
+   "method": "outpost",
+   "seed": 42,
+   "tag": "C_nogate",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 22.0,
+   "set": {
+    "use_atlas_gate": false
+   }
+  },
+  {
+   "dataset": "computers",
+   "method": "outpost",
+   "seed": 0,
+   "tag": "C_nopl",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 22.0,
+   "set": {
+    "use_pl": false
+   }
+  },
+  {
+   "dataset": "computers",
+   "method": "outpost",
+   "seed": 1,
+   "tag": "C_nopl",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 22.0,
+   "set": {
+    "use_pl": false
+   }
+  },
+  {
+   "dataset": "computers",
+   "method": "outpost",
+   "seed": 2,
+   "tag": "C_nopl",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 22.0,
+   "set": {
+    "use_pl": false
+   }
+  },
+  {
+   "dataset": "computers",
+   "method": "outpost",
+   "seed": 3,
+   "tag": "C_nopl",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 22.0,
+   "set": {
+    "use_pl": false
+   }
+  },
+  {
+   "dataset": "computers",
+   "method": "outpost",
+   "seed": 42,
+   "tag": "C_nopl",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 22.0,
+   "set": {
+    "use_pl": false
+   }
+  },
+  {
+   "dataset": "computers",
+   "method": "outpost",
+   "seed": 0,
+   "tag": "C_noconformal",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 22.0,
+   "set": {
+    "use_conformal": false
+   }
+  },
+  {
+   "dataset": "computers",
+   "method": "outpost",
+   "seed": 1,
+   "tag": "C_noconformal",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 22.0,
+   "set": {
+    "use_conformal": false
+   }
+  },
+  {
+   "dataset": "computers",
+   "method": "outpost",
+   "seed": 2,
+   "tag": "C_noconformal",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 22.0,
+   "set": {
+    "use_conformal": false
+   }
+  },
+  {
+   "dataset": "computers",
+   "method": "outpost",
+   "seed": 3,
+   "tag": "C_noconformal",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 22.0,
+   "set": {
+    "use_conformal": false
+   }
+  },
+  {
+   "dataset": "computers",
+   "method": "outpost",
+   "seed": 42,
+   "tag": "C_noconformal",
+   "priority": 1,
+   "shard_rotations": true,
+   "mem_gb": 22.0,
+   "set": {
+    "use_conformal": false
+   }
+  },
+  {
+   "dataset": "cs",
+   "method": "outpost",
+   "seed": 0,
+   "tag": "L_lean",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 45.0,
+   "set": {
+    "use_atlas_gate": false,
+    "use_pl": false
+   }
+  },
+  {
+   "dataset": "cs",
+   "method": "outpost",
+   "seed": 1,
+   "tag": "L_lean",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 45.0,
+   "set": {
+    "use_atlas_gate": false,
+    "use_pl": false
+   }
+  },
+  {
+   "dataset": "cs",
+   "method": "outpost",
+   "seed": 2,
+   "tag": "L_lean",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 45.0,
+   "set": {
+    "use_atlas_gate": false,
+    "use_pl": false
+   }
+  },
+  {
+   "dataset": "cs",
+   "method": "outpost",
+   "seed": 3,
+   "tag": "L_lean",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 45.0,
+   "set": {
+    "use_atlas_gate": false,
+    "use_pl": false
+   }
+  },
+  {
+   "dataset": "cs",
+   "method": "outpost",
+   "seed": 42,
+   "tag": "L_lean",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 45.0,
+   "set": {
+    "use_atlas_gate": false,
+    "use_pl": false
+   }
+  },
+  {
+   "dataset": "cs",
+   "method": "outpost",
+   "seed": 0,
+   "tag": "C_nogate",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 45.0,
+   "set": {
+    "use_atlas_gate": false
+   }
+  },
+  {
+   "dataset": "cs",
+   "method": "outpost",
+   "seed": 1,
+   "tag": "C_nogate",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 45.0,
+   "set": {
+    "use_atlas_gate": false
+   }
+  },
+  {
+   "dataset": "cs",
+   "method": "outpost",
+   "seed": 2,
+   "tag": "C_nogate",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 45.0,
+   "set": {
+    "use_atlas_gate": false
+   }
+  },
+  {
+   "dataset": "cs",
+   "method": "outpost",
+   "seed": 3,
+   "tag": "C_nogate",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 45.0,
+   "set": {
+    "use_atlas_gate": false
+   }
+  },
+  {
+   "dataset": "cs",
+   "method": "outpost",
+   "seed": 42,
+   "tag": "C_nogate",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 45.0,
+   "set": {
+    "use_atlas_gate": false
+   }
+  },
+  {
+   "dataset": "cs",
+   "method": "outpost",
+   "seed": 0,
+   "tag": "C_nopl",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 45.0,
+   "set": {
+    "use_pl": false
+   }
+  },
+  {
+   "dataset": "cs",
+   "method": "outpost",
+   "seed": 1,
+   "tag": "C_nopl",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 45.0,
+   "set": {
+    "use_pl": false
+   }
+  },
+  {
+   "dataset": "cs",
+   "method": "outpost",
+   "seed": 2,
+   "tag": "C_nopl",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 45.0,
+   "set": {
+    "use_pl": false
+   }
+  },
+  {
+   "dataset": "cs",
+   "method": "outpost",
+   "seed": 3,
+   "tag": "C_nopl",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 45.0,
+   "set": {
+    "use_pl": false
+   }
+  },
+  {
+   "dataset": "cs",
+   "method": "outpost",
+   "seed": 42,
+   "tag": "C_nopl",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 45.0,
+   "set": {
+    "use_pl": false
+   }
+  },
+  {
+   "dataset": "cs",
+   "method": "outpost",
+   "seed": 0,
+   "tag": "C_noconformal",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 45.0,
+   "set": {
+    "use_conformal": false
+   }
+  },
+  {
+   "dataset": "cs",
+   "method": "outpost",
+   "seed": 1,
+   "tag": "C_noconformal",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 45.0,
+   "set": {
+    "use_conformal": false
+   }
+  },
+  {
+   "dataset": "cs",
+   "method": "outpost",
+   "seed": 2,
+   "tag": "C_noconformal",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 45.0,
+   "set": {
+    "use_conformal": false
+   }
+  },
+  {
+   "dataset": "cs",
+   "method": "outpost",
+   "seed": 3,
+   "tag": "C_noconformal",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 45.0,
+   "set": {
+    "use_conformal": false
+   }
+  },
+  {
+   "dataset": "cs",
+   "method": "outpost",
+   "seed": 42,
+   "tag": "C_noconformal",
+   "priority": 2,
+   "shard_rotations": true,
+   "mem_gb": 45.0,
+   "set": {
+    "use_conformal": false
+   }
+  }
+ ]
+}
