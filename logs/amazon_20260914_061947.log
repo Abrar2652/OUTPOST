@@ -1,0 +1,803 @@
+2026-09-14 06:19:47,806 INFO cli={'dataset': 'amazon', 'method': 'demo', 'seed': 42, 'train_seed': None, 'epochs': None, 'set': ['lr=0.003', 'weight_decay=0.0', 'mixup=true', 'energy_loss=false', 'num_epochs=400'], 'tag': 'E400_DT_lr0.003_wd0.0', 'save_scores': False, 'rotations': None}
+2026-09-14 06:19:47,806 INFO config={'alpha_plus': 0.05, 'alpha_r': 0.1, 'atlas_gate_q': 0.9, 'batch_size': 512, 'hidden_dim': 64, 'lambda_halo': 0.2, 'lambda_mixup': 0.2, 'lambda_un': 1.0, 'lr': 0.003, 'margin': 0.1, 'n_layers': 2, 'optimiser': 'adam', 'sampling_sizes': [25, 10], 'tau_minus': 0.05, 'tau_mu': 0.05, 'tau_plus': 0.95, 'use_atlas_gate': True, 'use_conformal': True, 'use_pl': True, 'version': 4, 'weight_decay': 0.0, 'loss': 'bce', 'num_epochs': 400, 'ebd_dim': 64, 'drop_out': 0.5, 'gamma': 0.1, 'damping': 0.001, 'p_cutoff': [0.05, 0.95], 'unlabeled_loss': 0.5, 'mixup_loss': 0.1, 'energy_loss_weight': 0.1, 'used_unlabeled_data': True, 'energy_loss': False, 'mixup': True, 'thresh_warmup': True, 'used_augment_for_anormaly': True, 'batch_size_for_anormaly': 20, 'sample_size_for_anormaly': 25, 'div_loss_alpha': 0.5, 'mixup_loss_type': 'consistency', 'device': 0, 'input_dim': 25}
+2026-09-14 06:19:51,990 INFO Epoch: 0, loss: 0.5854118466377258, labeled_loss: 0.662274956703186, unnlabeled_loss: 0.0, mixup_loss: -0.7686310410499573, energy_loss: 0.0
+2026-09-14 06:19:51,990 INFO Best AUROC test all: 0.7236128363106578, AUPR test all: 0.17797069313813169, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:19:53,238 INFO Epoch: 1, loss: 4.9425950050354, labeled_loss: 5.065251350402832, unnlabeled_loss: 0.0, mixup_loss: -1.2265621423721313, energy_loss: 0.0
+2026-09-14 06:19:53,238 INFO Best AUROC test all: 0.7236128363106578, AUPR test all: 0.17797069313813169, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:19:54,407 INFO Epoch: 2, loss: 3.6357929706573486, labeled_loss: 3.794032335281372, unnlabeled_loss: 0.0, mixup_loss: -1.5823941230773926, energy_loss: 0.0
+2026-09-14 06:19:54,407 INFO Best AUROC test all: 0.7316232690784699, AUPR test all: 0.1796772304524551, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:19:55,521 INFO Epoch: 3, loss: 1.7530537843704224, labeled_loss: 1.9309569597244263, unnlabeled_loss: 0.0, mixup_loss: -1.7790316343307495, energy_loss: 0.0
+2026-09-14 06:19:55,521 INFO Best AUROC test all: 0.7316232690784699, AUPR test all: 0.1796772304524551, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:19:56,678 INFO Epoch: 4, loss: 0.42952412366867065, labeled_loss: 0.6167072057723999, unnlabeled_loss: 0.0, mixup_loss: -1.871830701828003, energy_loss: 0.0
+2026-09-14 06:19:56,678 INFO Best AUROC test all: 0.7316232690784699, AUPR test all: 0.1796772304524551, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:19:57,882 INFO Epoch: 5, loss: 1.7354482412338257, labeled_loss: 1.9271008968353271, unnlabeled_loss: 0.0, mixup_loss: -1.9165263175964355, energy_loss: 0.0
+2026-09-14 06:19:57,882 INFO Best AUROC test all: 0.7316232690784699, AUPR test all: 0.1796772304524551, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:19:59,278 INFO Epoch: 6, loss: 0.26147085428237915, labeled_loss: 0.4381730258464813, unnlabeled_loss: 0.03220009803771973, mixup_loss: -1.9280221462249756, energy_loss: 0.0
+2026-09-14 06:19:59,278 INFO Best AUROC test all: 0.7316232690784699, AUPR test all: 0.1796772304524551, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:00,781 INFO Epoch: 7, loss: 0.5443387031555176, labeled_loss: 0.7351042032241821, unnlabeled_loss: 0.0040910509414970875, mixup_loss: -1.928110122680664, energy_loss: 0.0
+2026-09-14 06:20:00,781 INFO Best AUROC test all: 0.7316232690784699, AUPR test all: 0.1796772304524551, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:02,218 INFO Epoch: 8, loss: 0.6146240234375, labeled_loss: 0.804837703704834, unnlabeled_loss: 0.0036952723748981953, mixup_loss: -1.9206132888793945, energy_loss: 0.0
+2026-09-14 06:20:02,218 INFO Best AUROC test all: 0.7316232690784699, AUPR test all: 0.1796772304524551, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:03,652 INFO Epoch: 9, loss: 0.6672583222389221, labeled_loss: 0.8575717806816101, unnlabeled_loss: 0.00445996830239892, mixup_loss: -1.9254342317581177, energy_loss: 0.0
+2026-09-14 06:20:03,652 INFO Best AUROC test all: 0.7316232690784699, AUPR test all: 0.1796772304524551, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:05,088 INFO Epoch: 10, loss: 0.5762127637863159, labeled_loss: 0.765733003616333, unnlabeled_loss: 0.005604919511824846, mixup_loss: -1.9232263565063477, energy_loss: 0.0
+2026-09-14 06:20:05,088 INFO Best AUROC test all: 0.7316232690784699, AUPR test all: 0.1796772304524551, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:06,576 INFO Epoch: 11, loss: 0.43851494789123535, labeled_loss: 0.6280059218406677, unnlabeled_loss: 0.007059298921376467, mixup_loss: -1.930206298828125, energy_loss: 0.0
+2026-09-14 06:20:06,576 INFO Best AUROC test all: 0.7316232690784699, AUPR test all: 0.1796772304524551, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:08,102 INFO Epoch: 12, loss: 0.3183213770389557, labeled_loss: 0.5048546195030212, unnlabeled_loss: 0.013966728933155537, mixup_loss: -1.9351657629013062, energy_loss: 0.0
+2026-09-14 06:20:08,102 INFO Best AUROC test all: 0.7316232690784699, AUPR test all: 0.1796772304524551, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:09,404 INFO Epoch: 13, loss: 0.20300519466400146, labeled_loss: 0.3828173577785492, unnlabeled_loss: 0.02875594235956669, mixup_loss: -1.941901445388794, energy_loss: 0.0
+2026-09-14 06:20:09,405 INFO Best AUROC test all: 0.7316232690784699, AUPR test all: 0.18044497997058584, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:10,693 INFO Epoch: 14, loss: 0.1396966427564621, labeled_loss: 0.3141573965549469, unnlabeled_loss: 0.04095597192645073, mixup_loss: -1.9493873119354248, energy_loss: 0.0
+2026-09-14 06:20:10,693 INFO Best AUROC test all: 0.7316232690784699, AUPR test all: 0.18044497997058584, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:12,006 INFO Epoch: 15, loss: 0.1380261778831482, labeled_loss: 0.31528037786483765, unnlabeled_loss: 0.03712741658091545, mixup_loss: -1.9581791162490845, energy_loss: 0.0
+2026-09-14 06:20:12,006 INFO Best AUROC test all: 0.7316232690784699, AUPR test all: 0.18044497997058584, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:13,238 INFO Epoch: 16, loss: 0.16830356419086456, labeled_loss: 0.34847691655158997, unnlabeled_loss: 0.03199414163827896, mixup_loss: -1.9617042541503906, energy_loss: 0.0
+2026-09-14 06:20:13,238 INFO Best AUROC test all: 0.7316232690784699, AUPR test all: 0.18369436643575865, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:14,517 INFO Epoch: 17, loss: 0.13658221065998077, labeled_loss: 0.3128105103969574, unnlabeled_loss: 0.04105614870786667, mixup_loss: -1.9675637483596802, energy_loss: 0.0
+2026-09-14 06:20:14,518 INFO Best AUROC test all: 0.7316232690784699, AUPR test all: 0.18369436643575865, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:16,217 INFO Epoch: 18, loss: 0.09303537011146545, labeled_loss: 0.26652613282203674, unnlabeled_loss: 0.04760880768299103, mixup_loss: -1.9729515314102173, energy_loss: 0.0
+2026-09-14 06:20:16,217 INFO Best AUROC test all: 0.7316232690784699, AUPR test all: 0.18524721432198438, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:17,468 INFO Epoch: 19, loss: 0.14859546720981598, labeled_loss: 0.3309244215488434, unnlabeled_loss: 0.030514076352119446, mixup_loss: -1.9758597612380981, energy_loss: 0.0
+2026-09-14 06:20:17,468 INFO Best AUROC test all: 0.7316232690784699, AUPR test all: 0.18524721432198438, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:18,691 INFO Epoch: 20, loss: 0.17184755206108093, labeled_loss: 0.3542683720588684, unnlabeled_loss: 0.031534940004348755, mixup_loss: -1.9818826913833618, energy_loss: 0.0
+2026-09-14 06:20:18,691 INFO Best AUROC test all: 0.7316232690784699, AUPR test all: 0.18524721432198438, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:19,935 INFO Epoch: 21, loss: 0.15626221895217896, labeled_loss: 0.3381129205226898, unnlabeled_loss: 0.03317143768072128, mixup_loss: -1.9843640327453613, energy_loss: 0.0
+2026-09-14 06:20:19,935 INFO Best AUROC test all: 0.7316232690784699, AUPR test all: 0.18524721432198438, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:21,170 INFO Epoch: 22, loss: 0.13851040601730347, labeled_loss: 0.3211183249950409, unnlabeled_loss: 0.032101232558488846, mixup_loss: -1.986585259437561, energy_loss: 0.0
+2026-09-14 06:20:21,170 INFO Best AUROC test all: 0.7316232690784699, AUPR test all: 0.18524721432198438, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:22,519 INFO Epoch: 23, loss: 0.1436481475830078, labeled_loss: 0.32065349817276, unnlabeled_loss: 0.043405041098594666, mixup_loss: -1.9870787858963013, energy_loss: 0.0
+2026-09-14 06:20:22,519 INFO Best AUROC test all: 0.7316232690784699, AUPR test all: 0.19107375333152143, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:24,189 INFO Epoch: 24, loss: 0.09462836384773254, labeled_loss: 0.2693515121936798, unnlabeled_loss: 0.048399653285741806, mixup_loss: -1.9892295598983765, energy_loss: 0.0
+2026-09-14 06:20:24,190 INFO Best AUROC test all: 0.7316232690784699, AUPR test all: 0.19720066680416912, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:25,753 INFO Epoch: 25, loss: 0.08476357161998749, labeled_loss: 0.2718297243118286, unnlabeled_loss: 0.023798558861017227, mixup_loss: -1.9896544218063354, energy_loss: 0.0
+2026-09-14 06:20:25,753 INFO Best AUROC test all: 0.7316232690784699, AUPR test all: 0.2004451643483499, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:26,999 INFO Epoch: 26, loss: 0.08712548017501831, labeled_loss: 0.27761948108673096, unnlabeled_loss: 0.0170449186116457, mixup_loss: -1.9901645183563232, energy_loss: 0.0
+2026-09-14 06:20:27,000 INFO Best AUROC test all: 0.7316232690784699, AUPR test all: 0.2004451643483499, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:28,231 INFO Epoch: 27, loss: 0.08068197965621948, labeled_loss: 0.27000927925109863, unnlabeled_loss: 0.019560154527425766, mixup_loss: -1.991073727607727, energy_loss: 0.0
+2026-09-14 06:20:28,231 INFO Best AUROC test all: 0.7316232690784699, AUPR test all: 0.2004451643483499, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:29,430 INFO Epoch: 28, loss: 0.09561476111412048, labeled_loss: 0.27687370777130127, unnlabeled_loss: 0.03582404553890228, mixup_loss: -1.9917097091674805, energy_loss: 0.0
+2026-09-14 06:20:29,431 INFO Best AUROC test all: 0.7316232690784699, AUPR test all: 0.2004451643483499, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:30,686 INFO Epoch: 29, loss: 0.10286396741867065, labeled_loss: 0.27802079916000366, unnlabeled_loss: 0.048051897436380386, mixup_loss: -1.9918277263641357, energy_loss: 0.0
+2026-09-14 06:20:30,686 INFO Best AUROC test all: 0.7316232690784699, AUPR test all: 0.2004451643483499, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:31,999 INFO Epoch: 30, loss: 0.10164722800254822, labeled_loss: 0.2776295244693756, unnlabeled_loss: 0.04637480154633522, mixup_loss: -1.9916969537734985, energy_loss: 0.0
+2026-09-14 06:20:31,999 INFO Best AUROC test all: 0.7316232690784699, AUPR test all: 0.2004451643483499, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:33,240 INFO Epoch: 31, loss: 0.09920448064804077, labeled_loss: 0.27439162135124207, unnlabeled_loss: 0.04799412935972214, mixup_loss: -1.9918420314788818, energy_loss: 0.0
+2026-09-14 06:20:33,240 INFO Best AUROC test all: 0.7316232690784699, AUPR test all: 0.2004451643483499, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:34,579 INFO Epoch: 32, loss: 0.10895431041717529, labeled_loss: 0.2876908779144287, unnlabeled_loss: 0.040815696120262146, mixup_loss: -1.9914442300796509, energy_loss: 0.0
+2026-09-14 06:20:34,580 INFO Best AUROC test all: 0.7316232690784699, AUPR test all: 0.2004451643483499, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:36,063 INFO Epoch: 33, loss: 0.09936422109603882, labeled_loss: 0.2755518853664398, unnlabeled_loss: 0.04597235843539238, mixup_loss: -1.9917383193969727, energy_loss: 0.0
+2026-09-14 06:20:36,063 INFO Best AUROC test all: 0.7316232690784699, AUPR test all: 0.2004451643483499, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:37,509 INFO Epoch: 34, loss: 0.07388459146022797, labeled_loss: 0.2505010664463043, unnlabeled_loss: 0.045141834765672684, mixup_loss: -1.991873860359192, energy_loss: 0.0
+2026-09-14 06:20:37,509 INFO Best AUROC test all: 0.7344091867004925, AUPR test all: 0.20213725113734085, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:38,831 INFO Epoch: 35, loss: 0.08280402421951294, labeled_loss: 0.26333099603652954, unnlabeled_loss: 0.03754359483718872, mixup_loss: -1.9929876327514648, energy_loss: 0.0
+2026-09-14 06:20:38,831 INFO Best AUROC test all: 0.7344091867004925, AUPR test all: 0.20213725113734085, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:40,113 INFO Epoch: 36, loss: 0.07847300171852112, labeled_loss: 0.26143690943717957, unnlabeled_loss: 0.03263839706778526, mixup_loss: -1.9928308725357056, energy_loss: 0.0
+2026-09-14 06:20:40,113 INFO Best AUROC test all: 0.7348647942615647, AUPR test all: 0.20213725113734085, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:41,365 INFO Epoch: 37, loss: 0.07111246883869171, labeled_loss: 0.2546185851097107, unnlabeled_loss: 0.031598739326000214, mixup_loss: -1.9930548667907715, energy_loss: 0.0
+2026-09-14 06:20:41,366 INFO Best AUROC test all: 0.7348647942615647, AUPR test all: 0.20213725113734085, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:42,640 INFO Epoch: 38, loss: 0.07851499319076538, labeled_loss: 0.26603901386260986, unnlabeled_loss: 0.023650256916880608, mixup_loss: -1.993491291999817, energy_loss: 0.0
+2026-09-14 06:20:42,640 INFO Best AUROC test all: 0.7348647942615647, AUPR test all: 0.20213725113734085, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:44,038 INFO Epoch: 39, loss: 0.09049130976200104, labeled_loss: 0.26396146416664124, unnlabeled_loss: 0.05182048678398132, mixup_loss: -1.9938037395477295, energy_loss: 0.0
+2026-09-14 06:20:44,038 INFO Best AUROC test all: 0.7348647942615647, AUPR test all: 0.20849575787102784, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:45,641 INFO Epoch: 40, loss: 0.103175088763237, labeled_loss: 0.2811489403247833, unnlabeled_loss: 0.042960744351148605, mixup_loss: -1.9945423603057861, energy_loss: 0.0
+2026-09-14 06:20:45,641 INFO Best AUROC test all: 0.7348647942615647, AUPR test all: 0.20849575787102784, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:47,143 INFO Epoch: 41, loss: 0.10707119107246399, labeled_loss: 0.2793833911418915, unnlabeled_loss: 0.054320842027664185, mixup_loss: -1.994726300239563, energy_loss: 0.0
+2026-09-14 06:20:47,143 INFO Best AUROC test all: 0.7348647942615647, AUPR test all: 0.20849575787102784, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:48,724 INFO Epoch: 42, loss: 0.09507742524147034, labeled_loss: 0.2734183073043823, unnlabeled_loss: 0.04233347624540329, mixup_loss: -1.9950761795043945, energy_loss: 0.0
+2026-09-14 06:20:48,725 INFO Best AUROC test all: 0.7348647942615647, AUPR test all: 0.20849575787102784, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:50,296 INFO Epoch: 43, loss: 0.08225156366825104, labeled_loss: 0.2630922496318817, unnlabeled_loss: 0.037403520196676254, mixup_loss: -1.995424509048462, energy_loss: 0.0
+2026-09-14 06:20:50,297 INFO Best AUROC test all: 0.7348647942615647, AUPR test all: 0.20849575787102784, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:51,839 INFO Epoch: 44, loss: 0.07461583614349365, labeled_loss: 0.25779062509536743, unnlabeled_loss: 0.03278202936053276, mixup_loss: -1.9956579208374023, energy_loss: 0.0
+2026-09-14 06:20:51,839 INFO Best AUROC test all: 0.7348647942615647, AUPR test all: 0.20849575787102784, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:53,399 INFO Epoch: 45, loss: 0.08165107667446136, labeled_loss: 0.2634716331958771, unnlabeled_loss: 0.03552889823913574, mixup_loss: -1.9958499670028687, energy_loss: 0.0
+2026-09-14 06:20:53,400 INFO Best AUROC test all: 0.7348647942615647, AUPR test all: 0.20849575787102784, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:55,000 INFO Epoch: 46, loss: 0.0636092871427536, labeled_loss: 0.2512384057044983, unnlabeled_loss: 0.024041125550866127, mixup_loss: -1.9964967966079712, energy_loss: 0.0
+2026-09-14 06:20:55,000 INFO Best AUROC test all: 0.7348647942615647, AUPR test all: 0.2108893939209231, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:56,482 INFO Epoch: 47, loss: 0.07818005979061127, labeled_loss: 0.2573479413986206, unnlabeled_loss: 0.040910545736551285, mixup_loss: -1.9962315559387207, energy_loss: 0.0
+2026-09-14 06:20:56,483 INFO Best AUROC test all: 0.7348647942615647, AUPR test all: 0.2108893939209231, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:57,799 INFO Epoch: 48, loss: 0.08018569648265839, labeled_loss: 0.2581811845302582, unnlabeled_loss: 0.04334944114089012, mixup_loss: -1.9967020750045776, energy_loss: 0.0
+2026-09-14 06:20:57,799 INFO Best AUROC test all: 0.7348647942615647, AUPR test all: 0.21188498617798573, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:20:59,092 INFO Epoch: 49, loss: 0.08762359619140625, labeled_loss: 0.26744237542152405, unnlabeled_loss: 0.039643410593271255, mixup_loss: -1.996404767036438, energy_loss: 0.0
+2026-09-14 06:20:59,092 INFO Best AUROC test all: 0.7364804586948509, AUPR test all: 0.21188498617798573, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:00,277 INFO Epoch: 50, loss: 0.07892295718193054, labeled_loss: 0.2541448175907135, unnlabeled_loss: 0.04883643239736557, mixup_loss: -1.9964005947113037, energy_loss: 0.0
+2026-09-14 06:21:00,277 INFO Best AUROC test all: 0.7364804586948509, AUPR test all: 0.21188498617798573, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:01,575 INFO Epoch: 51, loss: 0.08777296543121338, labeled_loss: 0.2575147747993469, unnlabeled_loss: 0.05986313149333, mixup_loss: -1.9967337846755981, energy_loss: 0.0
+2026-09-14 06:21:01,575 INFO Best AUROC test all: 0.7364804586948509, AUPR test all: 0.2177906710188182, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:03,071 INFO Epoch: 52, loss: 0.07485231757164001, labeled_loss: 0.25308021903038025, unnlabeled_loss: 0.04274164140224457, mixup_loss: -1.9959872961044312, energy_loss: 0.0
+2026-09-14 06:21:03,072 INFO Best AUROC test all: 0.7364804586948509, AUPR test all: 0.21968378875551503, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:04,440 INFO Epoch: 53, loss: 0.06995101273059845, labeled_loss: 0.2480294555425644, unnlabeled_loss: 0.04325605556368828, mixup_loss: -1.9970648288726807, energy_loss: 0.0
+2026-09-14 06:21:04,440 INFO Best AUROC test all: 0.7380131328556812, AUPR test all: 0.21968378875551503, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:05,927 INFO Epoch: 54, loss: 0.08366574347019196, labeled_loss: 0.2622145414352417, unnlabeled_loss: 0.042318928986787796, mixup_loss: -1.9970825910568237, energy_loss: 0.0
+2026-09-14 06:21:05,928 INFO Best AUROC test all: 0.7380131328556812, AUPR test all: 0.21968378875551503, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:07,241 INFO Epoch: 55, loss: 0.07385697960853577, labeled_loss: 0.25479957461357117, unnlabeled_loss: 0.03760915622115135, mixup_loss: -1.9974716901779175, energy_loss: 0.0
+2026-09-14 06:21:07,241 INFO Best AUROC test all: 0.7385576677849058, AUPR test all: 0.21968378875551503, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:08,491 INFO Epoch: 56, loss: 0.06828029453754425, labeled_loss: 0.24736598134040833, unnlabeled_loss: 0.041219718754291534, mixup_loss: -1.996955394744873, energy_loss: 0.0
+2026-09-14 06:21:08,491 INFO Best AUROC test all: 0.7385576677849058, AUPR test all: 0.21968378875551503, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:09,781 INFO Epoch: 57, loss: 0.08667640388011932, labeled_loss: 0.26213666796684265, unnlabeled_loss: 0.048506177961826324, mixup_loss: -1.9971336126327515, energy_loss: 0.0
+2026-09-14 06:21:09,781 INFO Best AUROC test all: 0.7394764978776174, AUPR test all: 0.22510613932557416, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:11,049 INFO Epoch: 58, loss: 0.07449544966220856, labeled_loss: 0.2550337612628937, unnlabeled_loss: 0.03836923465132713, mixup_loss: -1.9972293376922607, energy_loss: 0.0
+2026-09-14 06:21:11,049 INFO Best AUROC test all: 0.7412694362443688, AUPR test all: 0.22510613932557416, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:12,291 INFO Epoch: 59, loss: 0.05937772989273071, labeled_loss: 0.24018494784832, unnlabeled_loss: 0.03791111335158348, mixup_loss: -1.99762761592865, energy_loss: 0.0
+2026-09-14 06:21:12,292 INFO Best AUROC test all: 0.7412694362443688, AUPR test all: 0.23078919912951332, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:13,738 INFO Epoch: 60, loss: 0.07409264147281647, labeled_loss: 0.2537577450275421, unnlabeled_loss: 0.040006123483181, mixup_loss: -1.9966814517974854, energy_loss: 0.0
+2026-09-14 06:21:13,738 INFO Best AUROC test all: 0.7414494205910869, AUPR test all: 0.23488120510497115, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:15,261 INFO Epoch: 61, loss: 0.07923533022403717, labeled_loss: 0.2583644986152649, unnlabeled_loss: 0.04111682251095772, mixup_loss: -1.9968757629394531, energy_loss: 0.0
+2026-09-14 06:21:15,262 INFO Best AUROC test all: 0.7445336127382195, AUPR test all: 0.23488120510497115, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:16,680 INFO Epoch: 62, loss: 0.0703810304403305, labeled_loss: 0.2519108057022095, unnlabeled_loss: 0.036354124546051025, mixup_loss: -1.9970682859420776, energy_loss: 0.0
+2026-09-14 06:21:16,680 INFO Best AUROC test all: 0.7485263741278922, AUPR test all: 0.23488120510497115, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:18,317 INFO Epoch: 63, loss: 0.08035175502300262, labeled_loss: 0.2583773732185364, unnlabeled_loss: 0.04339536651968956, mixup_loss: -1.9972329139709473, energy_loss: 0.0
+2026-09-14 06:21:18,317 INFO Best AUROC test all: 0.7485263741278922, AUPR test all: 0.23665679153424501, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:19,934 INFO Epoch: 64, loss: 0.07087905704975128, labeled_loss: 0.25090843439102173, unnlabeled_loss: 0.0394304059445858, mixup_loss: -1.9974455833435059, energy_loss: 0.0
+2026-09-14 06:21:19,935 INFO Best AUROC test all: 0.7485263741278922, AUPR test all: 0.23805246489531484, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:21,281 INFO Epoch: 65, loss: 0.07821591198444366, labeled_loss: 0.2527439296245575, unnlabeled_loss: 0.05050470679998398, mixup_loss: -1.9978035688400269, energy_loss: 0.0
+2026-09-14 06:21:21,281 INFO Best AUROC test all: 0.7485263741278922, AUPR test all: 0.23805246489531484, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:22,475 INFO Epoch: 66, loss: 0.08065949380397797, labeled_loss: 0.2578490972518921, unnlabeled_loss: 0.04506048187613487, mixup_loss: -1.997198224067688, energy_loss: 0.0
+2026-09-14 06:21:22,475 INFO Best AUROC test all: 0.7495264520845402, AUPR test all: 0.24643939029637396, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:23,740 INFO Epoch: 67, loss: 0.08320200443267822, labeled_loss: 0.2582048177719116, unnlabeled_loss: 0.04958522319793701, mixup_loss: -1.997954249382019, energy_loss: 0.0
+2026-09-14 06:21:23,740 INFO Best AUROC test all: 0.7495264520845402, AUPR test all: 0.2464875263176191, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:25,014 INFO Epoch: 68, loss: 0.07811696827411652, labeled_loss: 0.2525182068347931, unnlabeled_loss: 0.050853196531534195, mixup_loss: -1.998278260231018, energy_loss: 0.0
+2026-09-14 06:21:25,014 INFO Best AUROC test all: 0.7495264520845402, AUPR test all: 0.24654556638130215, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:26,309 INFO Epoch: 69, loss: 0.06404310464859009, labeled_loss: 0.24287018179893494, unnlabeled_loss: 0.041855569928884506, mixup_loss: -1.9975485801696777, energy_loss: 0.0
+2026-09-14 06:21:26,309 INFO Best AUROC test all: 0.7499218497512099, AUPR test all: 0.24654556638130215, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:27,627 INFO Epoch: 70, loss: 0.07413157820701599, labeled_loss: 0.2511991262435913, unnlabeled_loss: 0.045437924563884735, mixup_loss: -1.997865080833435, energy_loss: 0.0
+2026-09-14 06:21:27,627 INFO Best AUROC test all: 0.7558800479510824, AUPR test all: 0.2598989924249832, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:28,897 INFO Epoch: 71, loss: 0.07381786406040192, labeled_loss: 0.25214922428131104, unnlabeled_loss: 0.04295479133725166, mixup_loss: -1.9980876445770264, energy_loss: 0.0
+2026-09-14 06:21:28,897 INFO Best AUROC test all: 0.7558800479510824, AUPR test all: 0.2598989924249832, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:30,208 INFO Epoch: 72, loss: 0.06679506599903107, labeled_loss: 0.2442135065793991, unnlabeled_loss: 0.04470524564385414, mixup_loss: -1.9977105855941772, energy_loss: 0.0
+2026-09-14 06:21:30,208 INFO Best AUROC test all: 0.7566432228827026, AUPR test all: 0.2658652126084611, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:31,496 INFO Epoch: 73, loss: 0.07115067541599274, labeled_loss: 0.25075793266296387, unnlabeled_loss: 0.04045641049742699, mixup_loss: -1.9983546733856201, energy_loss: 0.0
+2026-09-14 06:21:31,496 INFO Best AUROC test all: 0.7566432228827026, AUPR test all: 0.2791091071215309, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:32,771 INFO Epoch: 74, loss: 0.06350962817668915, labeled_loss: 0.23821422457695007, unnlabeled_loss: 0.05009306222200394, mixup_loss: -1.9975112676620483, energy_loss: 0.0
+2026-09-14 06:21:32,771 INFO Best AUROC test all: 0.7618312119832275, AUPR test all: 0.27943041079691144, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:34,314 INFO Epoch: 75, loss: 0.06939686834812164, labeled_loss: 0.24670591950416565, unnlabeled_loss: 0.04495374485850334, mixup_loss: -1.997859239578247, energy_loss: 0.0
+2026-09-14 06:21:34,314 INFO Best AUROC test all: 0.763511216464444, AUPR test all: 0.28238387550526656, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:35,848 INFO Epoch: 76, loss: 0.07586298882961273, labeled_loss: 0.2502852976322174, unnlabeled_loss: 0.050796620547771454, mixup_loss: -1.9982062578201294, energy_loss: 0.0
+2026-09-14 06:21:35,848 INFO Best AUROC test all: 0.7697449733450217, AUPR test all: 0.3097431050127263, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:37,313 INFO Epoch: 77, loss: 0.07023799419403076, labeled_loss: 0.24284061789512634, unnlabeled_loss: 0.05441117659211159, mixup_loss: -1.9980820417404175, energy_loss: 0.0
+2026-09-14 06:21:37,313 INFO Best AUROC test all: 0.7715219719005004, AUPR test all: 0.3135801446357489, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:38,911 INFO Epoch: 78, loss: 0.06555981934070587, labeled_loss: 0.24289731681346893, unnlabeled_loss: 0.04487072303891182, mixup_loss: -1.9977284669876099, energy_loss: 0.0
+2026-09-14 06:21:38,911 INFO Best AUROC test all: 0.7784841200759536, AUPR test all: 0.3231144885534076, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:40,433 INFO Epoch: 79, loss: 0.06321476399898529, labeled_loss: 0.24392716586589813, unnlabeled_loss: 0.03811123967170715, mixup_loss: -1.9976801872253418, energy_loss: 0.0
+2026-09-14 06:21:40,433 INFO Best AUROC test all: 0.7784841200759536, AUPR test all: 0.32330637837233017, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:41,699 INFO Epoch: 80, loss: 0.06779573857784271, labeled_loss: 0.24757567048072815, unnlabeled_loss: 0.04007432609796524, mixup_loss: -1.9981709718704224, energy_loss: 0.0
+2026-09-14 06:21:41,699 INFO Best AUROC test all: 0.7836168683730396, AUPR test all: 0.3444966469268222, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:42,953 INFO Epoch: 81, loss: 0.06406132876873016, labeled_loss: 0.23946066200733185, unnlabeled_loss: 0.04877322167158127, mixup_loss: -1.997859239578247, energy_loss: 0.0
+2026-09-14 06:21:42,953 INFO Best AUROC test all: 0.7836168683730396, AUPR test all: 0.3444966469268222, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:44,331 INFO Epoch: 82, loss: 0.06174042820930481, labeled_loss: 0.2371528148651123, unnlabeled_loss: 0.04879974573850632, mixup_loss: -1.9981225728988647, energy_loss: 0.0
+2026-09-14 06:21:44,331 INFO Best AUROC test all: 0.7836168683730396, AUPR test all: 0.3444966469268222, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:46,006 INFO Epoch: 83, loss: 0.06376989185810089, labeled_loss: 0.24013517796993256, unnlabeled_loss: 0.04689662903547287, mixup_loss: -1.9981358051300049, energy_loss: 0.0
+2026-09-14 06:21:46,006 INFO Best AUROC test all: 0.7865963869416935, AUPR test all: 0.3531909643637099, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:47,431 INFO Epoch: 84, loss: 0.0663587749004364, labeled_loss: 0.2429003119468689, unnlabeled_loss: 0.046468544751405716, mixup_loss: -1.997758150100708, energy_loss: 0.0
+2026-09-14 06:21:47,431 INFO Best AUROC test all: 0.789196189520355, AUPR test all: 0.36296506738149703, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:48,917 INFO Epoch: 85, loss: 0.06499351561069489, labeled_loss: 0.23782917857170105, unnlabeled_loss: 0.05390910431742668, mixup_loss: -1.997902274131775, energy_loss: 0.0
+2026-09-14 06:21:48,918 INFO Best AUROC test all: 0.790174648704629, AUPR test all: 0.3823581747830805, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:50,484 INFO Epoch: 86, loss: 0.06106056272983551, labeled_loss: 0.23549124598503113, unnlabeled_loss: 0.05062085762619972, mixup_loss: -1.9974111318588257, energy_loss: 0.0
+2026-09-14 06:21:50,484 INFO Best AUROC test all: 0.7926136979639375, AUPR test all: 0.38316343736880976, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:51,961 INFO Epoch: 87, loss: 0.05108575522899628, labeled_loss: 0.232329323887825, unnlabeled_loss: 0.037064000964164734, mixup_loss: -1.997755527496338, energy_loss: 0.0
+2026-09-14 06:21:51,961 INFO Best AUROC test all: 0.798978845353629, AUPR test all: 0.39389994239694837, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:53,430 INFO Epoch: 88, loss: 0.059378206729888916, labeled_loss: 0.24047265946865082, unnlabeled_loss: 0.037388451397418976, mixup_loss: -1.9978868961334229, energy_loss: 0.0
+2026-09-14 06:21:53,430 INFO Best AUROC test all: 0.798978845353629, AUPR test all: 0.4037311955643338, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:54,843 INFO Epoch: 89, loss: 0.05948418378829956, labeled_loss: 0.23575152456760406, unnlabeled_loss: 0.04674491286277771, mixup_loss: -1.9963979721069336, energy_loss: 0.0
+2026-09-14 06:21:54,843 INFO Best AUROC test all: 0.811280120435277, AUPR test all: 0.43080468761096563, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:56,085 INFO Epoch: 90, loss: 0.05674810707569122, labeled_loss: 0.2314605712890625, unnlabeled_loss: 0.05017266049981117, mixup_loss: -1.997987985610962, energy_loss: 0.0
+2026-09-14 06:21:56,085 INFO Best AUROC test all: 0.8154590614019599, AUPR test all: 0.45958255128683084, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:57,376 INFO Epoch: 91, loss: 0.04262755811214447, labeled_loss: 0.21825379133224487, unnlabeled_loss: 0.048216115683317184, mixup_loss: -1.997342824935913, energy_loss: 0.0
+2026-09-14 06:21:57,376 INFO Best AUROC test all: 0.8232302033997358, AUPR test all: 0.4619244101023567, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:58,600 INFO Epoch: 92, loss: 0.06187494099140167, labeled_loss: 0.23429720103740692, unnlabeled_loss: 0.05468408763408661, mixup_loss: -1.997642993927002, energy_loss: 0.0
+2026-09-14 06:21:58,600 INFO Best AUROC test all: 0.8261441557811309, AUPR test all: 0.4908239823807142, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:21:59,842 INFO Epoch: 93, loss: 0.04722940921783447, labeled_loss: 0.22760562598705292, unnlabeled_loss: 0.03880041837692261, mixup_loss: -1.997764229774475, energy_loss: 0.0
+2026-09-14 06:21:59,843 INFO Best AUROC test all: 0.8261441557811309, AUPR test all: 0.503178704601882, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:22:01,136 INFO Epoch: 94, loss: 0.03754505515098572, labeled_loss: 0.22010259330272675, unnlabeled_loss: 0.03448592126369476, mixup_loss: -1.9980049133300781, energy_loss: 0.0
+2026-09-14 06:22:01,136 INFO Best AUROC test all: 0.8317037941655385, AUPR test all: 0.5179461235800804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:22:02,390 INFO Epoch: 95, loss: 0.048246607184410095, labeled_loss: 0.22145335376262665, unnlabeled_loss: 0.05296952277421951, mixup_loss: -1.9969149827957153, energy_loss: 0.0
+2026-09-14 06:22:02,390 INFO Best AUROC test all: 0.8321299098490739, AUPR test all: 0.5188051181263683, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:22:03,655 INFO Epoch: 96, loss: 0.04858660697937012, labeled_loss: 0.22238749265670776, unnlabeled_loss: 0.05191624164581299, mixup_loss: -1.9975900650024414, energy_loss: 0.0
+2026-09-14 06:22:03,655 INFO Best AUROC test all: 0.8323138307483734, AUPR test all: 0.5346950290253013, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:22:05,110 INFO Epoch: 97, loss: 0.042306602001190186, labeled_loss: 0.22298847138881683, unnlabeled_loss: 0.03813260421156883, mixup_loss: -1.9974817037582397, energy_loss: 0.0
+2026-09-14 06:22:05,110 INFO Best AUROC test all: 0.843294102037508, AUPR test all: 0.5700641652767143, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:22:06,579 INFO Epoch: 98, loss: 0.0479169636964798, labeled_loss: 0.22097185254096985, unnlabeled_loss: 0.05340063199400902, mixup_loss: -1.9975520372390747, energy_loss: 0.0
+2026-09-14 06:22:06,579 INFO Best AUROC test all: 0.843294102037508, AUPR test all: 0.5813046936097417, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:22:08,074 INFO Epoch: 99, loss: 0.041390299797058105, labeled_loss: 0.21433870494365692, unnlabeled_loss: 0.05359191074967384, mixup_loss: -1.9974435567855835, energy_loss: 0.0
+2026-09-14 06:22:08,074 INFO Best AUROC test all: 0.8469385753241913, AUPR test all: 0.5892281772499808, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:22:09,546 INFO Epoch: 100, loss: 0.013868957757949829, labeled_loss: 0.19156411290168762, unnlabeled_loss: 0.044123731553554535, mixup_loss: -1.9975701570510864, energy_loss: 0.0
+2026-09-14 06:22:09,546 INFO Best AUROC test all: 0.8469385753241913, AUPR test all: 0.5914280877180846, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:22:11,026 INFO Epoch: 101, loss: 0.03168031573295593, labeled_loss: 0.2089555412530899, unnlabeled_loss: 0.045002587139606476, mixup_loss: -1.997765064239502, energy_loss: 0.0
+2026-09-14 06:22:11,026 INFO Best AUROC test all: 0.8519898821563945, AUPR test all: 0.6151955239412874, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:22:12,514 INFO Epoch: 102, loss: 0.02477838099002838, labeled_loss: 0.19941627979278564, unnlabeled_loss: 0.05021810531616211, mixup_loss: -1.997469425201416, energy_loss: 0.0
+2026-09-14 06:22:12,514 INFO Best AUROC test all: 0.857676200093548, AUPR test all: 0.6497264564598675, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:22:13,738 INFO Epoch: 103, loss: 0.00964459776878357, labeled_loss: 0.1854705512523651, unnlabeled_loss: 0.04785614088177681, mixup_loss: -1.9975402355194092, energy_loss: 0.0
+2026-09-14 06:22:13,738 INFO Best AUROC test all: 0.857676200093548, AUPR test all: 0.6497264564598675, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:22:15,156 INFO Epoch: 104, loss: 0.012187361717224121, labeled_loss: 0.19038820266723633, unnlabeled_loss: 0.04305261746048927, mixup_loss: -1.9972714185714722, energy_loss: 0.0
+2026-09-14 06:22:15,156 INFO Best AUROC test all: 0.857676200093548, AUPR test all: 0.6497264564598675, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:22:16,760 INFO Epoch: 105, loss: 0.01469738781452179, labeled_loss: 0.1887488216161728, unnlabeled_loss: 0.05138858035206795, mixup_loss: -1.9974572658538818, energy_loss: 0.0
+2026-09-14 06:22:16,760 INFO Best AUROC test all: 0.8647814839022103, AUPR test all: 0.6649725734945117, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:22:18,382 INFO Epoch: 106, loss: 0.014525234699249268, labeled_loss: 0.18637031316757202, unnlabeled_loss: 0.055788759142160416, mixup_loss: -1.9973945617675781, energy_loss: 0.0
+2026-09-14 06:22:18,383 INFO Best AUROC test all: 0.8770951494444427, AUPR test all: 0.6926500628617314, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:22:20,104 INFO Epoch: 107, loss: 0.0077656954526901245, labeled_loss: 0.17948833107948303, unnlabeled_loss: 0.056091662496328354, mixup_loss: -1.9976845979690552, energy_loss: 0.0
+2026-09-14 06:22:20,104 INFO Best AUROC test all: 0.8832326866545448, AUPR test all: 0.7019730381090479, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:22:21,574 INFO Epoch: 108, loss: -0.020402267575263977, labeled_loss: 0.15946516394615173, unnlabeled_loss: 0.039761874824762344, mixup_loss: -1.9974836111068726, energy_loss: 0.0
+2026-09-14 06:22:21,575 INFO Best AUROC test all: 0.8832326866545448, AUPR test all: 0.7019730381090479, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:22:23,092 INFO Epoch: 109, loss: -0.022649988532066345, labeled_loss: 0.1539577841758728, unnlabeled_loss: 0.04629804193973541, mixup_loss: -1.997567892074585, energy_loss: 0.0
+2026-09-14 06:22:23,092 INFO Best AUROC test all: 0.8832326866545448, AUPR test all: 0.7019730381090479, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:22:24,395 INFO Epoch: 110, loss: -0.007914707064628601, labeled_loss: 0.17426177859306335, unnlabeled_loss: 0.03516943007707596, mixup_loss: -1.9976119995117188, energy_loss: 0.0
+2026-09-14 06:22:24,395 INFO Best AUROC test all: 0.8876891223113991, AUPR test all: 0.7224318241591432, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:22:25,901 INFO Epoch: 111, loss: -0.0018065869808197021, labeled_loss: 0.17603926360607147, unnlabeled_loss: 0.0438513346016407, mixup_loss: -1.9977152347564697, energy_loss: 0.0
+2026-09-14 06:22:25,901 INFO Best AUROC test all: 0.8876891223113991, AUPR test all: 0.7224318241591432, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:22:27,353 INFO Epoch: 112, loss: -0.01394382119178772, labeled_loss: 0.16469769179821014, unnlabeled_loss: 0.04228626564145088, mixup_loss: -1.9978464841842651, energy_loss: 0.0
+2026-09-14 06:22:27,353 INFO Best AUROC test all: 0.9037488371036473, AUPR test all: 0.7406377787084555, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:22:28,861 INFO Epoch: 113, loss: -0.018321320414543152, labeled_loss: 0.16198623180389404, unnlabeled_loss: 0.038952525705099106, mixup_loss: -1.9978381395339966, energy_loss: 0.0
+2026-09-14 06:22:28,861 INFO Best AUROC test all: 0.9101419275633024, AUPR test all: 0.7456747812188366, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:22:30,095 INFO Epoch: 114, loss: -0.031185254454612732, labeled_loss: 0.147352397441864, unnlabeled_loss: 0.042397432029247284, mixup_loss: -1.9973636865615845, energy_loss: 0.0
+2026-09-14 06:22:30,095 INFO Best AUROC test all: 0.9101880045886006, AUPR test all: 0.7476706812915469, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:22:31,359 INFO Epoch: 115, loss: -0.016739770770072937, labeled_loss: 0.16198121011257172, unnlabeled_loss: 0.04207499325275421, mixup_loss: -1.9975848197937012, energy_loss: 0.0
+2026-09-14 06:22:31,359 INFO Best AUROC test all: 0.9181100907910998, AUPR test all: 0.756715053311225, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:22:32,809 INFO Epoch: 116, loss: -3.0308961868286133e-05, labeled_loss: 0.17838819324970245, unnlabeled_loss: 0.04261798411607742, mixup_loss: -1.9972748756408691, energy_loss: 0.0
+2026-09-14 06:22:32,809 INFO Best AUROC test all: 0.9216064593536103, AUPR test all: 0.7641154597886406, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:22:34,309 INFO Epoch: 117, loss: -0.0026324689388275146, labeled_loss: 0.16778425872325897, unnlabeled_loss: 0.058736272156238556, mixup_loss: -1.9978485107421875, energy_loss: 0.0
+2026-09-14 06:22:34,309 INFO Best AUROC test all: 0.9216064593536103, AUPR test all: 0.7641154597886406, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:22:35,615 INFO Epoch: 118, loss: 0.09302671253681183, labeled_loss: 0.28565847873687744, unnlabeled_loss: 0.01425873301923275, mixup_loss: -1.997611403465271, energy_loss: 0.0
+2026-09-14 06:22:35,615 INFO Best AUROC test all: 0.9216064593536103, AUPR test all: 0.7641154597886406, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:22:36,858 INFO Epoch: 119, loss: 0.056581318378448486, labeled_loss: 0.24767601490020752, unnlabeled_loss: 0.01718723587691784, mixup_loss: -1.9968831539154053, energy_loss: 0.0
+2026-09-14 06:22:36,858 INFO Best AUROC test all: 0.9216064593536103, AUPR test all: 0.7641154597886406, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:22:38,203 INFO Epoch: 120, loss: -0.02086295187473297, labeled_loss: 0.15693028271198273, unnlabeled_loss: 0.04367288947105408, mixup_loss: -1.996296763420105, energy_loss: 0.0
+2026-09-14 06:22:38,204 INFO Best AUROC test all: 0.9216064593536103, AUPR test all: 0.7641154597886406, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:22:39,479 INFO Epoch: 121, loss: 0.12094765901565552, labeled_loss: 0.2858014702796936, unnlabeled_loss: 0.06972306966781616, mixup_loss: -1.997153401374817, energy_loss: 0.0
+2026-09-14 06:22:39,479 INFO Best AUROC test all: 0.9216064593536103, AUPR test all: 0.7641154597886406, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:22:40,790 INFO Epoch: 122, loss: 0.019371747970581055, labeled_loss: 0.20320852100849152, unnlabeled_loss: 0.03178295120596886, mixup_loss: -1.9972825050354004, energy_loss: 0.0
+2026-09-14 06:22:40,791 INFO Best AUROC test all: 0.9216064593536103, AUPR test all: 0.7641154597886406, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:22:42,153 INFO Epoch: 123, loss: 0.08689984679222107, labeled_loss: 0.27795571088790894, unnlabeled_loss: 0.017230413854122162, mixup_loss: -1.9967105388641357, energy_loss: 0.0
+2026-09-14 06:22:42,153 INFO Best AUROC test all: 0.9216064593536103, AUPR test all: 0.7641154597886406, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:22:43,492 INFO Epoch: 124, loss: 0.08469228446483612, labeled_loss: 0.27781203389167786, unnlabeled_loss: 0.013145624659955502, mixup_loss: -1.9969255924224854, energy_loss: 0.0
+2026-09-14 06:22:43,492 INFO Best AUROC test all: 0.9216064593536103, AUPR test all: 0.7641154597886406, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:22:44,776 INFO Epoch: 125, loss: 0.015133291482925415, labeled_loss: 0.2040008306503296, unnlabeled_loss: 0.021678730845451355, mixup_loss: -1.9970691204071045, energy_loss: 0.0
+2026-09-14 06:22:44,776 INFO Best AUROC test all: 0.9216064593536103, AUPR test all: 0.7758216680303403, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:22:46,056 INFO Epoch: 126, loss: -0.02224251627922058, labeled_loss: 0.15289102494716644, unnlabeled_loss: 0.04907519742846489, mixup_loss: -1.9967113733291626, energy_loss: 0.0
+2026-09-14 06:22:46,056 INFO Best AUROC test all: 0.9216064593536103, AUPR test all: 0.7758216680303403, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:22:47,534 INFO Epoch: 127, loss: 0.03065676987171173, labeled_loss: 0.2057165950536728, unnlabeled_loss: 0.04916762560606003, mixup_loss: -1.996436357498169, energy_loss: 0.0
+2026-09-14 06:22:47,534 INFO Best AUROC test all: 0.9217164246912968, AUPR test all: 0.7794453470309377, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:22:49,023 INFO Epoch: 128, loss: 0.004574328660964966, labeled_loss: 0.1783701330423355, unnlabeled_loss: 0.051721781492233276, mixup_loss: -1.996566891670227, energy_loss: 0.0
+2026-09-14 06:22:49,023 INFO Best AUROC test all: 0.9217164246912968, AUPR test all: 0.7794453470309377, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:22:50,579 INFO Epoch: 129, loss: -0.013568505644798279, labeled_loss: 0.16511084139347076, unnlabeled_loss: 0.04191264137625694, mixup_loss: -1.9963566064834595, energy_loss: 0.0
+2026-09-14 06:22:50,579 INFO Best AUROC test all: 0.9217164246912968, AUPR test all: 0.7794453470309377, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:22:52,236 INFO Epoch: 130, loss: -0.025703325867652893, labeled_loss: 0.15706974267959595, unnlabeled_loss: 0.03370429947972298, mixup_loss: -1.996252179145813, energy_loss: 0.0
+2026-09-14 06:22:52,236 INFO Best AUROC test all: 0.9217164246912968, AUPR test all: 0.7794453470309377, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:22:54,070 INFO Epoch: 131, loss: 0.008845046162605286, labeled_loss: 0.19249893724918365, unnlabeled_loss: 0.03204723820090294, mixup_loss: -1.9967750310897827, energy_loss: 0.0
+2026-09-14 06:22:54,070 INFO Best AUROC test all: 0.9217164246912968, AUPR test all: 0.7794453470309377, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:22:55,777 INFO Epoch: 132, loss: -0.011311158537864685, labeled_loss: 0.17475561797618866, unnlabeled_loss: 0.027108944952487946, mixup_loss: -1.9962124824523926, energy_loss: 0.0
+2026-09-14 06:22:55,778 INFO Best AUROC test all: 0.9217164246912968, AUPR test all: 0.7794453470309377, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:22:57,363 INFO Epoch: 133, loss: -0.008425682783126831, labeled_loss: 0.1767718642950058, unnlabeled_loss: 0.028953496366739273, mixup_loss: -1.9967429637908936, energy_loss: 0.0
+2026-09-14 06:22:57,364 INFO Best AUROC test all: 0.9217164246912968, AUPR test all: 0.7794453470309377, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:22:58,964 INFO Epoch: 134, loss: -0.025892093777656555, labeled_loss: 0.15718528628349304, unnlabeled_loss: 0.03305469825863838, mixup_loss: -1.9960473775863647, energy_loss: 0.0
+2026-09-14 06:22:58,965 INFO Best AUROC test all: 0.9342762215703462, AUPR test all: 0.7842489009679979, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:00,504 INFO Epoch: 135, loss: -0.03171722590923309, labeled_loss: 0.1446223258972168, unnlabeled_loss: 0.04664422571659088, mixup_loss: -1.9966164827346802, energy_loss: 0.0
+2026-09-14 06:23:00,505 INFO Best AUROC test all: 0.9355716700379044, AUPR test all: 0.7842489009679979, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:02,215 INFO Epoch: 136, loss: -0.02373683452606201, labeled_loss: 0.15047991275787354, unnlabeled_loss: 0.05087241157889366, mixup_loss: -1.996529459953308, energy_loss: 0.0
+2026-09-14 06:23:02,216 INFO Best AUROC test all: 0.9358036685056175, AUPR test all: 0.7910873477957915, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:03,782 INFO Epoch: 137, loss: -0.008444681763648987, labeled_loss: 0.1625891774892807, unnlabeled_loss: 0.057192638516426086, mixup_loss: -1.9963017702102661, energy_loss: 0.0
+2026-09-14 06:23:03,782 INFO Best AUROC test all: 0.9358036685056175, AUPR test all: 0.7910873477957915, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:05,330 INFO Epoch: 138, loss: -0.02534767985343933, labeled_loss: 0.15063951909542084, unnlabeled_loss: 0.04734453558921814, mixup_loss: -1.9965946674346924, energy_loss: 0.0
+2026-09-14 06:23:05,331 INFO Best AUROC test all: 0.9358036685056175, AUPR test all: 0.7910873477957915, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:06,788 INFO Epoch: 139, loss: -0.02134650945663452, labeled_loss: 0.15677739679813385, unnlabeled_loss: 0.043064165860414505, mixup_loss: -1.9965598583221436, energy_loss: 0.0
+2026-09-14 06:23:06,788 INFO Best AUROC test all: 0.9358036685056175, AUPR test all: 0.7910873477957915, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:08,111 INFO Epoch: 140, loss: -0.03930741548538208, labeled_loss: 0.14253295958042145, unnlabeled_loss: 0.03566715866327286, mixup_loss: -1.9967395067214966, energy_loss: 0.0
+2026-09-14 06:23:08,112 INFO Best AUROC test all: 0.9358036685056175, AUPR test all: 0.7910873477957915, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:09,431 INFO Epoch: 141, loss: -0.024654507637023926, labeled_loss: 0.15231114625930786, unnlabeled_loss: 0.04536734148859978, mixup_loss: -1.9964931011199951, energy_loss: 0.0
+2026-09-14 06:23:09,431 INFO Best AUROC test all: 0.9358036685056175, AUPR test all: 0.7910873477957915, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:10,671 INFO Epoch: 142, loss: -0.023889631032943726, labeled_loss: 0.1554812490940094, unnlabeled_loss: 0.04049169272184372, mixup_loss: -1.9961673021316528, energy_loss: 0.0
+2026-09-14 06:23:10,671 INFO Best AUROC test all: 0.9358036685056175, AUPR test all: 0.7910873477957915, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:12,050 INFO Epoch: 143, loss: -0.023755446076393127, labeled_loss: 0.15096794068813324, unnlabeled_loss: 0.04977424815297127, mixup_loss: -1.9961051940917969, energy_loss: 0.0
+2026-09-14 06:23:12,050 INFO Best AUROC test all: 0.9358450345745478, AUPR test all: 0.7910873477957915, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:13,426 INFO Epoch: 144, loss: -0.044272348284721375, labeled_loss: 0.12984919548034668, unnlabeled_loss: 0.05108895152807236, mixup_loss: -1.9966602325439453, energy_loss: 0.0
+2026-09-14 06:23:13,426 INFO Best AUROC test all: 0.9358450345745478, AUPR test all: 0.7910873477957915, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:14,708 INFO Epoch: 145, loss: -0.03796510398387909, labeled_loss: 0.13454556465148926, unnlabeled_loss: 0.054254405200481415, mixup_loss: -1.9963786602020264, energy_loss: 0.0
+2026-09-14 06:23:14,709 INFO Best AUROC test all: 0.937309948404057, AUPR test all: 0.7910873477957915, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:15,984 INFO Epoch: 146, loss: -0.04486545920372009, labeled_loss: 0.12737195193767548, unnlabeled_loss: 0.05487298592925072, mixup_loss: -1.9967390298843384, energy_loss: 0.0
+2026-09-14 06:23:15,984 INFO Best AUROC test all: 0.937309948404057, AUPR test all: 0.7910873477957915, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:17,246 INFO Epoch: 147, loss: -0.04496714472770691, labeled_loss: 0.1281706839799881, unnlabeled_loss: 0.053060345351696014, mixup_loss: -1.9966800212860107, energy_loss: 0.0
+2026-09-14 06:23:17,246 INFO Best AUROC test all: 0.937309948404057, AUPR test all: 0.7910873477957915, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:18,449 INFO Epoch: 148, loss: -0.046621546149253845, labeled_loss: 0.12933671474456787, unnlabeled_loss: 0.047440893948078156, mixup_loss: -1.9967869520187378, energy_loss: 0.0
+2026-09-14 06:23:18,449 INFO Best AUROC test all: 0.937309948404057, AUPR test all: 0.7910873477957915, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:19,893 INFO Epoch: 149, loss: -0.04251691699028015, labeled_loss: 0.13713215291500092, unnlabeled_loss: 0.04015453904867172, mixup_loss: -1.9972634315490723, energy_loss: 0.0
+2026-09-14 06:23:19,893 INFO Best AUROC test all: 0.937309948404057, AUPR test all: 0.7910873477957915, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:21,403 INFO Epoch: 150, loss: -0.05280490219593048, labeled_loss: 0.12760740518569946, unnlabeled_loss: 0.03855891153216362, mixup_loss: -1.9969176054000854, energy_loss: 0.0
+2026-09-14 06:23:21,403 INFO Best AUROC test all: 0.937309948404057, AUPR test all: 0.7910873477957915, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:23,112 INFO Epoch: 151, loss: -0.028157100081443787, labeled_loss: 0.1456165611743927, unnlabeled_loss: 0.0518634207546711, mixup_loss: -1.9970537424087524, energy_loss: 0.0
+2026-09-14 06:23:23,113 INFO Best AUROC test all: 0.937309948404057, AUPR test all: 0.7910873477957915, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:24,723 INFO Epoch: 152, loss: -0.058306947350502014, labeled_loss: 0.11942193657159805, unnlabeled_loss: 0.04394040256738663, mixup_loss: -1.9969909191131592, energy_loss: 0.0
+2026-09-14 06:23:24,723 INFO Best AUROC test all: 0.937309948404057, AUPR test all: 0.7910873477957915, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:26,206 INFO Epoch: 153, loss: -0.056593120098114014, labeled_loss: 0.11865624785423279, unnlabeled_loss: 0.048897989094257355, mixup_loss: -1.996983528137207, energy_loss: 0.0
+2026-09-14 06:23:26,206 INFO Best AUROC test all: 0.937309948404057, AUPR test all: 0.7910873477957915, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:27,753 INFO Epoch: 154, loss: -0.0452343225479126, labeled_loss: 0.12597492337226868, unnlabeled_loss: 0.05702132359147072, mixup_loss: -1.9971990585327148, energy_loss: 0.0
+2026-09-14 06:23:27,753 INFO Best AUROC test all: 0.937309948404057, AUPR test all: 0.7910873477957915, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:29,273 INFO Epoch: 155, loss: -0.04806436598300934, labeled_loss: 0.1238047331571579, unnlabeled_loss: 0.0557064451277256, mixup_loss: -1.997223138809204, energy_loss: 0.0
+2026-09-14 06:23:29,274 INFO Best AUROC test all: 0.943627018225335, AUPR test all: 0.7984694945365924, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:30,836 INFO Epoch: 156, loss: -0.041951850056648254, labeled_loss: 0.13670143485069275, unnlabeled_loss: 0.042201753705739975, mixup_loss: -1.9975416660308838, energy_loss: 0.0
+2026-09-14 06:23:30,837 INFO Best AUROC test all: 0.943627018225335, AUPR test all: 0.7984694945365924, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:32,337 INFO Epoch: 157, loss: -0.04056170582771301, labeled_loss: 0.14368635416030884, unnlabeled_loss: 0.030937818810343742, mixup_loss: -1.9971697330474854, energy_loss: 0.0
+2026-09-14 06:23:32,337 INFO Best AUROC test all: 0.943627018225335, AUPR test all: 0.79874709578051, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:33,832 INFO Epoch: 158, loss: -0.05652700364589691, labeled_loss: 0.11451049149036407, unnlabeled_loss: 0.057347316294908524, mixup_loss: -1.9971115589141846, energy_loss: 0.0
+2026-09-14 06:23:33,832 INFO Best AUROC test all: 0.943627018225335, AUPR test all: 0.79874709578051, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:35,315 INFO Epoch: 159, loss: -0.04395781457424164, labeled_loss: 0.1281975656747818, unnlabeled_loss: 0.055101264268159866, mixup_loss: -1.9970601797103882, energy_loss: 0.0
+2026-09-14 06:23:35,316 INFO Best AUROC test all: 0.943627018225335, AUPR test all: 0.79874709578051, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:36,932 INFO Epoch: 160, loss: -0.034563302993774414, labeled_loss: 0.13370171189308167, unnlabeled_loss: 0.06287694722414017, mixup_loss: -1.9970347881317139, energy_loss: 0.0
+2026-09-14 06:23:36,932 INFO Best AUROC test all: 0.943627018225335, AUPR test all: 0.79874709578051, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:38,471 INFO Epoch: 161, loss: -0.05472683906555176, labeled_loss: 0.12099671363830566, unnlabeled_loss: 0.047901593148708344, mixup_loss: -1.9967435598373413, energy_loss: 0.0
+2026-09-14 06:23:38,471 INFO Best AUROC test all: 0.943627018225335, AUPR test all: 0.8044824703866439, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:39,934 INFO Epoch: 162, loss: -0.032894402742385864, labeled_loss: 0.12898093461990356, unnlabeled_loss: 0.07574238628149033, mixup_loss: -1.9974652528762817, energy_loss: 0.0
+2026-09-14 06:23:39,934 INFO Best AUROC test all: 0.943627018225335, AUPR test all: 0.8044824703866439, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:41,354 INFO Epoch: 163, loss: -0.06186175346374512, labeled_loss: 0.1084817573428154, unnlabeled_loss: 0.058762144297361374, mixup_loss: -1.9972457885742188, energy_loss: 0.0
+2026-09-14 06:23:41,354 INFO Best AUROC test all: 0.9440160270607659, AUPR test all: 0.8044824703866439, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:42,846 INFO Epoch: 164, loss: -0.058005645871162415, labeled_loss: 0.11626507341861725, unnlabeled_loss: 0.050985414534807205, mixup_loss: -1.9976342916488647, energy_loss: 0.0
+2026-09-14 06:23:42,846 INFO Best AUROC test all: 0.9452799185740232, AUPR test all: 0.8044824703866439, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:44,369 INFO Epoch: 165, loss: -0.04124876856803894, labeled_loss: 0.12115239351987839, unnlabeled_loss: 0.07477567344903946, mixup_loss: -1.9978899955749512, energy_loss: 0.0
+2026-09-14 06:23:44,369 INFO Best AUROC test all: 0.9452799185740232, AUPR test all: 0.8044824703866439, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:45,899 INFO Epoch: 166, loss: -0.03566163778305054, labeled_loss: 0.1221480444073677, unnlabeled_loss: 0.08396124839782715, mixup_loss: -1.9979029893875122, energy_loss: 0.0
+2026-09-14 06:23:45,899 INFO Best AUROC test all: 0.9452799185740232, AUPR test all: 0.8044824703866439, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:47,190 INFO Epoch: 167, loss: -0.05414758622646332, labeled_loss: 0.1163100004196167, unnlabeled_loss: 0.05863653123378754, mixup_loss: -1.9977585077285767, energy_loss: 0.0
+2026-09-14 06:23:47,190 INFO Best AUROC test all: 0.9452799185740232, AUPR test all: 0.8044824703866439, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:48,409 INFO Epoch: 168, loss: -0.04487845301628113, labeled_loss: 0.12290146946907043, unnlabeled_loss: 0.06400177627801895, mixup_loss: -1.9978080987930298, energy_loss: 0.0
+2026-09-14 06:23:48,409 INFO Best AUROC test all: 0.9452799185740232, AUPR test all: 0.8044824703866439, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:49,719 INFO Epoch: 169, loss: -0.07021240890026093, labeled_loss: 0.09841205179691315, unnlabeled_loss: 0.06237191706895828, mixup_loss: -1.9981040954589844, energy_loss: 0.0
+2026-09-14 06:23:49,719 INFO Best AUROC test all: 0.9452799185740232, AUPR test all: 0.8044824703866439, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:51,143 INFO Epoch: 170, loss: -0.023305341601371765, labeled_loss: 0.1390291005373001, unnlabeled_loss: 0.07481444627046585, mixup_loss: -1.997416615486145, energy_loss: 0.0
+2026-09-14 06:23:51,143 INFO Best AUROC test all: 0.9452799185740232, AUPR test all: 0.8044824703866439, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:52,392 INFO Epoch: 171, loss: -0.0405280739068985, labeled_loss: 0.12618687748908997, unnlabeled_loss: 0.06613146513700485, mixup_loss: -1.9978067874908447, energy_loss: 0.0
+2026-09-14 06:23:52,392 INFO Best AUROC test all: 0.9476726326734382, AUPR test all: 0.8044824703866439, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:53,672 INFO Epoch: 172, loss: -0.07549281418323517, labeled_loss: 0.09974712133407593, unnlabeled_loss: 0.04912301525473595, mixup_loss: -1.9980144500732422, energy_loss: 0.0
+2026-09-14 06:23:53,672 INFO Best AUROC test all: 0.9476726326734382, AUPR test all: 0.8044824703866439, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:54,923 INFO Epoch: 173, loss: -0.05168868601322174, labeled_loss: 0.11334388703107834, unnlabeled_loss: 0.06952577829360962, mixup_loss: -1.9979547262191772, energy_loss: 0.0
+2026-09-14 06:23:54,923 INFO Best AUROC test all: 0.9476726326734382, AUPR test all: 0.8044824703866439, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:56,117 INFO Epoch: 174, loss: -0.06599283218383789, labeled_loss: 0.10155481100082397, unnlabeled_loss: 0.06455930322408676, mixup_loss: -1.9982728958129883, energy_loss: 0.0
+2026-09-14 06:23:56,117 INFO Best AUROC test all: 0.9476726326734382, AUPR test all: 0.8044824703866439, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:57,356 INFO Epoch: 175, loss: -0.05338633060455322, labeled_loss: 0.11703572422266006, unnlabeled_loss: 0.058756571263074875, mixup_loss: -1.998003363609314, energy_loss: 0.0
+2026-09-14 06:23:57,357 INFO Best AUROC test all: 0.9476726326734382, AUPR test all: 0.8044824703866439, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:23:58,686 INFO Epoch: 176, loss: -0.06517766416072845, labeled_loss: 0.11070610582828522, unnlabeled_loss: 0.0478501133620739, mixup_loss: -1.9980882406234741, energy_loss: 0.0
+2026-09-14 06:23:58,686 INFO Best AUROC test all: 0.9476726326734382, AUPR test all: 0.8044824703866439, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:00,071 INFO Epoch: 177, loss: -0.03776852786540985, labeled_loss: 0.12892460823059082, unnlabeled_loss: 0.06625770032405853, mixup_loss: -1.9982198476791382, energy_loss: 0.0
+2026-09-14 06:24:00,072 INFO Best AUROC test all: 0.9476726326734382, AUPR test all: 0.8044824703866439, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:01,350 INFO Epoch: 178, loss: -0.057057663798332214, labeled_loss: 0.10520188510417938, unnlabeled_loss: 0.07511182874441147, mixup_loss: -1.998154640197754, energy_loss: 0.0
+2026-09-14 06:24:01,351 INFO Best AUROC test all: 0.9476726326734382, AUPR test all: 0.8044824703866439, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:02,616 INFO Epoch: 179, loss: -0.06879296898841858, labeled_loss: 0.10072290152311325, unnlabeled_loss: 0.06056525185704231, mixup_loss: -1.9979848861694336, energy_loss: 0.0
+2026-09-14 06:24:02,616 INFO Best AUROC test all: 0.9476726326734382, AUPR test all: 0.806698503614781, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:03,956 INFO Epoch: 180, loss: -0.047753557562828064, labeled_loss: 0.1149037554860115, unnlabeled_loss: 0.07432493567466736, mixup_loss: -1.9981977939605713, energy_loss: 0.0
+2026-09-14 06:24:03,956 INFO Best AUROC test all: 0.9512066888868926, AUPR test all: 0.8096730670876977, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:05,206 INFO Epoch: 181, loss: -0.0543985515832901, labeled_loss: 0.11767038702964783, unnlabeled_loss: 0.0554887019097805, mixup_loss: -1.9981329441070557, energy_loss: 0.0
+2026-09-14 06:24:05,206 INFO Best AUROC test all: 0.9512066888868926, AUPR test all: 0.8096730670876977, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:06,484 INFO Epoch: 182, loss: -0.046443551778793335, labeled_loss: 0.12356535345315933, unnlabeled_loss: 0.059620343148708344, mixup_loss: -1.9981907606124878, energy_loss: 0.0
+2026-09-14 06:24:06,484 INFO Best AUROC test all: 0.9512066888868926, AUPR test all: 0.8096730670876977, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:07,755 INFO Epoch: 183, loss: -0.06113786995410919, labeled_loss: 0.10632389783859253, unnlabeled_loss: 0.06470519304275513, mixup_loss: -1.9981436729431152, energy_loss: 0.0
+2026-09-14 06:24:07,755 INFO Best AUROC test all: 0.9512066888868926, AUPR test all: 0.8096730670876977, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:09,018 INFO Epoch: 184, loss: -0.062464773654937744, labeled_loss: 0.09883873164653778, unnlabeled_loss: 0.07706515491008759, mixup_loss: -1.9983607530593872, energy_loss: 0.0
+2026-09-14 06:24:09,018 INFO Best AUROC test all: 0.9512066888868926, AUPR test all: 0.8096730670876977, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:10,252 INFO Epoch: 185, loss: -0.06111462414264679, labeled_loss: 0.10430878400802612, unnlabeled_loss: 0.0688043013215065, mixup_loss: -1.9982554912567139, energy_loss: 0.0
+2026-09-14 06:24:10,252 INFO Best AUROC test all: 0.9512066888868926, AUPR test all: 0.8096730670876977, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:11,435 INFO Epoch: 186, loss: -0.05490073561668396, labeled_loss: 0.11346108466386795, unnlabeled_loss: 0.06292690336704254, mixup_loss: -1.9982527494430542, energy_loss: 0.0
+2026-09-14 06:24:11,435 INFO Best AUROC test all: 0.9512066888868926, AUPR test all: 0.8096730670876977, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:12,607 INFO Epoch: 187, loss: -0.05879431962966919, labeled_loss: 0.1130640059709549, unnlabeled_loss: 0.05598050728440285, mixup_loss: -1.998485803604126, energy_loss: 0.0
+2026-09-14 06:24:12,607 INFO Best AUROC test all: 0.9512066888868926, AUPR test all: 0.8096730670876977, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:13,915 INFO Epoch: 188, loss: -0.06259091198444366, labeled_loss: 0.10713115334510803, unnlabeled_loss: 0.06017721816897392, mixup_loss: -1.998106598854065, energy_loss: 0.0
+2026-09-14 06:24:13,915 INFO Best AUROC test all: 0.9512066888868926, AUPR test all: 0.8106211419496085, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:15,881 INFO Epoch: 189, loss: -0.06419344246387482, labeled_loss: 0.10810504853725433, unnlabeled_loss: 0.055072396993637085, mixup_loss: -1.9983469247817993, energy_loss: 0.0
+2026-09-14 06:24:15,881 INFO Best AUROC test all: 0.9512066888868926, AUPR test all: 0.8106211419496085, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:17,103 INFO Epoch: 190, loss: -0.06832560896873474, labeled_loss: 0.10142301768064499, unnlabeled_loss: 0.060132406651973724, mixup_loss: -1.9981482028961182, energy_loss: 0.0
+2026-09-14 06:24:17,103 INFO Best AUROC test all: 0.9512066888868926, AUPR test all: 0.8106211419496085, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:18,374 INFO Epoch: 191, loss: -0.07454672455787659, labeled_loss: 0.09889279305934906, unnlabeled_loss: 0.052804891020059586, mixup_loss: -1.9984196424484253, energy_loss: 0.0
+2026-09-14 06:24:18,375 INFO Best AUROC test all: 0.9512066888868926, AUPR test all: 0.8106211419496085, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:19,687 INFO Epoch: 192, loss: -0.04648496210575104, labeled_loss: 0.11749984323978424, unnlabeled_loss: 0.07171551883220673, mixup_loss: -1.9984256029129028, energy_loss: 0.0
+2026-09-14 06:24:19,687 INFO Best AUROC test all: 0.9512066888868926, AUPR test all: 0.8106211419496085, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:20,953 INFO Epoch: 193, loss: -0.05129595100879669, labeled_loss: 0.10643377155065536, unnlabeled_loss: 0.08424539119005203, mixup_loss: -1.9985241889953613, energy_loss: 0.0
+2026-09-14 06:24:20,953 INFO Best AUROC test all: 0.9512066888868926, AUPR test all: 0.8106211419496085, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:22,275 INFO Epoch: 194, loss: -0.07237060368061066, labeled_loss: 0.09758826345205307, unnlabeled_loss: 0.05976639688014984, mixup_loss: -1.9984205961227417, energy_loss: 0.0
+2026-09-14 06:24:22,275 INFO Best AUROC test all: 0.9512066888868926, AUPR test all: 0.8106211419496085, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:23,607 INFO Epoch: 195, loss: -0.060593873262405396, labeled_loss: 0.10397402197122574, unnlabeled_loss: 0.07056327909231186, mixup_loss: -1.9984952211380005, energy_loss: 0.0
+2026-09-14 06:24:23,607 INFO Best AUROC test all: 0.9512066888868926, AUPR test all: 0.8106211419496085, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:24,852 INFO Epoch: 196, loss: -0.06998005509376526, labeled_loss: 0.1030266284942627, unnlabeled_loss: 0.053669966757297516, mixup_loss: -1.998416543006897, energy_loss: 0.0
+2026-09-14 06:24:24,852 INFO Best AUROC test all: 0.9512066888868926, AUPR test all: 0.8106211419496085, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:26,104 INFO Epoch: 197, loss: -0.04676106572151184, labeled_loss: 0.12243354320526123, unnlabeled_loss: 0.061287201941013336, mixup_loss: -1.9983819723129272, energy_loss: 0.0
+2026-09-14 06:24:26,104 INFO Best AUROC test all: 0.9512066888868926, AUPR test all: 0.8106211419496085, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:27,320 INFO Epoch: 198, loss: -0.07954780757427216, labeled_loss: 0.08865709602832794, unnlabeled_loss: 0.06324157863855362, mixup_loss: -1.998256802558899, energy_loss: 0.0
+2026-09-14 06:24:27,320 INFO Best AUROC test all: 0.9512066888868926, AUPR test all: 0.8106211419496085, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:28,691 INFO Epoch: 199, loss: -0.07970300316810608, labeled_loss: 0.08887718617916107, unnlabeled_loss: 0.06250704079866409, mixup_loss: -1.9983370304107666, energy_loss: 0.0
+2026-09-14 06:24:28,691 INFO Best AUROC test all: 0.9512066888868926, AUPR test all: 0.8106211419496085, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:30,264 INFO Epoch: 200, loss: -0.06038425862789154, labeled_loss: 0.11466822028160095, unnlabeled_loss: 0.04958169162273407, mixup_loss: -1.998433232307434, energy_loss: 0.0
+2026-09-14 06:24:30,264 INFO Best AUROC test all: 0.9512066888868926, AUPR test all: 0.8110173373957924, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:31,852 INFO Epoch: 201, loss: -0.07948426902294159, labeled_loss: 0.08873399347066879, unnlabeled_loss: 0.06328554451465607, mixup_loss: -1.998610258102417, energy_loss: 0.0
+2026-09-14 06:24:31,852 INFO Best AUROC test all: 0.9512066888868926, AUPR test all: 0.8110173373957924, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:33,408 INFO Epoch: 202, loss: -0.06738238036632538, labeled_loss: 0.09194522351026535, unnlabeled_loss: 0.08101676404476166, mixup_loss: -1.9983597993850708, energy_loss: 0.0
+2026-09-14 06:24:33,408 INFO Best AUROC test all: 0.951266963314944, AUPR test all: 0.8110173373957924, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:34,897 INFO Epoch: 203, loss: -0.06426027417182922, labeled_loss: 0.09185989201068878, unnlabeled_loss: 0.08747409284114838, mixup_loss: -1.9985719919204712, energy_loss: 0.0
+2026-09-14 06:24:34,897 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8110173373957924, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:36,394 INFO Epoch: 204, loss: -0.05609863996505737, labeled_loss: 0.1047615185379982, unnlabeled_loss: 0.0780050978064537, mixup_loss: -1.998626947402954, energy_loss: 0.0
+2026-09-14 06:24:36,395 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8110173373957924, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:37,983 INFO Epoch: 205, loss: -0.06443849205970764, labeled_loss: 0.11005322635173798, unnlabeled_loss: 0.05073696747422218, mixup_loss: -1.998602032661438, energy_loss: 0.0
+2026-09-14 06:24:37,983 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8110173373957924, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:39,628 INFO Epoch: 206, loss: -0.05615706741809845, labeled_loss: 0.10526815056800842, unnlabeled_loss: 0.07682831585407257, mixup_loss: -1.9983936548233032, energy_loss: 0.0
+2026-09-14 06:24:39,628 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8110173373957924, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:41,315 INFO Epoch: 207, loss: -0.04493232071399689, labeled_loss: 0.10251560062170029, unnlabeled_loss: 0.10479523986577988, mixup_loss: -1.9984554052352905, energy_loss: 0.0
+2026-09-14 06:24:41,315 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8110173373957924, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:42,897 INFO Epoch: 208, loss: -0.05206480622291565, labeled_loss: 0.09831423312425613, unnlabeled_loss: 0.09891781210899353, mixup_loss: -1.9983794689178467, energy_loss: 0.0
+2026-09-14 06:24:42,897 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8110173373957924, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:44,385 INFO Epoch: 209, loss: -0.05243298411369324, labeled_loss: 0.10185346752405167, unnlabeled_loss: 0.09111250936985016, mixup_loss: -1.9984270334243774, energy_loss: 0.0
+2026-09-14 06:24:44,386 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8110173373957924, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:45,875 INFO Epoch: 210, loss: -0.04687364399433136, labeled_loss: 0.10756619274616241, unnlabeled_loss: 0.09082095324993134, mixup_loss: -1.9985030889511108, energy_loss: 0.0
+2026-09-14 06:24:45,875 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8110173373957924, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:47,372 INFO Epoch: 211, loss: -0.06288227438926697, labeled_loss: 0.10033197700977325, unnlabeled_loss: 0.0733298808336258, mixup_loss: -1.9987919330596924, energy_loss: 0.0
+2026-09-14 06:24:47,372 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8110173373957924, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:48,904 INFO Epoch: 212, loss: -0.05391134321689606, labeled_loss: 0.09747561067342758, unnlabeled_loss: 0.09692402184009552, mixup_loss: -1.9984896183013916, energy_loss: 0.0
+2026-09-14 06:24:48,905 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8110173373957924, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:50,499 INFO Epoch: 213, loss: -0.05835619568824768, labeled_loss: 0.0951208770275116, unnlabeled_loss: 0.09271378070116043, mixup_loss: -1.9983395338058472, energy_loss: 0.0
+2026-09-14 06:24:50,500 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:52,035 INFO Epoch: 214, loss: -0.06681527197360992, labeled_loss: 0.10435809940099716, unnlabeled_loss: 0.05732885003089905, mixup_loss: -1.9983779191970825, energy_loss: 0.0
+2026-09-14 06:24:52,036 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:53,513 INFO Epoch: 215, loss: -0.06811210513114929, labeled_loss: 0.10360798239707947, unnlabeled_loss: 0.05619955062866211, mixup_loss: -1.9981986284255981, energy_loss: 0.0
+2026-09-14 06:24:53,513 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:54,993 INFO Epoch: 216, loss: -0.05383020639419556, labeled_loss: 0.10951900482177734, unnlabeled_loss: 0.07298371195793152, mixup_loss: -1.998410701751709, energy_loss: 0.0
+2026-09-14 06:24:54,993 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:56,483 INFO Epoch: 217, loss: -0.07707645744085312, labeled_loss: 0.09680195897817612, unnlabeled_loss: 0.05198037624359131, mixup_loss: -1.9986860752105713, energy_loss: 0.0
+2026-09-14 06:24:56,483 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:58,157 INFO Epoch: 218, loss: -0.07345299422740936, labeled_loss: 0.09242025762796402, unnlabeled_loss: 0.06794225424528122, mixup_loss: -1.9984437227249146, energy_loss: 0.0
+2026-09-14 06:24:58,157 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:24:59,930 INFO Epoch: 219, loss: -0.06400991976261139, labeled_loss: 0.1037338450551033, unnlabeled_loss: 0.0641757994890213, mixup_loss: -1.9983166456222534, energy_loss: 0.0
+2026-09-14 06:24:59,930 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:01,302 INFO Epoch: 220, loss: -0.037805452942848206, labeled_loss: 0.11352129280567169, unnlabeled_loss: 0.09703300148248672, mixup_loss: -1.9984323978424072, energy_loss: 0.0
+2026-09-14 06:25:01,302 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:02,608 INFO Epoch: 221, loss: -0.053818121552467346, labeled_loss: 0.09455955773591995, unnlabeled_loss: 0.10294549912214279, mixup_loss: -1.9985041618347168, energy_loss: 0.0
+2026-09-14 06:25:02,608 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:03,947 INFO Epoch: 222, loss: -0.07646023482084274, labeled_loss: 0.09535859525203705, unnlabeled_loss: 0.05609191954135895, mixup_loss: -1.9986478090286255, energy_loss: 0.0
+2026-09-14 06:25:03,947 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:05,180 INFO Epoch: 223, loss: -0.06489178538322449, labeled_loss: 0.09813791513442993, unnlabeled_loss: 0.07361840456724167, mixup_loss: -1.9983890056610107, energy_loss: 0.0
+2026-09-14 06:25:05,180 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:06,420 INFO Epoch: 224, loss: -0.07680197060108185, labeled_loss: 0.09736618399620056, unnlabeled_loss: 0.05134940147399902, mixup_loss: -1.998428463935852, energy_loss: 0.0
+2026-09-14 06:25:06,421 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:07,725 INFO Epoch: 225, loss: -0.07115399837493896, labeled_loss: 0.10219313949346542, unnlabeled_loss: 0.053039535880088806, mixup_loss: -1.9986690282821655, energy_loss: 0.0
+2026-09-14 06:25:07,725 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:09,001 INFO Epoch: 226, loss: -0.06212113797664642, labeled_loss: 0.11346794664859772, unnlabeled_loss: 0.04854068160057068, mixup_loss: -1.9985941648483276, energy_loss: 0.0
+2026-09-14 06:25:09,001 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:10,169 INFO Epoch: 227, loss: -0.0791226178407669, labeled_loss: 0.09220857918262482, unnlabeled_loss: 0.057044751942157745, mixup_loss: -1.9985356330871582, energy_loss: 0.0
+2026-09-14 06:25:10,169 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:11,536 INFO Epoch: 228, loss: -0.07316854596138, labeled_loss: 0.10022370517253876, unnlabeled_loss: 0.052935998886823654, mixup_loss: -1.9986023902893066, energy_loss: 0.0
+2026-09-14 06:25:11,536 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:12,762 INFO Epoch: 229, loss: -0.0618521124124527, labeled_loss: 0.11377649754285812, unnlabeled_loss: 0.04840623214840889, mixup_loss: -1.9983172416687012, energy_loss: 0.0
+2026-09-14 06:25:12,762 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:13,991 INFO Epoch: 230, loss: -0.07108891010284424, labeled_loss: 0.09581522643566132, unnlabeled_loss: 0.0659286230802536, mixup_loss: -1.9986844062805176, energy_loss: 0.0
+2026-09-14 06:25:13,991 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:15,333 INFO Epoch: 231, loss: -0.07570680230855942, labeled_loss: 0.10093151777982712, unnlabeled_loss: 0.04646744951605797, mixup_loss: -1.998720407485962, energy_loss: 0.0
+2026-09-14 06:25:15,333 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:16,578 INFO Epoch: 232, loss: -0.07499906420707703, labeled_loss: 0.0912124514579773, unnlabeled_loss: 0.06728580594062805, mixup_loss: -1.9985442161560059, energy_loss: 0.0
+2026-09-14 06:25:16,578 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:17,908 INFO Epoch: 233, loss: -0.07333934307098389, labeled_loss: 0.08926928788423538, unnlabeled_loss: 0.07455451041460037, mixup_loss: -1.99885892868042, energy_loss: 0.0
+2026-09-14 06:25:17,908 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:19,180 INFO Epoch: 234, loss: -0.07438385486602783, labeled_loss: 0.09484386444091797, unnlabeled_loss: 0.06129523739218712, mixup_loss: -1.9987534284591675, energy_loss: 0.0
+2026-09-14 06:25:19,180 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:20,510 INFO Epoch: 235, loss: -0.08057209104299545, labeled_loss: 0.09270337969064713, unnlabeled_loss: 0.053209785372018814, mixup_loss: -1.9988036155700684, energy_loss: 0.0
+2026-09-14 06:25:20,510 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:21,760 INFO Epoch: 236, loss: -0.07396863400936127, labeled_loss: 0.08886661380529404, unnlabeled_loss: 0.07404989004135132, mixup_loss: -1.998602032661438, energy_loss: 0.0
+2026-09-14 06:25:21,760 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:23,026 INFO Epoch: 237, loss: -0.06489010155200958, labeled_loss: 0.09480787068605423, unnlabeled_loss: 0.080332912504673, mixup_loss: -1.998644232749939, energy_loss: 0.0
+2026-09-14 06:25:23,026 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:24,236 INFO Epoch: 238, loss: -0.06241615116596222, labeled_loss: 0.0956573486328125, unnlabeled_loss: 0.08361274749040604, mixup_loss: -1.9987987279891968, energy_loss: 0.0
+2026-09-14 06:25:24,236 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:25,419 INFO Epoch: 239, loss: -0.050729572772979736, labeled_loss: 0.10333617031574249, unnlabeled_loss: 0.09160676598548889, mixup_loss: -1.998691201210022, energy_loss: 0.0
+2026-09-14 06:25:25,419 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:26,779 INFO Epoch: 240, loss: -0.07586868107318878, labeled_loss: 0.08882029354572296, unnlabeled_loss: 0.07038566470146179, mixup_loss: -1.998818039894104, energy_loss: 0.0
+2026-09-14 06:25:26,779 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:28,050 INFO Epoch: 241, loss: -0.06784659624099731, labeled_loss: 0.09352371096611023, unnlabeled_loss: 0.07703544944524765, mixup_loss: -1.9988802671432495, energy_loss: 0.0
+2026-09-14 06:25:28,051 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:29,265 INFO Epoch: 242, loss: -0.05097663402557373, labeled_loss: 0.10969606786966324, unnlabeled_loss: 0.07844387739896774, mixup_loss: -1.9989463090896606, energy_loss: 0.0
+2026-09-14 06:25:29,265 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:30,487 INFO Epoch: 243, loss: -0.07122312486171722, labeled_loss: 0.08011419326066971, unnlabeled_loss: 0.09706632047891617, mixup_loss: -1.9987047910690308, energy_loss: 0.0
+2026-09-14 06:25:30,487 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:31,726 INFO Epoch: 244, loss: -0.057579755783081055, labeled_loss: 0.10548049956560135, unnlabeled_loss: 0.0736338347196579, mixup_loss: -1.9987716674804688, energy_loss: 0.0
+2026-09-14 06:25:31,727 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:33,005 INFO Epoch: 245, loss: -0.07905036211013794, labeled_loss: 0.09686382859945297, unnlabeled_loss: 0.047938428819179535, mixup_loss: -1.9988340139389038, energy_loss: 0.0
+2026-09-14 06:25:33,005 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:34,221 INFO Epoch: 246, loss: -0.06945502758026123, labeled_loss: 0.09322068840265274, unnlabeled_loss: 0.07442309707403183, mixup_loss: -1.9988725185394287, energy_loss: 0.0
+2026-09-14 06:25:34,221 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:35,468 INFO Epoch: 247, loss: -0.06587532162666321, labeled_loss: 0.09609514474868774, unnlabeled_loss: 0.07583774626255035, mixup_loss: -1.9988932609558105, energy_loss: 0.0
+2026-09-14 06:25:35,468 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:36,771 INFO Epoch: 248, loss: -0.07196661829948425, labeled_loss: 0.097020722925663, unnlabeled_loss: 0.06180308759212494, mixup_loss: -1.9988888502120972, energy_loss: 0.0
+2026-09-14 06:25:36,772 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:38,068 INFO Epoch: 249, loss: -0.0748441070318222, labeled_loss: 0.09529475122690201, unnlabeled_loss: 0.059531163424253464, mixup_loss: -1.999044418334961, energy_loss: 0.0
+2026-09-14 06:25:38,068 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:39,364 INFO Epoch: 250, loss: -0.06916491687297821, labeled_loss: 0.10105697065591812, unnlabeled_loss: 0.059339869767427444, mixup_loss: -1.9989181756973267, energy_loss: 0.0
+2026-09-14 06:25:39,364 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:40,562 INFO Epoch: 251, loss: -0.07321429252624512, labeled_loss: 0.09017600864171982, unnlabeled_loss: 0.07299412041902542, mixup_loss: -1.9988735914230347, energy_loss: 0.0
+2026-09-14 06:25:40,562 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:41,862 INFO Epoch: 252, loss: -0.06695273518562317, labeled_loss: 0.09891384840011597, unnlabeled_loss: 0.06804034113883972, mixup_loss: -1.9988675117492676, energy_loss: 0.0
+2026-09-14 06:25:41,862 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:43,124 INFO Epoch: 253, loss: -0.09232082217931747, labeled_loss: 0.08381902426481247, unnlabeled_loss: 0.047523558139801025, mixup_loss: -1.9990161657333374, energy_loss: 0.0
+2026-09-14 06:25:43,124 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:44,379 INFO Epoch: 254, loss: -0.07406537234783173, labeled_loss: 0.09562534838914871, unnlabeled_loss: 0.06036818027496338, mixup_loss: -1.9987479448318481, energy_loss: 0.0
+2026-09-14 06:25:44,379 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:45,629 INFO Epoch: 255, loss: -0.08534412086009979, labeled_loss: 0.08525151759386063, unnlabeled_loss: 0.058601610362529755, mixup_loss: -1.9989644289016724, energy_loss: 0.0
+2026-09-14 06:25:45,629 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:46,929 INFO Epoch: 256, loss: -0.07147222757339478, labeled_loss: 0.09827528893947601, unnlabeled_loss: 0.06029259413480759, mixup_loss: -1.9989380836486816, energy_loss: 0.0
+2026-09-14 06:25:46,929 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:48,307 INFO Epoch: 257, loss: -0.08627398312091827, labeled_loss: 0.08747303485870361, unnlabeled_loss: 0.05230862647294998, mixup_loss: -1.9990131855010986, energy_loss: 0.0
+2026-09-14 06:25:48,307 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:49,663 INFO Epoch: 258, loss: -0.08576894551515579, labeled_loss: 0.08373229205608368, unnlabeled_loss: 0.06076334789395332, mixup_loss: -1.9988290071487427, energy_loss: 0.0
+2026-09-14 06:25:49,664 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:50,965 INFO Epoch: 259, loss: -0.07920698076486588, labeled_loss: 0.09376058727502823, unnlabeled_loss: 0.05384969338774681, mixup_loss: -1.9989241361618042, energy_loss: 0.0
+2026-09-14 06:25:50,965 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:52,282 INFO Epoch: 260, loss: -0.08052152395248413, labeled_loss: 0.08986525982618332, unnlabeled_loss: 0.05903531238436699, mixup_loss: -1.999044418334961, energy_loss: 0.0
+2026-09-14 06:25:52,282 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:53,573 INFO Epoch: 261, loss: -0.07872685045003891, labeled_loss: 0.0931723490357399, unnlabeled_loss: 0.056009288877248764, mixup_loss: -1.9990384578704834, energy_loss: 0.0
+2026-09-14 06:25:53,573 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:54,940 INFO Epoch: 262, loss: -0.08292101323604584, labeled_loss: 0.09599758684635162, unnlabeled_loss: 0.04195156693458557, mixup_loss: -1.99894380569458, energy_loss: 0.0
+2026-09-14 06:25:54,940 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:56,415 INFO Epoch: 263, loss: -0.08697138726711273, labeled_loss: 0.09243177622556686, unnlabeled_loss: 0.04099278897047043, mixup_loss: -1.9989955425262451, energy_loss: 0.0
+2026-09-14 06:25:56,416 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:57,848 INFO Epoch: 264, loss: -0.08693890273571014, labeled_loss: 0.08762740343809128, unnlabeled_loss: 0.05064402148127556, mixup_loss: -1.9988831281661987, energy_loss: 0.0
+2026-09-14 06:25:57,849 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:25:59,357 INFO Epoch: 265, loss: -0.06226235628128052, labeled_loss: 0.10791917145252228, unnlabeled_loss: 0.05939829349517822, mixup_loss: -1.9988067150115967, energy_loss: 0.0
+2026-09-14 06:25:59,358 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:00,871 INFO Epoch: 266, loss: -0.06424640119075775, labeled_loss: 0.1077861413359642, unnlabeled_loss: 0.05572028085589409, mixup_loss: -1.9989268779754639, energy_loss: 0.0
+2026-09-14 06:26:00,871 INFO Best AUROC test all: 0.9521101599711715, AUPR test all: 0.8121359423493585, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:02,372 INFO Epoch: 267, loss: -0.09113211184740067, labeled_loss: 0.08372646570205688, unnlabeled_loss: 0.05008704960346222, mixup_loss: -1.9990209341049194, energy_loss: 0.0
+2026-09-14 06:26:02,372 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8181609572652528, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:03,669 INFO Epoch: 268, loss: -0.07753828167915344, labeled_loss: 0.09770799428224564, unnlabeled_loss: 0.04931110888719559, mixup_loss: -1.9990183115005493, energy_loss: 0.0
+2026-09-14 06:26:03,669 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8181609572652528, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:04,916 INFO Epoch: 269, loss: -0.072474405169487, labeled_loss: 0.1044558584690094, unnlabeled_loss: 0.045924168080091476, mixup_loss: -1.998923420906067, energy_loss: 0.0
+2026-09-14 06:26:04,916 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8181609572652528, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:06,169 INFO Epoch: 270, loss: -0.07039971649646759, labeled_loss: 0.10304097086191177, unnlabeled_loss: 0.05291609466075897, mixup_loss: -1.9989873170852661, energy_loss: 0.0
+2026-09-14 06:26:06,169 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8181609572652528, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:07,432 INFO Epoch: 271, loss: -0.0829019621014595, labeled_loss: 0.09243816882371902, unnlabeled_loss: 0.04911971092224121, mixup_loss: -1.998999834060669, energy_loss: 0.0
+2026-09-14 06:26:07,433 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8181609572652528, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:08,775 INFO Epoch: 272, loss: -0.08344380557537079, labeled_loss: 0.09381403028964996, unnlabeled_loss: 0.04527126997709274, mixup_loss: -1.9989347457885742, energy_loss: 0.0
+2026-09-14 06:26:08,775 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8181609572652528, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:10,128 INFO Epoch: 273, loss: -0.081893190741539, labeled_loss: 0.09971826523542404, unnlabeled_loss: 0.03658752888441086, mixup_loss: -1.9990521669387817, energy_loss: 0.0
+2026-09-14 06:26:10,128 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8181609572652528, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:11,418 INFO Epoch: 274, loss: -0.08418415486812592, labeled_loss: 0.09667862951755524, unnlabeled_loss: 0.03806865215301514, mixup_loss: -1.9989711046218872, energy_loss: 0.0
+2026-09-14 06:26:11,418 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8181609572652528, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:12,693 INFO Epoch: 275, loss: -0.08406999707221985, labeled_loss: 0.09453700482845306, unnlabeled_loss: 0.0425906702876091, mixup_loss: -1.9990234375, energy_loss: 0.0
+2026-09-14 06:26:12,693 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8181609572652528, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:13,927 INFO Epoch: 276, loss: -0.08193518966436386, labeled_loss: 0.0943201333284378, unnlabeled_loss: 0.04731907323002815, mixup_loss: -1.9991484880447388, energy_loss: 0.0
+2026-09-14 06:26:13,927 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8181609572652528, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:15,203 INFO Epoch: 277, loss: -0.07387183606624603, labeled_loss: 0.10072129219770432, unnlabeled_loss: 0.05057642236351967, mixup_loss: -1.9988133907318115, energy_loss: 0.0
+2026-09-14 06:26:15,203 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8181609572652528, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:16,440 INFO Epoch: 278, loss: -0.09066297113895416, labeled_loss: 0.09140769392251968, unnlabeled_loss: 0.035654593259096146, mixup_loss: -1.9989795684814453, energy_loss: 0.0
+2026-09-14 06:26:16,441 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8181609572652528, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:17,730 INFO Epoch: 279, loss: -0.07741019129753113, labeled_loss: 0.1005035862326622, unnlabeled_loss: 0.04394344985485077, mixup_loss: -1.9988549947738647, energy_loss: 0.0
+2026-09-14 06:26:17,730 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8181609572652528, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:19,093 INFO Epoch: 280, loss: -0.09073538333177567, labeled_loss: 0.08500407636165619, unnlabeled_loss: 0.04831705987453461, mixup_loss: -1.998979926109314, energy_loss: 0.0
+2026-09-14 06:26:19,093 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8181609572652528, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:20,363 INFO Epoch: 281, loss: -0.09631910920143127, labeled_loss: 0.08311303704977036, unnlabeled_loss: 0.040904395282268524, mixup_loss: -1.9988434314727783, energy_loss: 0.0
+2026-09-14 06:26:20,363 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8181609572652528, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:21,600 INFO Epoch: 282, loss: -0.081633061170578, labeled_loss: 0.09173122048377991, unnlabeled_loss: 0.05305197462439537, mixup_loss: -1.998902678489685, energy_loss: 0.0
+2026-09-14 06:26:21,601 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8181609572652528, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:22,865 INFO Epoch: 283, loss: -0.07259160280227661, labeled_loss: 0.09909287840127945, unnlabeled_loss: 0.05645466223359108, mixup_loss: -1.9991182088851929, energy_loss: 0.0
+2026-09-14 06:26:22,865 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8181609572652528, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:24,154 INFO Epoch: 284, loss: -0.08240632712841034, labeled_loss: 0.08998872339725494, unnlabeled_loss: 0.055005334317684174, mixup_loss: -1.9989771842956543, energy_loss: 0.0
+2026-09-14 06:26:24,154 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8181609572652528, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:25,321 INFO Epoch: 285, loss: -0.07527606189250946, labeled_loss: 0.09236601740121841, unnlabeled_loss: 0.06454171240329742, mixup_loss: -1.999129295349121, energy_loss: 0.0
+2026-09-14 06:26:25,321 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8181609572652528, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:26,532 INFO Epoch: 286, loss: -0.06503279507160187, labeled_loss: 0.10934929549694061, unnlabeled_loss: 0.05107290670275688, mixup_loss: -1.99918532371521, energy_loss: 0.0
+2026-09-14 06:26:26,532 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8181609572652528, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:27,773 INFO Epoch: 287, loss: -0.08134317398071289, labeled_loss: 0.09238274395465851, unnlabeled_loss: 0.05232635512948036, mixup_loss: -1.9988908767700195, energy_loss: 0.0
+2026-09-14 06:26:27,773 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8181609572652528, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:29,060 INFO Epoch: 288, loss: -0.0874386578798294, labeled_loss: 0.08849423378705978, unnlabeled_loss: 0.047948699444532394, mixup_loss: -1.9990724325180054, energy_loss: 0.0
+2026-09-14 06:26:29,060 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8181609572652528, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:30,309 INFO Epoch: 289, loss: -0.0735887736082077, labeled_loss: 0.0988258644938469, unnlabeled_loss: 0.05493374541401863, mixup_loss: -1.9988150596618652, energy_loss: 0.0
+2026-09-14 06:26:30,309 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8181609572652528, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:31,590 INFO Epoch: 290, loss: -0.07663793861865997, labeled_loss: 0.10172545164823532, unnlabeled_loss: 0.04305802285671234, mixup_loss: -1.9989240169525146, energy_loss: 0.0
+2026-09-14 06:26:31,590 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8181609572652528, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:32,781 INFO Epoch: 291, loss: -0.0745965987443924, labeled_loss: 0.1026313528418541, unnlabeled_loss: 0.04535680636763573, mixup_loss: -1.999063491821289, energy_loss: 0.0
+2026-09-14 06:26:32,781 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8181609572652528, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:34,039 INFO Epoch: 292, loss: -0.08032241463661194, labeled_loss: 0.10011699795722961, unnlabeled_loss: 0.038958970457315445, mixup_loss: -1.9991888999938965, energy_loss: 0.0
+2026-09-14 06:26:34,039 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8181609572652528, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:35,383 INFO Epoch: 293, loss: -0.08795027434825897, labeled_loss: 0.08844000846147537, unnlabeled_loss: 0.04702427238225937, mixup_loss: -1.9990241527557373, energy_loss: 0.0
+2026-09-14 06:26:35,383 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8181609572652528, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:36,902 INFO Epoch: 294, loss: -0.08870268613100052, labeled_loss: 0.0867646187543869, unnlabeled_loss: 0.048882078379392624, mixup_loss: -1.999083399772644, energy_loss: 0.0
+2026-09-14 06:26:36,902 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8181609572652528, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:38,421 INFO Epoch: 295, loss: -0.08973442018032074, labeled_loss: 0.0843106061220169, unnlabeled_loss: 0.05172896012663841, mixup_loss: -1.99909508228302, energy_loss: 0.0
+2026-09-14 06:26:38,421 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8181609572652528, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:39,947 INFO Epoch: 296, loss: -0.08285867422819138, labeled_loss: 0.09891115128993988, unnlabeled_loss: 0.036248695105314255, mixup_loss: -1.9989417791366577, energy_loss: 0.0
+2026-09-14 06:26:39,947 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8181609572652528, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:41,395 INFO Epoch: 297, loss: -0.0754881203174591, labeled_loss: 0.10209909081459045, unnlabeled_loss: 0.044641852378845215, mixup_loss: -1.9990813732147217, energy_loss: 0.0
+2026-09-14 06:26:41,395 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8181609572652528, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:42,874 INFO Epoch: 298, loss: -0.06352938711643219, labeled_loss: 0.10869338363409042, unnlabeled_loss: 0.055377643555402756, mixup_loss: -1.9991159439086914, energy_loss: 0.0
+2026-09-14 06:26:42,874 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8181609572652528, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:44,380 INFO Epoch: 299, loss: -0.07998411357402802, labeled_loss: 0.09451350569725037, unnlabeled_loss: 0.05082932859659195, mixup_loss: -1.9991227388381958, energy_loss: 0.0
+2026-09-14 06:26:44,380 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8181609572652528, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:46,003 INFO Epoch: 300, loss: -0.07394544780254364, labeled_loss: 0.10897496342658997, unnlabeled_loss: 0.033955857157707214, mixup_loss: -1.998983383178711, energy_loss: 0.0
+2026-09-14 06:26:46,003 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8181609572652528, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:47,563 INFO Epoch: 301, loss: -0.07815846800804138, labeled_loss: 0.10007507354021072, unnlabeled_loss: 0.04338483884930611, mixup_loss: -1.9992595911026, energy_loss: 0.0
+2026-09-14 06:26:47,564 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8181609572652528, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:49,108 INFO Epoch: 302, loss: -0.07785463333129883, labeled_loss: 0.09846749156713486, unnlabeled_loss: 0.04717181995511055, mixup_loss: -1.9990803003311157, energy_loss: 0.0
+2026-09-14 06:26:49,108 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8181609572652528, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:50,682 INFO Epoch: 303, loss: -0.0881640762090683, labeled_loss: 0.08425363153219223, unnlabeled_loss: 0.05499560385942459, mixup_loss: -1.999155044555664, energy_loss: 0.0
+2026-09-14 06:26:50,682 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8181609572652528, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:52,147 INFO Epoch: 304, loss: -0.07529354840517044, labeled_loss: 0.10060975700616837, unnlabeled_loss: 0.04798310622572899, mixup_loss: -1.998948574066162, energy_loss: 0.0
+2026-09-14 06:26:52,148 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8181609572652528, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:53,478 INFO Epoch: 305, loss: -0.07489384710788727, labeled_loss: 0.10349615663290024, unnlabeled_loss: 0.04296273738145828, mixup_loss: -1.998713731765747, energy_loss: 0.0
+2026-09-14 06:26:53,478 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8181609572652528, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:54,736 INFO Epoch: 306, loss: -0.07926159352064133, labeled_loss: 0.09569910913705826, unnlabeled_loss: 0.04993331432342529, mixup_loss: -1.9992735385894775, energy_loss: 0.0
+2026-09-14 06:26:54,737 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8181609572652528, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:55,948 INFO Epoch: 307, loss: -0.08218379318714142, labeled_loss: 0.08255449682474136, unnlabeled_loss: 0.07033370435237885, mixup_loss: -1.9990514516830444, energy_loss: 0.0
+2026-09-14 06:26:55,949 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8203936979435731, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:57,242 INFO Epoch: 308, loss: -0.07848481088876724, labeled_loss: 0.09876703470945358, unnlabeled_loss: 0.04534149169921875, mixup_loss: -1.9992258548736572, energy_loss: 0.0
+2026-09-14 06:26:57,242 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8203936979435731, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:26:58,851 INFO Epoch: 309, loss: -0.07840883731842041, labeled_loss: 0.10308058559894562, unnlabeled_loss: 0.03685986250638962, mixup_loss: -1.999193549156189, energy_loss: 0.0
+2026-09-14 06:26:58,851 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8203936979435731, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:00,345 INFO Epoch: 310, loss: -0.09524329751729965, labeled_loss: 0.08215222507715225, unnlabeled_loss: 0.0450059175491333, mixup_loss: -1.9989848136901855, energy_loss: 0.0
+2026-09-14 06:27:00,345 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8203936979435731, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:01,844 INFO Epoch: 311, loss: -0.08102218061685562, labeled_loss: 0.09050429612398148, unnlabeled_loss: 0.05673697590827942, mixup_loss: -1.998949646949768, energy_loss: 0.0
+2026-09-14 06:27:01,844 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:03,421 INFO Epoch: 312, loss: -0.07788066565990448, labeled_loss: 0.10010229796171188, unnlabeled_loss: 0.043878085911273956, mixup_loss: -1.9992200136184692, energy_loss: 0.0
+2026-09-14 06:27:03,421 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:04,871 INFO Epoch: 313, loss: -0.07740546017885208, labeled_loss: 0.09873668104410172, unnlabeled_loss: 0.04752352461218834, mixup_loss: -1.9990390539169312, energy_loss: 0.0
+2026-09-14 06:27:04,871 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:06,274 INFO Epoch: 314, loss: -0.08180584013462067, labeled_loss: 0.09779141843318939, unnlabeled_loss: 0.04064306244254112, mixup_loss: -1.9991878271102905, energy_loss: 0.0
+2026-09-14 06:27:06,275 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:07,693 INFO Epoch: 315, loss: -0.09110444784164429, labeled_loss: 0.0898553878068924, unnlabeled_loss: 0.03792361170053482, mixup_loss: -1.9992163181304932, energy_loss: 0.0
+2026-09-14 06:27:07,694 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:09,082 INFO Epoch: 316, loss: -0.08252675831317902, labeled_loss: 0.08974378556013107, unnlabeled_loss: 0.055265821516513824, mixup_loss: -1.9990345239639282, energy_loss: 0.0
+2026-09-14 06:27:09,082 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:10,529 INFO Epoch: 317, loss: -0.07898809015750885, labeled_loss: 0.09947171062231064, unnlabeled_loss: 0.0428706519305706, mixup_loss: -1.9989511966705322, energy_loss: 0.0
+2026-09-14 06:27:10,529 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:12,083 INFO Epoch: 318, loss: -0.07971913367509842, labeled_loss: 0.09864308685064316, unnlabeled_loss: 0.04312365874648094, mixup_loss: -1.999240517616272, energy_loss: 0.0
+2026-09-14 06:27:12,083 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:13,557 INFO Epoch: 319, loss: -0.08967293053865433, labeled_loss: 0.0878678560256958, unnlabeled_loss: 0.044711243361234665, mixup_loss: -1.9989640712738037, energy_loss: 0.0
+2026-09-14 06:27:13,558 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:14,976 INFO Epoch: 320, loss: -0.09122106432914734, labeled_loss: 0.08680737018585205, unnlabeled_loss: 0.043751295655965805, mixup_loss: -1.9990408420562744, energy_loss: 0.0
+2026-09-14 06:27:14,976 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:16,364 INFO Epoch: 321, loss: -0.09042001515626907, labeled_loss: 0.08806812018156052, unnlabeled_loss: 0.042791422456502914, mixup_loss: -1.9988384246826172, energy_loss: 0.0
+2026-09-14 06:27:16,364 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:17,866 INFO Epoch: 322, loss: -0.08088479936122894, labeled_loss: 0.09136787056922913, unnlabeled_loss: 0.055290158838033676, mixup_loss: -1.998977541923523, energy_loss: 0.0
+2026-09-14 06:27:17,867 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:19,225 INFO Epoch: 323, loss: -0.0870649665594101, labeled_loss: 0.08807950466871262, unnlabeled_loss: 0.04953290894627571, mixup_loss: -1.9991092681884766, energy_loss: 0.0
+2026-09-14 06:27:19,225 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:20,435 INFO Epoch: 324, loss: -0.08626888692378998, labeled_loss: 0.082520991563797, unnlabeled_loss: 0.06227237731218338, mixup_loss: -1.999260663986206, energy_loss: 0.0
+2026-09-14 06:27:20,435 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:21,676 INFO Epoch: 325, loss: -0.08546123653650284, labeled_loss: 0.08832558244466782, unnlabeled_loss: 0.052258942276239395, mixup_loss: -1.9991629123687744, energy_loss: 0.0
+2026-09-14 06:27:21,676 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:22,903 INFO Epoch: 326, loss: -0.07944980263710022, labeled_loss: 0.08516057580709457, unnlabeled_loss: 0.07062037289142609, mixup_loss: -1.9992055892944336, energy_loss: 0.0
+2026-09-14 06:27:22,903 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:24,133 INFO Epoch: 327, loss: -0.08545902371406555, labeled_loss: 0.08494587987661362, unnlabeled_loss: 0.05905221030116081, mixup_loss: -1.99931001663208, energy_loss: 0.0
+2026-09-14 06:27:24,133 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:25,396 INFO Epoch: 328, loss: -0.06875587999820709, labeled_loss: 0.099234938621521, unnlabeled_loss: 0.06385175883769989, mixup_loss: -1.9991669654846191, energy_loss: 0.0
+2026-09-14 06:27:25,396 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:26,605 INFO Epoch: 329, loss: -0.08691862225532532, labeled_loss: 0.08850954473018646, unnlabeled_loss: 0.04896342009305954, mixup_loss: -1.999098777770996, energy_loss: 0.0
+2026-09-14 06:27:26,605 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:27,840 INFO Epoch: 330, loss: -0.08219490945339203, labeled_loss: 0.09413740038871765, unnlabeled_loss: 0.04715230315923691, mixup_loss: -1.9990845918655396, energy_loss: 0.0
+2026-09-14 06:27:27,840 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:29,067 INFO Epoch: 331, loss: -0.08083326369524002, labeled_loss: 0.09046681225299835, unnlabeled_loss: 0.0572594590485096, mixup_loss: -1.9992979764938354, energy_loss: 0.0
+2026-09-14 06:27:29,067 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:30,207 INFO Epoch: 332, loss: -0.08737430721521378, labeled_loss: 0.09158724546432495, unnlabeled_loss: 0.041913945227861404, mixup_loss: -1.9991852045059204, energy_loss: 0.0
+2026-09-14 06:27:30,207 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:31,469 INFO Epoch: 333, loss: -0.09853982925415039, labeled_loss: 0.08408386260271072, unnlabeled_loss: 0.034564804285764694, mixup_loss: -1.9990609884262085, energy_loss: 0.0
+2026-09-14 06:27:31,469 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:32,771 INFO Epoch: 334, loss: -0.07819826900959015, labeled_loss: 0.10118652135133743, unnlabeled_loss: 0.04107730835676193, mixup_loss: -1.9992344379425049, energy_loss: 0.0
+2026-09-14 06:27:32,771 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:34,024 INFO Epoch: 335, loss: -0.10098464787006378, labeled_loss: 0.07358002662658691, unnlabeled_loss: 0.05068051069974899, mixup_loss: -1.9990493059158325, energy_loss: 0.0
+2026-09-14 06:27:34,024 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:35,297 INFO Epoch: 336, loss: -0.09272769093513489, labeled_loss: 0.08464230597019196, unnlabeled_loss: 0.04512665048241615, mixup_loss: -1.999333143234253, energy_loss: 0.0
+2026-09-14 06:27:35,297 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:36,554 INFO Epoch: 337, loss: -0.07974200695753098, labeled_loss: 0.09661035984754562, unnlabeled_loss: 0.04713436961174011, mixup_loss: -1.9991954565048218, energy_loss: 0.0
+2026-09-14 06:27:36,555 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:37,825 INFO Epoch: 338, loss: -0.08809515833854675, labeled_loss: 0.08081028610467911, unnlabeled_loss: 0.06202305853366852, mixup_loss: -1.9991697072982788, energy_loss: 0.0
+2026-09-14 06:27:37,825 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:39,063 INFO Epoch: 339, loss: -0.0732877254486084, labeled_loss: 0.09378111362457275, unnlabeled_loss: 0.06569679081439972, mixup_loss: -1.9991722106933594, energy_loss: 0.0
+2026-09-14 06:27:39,063 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:40,310 INFO Epoch: 340, loss: -0.07797930389642715, labeled_loss: 0.08982682973146439, unnlabeled_loss: 0.06421273946762085, mixup_loss: -1.9991250038146973, energy_loss: 0.0
+2026-09-14 06:27:40,310 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:41,586 INFO Epoch: 341, loss: -0.07694771885871887, labeled_loss: 0.08687149733304977, unnlabeled_loss: 0.0722343772649765, mixup_loss: -1.9993640184402466, energy_loss: 0.0
+2026-09-14 06:27:41,586 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:43,168 INFO Epoch: 342, loss: -0.06807595491409302, labeled_loss: 0.09930790215730667, unnlabeled_loss: 0.06507694721221924, mixup_loss: -1.999223232269287, energy_loss: 0.0
+2026-09-14 06:27:43,168 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:44,712 INFO Epoch: 343, loss: -0.08882512897253036, labeled_loss: 0.08006740361452103, unnlabeled_loss: 0.062033381313085556, mixup_loss: -1.9990922212600708, energy_loss: 0.0
+2026-09-14 06:27:44,713 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:46,220 INFO Epoch: 344, loss: -0.09460512548685074, labeled_loss: 0.08128545433282852, unnlabeled_loss: 0.048077017068862915, mixup_loss: -1.9992908239364624, energy_loss: 0.0
+2026-09-14 06:27:46,221 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:47,761 INFO Epoch: 345, loss: -0.07637781649827957, labeled_loss: 0.09620881825685501, unnlabeled_loss: 0.0545995868742466, mixup_loss: -1.9988641738891602, energy_loss: 0.0
+2026-09-14 06:27:47,761 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:49,353 INFO Epoch: 346, loss: -0.08436982333660126, labeled_loss: 0.09505222737789154, unnlabeled_loss: 0.04100526124238968, mixup_loss: -1.9992467164993286, energy_loss: 0.0
+2026-09-14 06:27:49,353 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:50,906 INFO Epoch: 347, loss: -0.07661476731300354, labeled_loss: 0.08639995008707047, unnlabeled_loss: 0.07380754500627518, mixup_loss: -1.9991849660873413, energy_loss: 0.0
+2026-09-14 06:27:50,906 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:52,204 INFO Epoch: 348, loss: -0.08841214329004288, labeled_loss: 0.08668198436498642, unnlabeled_loss: 0.04966726899147034, mixup_loss: -1.9992775917053223, energy_loss: 0.0
+2026-09-14 06:27:52,204 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:53,433 INFO Epoch: 349, loss: -0.0824977308511734, labeled_loss: 0.08914580196142197, unnlabeled_loss: 0.05656004697084427, mixup_loss: -1.9992356300354004, energy_loss: 0.0
+2026-09-14 06:27:53,433 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:54,732 INFO Epoch: 350, loss: -0.08280068635940552, labeled_loss: 0.08653321117162704, unnlabeled_loss: 0.06118573620915413, mixup_loss: -1.999267578125, energy_loss: 0.0
+2026-09-14 06:27:54,733 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:56,198 INFO Epoch: 351, loss: -0.08285921812057495, labeled_loss: 0.08909270167350769, unnlabeled_loss: 0.05592748895287514, mixup_loss: -1.9991565942764282, energy_loss: 0.0
+2026-09-14 06:27:56,199 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:57,757 INFO Epoch: 352, loss: -0.0847155749797821, labeled_loss: 0.08459756523370743, unnlabeled_loss: 0.06122448295354843, mixup_loss: -1.999253749847412, energy_loss: 0.0
+2026-09-14 06:27:57,757 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:27:59,314 INFO Epoch: 353, loss: -0.08709975332021713, labeled_loss: 0.08532561361789703, unnlabeled_loss: 0.05496515333652496, mixup_loss: -1.9990794658660889, energy_loss: 0.0
+2026-09-14 06:27:59,314 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:00,813 INFO Epoch: 354, loss: -0.08111066371202469, labeled_loss: 0.09244085848331451, unnlabeled_loss: 0.05273859575390816, mixup_loss: -1.9992082118988037, energy_loss: 0.0
+2026-09-14 06:28:00,813 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:02,340 INFO Epoch: 355, loss: -0.06961464881896973, labeled_loss: 0.10324841737747192, unnlabeled_loss: 0.054107990115880966, mixup_loss: -1.9991706609725952, energy_loss: 0.0
+2026-09-14 06:28:02,341 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:03,826 INFO Epoch: 356, loss: -0.08549301326274872, labeled_loss: 0.08866200596094131, unnlabeled_loss: 0.051558926701545715, mixup_loss: -1.999344825744629, energy_loss: 0.0
+2026-09-14 06:28:03,826 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:05,375 INFO Epoch: 357, loss: -0.08174271136522293, labeled_loss: 0.09188765287399292, unnlabeled_loss: 0.052605707198381424, mixup_loss: -1.999332070350647, energy_loss: 0.0
+2026-09-14 06:28:05,375 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:06,788 INFO Epoch: 358, loss: -0.08974327892065048, labeled_loss: 0.08697297424077988, unnlabeled_loss: 0.04641541466116905, mixup_loss: -1.9992395639419556, energy_loss: 0.0
+2026-09-14 06:28:06,788 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:07,995 INFO Epoch: 359, loss: -0.08873381465673447, labeled_loss: 0.08871185779571533, unnlabeled_loss: 0.04495503008365631, mixup_loss: -1.9992318153381348, energy_loss: 0.0
+2026-09-14 06:28:07,995 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:09,301 INFO Epoch: 360, loss: -0.08872400224208832, labeled_loss: 0.08185797929763794, unnlabeled_loss: 0.05865180864930153, mixup_loss: -1.9990787506103516, energy_loss: 0.0
+2026-09-14 06:28:09,301 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:10,561 INFO Epoch: 361, loss: -0.0984591394662857, labeled_loss: 0.08034869283437729, unnlabeled_loss: 0.0422317236661911, mixup_loss: -1.9992369413375854, energy_loss: 0.0
+2026-09-14 06:28:10,561 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:11,776 INFO Epoch: 362, loss: -0.09051310271024704, labeled_loss: 0.09432221949100494, unnlabeled_loss: 0.03016800992190838, mixup_loss: -1.9991931915283203, energy_loss: 0.0
+2026-09-14 06:28:11,776 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:13,190 INFO Epoch: 363, loss: -0.08341453224420547, labeled_loss: 0.0912255123257637, unnlabeled_loss: 0.050548966974020004, mixup_loss: -1.999145269393921, energy_loss: 0.0
+2026-09-14 06:28:13,190 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:14,490 INFO Epoch: 364, loss: -0.07924743741750717, labeled_loss: 0.08302668482065201, unnlabeled_loss: 0.07528215646743774, mixup_loss: -1.9991519451141357, energy_loss: 0.0
+2026-09-14 06:28:14,491 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:15,597 INFO Epoch: 365, loss: -0.07680641859769821, labeled_loss: 0.0939301922917366, unnlabeled_loss: 0.05835166946053505, mixup_loss: -1.9991244077682495, energy_loss: 0.0
+2026-09-14 06:28:15,597 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:16,766 INFO Epoch: 366, loss: -0.06429953873157501, labeled_loss: 0.10530859231948853, unnlabeled_loss: 0.060636818408966064, mixup_loss: -1.999265432357788, energy_loss: 0.0
+2026-09-14 06:28:16,766 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:18,133 INFO Epoch: 367, loss: -0.08261673152446747, labeled_loss: 0.08137200027704239, unnlabeled_loss: 0.07186298817396164, mixup_loss: -1.9992021322250366, energy_loss: 0.0
+2026-09-14 06:28:18,133 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:19,565 INFO Epoch: 368, loss: -0.06947110593318939, labeled_loss: 0.0985109880566597, unnlabeled_loss: 0.06389264762401581, mixup_loss: -1.9992841482162476, energy_loss: 0.0
+2026-09-14 06:28:19,565 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:21,025 INFO Epoch: 369, loss: -0.07635980099439621, labeled_loss: 0.11074228584766388, unnlabeled_loss: 0.02563304826617241, mixup_loss: -1.9991860389709473, energy_loss: 0.0
+2026-09-14 06:28:21,025 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:22,449 INFO Epoch: 370, loss: -0.0588192343711853, labeled_loss: 0.11947125196456909, unnlabeled_loss: 0.04327564686536789, mixup_loss: -1.9992830753326416, energy_loss: 0.0
+2026-09-14 06:28:22,449 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8244162672231804, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:23,841 INFO Epoch: 371, loss: -0.07243332266807556, labeled_loss: 0.10827240347862244, unnlabeled_loss: 0.038447827100753784, mixup_loss: -1.9992963075637817, energy_loss: 0.0
+2026-09-14 06:28:23,842 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8270306337035694, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:25,226 INFO Epoch: 372, loss: -0.08778662234544754, labeled_loss: 0.09056466817855835, unnlabeled_loss: 0.043132081627845764, mixup_loss: -1.9991732835769653, energy_loss: 0.0
+2026-09-14 06:28:25,226 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8270306337035694, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:26,677 INFO Epoch: 373, loss: -0.0712919533252716, labeled_loss: 0.09753456711769104, unnlabeled_loss: 0.06216403841972351, mixup_loss: -1.9990854263305664, energy_loss: 0.0
+2026-09-14 06:28:26,678 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8285555390194176, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:28,107 INFO Epoch: 374, loss: -0.08054771274328232, labeled_loss: 0.09679684042930603, unnlabeled_loss: 0.045121386647224426, mixup_loss: -1.9990524053573608, energy_loss: 0.0
+2026-09-14 06:28:28,107 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8285555390194176, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:29,643 INFO Epoch: 375, loss: -0.07830031216144562, labeled_loss: 0.10315143316984177, unnlabeled_loss: 0.03692857548594475, mixup_loss: -1.9991602897644043, energy_loss: 0.0
+2026-09-14 06:28:29,643 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8285555390194176, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:31,078 INFO Epoch: 376, loss: -0.08656628429889679, labeled_loss: 0.09374260902404785, unnlabeled_loss: 0.039246559143066406, mixup_loss: -1.999321699142456, energy_loss: 0.0
+2026-09-14 06:28:31,078 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8285555390194176, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:32,559 INFO Epoch: 377, loss: -0.09730666130781174, labeled_loss: 0.08134706318378448, unnlabeled_loss: 0.042515829205513, mixup_loss: -1.9991164207458496, energy_loss: 0.0
+2026-09-14 06:28:32,559 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8285555390194176, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:34,030 INFO Epoch: 378, loss: -0.08477748930454254, labeled_loss: 0.08942320197820663, unnlabeled_loss: 0.05145614221692085, mixup_loss: -1.9992876052856445, energy_loss: 0.0
+2026-09-14 06:28:34,030 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8285555390194176, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:35,384 INFO Epoch: 379, loss: -0.10102895647287369, labeled_loss: 0.08019962906837463, unnlabeled_loss: 0.03737635910511017, mixup_loss: -1.9991676807403564, energy_loss: 0.0
+2026-09-14 06:28:35,384 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8285555390194176, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:36,668 INFO Epoch: 380, loss: -0.08516393601894379, labeled_loss: 0.08399214595556259, unnlabeled_loss: 0.06151898577809334, mixup_loss: -1.9991557598114014, energy_loss: 0.0
+2026-09-14 06:28:36,668 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8285555390194176, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:37,951 INFO Epoch: 381, loss: -0.07617863267660141, labeled_loss: 0.08954386413097382, unnlabeled_loss: 0.06839980185031891, mixup_loss: -1.9992239475250244, energy_loss: 0.0
+2026-09-14 06:28:37,951 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8285555390194176, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:39,239 INFO Epoch: 382, loss: -0.06685718894004822, labeled_loss: 0.08317772299051285, unnlabeled_loss: 0.09976693242788315, mixup_loss: -1.9991836547851562, energy_loss: 0.0
+2026-09-14 06:28:39,239 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8285555390194176, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:40,573 INFO Epoch: 383, loss: -0.06410405039787292, labeled_loss: 0.086294025182724, unnlabeled_loss: 0.09903380274772644, mixup_loss: -1.9991496801376343, energy_loss: 0.0
+2026-09-14 06:28:40,573 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8285555390194176, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:41,853 INFO Epoch: 384, loss: -0.07808881998062134, labeled_loss: 0.08623228967189789, unnlabeled_loss: 0.07123302668333054, mixup_loss: -1.9993761777877808, energy_loss: 0.0
+2026-09-14 06:28:41,853 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8285555390194176, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:43,111 INFO Epoch: 385, loss: -0.04951693117618561, labeled_loss: 0.08462914824485779, unnlabeled_loss: 0.13156460225582123, mixup_loss: -1.9992839097976685, energy_loss: 0.0
+2026-09-14 06:28:43,111 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8285555390194176, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:44,380 INFO Epoch: 386, loss: -0.03997722268104553, labeled_loss: 0.10415396094322205, unnlabeled_loss: 0.11156297475099564, mixup_loss: -1.999126672744751, energy_loss: 0.0
+2026-09-14 06:28:44,380 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8285555390194176, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:45,619 INFO Epoch: 387, loss: -0.07739223539829254, labeled_loss: 0.08401691913604736, unnlabeled_loss: 0.07700493186712265, mixup_loss: -1.9991161823272705, energy_loss: 0.0
+2026-09-14 06:28:45,619 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8285555390194176, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:46,856 INFO Epoch: 388, loss: -0.060734823346138, labeled_loss: 0.09988036006689072, unnlabeled_loss: 0.07863013446331024, mixup_loss: -1.9993025064468384, energy_loss: 0.0
+2026-09-14 06:28:46,856 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8285555390194176, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:48,033 INFO Epoch: 389, loss: -0.0935189425945282, labeled_loss: 0.0833723396062851, unnlabeled_loss: 0.04605800658464432, mixup_loss: -1.999202847480774, energy_loss: 0.0
+2026-09-14 06:28:48,033 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8285555390194176, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:49,317 INFO Epoch: 390, loss: -0.08688642829656601, labeled_loss: 0.08640573173761368, unnlabeled_loss: 0.053235024213790894, mixup_loss: -1.9990967512130737, energy_loss: 0.0
+2026-09-14 06:28:49,317 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8285555390194176, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:50,597 INFO Epoch: 391, loss: -0.0784672200679779, labeled_loss: 0.09238725155591965, unnlabeled_loss: 0.05811541527509689, mixup_loss: -1.9991217851638794, energy_loss: 0.0
+2026-09-14 06:28:50,597 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8285555390194176, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:51,917 INFO Epoch: 392, loss: -0.07897897809743881, labeled_loss: 0.09049541503190994, unnlabeled_loss: 0.06090143322944641, mixup_loss: -1.999251127243042, energy_loss: 0.0
+2026-09-14 06:28:51,917 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8285555390194176, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:53,142 INFO Epoch: 393, loss: -0.07594634592533112, labeled_loss: 0.08442433923482895, unnlabeled_loss: 0.07912663370370865, mixup_loss: -1.9993400573730469, energy_loss: 0.0
+2026-09-14 06:28:53,142 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8285555390194176, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:54,406 INFO Epoch: 394, loss: -0.07923556864261627, labeled_loss: 0.07625433802604675, unnlabeled_loss: 0.08886668086051941, mixup_loss: -1.9992324113845825, energy_loss: 0.0
+2026-09-14 06:28:54,406 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8285555390194176, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:55,883 INFO Epoch: 395, loss: -0.06837652623653412, labeled_loss: 0.08963143080472946, unnlabeled_loss: 0.08382198959589005, mixup_loss: -1.9991894960403442, energy_loss: 0.0
+2026-09-14 06:28:55,883 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8285555390194176, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:57,328 INFO Epoch: 396, loss: -0.051549673080444336, labeled_loss: 0.08869381994009018, unnlabeled_loss: 0.11936525255441666, mixup_loss: -1.9992612600326538, energy_loss: 0.0
+2026-09-14 06:28:57,328 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8285555390194176, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:28:58,839 INFO Epoch: 397, loss: -0.06497232615947723, labeled_loss: 0.08226042240858078, unnlabeled_loss: 0.10539951920509338, mixup_loss: -1.999324917793274, energy_loss: 0.0
+2026-09-14 06:28:58,839 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8285555390194176, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:29:00,349 INFO Epoch: 398, loss: -0.08953617513179779, labeled_loss: 0.08212057501077652, unnlabeled_loss: 0.05653177946805954, mixup_loss: -1.9992263317108154, energy_loss: 0.0
+2026-09-14 06:29:00,349 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8285555390194176, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:29:01,774 INFO Epoch: 399, loss: -0.052614107728004456, labeled_loss: 0.09499463438987732, unnlabeled_loss: 0.10464715957641602, mixup_loss: -1.9993232488632202, energy_loss: 0.0
+2026-09-14 06:29:01,774 INFO Best AUROC test all: 0.9542697785308424, AUPR test all: 0.8285555390194176, AUROC test unknown: 0.0, AUPR test unknown: 0.0
+2026-09-14 06:29:01,804 INFO AGG best={'auroc_all': 0.9542697785308424, 'aupr_all': 0.8285555390194176, 'auroc_unknown': 0.0, 'aupr_unknown': 0.0} val_selected={'auroc_all': 0.9438543057366799, 'aupr_all': 0.8013705421763515, 'auroc_unknown': nan, 'aupr_unknown': 0.0}

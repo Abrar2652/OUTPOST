@@ -1,0 +1,54 @@
+# gpu=6 cmd=/usr/bin/python3 -u main.py --dataset cs --seed 42 --method outpost --tag A_main --rotations 0
+/nas/home/jahin/.local/lib/python3.10/site-packages/torch_geometric/__init__.py:4: UserWarning: An issue occurred while importing 'torch-scatter'. Disabling its usage. Stacktrace: /nas/home/jahin/.local/lib/python3.10/site-packages/torch_scatter/_version_cuda.so: undefined symbol: _ZN5torch3jit17parseSchemaOrNameERKSsb
+  import torch_geometric.typing
+/nas/home/jahin/.local/lib/python3.10/site-packages/torch_geometric/__init__.py:4: UserWarning: An issue occurred while importing 'torch-sparse'. Disabling its usage. Stacktrace: /nas/home/jahin/.local/lib/python3.10/site-packages/torch_sparse/_version_cuda.so: undefined symbol: _ZN5torch3jit17parseSchemaOrNameERKSsb
+  import torch_geometric.typing
+/nas/home/jahin/.local/lib/python3.10/site-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (1.26.5) or chardet (7.2.0)/charset_normalizer (3.4.4) doesn't match a supported version!
+  warnings.warn(
+Disabling PyTorch because PyTorch >= 2.1 is required but found 2.0.1
+None of PyTorch, TensorFlow >= 2.0, or Flax have been found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+/nas/home/jahin/.local/lib/python3.10/site-packages/outdated/__init__.py:36: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+[utils] PPR/dgl path unavailable (libcudart.so.12: cannot open shared object file: No such file or directory); OUTPOST path unaffected.
+[0.03861888 0.02520046 0.11182021 0.02340043 0.07603775 0.11962036
+ 0.02023673 0.05040092 0.0422735  0.00643648 0.07876507 0.11089293
+ 0.02290951 0.2256041  0.04778269]
+[cs] anomaly classes (rotations): [0, 1, 3, 6, 8, 9, 12, 14]
+[cs] running subset: [0]
+Normal classes: [2, 4, 5, 7, 10, 11, 13] in cs
+Building multi-layer GraphSage
+[OUTPOST-v4] epoch 0: test-all ROC 0.7945 PR 0.6189 | unseen ROC 0.7673 PR 0.5098 | valAUC 0.9811 | tau+ 0.500
+[OUTPOST-v4] epoch 1: test-all ROC 0.7803 PR 0.5977 | unseen ROC 0.7509 PR 0.4844 | valAUC 0.9813 | tau+ 0.500
+[OUTPOST-v4] epoch 2: test-all ROC 0.7754 PR 0.5900 | unseen ROC 0.7447 PR 0.4715 | valAUC 0.9865 | tau+ 0.500
+[OUTPOST-v4] epoch 3: test-all ROC 0.7735 PR 0.5890 | unseen ROC 0.7420 PR 0.4706 | valAUC 0.9830 | tau+ 0.500
+[OUTPOST-v4] epoch 4: test-all ROC 0.7726 PR 0.5878 | unseen ROC 0.7411 PR 0.4679 | valAUC 0.9759 | tau+ 0.500
+[OUTPOST-v4] epoch 5: test-all ROC 0.7759 PR 0.5965 | unseen ROC 0.7451 PR 0.4811 | valAUC 0.9955 | tau+ 0.500
+[OUTPOST-v4] epoch 6: test-all ROC 0.7826 PR 0.6071 | unseen ROC 0.7521 PR 0.4956 | valAUC 0.9849 | tau+ 0.500
+[OUTPOST-v4] epoch 7: test-all ROC 0.7913 PR 0.6224 | unseen ROC 0.7618 PR 0.5157 | valAUC 0.9816 | tau+ 0.500
+[OUTPOST-v4] epoch 8: test-all ROC 0.8018 PR 0.6372 | unseen ROC 0.7732 PR 0.5343 | valAUC 0.9858 | tau+ 0.500
+[OUTPOST-v4] epoch 9: test-all ROC 0.8081 PR 0.6492 | unseen ROC 0.7798 PR 0.5498 | valAUC 0.9953 | tau+ 0.500
+[OUTPOST-v4] epoch 10: test-all ROC 0.8150 PR 0.6595 | unseen ROC 0.7879 PR 0.5617 | valAUC 0.9988 | tau+ 0.500
+[OUTPOST-v4] epoch 11: test-all ROC 0.8230 PR 0.6720 | unseen ROC 0.7969 PR 0.5774 | valAUC 0.9998 | tau+ 0.500
+[OUTPOST-v4] epoch 12: test-all ROC 0.8314 PR 0.6843 | unseen ROC 0.8061 PR 0.5912 | valAUC 0.9988 | tau+ 0.500
+[OUTPOST-v4] epoch 13: test-all ROC 0.8385 PR 0.6963 | unseen ROC 0.8141 PR 0.6067 | valAUC 0.9976 | tau+ 0.500
+[OUTPOST-v4] epoch 14: test-all ROC 0.8456 PR 0.7073 | unseen ROC 0.8222 PR 0.6210 | valAUC 1.0000 | tau+ 0.500
+[OUTPOST-v4] epoch 15: test-all ROC 0.8499 PR 0.7152 | unseen ROC 0.8270 PR 0.6306 | valAUC 0.9983 | tau+ 0.500
+[OUTPOST-v4] epoch 16: test-all ROC 0.8556 PR 0.7251 | unseen ROC 0.8331 PR 0.6416 | valAUC 1.0000 | tau+ 0.500
+[OUTPOST-v4] epoch 17: test-all ROC 0.8621 PR 0.7377 | unseen ROC 0.8409 PR 0.6588 | valAUC 0.9998 | tau+ 0.500
+[OUTPOST-v4] epoch 18: test-all ROC 0.8662 PR 0.7450 | unseen ROC 0.8453 PR 0.6664 | valAUC 1.0000 | tau+ 0.500
+[OUTPOST-v4] epoch 19: test-all ROC 0.8749 PR 0.7588 | unseen ROC 0.8553 PR 0.6847 | valAUC 0.9998 | tau+ 0.500
+[OUTPOST-v4] epoch 20: test-all ROC 0.8801 PR 0.7703 | unseen ROC 0.8613 PR 0.7000 | valAUC 1.0000 | tau+ 0.500
+[OUTPOST-v4] epoch 21: test-all ROC 0.8883 PR 0.7850 | unseen ROC 0.8707 PR 0.7183 | valAUC 0.9969 | tau+ 0.500
+[OUTPOST-v4] epoch 22: test-all ROC 0.8944 PR 0.7967 | unseen ROC 0.8776 PR 0.7322 | valAUC 1.0000 | tau+ 0.500
+[OUTPOST-v4] epoch 23: test-all ROC 0.9028 PR 0.8123 | unseen ROC 0.8873 PR 0.7523 | valAUC 1.0000 | tau+ 0.500
+[OUTPOST-v4] epoch 24: test-all ROC 0.9134 PR 0.8305 | unseen ROC 0.8995 PR 0.7760 | valAUC 1.0000 | tau+ 0.500
+[OUTPOST-v4] epoch 25: test-all ROC 0.9221 PR 0.8446 | unseen ROC 0.9095 PR 0.7934 | valAUC 1.0000 | tau+ 0.500
+[OUTPOST-v4] epoch 26: test-all ROC 0.9325 PR 0.8621 | unseen ROC 0.9216 PR 0.8137 | valAUC 1.0000 | tau+ 0.500
+[OUTPOST-v4] epoch 27: test-all ROC 0.9423 PR 0.8805 | unseen ROC 0.9332 PR 0.8388 | valAUC 1.0000 | tau+ 0.500
+[OUTPOST-v4] epoch 28: test-all ROC 0.9516 PR 0.8924 | unseen ROC 0.9437 PR 0.8514 | valAUC 1.0000 | tau+ 0.500
+[OUTPOST-v4] epoch 29: test-all ROC 0.9563 PR 0.8998 | unseen ROC 0.9493 PR 0.8608 | valAUC 1.0000 | tau+ 0.500
+[OUTPOST-v4] epoch 30: test-all ROC 0.9617 PR 0.9101 | unseen ROC 0.9557 PR 0.8754 | valAUC 1.0000 | tau+ 0.500
+[OUTPOST-v4] epoch 31: test-all ROC 0.9644 PR 0.9188 | unseen ROC 0.9592 PR 0.8879 | valAUC 1.0000 | tau+ 0.500
+[OUTPOST-v4] epoch 32: test-all ROC 0.9658 PR 0.9256 | unseen ROC 0.9607 PR 0.8979 | valAUC 1.0000 | tau+ 0.500
+[OUTPOST-v4] epoch 33: test-all ROC 0.9674 PR 0.9306 | unseen ROC 0.9627 PR 0.9059 | valAUC 1.0000 | tau+ 0.500
+[OUTPOST-v4] epoch 34: test-all ROC 0.9692 PR 0.9327 | unseen ROC 0.9646 PR 0.9078 | valAUC 1.0000 | tau+ 0.500

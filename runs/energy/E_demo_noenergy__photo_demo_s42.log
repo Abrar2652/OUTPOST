@@ -1,0 +1,60 @@
+# gpu=7 cmd=/usr/bin/python3 -u main.py --dataset photo --seed 42 --method demo --tag E_demo_noenergy --set energy_loss=false
+/nas/home/jahin/.local/lib/python3.10/site-packages/torch_geometric/__init__.py:4: UserWarning: An issue occurred while importing 'torch-scatter'. Disabling its usage. Stacktrace: /nas/home/jahin/.local/lib/python3.10/site-packages/torch_scatter/_version_cuda.so: undefined symbol: _ZN5torch3jit17parseSchemaOrNameERKSsb
+  import torch_geometric.typing
+/nas/home/jahin/.local/lib/python3.10/site-packages/torch_geometric/__init__.py:4: UserWarning: An issue occurred while importing 'torch-sparse'. Disabling its usage. Stacktrace: /nas/home/jahin/.local/lib/python3.10/site-packages/torch_sparse/_version_cuda.so: undefined symbol: _ZN5torch3jit17parseSchemaOrNameERKSsb
+  import torch_geometric.typing
+/nas/home/jahin/.local/lib/python3.10/site-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (1.26.5) or chardet (7.2.0)/charset_normalizer (3.4.4) doesn't match a supported version!
+  warnings.warn(
+Disabling PyTorch because PyTorch >= 2.1 is required but found 2.0.1
+None of PyTorch, TensorFlow >= 2.0, or Flax have been found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+/nas/home/jahin/.local/lib/python3.10/site-packages/outdated/__init__.py:36: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+[utils] PPR/dgl path unavailable (libcudart.so.12: cannot open shared object file: No such file or directory); OUTPOST path unaffected.
+[0.04823529 0.22039216 0.09189542 0.11960784 0.11529412 0.1075817
+ 0.25372549 0.04326797]
+[photo] anomaly classes (rotations): [0, 7]
+Normal classes: [1, 2, 3, 4, 5, 6] in photo
+using binary cross entropy loss...
+Building multi-layer GraphSage
+building the dataloader ...
+/nas/home/jahin/.local/lib/python3.10/site-packages/torch_geometric/data/data.py:187: UserWarning: Unable to accurately infer 'num_nodes' from the attribute set '{'edge_index', 'x'}'. Please explicitly set 'num_nodes' as an attribute of 'data' to suppress this warning
+  return sum([v.num_nodes for v in self.node_stores])
+pseudo_counter: Counter({-1: 7650})
+Traceback (most recent call last):
+  File "/nas/ckgfs/jaunts/jahin/OUTPOST/main.py", line 241, in <module>
+    main()
+  File "/nas/ckgfs/jaunts/jahin/OUTPOST/main.py", line 195, in main
+    res = train(split, labels_np, graph, args, info, logger, None)
+  File "/nas/ckgfs/jaunts/jahin/OUTPOST/trainer.py", line 203, in train
+    logits_w = model(x_unlabeled_weak, adjs_unlabeled)
+  File "/nas/home/jahin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/nas/ckgfs/jaunts/jahin/OUTPOST/model.py", line 197, in forward
+    ebds = self.encoder(x, adjs, ppr_matrix)
+  File "/nas/home/jahin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/nas/ckgfs/jaunts/jahin/OUTPOST/model.py", line 160, in forward
+    x = self.convs[i]((x, x_target), edge_index)
+  File "/nas/home/jahin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/nas/home/jahin/.local/lib/python3.10/site-packages/torch_geometric/nn/conv/sage_conv.py", line 134, in forward
+    out = self.propagate(edge_index, x=x, size=size)
+  File "/tmp/torch_geometric.nn.conv.sage_conv_SAGEConv_propagate_m41dqdb2.py", line 229, in propagate
+    out = self.aggregate(
+  File "/nas/home/jahin/.local/lib/python3.10/site-packages/torch_geometric/nn/conv/message_passing.py", line 594, in aggregate
+    return self.aggr_module(inputs, index, ptr=ptr, dim_size=dim_size,
+  File "/nas/home/jahin/.local/lib/python3.10/site-packages/torch_geometric/experimental.py", line 117, in wrapper
+    return func(*args, **kwargs)
+  File "/nas/home/jahin/.local/lib/python3.10/site-packages/torch_geometric/nn/aggr/base.py", line 139, in __call__
+    raise e
+  File "/nas/home/jahin/.local/lib/python3.10/site-packages/torch_geometric/nn/aggr/base.py", line 131, in __call__
+    return super().__call__(x, index=index, ptr=ptr, dim_size=dim_size,
+  File "/nas/home/jahin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/nas/home/jahin/.local/lib/python3.10/site-packages/torch_geometric/nn/aggr/basic.py", line 36, in forward
+    return self.reduce(x, index, ptr, dim_size, dim, reduce='mean')
+  File "/nas/home/jahin/.local/lib/python3.10/site-packages/torch_geometric/nn/aggr/base.py", line 185, in reduce
+    return scatter(x, index, dim, dim_size, reduce)
+  File "/nas/home/jahin/.local/lib/python3.10/site-packages/torch_geometric/utils/_scatter.py", line 78, in scatter
+    out = src.new_zeros(size).scatter_add_(dim, index, src)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 340.00 MiB (GPU 0; 23.55 GiB total capacity; 1.50 GiB already allocated; 59.94 MiB free; 2.12 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

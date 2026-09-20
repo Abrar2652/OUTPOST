@@ -1,0 +1,61 @@
+/nas/home/jahin/.local/lib/python3.10/site-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (1.26.5) or chardet (7.2.0)/charset_normalizer (3.4.4) doesn't match a supported version!
+  warnings.warn(
+[0.03861888 0.02520046 0.11182021 0.02340043 0.07603775 0.11962036
+ 0.02023673 0.05040092 0.0422735  0.00643648 0.07876507 0.11089293
+ 0.02290951 0.2256041  0.04778269]
+[cs] NSReg, rotations [np.int64(0)] of [np.int64(0), np.int64(1), np.int64(3), np.int64(6), np.int64(8), np.int64(9), np.int64(12), np.int64(14)]
+[cs] n_epochs=400 eval_every=1 input_dim=6805 wd=0.0 lr=0.001
+Normal classes: [2, 4, 5, 7, 10, 11, 13] in cs
+using idx from: split_50.pkl - num known anomalies 50
+num known anomalies: 50
+Building multi-layer GraphSage
+GRAPHSAGE used as the encoder
+building the dataloader ...
+/nas/home/jahin/.local/lib/python3.10/site-packages/torch/functional.py:554: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4314.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+num train pos edges: 324  num train neg edges: 522
+NSReg Training ...
+Batch mode: enabled original propertion
+Epoch  0 Traceback (most recent call last):
+  File "/nas/ckgfs/jaunts/jahin/OUTPOST/baselines/run_nsreg.py", line 257, in <module>
+  File "/nas/ckgfs/jaunts/jahin/OUTPOST/baselines/run_nsreg.py", line 233, in main
+    "n_params": runner.n_params(), "rotation_class": int(idx),
+  File "/nas/ckgfs/jaunts/jahin/OUTPOST/baselines/NSReg/runners/train_runner.py", line 207, in train
+    all_ebds_enc = self.get_all_embedding(self.encoder, self.dataloader, self.x_all, len(self.dataloader))
+  File "/nas/ckgfs/jaunts/jahin/OUTPOST/baselines/NSReg/runners/train_runner.py", line 534, in get_all_embedding
+    ebds = self.single_pass(model, x_all, loader_iter, self.single_layer)
+  File "/nas/ckgfs/jaunts/jahin/OUTPOST/baselines/NSReg/runners/train_runner.py", line 638, in single_pass
+    ebds = model(x_all[n_id].to(self.device), adjs)
+  File "/nas/home/jahin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/nas/home/jahin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/nas/ckgfs/jaunts/jahin/OUTPOST/baselines/NSReg/models/base_gnns.py", line 65, in forward
+    x = self.convs[i]((x, x_target), edge_index)
+  File "/nas/home/jahin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/nas/home/jahin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/nas/home/jahin/.local/lib/python3.10/site-packages/torch_geometric/nn/conv/sage_conv.py", line 134, in forward
+    out = self.propagate(edge_index, x=x, size=size)
+  File "/tmp/torch_geometric.nn.conv.sage_conv_SAGEConv_propagate_xh8l0dlf.py", line 229, in propagate
+    out = self.aggregate(
+  File "/nas/home/jahin/.local/lib/python3.10/site-packages/torch_geometric/nn/conv/message_passing.py", line 594, in aggregate
+    return self.aggr_module(inputs, index, ptr=ptr, dim_size=dim_size,
+  File "/nas/home/jahin/.local/lib/python3.10/site-packages/torch_geometric/experimental.py", line 117, in wrapper
+    return func(*args, **kwargs)
+  File "/nas/home/jahin/.local/lib/python3.10/site-packages/torch_geometric/nn/aggr/base.py", line 139, in __call__
+    raise e
+  File "/nas/home/jahin/.local/lib/python3.10/site-packages/torch_geometric/nn/aggr/base.py", line 131, in __call__
+    return super().__call__(x, index=index, ptr=ptr, dim_size=dim_size,
+  File "/nas/home/jahin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/nas/home/jahin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/nas/home/jahin/.local/lib/python3.10/site-packages/torch_geometric/nn/aggr/basic.py", line 36, in forward
+    return self.reduce(x, index, ptr, dim_size, dim, reduce='mean')
+  File "/nas/home/jahin/.local/lib/python3.10/site-packages/torch_geometric/nn/aggr/base.py", line 185, in reduce
+    return scatter(x, index, dim, dim_size, reduce)
+  File "/nas/home/jahin/.local/lib/python3.10/site-packages/torch_geometric/utils/_scatter.py", line 78, in scatter
+    out = src.new_zeros(size).scatter_add_(dim, index, src)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 4.20 GiB. GPU 0 has a total capacity of 47.54 GiB of which 207.00 MiB is free. Process 1341859 has 7.36 GiB memory in use. Process 1341863 has 8.66 GiB memory in use. Process 1346191 has 3.24 GiB memory in use. Process 1346194 has 1.77 GiB memory in use. Process 1346190 has 5.73 GiB memory in use. Process 1346193 has 422.00 MiB memory in use. Including non-PyTorch memory, this process has 20.14 GiB memory in use. Of the allocated memory 19.83 GiB is allocated by PyTorch, and 15.70 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

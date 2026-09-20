@@ -1,0 +1,35 @@
+[22:32] chain_sel: waiting for sel_final (38 shards)
+[00:45] sel_final complete; adding demo_tune400 drivers
+[00:45] launched demo_tune400 on gpus 5,6
+[00:47] chain_sel: sel_final finished; refreshing
+[00:47] chain_sel: scored P32-P35, P40 -> runs/score_selection_final.txt (exit 0)
+[00:47] chain_sel: starting tfinance_decomp
+20/20 job(s) to run on gpu 4
+[00:47:19] === run_small tfinance_decomp on gpu 4: 20 job(s) ===
+[02:58:38] [ok  ] 1/20 C_nogate__tfinance_outpost_s0_rot  131.3 min
+[05:09:54] [ok  ] 2/20 C_nogate__tfinance_outpost_s1_rot  131.3 min
+[10:15:04] [ok  ] 3/20 C_nogate__tfinance_outpost_s2_rot  305.2 min
+[16:17:09] [ok  ] 4/20 C_nogate__tfinance_outpost_s3_rot  362.1 min
+[19:04:36] [ok  ] 5/20 C_nogate__tfinance_outpost_s4_rot  167.5 min
+[22:30:24] [ok  ] 6/20 C_nogate__tfinance_outpost_s5_rot  205.8 min
+[00:19:07] [ok  ] 7/20 C_nogate__tfinance_outpost_s6_rot  108.7 min
+[02:18:54] [ok  ] 8/20 C_nogate__tfinance_outpost_s7_rot  119.8 min
+[05:18:17] [ok  ] 9/20 C_nogate__tfinance_outpost_s8_rot  179.4 min
+[07:21:47] [ok  ] 10/20 C_nogate__tfinance_outpost_s42_rot  123.5 min
+[09:18:42] [ok  ] 14/20 C_noconformal__tfinance_outpost_s3_rot  116.9 min
+[11:15:07] [ok  ] 15/20 C_noconformal__tfinance_outpost_s4_rot  116.4 min
+[11:18] sweeper: 19 shards present, running the orphan
+[11:18] sweeper done: 19/20 shards
+[12:50:24] [ok  ] 20/20 C_noconformal__tfinance_outpost_s42_rot  95.3 min
+[12:50:24] === tfinance_decomp done: 13 ok, 0 failed ===
+[12:56] chain_sel: ALL DONE
+[01:19] sweep demo_tune: all 3 driver(s) finished; sweeping
+[01:19] sweep demo_tune: complete
+[22:27] handoff: all 4 pre-fix drivers exited
+[22:27] quarantined ogbn-arxiv_demo_s4_B_demo_mix_rot8.json (epochs=200, expected 400)
+done: 1 shard(s) quarantined
+[22:27] handoff: stand-down claims cleared
+[22:27] handoff: relaunched arxiv_demo at 400 epochs
+[15:40] NSReg-arxiv complete (40/40); adding mag drivers
+[15:40]   + mag driver on gpu3 (29385 MiB free)
+[15:40]   + mag driver on gpu5 (23395 MiB free)

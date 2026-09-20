@@ -1,0 +1,16 @@
+# gpu=7 cmd=/usr/bin/python3 -u main.py --dataset cs --seed 42 --method outpost --tag C_sim --rotations 1 --set sim_topk_frac=1.0
+/nas/home/jahin/.local/lib/python3.10/site-packages/torch_geometric/__init__.py:4: UserWarning: An issue occurred while importing 'torch-scatter'. Disabling its usage. Stacktrace: /nas/home/jahin/.local/lib/python3.10/site-packages/torch_scatter/_version_cuda.so: undefined symbol: _ZN5torch3jit17parseSchemaOrNameERKSsb
+  import torch_geometric.typing
+/nas/home/jahin/.local/lib/python3.10/site-packages/torch_geometric/__init__.py:4: UserWarning: An issue occurred while importing 'torch-sparse'. Disabling its usage. Stacktrace: /nas/home/jahin/.local/lib/python3.10/site-packages/torch_sparse/_version_cuda.so: undefined symbol: _ZN5torch3jit17parseSchemaOrNameERKSsb
+  import torch_geometric.typing
+/nas/home/jahin/.local/lib/python3.10/site-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (1.26.5) or chardet (7.2.0)/charset_normalizer (3.4.4) doesn't match a supported version!
+  warnings.warn(
+[0.03861888 0.02520046 0.11182021 0.02340043 0.07603775 0.11962036
+ 0.02023673 0.05040092 0.0422735  0.00643648 0.07876507 0.11089293
+ 0.02290951 0.2256041  0.04778269]
+[cs] anomaly classes (rotations): [np.int64(0), np.int64(1), np.int64(3), np.int64(6), np.int64(8), np.int64(9), np.int64(12), np.int64(14)]
+[cs] running subset: [np.int64(1)]
+Normal classes: [np.int64(2), np.int64(4), np.int64(5), np.int64(7), np.int64(10), np.int64(11), np.int64(13)] in cs
+Building multi-layer GraphSage
+[OUTPOST-v4] epoch 0: test-all ROC 0.7497 PR 0.4935 | unseen ROC 0.7552 PR 0.4851 | valAUC 0.6686 | tau+ 0.500
+[OUTPOST-v4] epoch 1: test-all ROC 0.7665 PR 0.5185 | unseen ROC 0.7728 PR 0.5118 | valAUC 0.6650 | tau+ 0.500

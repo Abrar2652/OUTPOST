@@ -1,0 +1,18 @@
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{llll}
+\toprule
+Dataset & Oracle ranking & Val-selected ranking & Change \\
+\midrule
+Photo & DEMO 0.8879 $>$ NSReg 0.8760 $>$ OUTPOST 0.8703 & NSReg 0.7929 $>$ OUTPOST 0.7914 $>$ DEMO 0.7744 & \textbf{flips} \\
+Computers & OUTPOST 0.8510 $>$ NSReg 0.8370 $>$ DEMO 0.7782 & NSReg 0.7855 $>$ OUTPOST 0.7715 $>$ DEMO 0.7274 & \textbf{flips} \\
+CS & OUTPOST 0.9842 $>$ NSReg 0.9701 $>$ DEMO 0.9646 & OUTPOST 0.9389 $>$ NSReg 0.9294 $>$ DEMO 0.9008 & same \\
+Yelp & OUTPOST 0.7448 $>$ NSReg 0.7388 $>$ DEMO 0.7310 & OUTPOST 0.7425 $>$ NSReg 0.7247 $>$ DEMO 0.7246 & same \\
+Amazon & NSReg 0.9586 $>$ DEMO 0.9555 $>$ OUTPOST 0.9534 & NSReg 0.9540 $>$ DEMO 0.9505 $>$ OUTPOST 0.9420 & same \\
+T-Finance & NSReg 0.9238 $>$ DEMO 0.9161 $>$ OUTPOST 0.9087 & NSReg 0.9156 $>$ DEMO 0.9029 $>$ OUTPOST 0.8946 & same \\
+\bottomrule
+\end{tabular}
+\caption{Three methods under one protocol, ranked two ways (AUC-ROC over all anomalies, mean over 10 seeds). Oracle: per-metric maximum over epochs, the published protocol. Val-selected: the peak-validation epoch.}
+\label{tab:three_method}
+\end{table}

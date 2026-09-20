@@ -1,0 +1,68 @@
+# gpu=6 cmd=/usr/bin/python3 -u main.py --dataset photo --seed 42 --method outpost --tag A_main
+/nas/home/jahin/.local/lib/python3.10/site-packages/torch_geometric/__init__.py:4: UserWarning: An issue occurred while importing 'torch-scatter'. Disabling its usage. Stacktrace: /nas/home/jahin/.local/lib/python3.10/site-packages/torch_scatter/_version_cuda.so: undefined symbol: _ZN5torch3jit17parseSchemaOrNameERKSsb
+  import torch_geometric.typing
+/nas/home/jahin/.local/lib/python3.10/site-packages/torch_geometric/__init__.py:4: UserWarning: An issue occurred while importing 'torch-sparse'. Disabling its usage. Stacktrace: /nas/home/jahin/.local/lib/python3.10/site-packages/torch_sparse/_version_cuda.so: undefined symbol: _ZN5torch3jit17parseSchemaOrNameERKSsb
+  import torch_geometric.typing
+/nas/home/jahin/.local/lib/python3.10/site-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (1.26.5) or chardet (7.2.0)/charset_normalizer (3.4.4) doesn't match a supported version!
+  warnings.warn(
+Disabling PyTorch because PyTorch >= 2.1 is required but found 2.0.1
+None of PyTorch, TensorFlow >= 2.0, or Flax have been found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+/nas/home/jahin/.local/lib/python3.10/site-packages/outdated/__init__.py:36: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+[utils] PPR/dgl path unavailable (libcudart.so.12: cannot open shared object file: No such file or directory); OUTPOST path unaffected.
+[0.04823529 0.22039216 0.09189542 0.11960784 0.11529412 0.1075817
+ 0.25372549 0.04326797]
+[photo] anomaly classes (rotations): [0, 7]
+Normal classes: [1, 2, 3, 4, 5, 6] in photo
+Building multi-layer GraphSage
+[OUTPOST-v4] epoch 0: test-all ROC 0.6011 PR 0.1187 | unseen ROC 0.3899 PR 0.0356 | valAUC 0.8256 | tau+ 0.500
+[OUTPOST-v4] epoch 1: test-all ROC 0.6086 PR 0.1207 | unseen ROC 0.4034 PR 0.0364 | valAUC 0.8246 | tau+ 0.500
+[OUTPOST-v4] epoch 2: test-all ROC 0.6079 PR 0.1202 | unseen ROC 0.4037 PR 0.0365 | valAUC 0.8415 | tau+ 0.500
+[OUTPOST-v4] epoch 3: test-all ROC 0.6086 PR 0.1212 | unseen ROC 0.4026 PR 0.0364 | valAUC 0.8348 | tau+ 0.500
+[OUTPOST-v4] epoch 4: test-all ROC 0.6123 PR 0.1244 | unseen ROC 0.4045 PR 0.0365 | valAUC 0.8367 | tau+ 0.500
+[OUTPOST-v4] epoch 5: test-all ROC 0.6144 PR 0.1266 | unseen ROC 0.4033 PR 0.0364 | valAUC 0.8348 | tau+ 0.500
+[OUTPOST-v4] epoch 6: test-all ROC 0.6159 PR 0.1287 | unseen ROC 0.3989 PR 0.0362 | valAUC 0.8425 | tau+ 0.500
+[OUTPOST-v4] epoch 7: test-all ROC 0.6166 PR 0.1308 | unseen ROC 0.3993 PR 0.0362 | valAUC 0.8502 | tau+ 0.500
+[OUTPOST-v4] epoch 8: test-all ROC 0.6272 PR 0.1355 | unseen ROC 0.4113 PR 0.0369 | valAUC 0.8638 | tau+ 0.500
+Traceback (most recent call last):
+  File "/nas/ckgfs/jaunts/jahin/OUTPOST/main.py", line 183, in <module>
+    main()
+  File "/nas/ckgfs/jaunts/jahin/OUTPOST/main.py", line 141, in main
+    res = train_outpost_v4(split, labels_np, graph, args, info, logger)
+  File "/nas/ckgfs/jaunts/jahin/OUTPOST/trainer.py", line 595, in train_outpost_v4
+    m = eval_outpost_v4(model, split_info, y_np, graph, args, device, sizes,
+  File "/nas/ckgfs/jaunts/jahin/OUTPOST/trainer.py", line 655, in eval_outpost_v4
+    outs.append(torch.sigmoid(model(x, adjs)).cpu())
+  File "/nas/home/jahin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/nas/ckgfs/jaunts/jahin/OUTPOST/model.py", line 344, in forward
+    return self.clf(self.embed(x, adjs)).squeeze(-1)
+  File "/nas/ckgfs/jaunts/jahin/OUTPOST/model.py", line 341, in embed
+    return self.proj(self.encoder(x, adjs))
+  File "/nas/home/jahin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/nas/ckgfs/jaunts/jahin/OUTPOST/model.py", line 160, in forward
+    x = self.convs[i]((x, x_target), edge_index)
+  File "/nas/home/jahin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/nas/home/jahin/.local/lib/python3.10/site-packages/torch_geometric/nn/conv/sage_conv.py", line 134, in forward
+    out = self.propagate(edge_index, x=x, size=size)
+  File "/tmp/torch_geometric.nn.conv.sage_conv_SAGEConv_propagate_7r084gy3.py", line 229, in propagate
+    out = self.aggregate(
+  File "/nas/home/jahin/.local/lib/python3.10/site-packages/torch_geometric/nn/conv/message_passing.py", line 594, in aggregate
+    return self.aggr_module(inputs, index, ptr=ptr, dim_size=dim_size,
+  File "/nas/home/jahin/.local/lib/python3.10/site-packages/torch_geometric/experimental.py", line 117, in wrapper
+    return func(*args, **kwargs)
+  File "/nas/home/jahin/.local/lib/python3.10/site-packages/torch_geometric/nn/aggr/base.py", line 139, in __call__
+    raise e
+  File "/nas/home/jahin/.local/lib/python3.10/site-packages/torch_geometric/nn/aggr/base.py", line 131, in __call__
+    return super().__call__(x, index=index, ptr=ptr, dim_size=dim_size,
+  File "/nas/home/jahin/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/nas/home/jahin/.local/lib/python3.10/site-packages/torch_geometric/nn/aggr/basic.py", line 36, in forward
+    return self.reduce(x, index, ptr, dim_size, dim, reduce='mean')
+  File "/nas/home/jahin/.local/lib/python3.10/site-packages/torch_geometric/nn/aggr/base.py", line 185, in reduce
+    return scatter(x, index, dim, dim_size, reduce)
+  File "/nas/home/jahin/.local/lib/python3.10/site-packages/torch_geometric/utils/_scatter.py", line 78, in scatter
+    out = src.new_zeros(size).scatter_add_(dim, index, src)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 570.00 MiB (GPU 0; 23.55 GiB total capacity; 2.13 GiB already allocated; 532.50 MiB free; 2.49 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

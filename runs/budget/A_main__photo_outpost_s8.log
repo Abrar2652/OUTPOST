@@ -1,0 +1,27 @@
+# gpu=6 cmd=/usr/bin/python3 -u main.py --dataset photo --seed 8 --method outpost --tag A_main
+/nas/home/jahin/.local/lib/python3.10/site-packages/torch_geometric/__init__.py:4: UserWarning: An issue occurred while importing 'torch-scatter'. Disabling its usage. Stacktrace: /nas/home/jahin/.local/lib/python3.10/site-packages/torch_scatter/_version_cuda.so: undefined symbol: _ZN5torch3jit17parseSchemaOrNameERKSsb
+  import torch_geometric.typing
+/nas/home/jahin/.local/lib/python3.10/site-packages/torch_geometric/__init__.py:4: UserWarning: An issue occurred while importing 'torch-sparse'. Disabling its usage. Stacktrace: /nas/home/jahin/.local/lib/python3.10/site-packages/torch_sparse/_version_cuda.so: undefined symbol: _ZN5torch3jit17parseSchemaOrNameERKSsb
+  import torch_geometric.typing
+/nas/home/jahin/.local/lib/python3.10/site-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (1.26.5) or chardet (7.2.0)/charset_normalizer (3.4.4) doesn't match a supported version!
+  warnings.warn(
+[0.04823529 0.22039216 0.09189542 0.11960784 0.11529412 0.1075817
+ 0.25372549 0.04326797]
+[photo] anomaly classes (rotations): [np.int64(0), np.int64(7)]
+Normal classes: [np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5), np.int64(6)] in photo
+Building multi-layer GraphSage
+[OUTPOST-v4] epoch 0: test-all ROC 0.5856 PR 0.1099 | unseen ROC 0.3830 PR 0.0353 | valAUC 0.8749 | tau+ 0.559
+[OUTPOST-v4] epoch 1: test-all ROC 0.5942 PR 0.1144 | unseen ROC 0.3900 PR 0.0357 | valAUC 0.8469 | tau+ 0.505
+[OUTPOST-v4] epoch 2: test-all ROC 0.6064 PR 0.1202 | unseen ROC 0.3999 PR 0.0363 | valAUC 0.8725 | tau+ 0.500
+[OUTPOST-v4] epoch 3: test-all ROC 0.6052 PR 0.1213 | unseen ROC 0.3929 PR 0.0359 | valAUC 0.8874 | tau+ 0.500
+[OUTPOST-v4] epoch 4: test-all ROC 0.6036 PR 0.1207 | unseen ROC 0.3912 PR 0.0358 | valAUC 0.8729 | tau+ 0.500
+[OUTPOST-v4] epoch 5: test-all ROC 0.6027 PR 0.1206 | unseen ROC 0.3882 PR 0.0357 | valAUC 0.8628 | tau+ 0.500
+[OUTPOST-v4] epoch 6: test-all ROC 0.6028 PR 0.1204 | unseen ROC 0.3885 PR 0.0356 | valAUC 0.8836 | tau+ 0.500
+[OUTPOST-v4] epoch 7: test-all ROC 0.6113 PR 0.1263 | unseen ROC 0.3960 PR 0.0361 | valAUC 0.8821 | tau+ 0.500
+[OUTPOST-v4] epoch 8: test-all ROC 0.6144 PR 0.1278 | unseen ROC 0.3968 PR 0.0362 | valAUC 0.8865 | tau+ 0.500
+[OUTPOST-v4] epoch 9: test-all ROC 0.6144 PR 0.1318 | unseen ROC 0.3901 PR 0.0358 | valAUC 0.8889 | tau+ 0.500
+[OUTPOST-v4] epoch 10: test-all ROC 0.6108 PR 0.1329 | unseen ROC 0.3800 PR 0.0354 | valAUC 0.8990 | tau+ 0.500
+[OUTPOST-v4] epoch 11: test-all ROC 0.6203 PR 0.1390 | unseen ROC 0.3859 PR 0.0356 | valAUC 0.9053 | tau+ 0.500
+[OUTPOST-v4] epoch 12: test-all ROC 0.6244 PR 0.1437 | unseen ROC 0.3888 PR 0.0357 | valAUC 0.9169 | tau+ 0.500
+[OUTPOST-v4] epoch 13: test-all ROC 0.6247 PR 0.1441 | unseen ROC 0.3902 PR 0.0359 | valAUC 0.9246 | tau+ 0.500
+[OUTPOST-v4] epoch 14: test-all ROC 0.6237 PR 0.1467 | unseen ROC 0.3822 PR 0.0354 | valAUC 0.9159 | tau+ 0.500

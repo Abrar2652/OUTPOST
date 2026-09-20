@@ -1,0 +1,32 @@
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lcccccccccc}
+\toprule
+Method & Yelp ROC & Yelp PR & Amazon ROC & Amazon PR & T-Finance ROC & T-Finance PR & ogbn-arxiv ROC & ogbn-arxiv PR & ogbn-mag ROC & ogbn-mag PR \\
+\midrule
+ANOMALOUS & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+DOMINANT & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+AnomalyDAE & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+GAAN & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+CoLA & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+CONAD & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+ConsisGAD & 0.6988 & 0.2970 & -- & -- & -- & -- & 0.6216 & 0.3148 & 0.4909 & 0.0043 \\
+GGAD & 0.6613 & 0.2549 & -- & -- & -- & -- & 0.6007 & 0.2843 & -- & -- \\
+TAM & 0.5319 & 0.0977 & -- & -- & -- & -- & -- & -- & -- & -- \\
+OGCNN & 0.6410 & 0.1118 & -- & -- & -- & -- & -- & -- & -- & -- \\
+ANO-S & 0.6567 & 0.1076 & -- & -- & -- & -- & 0.4510 & 0.1463 & -- & -- \\
+DOM-S & 0.6506 & 0.1048 & -- & -- & -- & -- & 0.4505 & 0.1482 & -- & -- \\
+SpaceGNN & 0.6853 & 0.2916 & -- & -- & -- & -- & 0.6133 & 0.3301 & 0.4626 & 0.0043 \\
+NSReg & 0.7015 & 0.3029 & -- & -- & -- & -- & 0.6182 & 0.3230 & 0.4836 & 0.0041 \\
+GNN+OpenMax & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+DEMO & 0.7097 & 0.2238 & -- & -- & -- & -- & 0.6364 & 0.3329 & 0.4967 & 0.0054 \\
+DEMO (re-run, ours) & 0.7310 $\pm$ 0.0111 & 0.3504 $\pm$ 0.0222 & 0.9555 $\pm$ 0.0051 & 0.8389 $\pm$ 0.0111 & 0.9161 $\pm$ 0.0081 & 0.7122 $\pm$ 0.0263 & -- & -- & -- & -- \\
+NSReg (re-run, ours) & 0.7388 $\pm$ 0.0137 & 0.3610 $\pm$ 0.0196 & \textbf{0.9586 $\pm$ 0.0080} & \textbf{0.8409 $\pm$ 0.0122} & \textbf{0.9238 $\pm$ 0.0093} & \textbf{0.7257 $\pm$ 0.0336} & -- & -- & -- & -- \\
+\midrule
+\textbf{OUTPOST} & \textbf{0.7448 $\pm$ 0.0156} & \textbf{0.3824 $\pm$ 0.0340} & 0.9494 $\pm$ 0.0076 & 0.8294 $\pm$ 0.0110 & 0.9087 $\pm$ 0.0112 & 0.6807 $\pm$ 0.0399 & \textbf{0.6229 $\pm$ 0.0081} & \textbf{0.3049 $\pm$ 0.0060} & \textbf{0.5923 $\pm$ 0.0034} & \textbf{0.0101 $\pm$ 0.0001} \\
+\bottomrule
+\end{tabular}
+\caption{AUC-ROC and AUC-PR on the five large-scale datasets. Rows above the rule are transcribed from their own papers and were produced under those papers' protocols and budgets; the three rows below it (DEMO, NSReg, OUTPOST) were re-run here under one protocol at identical seeds and splits. \textbf{Bold} marks the best value among those three comparable rows only. NSReg's Amazon row is at the configuration its own validation-only sweep selected, which is stronger than its released one; its Photo row is not, because that selection does not survive ten seeds. OUTPOST rows at the configuration each dataset's validation-only sweep selected. Only Amazon differs from the table above (\texttt{T\_hidden16}, 0.0040 lower AUC-ROC at $n{=}10$, nine of ten seeds); every other dataset's sweep retained its default. The Amazon selection does not survive more selection seeds -- its validation margin reverses at ten -- so this table is reported beside the default-arm one, not instead of it.}
+\label{tab:table2_large_selarm}
+\end{table}

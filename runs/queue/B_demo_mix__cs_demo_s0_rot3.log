@@ -1,0 +1,814 @@
+# gpu=6 cmd=/usr/bin/python3 -u main.py --dataset cs --seed 0 --method demo --tag B_demo_mix --rotations 3 --set mixup=true energy_loss=false
+/nas/home/jahin/.local/lib/python3.10/site-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (1.26.5) or chardet (7.2.0)/charset_normalizer (3.4.4) doesn't match a supported version!
+  warnings.warn(
+[0.03861888 0.02520046 0.11182021 0.02340043 0.07603775 0.11962036
+ 0.02023673 0.05040092 0.0422735  0.00643648 0.07876507 0.11089293
+ 0.02290951 0.2256041  0.04778269]
+[cs] anomaly classes (rotations): [np.int64(0), np.int64(1), np.int64(3), np.int64(6), np.int64(8), np.int64(9), np.int64(12), np.int64(14)]
+[cs] running subset: [np.int64(3)]
+==================================================================
+DEMO variant: FULL published method (mixup ON)
+==================================================================
+[cs] DEMO mixup ON, PPR (18333, 18333) from data/cs/ppr_matrix.npy
+Normal classes: [np.int64(2), np.int64(4), np.int64(5), np.int64(7), np.int64(10), np.int64(11), np.int64(13)] in cs
+using binary cross entropy loss...
+Building multi-layer GraphSage
+building the dataloader ...
+pseudo_counter: Counter({-1: 18333})
+AUROC test all: 0.7337894317069031, AUPR test all: 0.4671551820326235, AUROC test unknown: 0.7173082908721437, AUPR test unknown: 0.40536633165795627
+Epoch: 0, Best AUROC test all: 0.7337894317069031, AUPR test all: 0.4671551820326235, AUROC test unknown: 0.7173082908721437, AUPR test unknown: 0.40536633165795627
+pseudo_counter: Counter({-1: 18333})
+AUROC test all: 0.7640820989951276, AUPR test all: 0.5171888592488515, AUROC test unknown: 0.7480561946390757, AUPR test unknown: 0.4512214402536134
+Epoch: 1, Best AUROC test all: 0.7640820989951276, AUPR test all: 0.5171888592488515, AUROC test unknown: 0.7480561946390757, AUPR test unknown: 0.4512214402536134
+pseudo_counter: Counter({-1: 18333})
+AUROC test all: 0.7521345453558633, AUPR test all: 0.5165107450445937, AUROC test unknown: 0.7348546594973066, AUPR test unknown: 0.4480518562653337
+Epoch: 2, Best AUROC test all: 0.7640820989951276, AUPR test all: 0.5171888592488515, AUROC test unknown: 0.7480561946390757, AUPR test unknown: 0.4512214402536134
+pseudo_counter: Counter({-1: 18333})
+AUROC test all: 0.7405703399142729, AUPR test all: 0.4922127733189168, AUROC test unknown: 0.7229397663083663, AUPR test unknown: 0.4230091723209959
+Epoch: 3, Best AUROC test all: 0.7640820989951276, AUPR test all: 0.5171888592488515, AUROC test unknown: 0.7480561946390757, AUPR test unknown: 0.4512214402536134
+pseudo_counter: Counter({-1: 18333})
+AUROC test all: 0.7406801597161501, AUPR test all: 0.48366283466815496, AUROC test unknown: 0.7231769386697786, AUPR test unknown: 0.4145732959058731
+Epoch: 4, Best AUROC test all: 0.7640820989951276, AUPR test all: 0.5171888592488515, AUROC test unknown: 0.7480561946390757, AUPR test unknown: 0.4512214402536134
+pseudo_counter: Counter({-1: 18333})
+AUROC test all: 0.7391406862679712, AUPR test all: 0.48329392075354755, AUROC test unknown: 0.7216252181742274, AUPR test unknown: 0.4161018756448734
+Epoch: 5, Best AUROC test all: 0.7640820989951276, AUPR test all: 0.5171888592488515, AUROC test unknown: 0.7480561946390757, AUPR test unknown: 0.4512214402536134
+pseudo_counter: Counter({-1: 18333})
+max_probs: 0.36902299523353577， num of >0.5: 0
+AUROC test all: 0.7390680955445155, AUPR test all: 0.4826825012822169, AUROC test unknown: 0.7215282406732089, AUPR test unknown: 0.41375216612789856
+Epoch: 6, Best AUROC test all: 0.7640820989951276, AUPR test all: 0.5171888592488515, AUROC test unknown: 0.7480561946390757, AUPR test unknown: 0.4512214402536134
+pseudo_counter: Counter({0: 17404, -1: 929})
+max_probs: 0.3321705460548401， num of >0.5: 0
+AUROC test all: 0.7369185785244241, AUPR test all: 0.4773487487386726, AUROC test unknown: 0.7187597040375435, AUPR test unknown: 0.40710096135661555
+Epoch: 7, Best AUROC test all: 0.7640820989951276, AUPR test all: 0.5171888592488515, AUROC test unknown: 0.7480561946390757, AUPR test unknown: 0.4512214402536134
+pseudo_counter: Counter({0: 17404, -1: 929})
+max_probs: 0.29493895173072815， num of >0.5: 0
+AUROC test all: 0.7396142784140799, AUPR test all: 0.482557608315731, AUROC test unknown: 0.7217439753733481, AUPR test unknown: 0.4126778184116082
+Epoch: 8, Best AUROC test all: 0.7640820989951276, AUPR test all: 0.5171888592488515, AUROC test unknown: 0.7480561946390757, AUPR test unknown: 0.4512214402536134
+pseudo_counter: Counter({0: 17404, -1: 929})
+max_probs: 0.2610730230808258， num of >0.5: 0
+AUROC test all: 0.7434503637585455, AUPR test all: 0.4887020292638072, AUROC test unknown: 0.7260564863763714, AUPR test unknown: 0.41873637637609873
+Epoch: 9, Best AUROC test all: 0.7640820989951276, AUPR test all: 0.5171888592488515, AUROC test unknown: 0.7480561946390757, AUPR test unknown: 0.4512214402536134
+pseudo_counter: Counter({0: 17404, -1: 929})
+max_probs: 0.219480499625206， num of >0.5: 0
+AUROC test all: 0.7444271326112285, AUPR test all: 0.495188869809332, AUROC test unknown: 0.7268446800698157, AUPR test unknown: 0.4252327669933662
+Epoch: 10, Best AUROC test all: 0.7640820989951276, AUPR test all: 0.5171888592488515, AUROC test unknown: 0.7480561946390757, AUPR test unknown: 0.4512214402536134
+pseudo_counter: Counter({0: 17404, -1: 929})
+max_probs: 0.18919265270233154， num of >0.5: 0
+AUROC test all: 0.7493989302274451, AUPR test all: 0.5071233374093544, AUROC test unknown: 0.7317463595712467, AUPR test unknown: 0.43623552176462665
+Epoch: 11, Best AUROC test all: 0.7640820989951276, AUPR test all: 0.5171888592488515, AUROC test unknown: 0.7480561946390757, AUPR test unknown: 0.4512214402536134
+pseudo_counter: Counter({0: 17404, -1: 929})
+max_probs: 0.15683798491954803， num of >0.5: 0
+AUROC test all: 0.7560186688143684, AUPR test all: 0.5209306426482849, AUROC test unknown: 0.7381176707291924, AUPR test unknown: 0.44942161381730644
+Epoch: 12, Best AUROC test all: 0.7640820989951276, AUPR test all: 0.5209306426482849, AUROC test unknown: 0.7480561946390757, AUPR test unknown: 0.4512214402536134
+pseudo_counter: Counter({0: 17404, -1: 929})
+max_probs: 0.13488683104515076， num of >0.5: 0
+AUROC test all: 0.7603889964937328, AUPR test all: 0.5337276680349907, AUROC test unknown: 0.7426601612603051, AUPR test unknown: 0.46351999397825916
+Epoch: 13, Best AUROC test all: 0.7640820989951276, AUPR test all: 0.5337276680349907, AUROC test unknown: 0.7480561946390757, AUPR test unknown: 0.46351999397825916
+pseudo_counter: Counter({0: 17404, -1: 929})
+max_probs: 0.11744047701358795， num of >0.5: 0
+AUROC test all: 0.7660326653655961, AUPR test all: 0.5486808858189407, AUROC test unknown: 0.7485442308949796, AUPR test unknown: 0.48011586325668393
+Epoch: 14, Best AUROC test all: 0.7660326653655961, AUPR test all: 0.5486808858189407, AUROC test unknown: 0.7485442308949796, AUPR test unknown: 0.48011586325668393
+pseudo_counter: Counter({0: 17404, -1: 929})
+max_probs: 0.1029108464717865， num of >0.5: 0
+AUROC test all: 0.7715851243752033, AUPR test all: 0.5638797685401633, AUROC test unknown: 0.7542080791111067, AUPR test unknown: 0.4969990076143219
+Epoch: 15, Best AUROC test all: 0.7715851243752033, AUPR test all: 0.5638797685401633, AUROC test unknown: 0.7542080791111067, AUPR test unknown: 0.4969990076143219
+pseudo_counter: Counter({0: 17404, -1: 929})
+max_probs: 0.09822430461645126， num of >0.5: 0
+AUROC test all: 0.7777588315570485, AUPR test all: 0.5760709863402648, AUROC test unknown: 0.7608458570789048, AUPR test unknown: 0.5113634277237882
+Epoch: 16, Best AUROC test all: 0.7777588315570485, AUPR test all: 0.5760709863402648, AUROC test unknown: 0.7608458570789048, AUPR test unknown: 0.5113634277237882
+pseudo_counter: Counter({0: 17404, -1: 929})
+max_probs: 0.09642602503299713， num of >0.5: 0
+AUROC test all: 0.7823495715712244, AUPR test all: 0.5930990155886595, AUROC test unknown: 0.7656701054781222, AUPR test unknown: 0.5316513828266209
+Epoch: 17, Best AUROC test all: 0.7823495715712244, AUPR test all: 0.5930990155886595, AUROC test unknown: 0.7656701054781222, AUPR test unknown: 0.5316513828266209
+pseudo_counter: Counter({0: 17404, -1: 929})
+max_probs: 0.09423822909593582， num of >0.5: 0
+AUROC test all: 0.7886563356817305, AUPR test all: 0.6090037241201292, AUROC test unknown: 0.7721705657188557, AUPR test unknown: 0.5506889139116101
+Epoch: 18, Best AUROC test all: 0.7886563356817305, AUPR test all: 0.6090037241201292, AUROC test unknown: 0.7721705657188557, AUPR test unknown: 0.5506889139116101
+pseudo_counter: Counter({0: 17404, -1: 929})
+max_probs: 0.09940633177757263， num of >0.5: 0
+AUROC test all: 0.7936625566266978, AUPR test all: 0.6167765736073962, AUROC test unknown: 0.7776335075373851, AUPR test unknown: 0.5597693773547265
+Epoch: 19, Best AUROC test all: 0.7936625566266978, AUPR test all: 0.6167765736073962, AUROC test unknown: 0.7776335075373851, AUPR test unknown: 0.5597693773547265
+pseudo_counter: Counter({0: 17404, -1: 929})
+max_probs: 0.10153514891862869， num of >0.5: 0
+AUROC test all: 0.7991181298804522, AUPR test all: 0.6316348533129866, AUROC test unknown: 0.7831603398236499, AUPR test unknown: 0.577108372873616
+Epoch: 20, Best AUROC test all: 0.7991181298804522, AUPR test all: 0.6316348533129866, AUROC test unknown: 0.7831603398236499, AUPR test unknown: 0.577108372873616
+pseudo_counter: Counter({0: 17404, -1: 929})
+max_probs: 0.10852556675672531， num of >0.5: 0
+AUROC test all: 0.8054824992514167, AUPR test all: 0.6428996785328356, AUROC test unknown: 0.7896859900708719, AUPR test unknown: 0.5893464199524627
+Epoch: 21, Best AUROC test all: 0.8054824992514167, AUPR test all: 0.6428996785328356, AUROC test unknown: 0.7896859900708719, AUPR test unknown: 0.5893464199524627
+pseudo_counter: Counter({0: 17404, -1: 929})
+max_probs: 0.11778650432825089， num of >0.5: 0
+AUROC test all: 0.8119211243972814, AUPR test all: 0.656696283714591, AUROC test unknown: 0.7967455195690336, AUPR test unknown: 0.6053771579084369
+Epoch: 22, Best AUROC test all: 0.8119211243972814, AUPR test all: 0.656696283714591, AUROC test unknown: 0.7967455195690336, AUPR test unknown: 0.6053771579084369
+pseudo_counter: Counter({0: 17404, -1: 929})
+max_probs: 0.12960590422153473， num of >0.5: 0
+AUROC test all: 0.817464080654724, AUPR test all: 0.6691193393316699, AUROC test unknown: 0.8025685054499544, AUPR test unknown: 0.6200112510186276
+Epoch: 23, Best AUROC test all: 0.817464080654724, AUPR test all: 0.6691193393316699, AUROC test unknown: 0.8025685054499544, AUPR test unknown: 0.6200112510186276
+pseudo_counter: Counter({0: 17404, -1: 929})
+max_probs: 0.14478111267089844， num of >0.5: 0
+AUROC test all: 0.823233419514311, AUPR test all: 0.6784420177689896, AUROC test unknown: 0.808618996121906, AUPR test unknown: 0.630047704577162
+Epoch: 24, Best AUROC test all: 0.823233419514311, AUPR test all: 0.6784420177689896, AUROC test unknown: 0.808618996121906, AUPR test unknown: 0.630047704577162
+pseudo_counter: Counter({0: 17404, -1: 929})
+max_probs: 0.1603330820798874， num of >0.5: 0
+AUROC test all: 0.8269121436985392, AUPR test all: 0.6866265478689562, AUROC test unknown: 0.8126709555402422, AUPR test unknown: 0.640219481615629
+Epoch: 25, Best AUROC test all: 0.8269121436985392, AUPR test all: 0.6866265478689562, AUROC test unknown: 0.8126709555402422, AUPR test unknown: 0.640219481615629
+pseudo_counter: Counter({0: 17404, -1: 929})
+max_probs: 0.17518505454063416， num of >0.5: 0
+AUROC test all: 0.8331677143765235, AUPR test all: 0.7008001126955825, AUROC test unknown: 0.8195195187340614, AUPR test unknown: 0.6569834754664422
+Epoch: 26, Best AUROC test all: 0.8331677143765235, AUPR test all: 0.7008001126955825, AUROC test unknown: 0.8195195187340614, AUPR test unknown: 0.6569834754664422
+pseudo_counter: Counter({0: 17404, -1: 929})
+max_probs: 0.19383063912391663， num of >0.5: 0
+AUROC test all: 0.8364870450258428, AUPR test all: 0.7059082578474032, AUROC test unknown: 0.8229798952763708, AUPR test unknown: 0.6622400117058992
+Epoch: 27, Best AUROC test all: 0.8364870450258428, AUPR test all: 0.7059082578474032, AUROC test unknown: 0.8229798952763708, AUPR test unknown: 0.6622400117058992
+pseudo_counter: Counter({0: 17404, -1: 929})
+max_probs: 0.2118416279554367， num of >0.5: 0
+AUROC test all: 0.8414833124588623, AUPR test all: 0.7157550057532535, AUROC test unknown: 0.828344189649362, AUPR test unknown: 0.6737126033142669
+Epoch: 28, Best AUROC test all: 0.8414833124588623, AUPR test all: 0.7157550057532535, AUROC test unknown: 0.828344189649362, AUPR test unknown: 0.6737126033142669
+pseudo_counter: Counter({0: 17404, -1: 929})
+max_probs: 0.23029647767543793， num of >0.5: 0
+AUROC test all: 0.843586511611434, AUPR test all: 0.7219395183030772, AUROC test unknown: 0.8305226926346394, AUPR test unknown: 0.6809946332118992
+Epoch: 29, Best AUROC test all: 0.843586511611434, AUPR test all: 0.7219395183030772, AUROC test unknown: 0.8305226926346394, AUPR test unknown: 0.6809946332118992
+pseudo_counter: Counter({0: 17404, -1: 929})
+max_probs: 0.25025230646133423， num of >0.5: 0
+AUROC test all: 0.8485274551804487, AUPR test all: 0.7297225861784682, AUROC test unknown: 0.8358837879572856, AUPR test unknown: 0.689814333983799
+Epoch: 30, Best AUROC test all: 0.8485274551804487, AUPR test all: 0.7297225861784682, AUROC test unknown: 0.8358837879572856, AUPR test unknown: 0.689814333983799
+pseudo_counter: Counter({0: 17404, -1: 929})
+max_probs: 0.2675964832305908， num of >0.5: 0
+AUROC test all: 0.8472175840471513, AUPR test all: 0.7316386499383699, AUROC test unknown: 0.8344708941748109, AUPR test unknown: 0.6921521849812212
+Epoch: 31, Best AUROC test all: 0.8485274551804487, AUPR test all: 0.7316386499383699, AUROC test unknown: 0.8358837879572856, AUPR test unknown: 0.6921521849812212
+pseudo_counter: Counter({0: 17404, -1: 929})
+max_probs: 0.286526620388031， num of >0.5: 0
+AUROC test all: 0.8527555635486201, AUPR test all: 0.7395574236005346, AUROC test unknown: 0.8401379816809099, AUPR test unknown: 0.7008835883644302
+Epoch: 32, Best AUROC test all: 0.8527555635486201, AUPR test all: 0.7395574236005346, AUROC test unknown: 0.8401379816809099, AUPR test unknown: 0.7008835883644302
+pseudo_counter: Counter({0: 17404, -1: 929})
+max_probs: 0.3047405481338501， num of >0.5: 0
+AUROC test all: 0.8535241549748933, AUPR test all: 0.7418109092474395, AUROC test unknown: 0.8411434090005986, AUPR test unknown: 0.7036947265621514
+Epoch: 33, Best AUROC test all: 0.8535241549748933, AUPR test all: 0.7418109092474395, AUROC test unknown: 0.8411434090005986, AUPR test unknown: 0.7036947265621514
+pseudo_counter: Counter({0: 17404, -1: 929})
+max_probs: 0.32239964604377747， num of >0.5: 0
+AUROC test all: 0.8553344798577072, AUPR test all: 0.7464010715122448, AUROC test unknown: 0.8429699259087869, AUPR test unknown: 0.7086350463027349
+Epoch: 34, Best AUROC test all: 0.8553344798577072, AUPR test all: 0.7464010715122448, AUROC test unknown: 0.8429699259087869, AUPR test unknown: 0.7086350463027349
+pseudo_counter: Counter({0: 17404, -1: 929})
+max_probs: 0.33525270223617554， num of >0.5: 0
+AUROC test all: 0.8560214377673224, AUPR test all: 0.7478484303200383, AUROC test unknown: 0.8437694269374122, AUPR test unknown: 0.7105997221402924
+Epoch: 35, Best AUROC test all: 0.8560214377673224, AUPR test all: 0.7478484303200383, AUROC test unknown: 0.8437694269374122, AUPR test unknown: 0.7105997221402924
+pseudo_counter: Counter({0: 17404, -1: 929})
+max_probs: 0.3501754403114319， num of >0.5: 0
+AUROC test all: 0.8555728765879509, AUPR test all: 0.7489057705853193, AUROC test unknown: 0.8432872254274202, AUPR test unknown: 0.7120211887769454
+Epoch: 36, Best AUROC test all: 0.8560214377673224, AUPR test all: 0.7489057705853193, AUROC test unknown: 0.8437694269374122, AUPR test unknown: 0.7120211887769454
+pseudo_counter: Counter({0: 17404, -1: 929})
+max_probs: 0.3565751314163208， num of >0.5: 0
+AUROC test all: 0.8544842917114934, AUPR test all: 0.7495022049917957, AUROC test unknown: 0.8423803348942955, AUPR test unknown: 0.7129466762281105
+Epoch: 37, Best AUROC test all: 0.8560214377673224, AUPR test all: 0.7495022049917957, AUROC test unknown: 0.8437694269374122, AUPR test unknown: 0.7129466762281105
+pseudo_counter: Counter({0: 17404, -1: 929})
+max_probs: 0.3612852990627289， num of >0.5: 0
+AUROC test all: 0.854995195728637, AUPR test all: 0.7494311255537042, AUROC test unknown: 0.8423942477453235, AUPR test unknown: 0.712005787026845
+Epoch: 38, Best AUROC test all: 0.8560214377673224, AUPR test all: 0.7495022049917957, AUROC test unknown: 0.8437694269374122, AUPR test unknown: 0.7129466762281105
+pseudo_counter: Counter({0: 17404, -1: 929})
+max_probs: 0.37214037775993347， num of >0.5: 0
+AUROC test all: 0.8573611418389251, AUPR test all: 0.7520961265116735, AUROC test unknown: 0.8453000316887063, AUPR test unknown: 0.7154503227031733
+Epoch: 39, Best AUROC test all: 0.8573611418389251, AUPR test all: 0.7520961265116735, AUROC test unknown: 0.8453000316887063, AUPR test unknown: 0.7154503227031733
+pseudo_counter: Counter({0: 17404, -1: 929})
+max_probs: 0.3837987184524536， num of >0.5: 0
+AUROC test all: 0.8560131217092811, AUPR test all: 0.7522655295267371, AUROC test unknown: 0.8436628321655459, AUPR test unknown: 0.71570343076692
+Epoch: 40, Best AUROC test all: 0.8573611418389251, AUPR test all: 0.7522655295267371, AUROC test unknown: 0.8453000316887063, AUPR test unknown: 0.71570343076692
+pseudo_counter: Counter({0: 17404, -1: 929})
+max_probs: 0.3783954679965973， num of >0.5: 0
+AUROC test all: 0.8548095838889255, AUPR test all: 0.7528775004930917, AUROC test unknown: 0.8426161491682972, AUPR test unknown: 0.7164300274294746
+Epoch: 41, Best AUROC test all: 0.8573611418389251, AUPR test all: 0.7528775004930917, AUROC test unknown: 0.8453000316887063, AUPR test unknown: 0.7164300274294746
+pseudo_counter: Counter({0: 17404, -1: 929})
+max_probs: 0.3981243669986725， num of >0.5: 0
+AUROC test all: 0.8570499244057445, AUPR test all: 0.7558015047442402, AUROC test unknown: 0.8447194241709378, AUPR test unknown: 0.719662895146439
+Epoch: 42, Best AUROC test all: 0.8573611418389251, AUPR test all: 0.7558015047442402, AUROC test unknown: 0.8453000316887063, AUPR test unknown: 0.719662895146439
+pseudo_counter: Counter({0: 17404, -1: 929})
+max_probs: 0.4132850468158722， num of >0.5: 0
+AUROC test all: 0.8587450939627168, AUPR test all: 0.7575202163883865, AUROC test unknown: 0.8464213189543731, AUPR test unknown: 0.7211347511908188
+Epoch: 43, Best AUROC test all: 0.8587450939627168, AUPR test all: 0.7575202163883865, AUROC test unknown: 0.8464213189543731, AUPR test unknown: 0.7211347511908188
+pseudo_counter: Counter({0: 17404, -1: 929})
+max_probs: 0.42943698167800903， num of >0.5: 0
+AUROC test all: 0.8601089642782072, AUPR test all: 0.761209523768017, AUROC test unknown: 0.847746590949102, AUPR test unknown: 0.725362789487332
+Epoch: 44, Best AUROC test all: 0.8601089642782072, AUPR test all: 0.761209523768017, AUROC test unknown: 0.847746590949102, AUPR test unknown: 0.725362789487332
+pseudo_counter: Counter({0: 17404, -1: 929})
+max_probs: 0.45472171902656555， num of >0.5: 0
+AUROC test all: 0.860744268796338, AUPR test all: 0.7614220339337032, AUROC test unknown: 0.8488329502185514, AUPR test unknown: 0.7260092124144886
+Epoch: 45, Best AUROC test all: 0.860744268796338, AUPR test all: 0.7614220339337032, AUROC test unknown: 0.8488329502185514, AUPR test unknown: 0.7260092124144886
+pseudo_counter: Counter({0: 17404, -1: 929})
+max_probs: 0.5100683569908142， num of >0.5: 1
+AUROC test all: 0.8635452256949635, AUPR test all: 0.7668594052962876, AUROC test unknown: 0.8513510756555286, AUPR test unknown: 0.7312748105304064
+Epoch: 46, Best AUROC test all: 0.8635452256949635, AUPR test all: 0.7668594052962876, AUROC test unknown: 0.8513510756555286, AUPR test unknown: 0.7312748105304064
+pseudo_counter: Counter({0: 17403, -1: 929, 1: 1})
+max_probs: 0.5414725542068481， num of >0.5: 23
+AUROC test all: 0.8629303157572281, AUPR test all: 0.767672459526688, AUROC test unknown: 0.851085634956164, AUPR test unknown: 0.7329152019515852
+Epoch: 47, Best AUROC test all: 0.8635452256949635, AUPR test all: 0.767672459526688, AUROC test unknown: 0.8513510756555286, AUPR test unknown: 0.7329152019515852
+pseudo_counter: Counter({0: 17401, -1: 929, 1: 3})
+max_probs: 0.5781685709953308， num of >0.5: 130
+AUROC test all: 0.865646318235487, AUPR test all: 0.7738659207984576, AUROC test unknown: 0.8537589143348641, AUPR test unknown: 0.739964491002183
+Epoch: 48, Best AUROC test all: 0.865646318235487, AUPR test all: 0.7738659207984576, AUROC test unknown: 0.8537589143348641, AUPR test unknown: 0.739964491002183
+pseudo_counter: Counter({0: 17395, -1: 929, 1: 9})
+max_probs: 0.7246489524841309， num of >0.5: 284
+AUROC test all: 0.8685597351004343, AUPR test all: 0.7769011587940213, AUROC test unknown: 0.8569881443999015, AUPR test unknown: 0.7431138057209739
+Epoch: 49, Best AUROC test all: 0.8685597351004343, AUPR test all: 0.7769011587940213, AUROC test unknown: 0.8569881443999015, AUPR test unknown: 0.7431138057209739
+pseudo_counter: Counter({0: 17381, -1: 929, 1: 23})
+max_probs: 0.7361676096916199， num of >0.5: 442
+AUROC test all: 0.8709011102029476, AUPR test all: 0.7807351848742351, AUROC test unknown: 0.8596337187954267, AUPR test unknown: 0.747876222915532
+Epoch: 50, Best AUROC test all: 0.8709011102029476, AUPR test all: 0.7807351848742351, AUROC test unknown: 0.8596337187954267, AUPR test unknown: 0.747876222915532
+pseudo_counter: Counter({0: 17367, -1: 929, 1: 37})
+max_probs: 0.797320544719696， num of >0.5: 649
+AUROC test all: 0.8724716952753476, AUPR test all: 0.7828051885804932, AUROC test unknown: 0.8610989945123207, AUPR test unknown: 0.7500600958685548
+Epoch: 51, Best AUROC test all: 0.8724716952753476, AUPR test all: 0.7828051885804932, AUROC test unknown: 0.8610989945123207, AUPR test unknown: 0.7500600958685548
+pseudo_counter: Counter({0: 17349, -1: 929, 1: 55})
+max_probs: 0.9326339960098267， num of >0.5: 818
+AUROC test all: 0.8730537457448044, AUPR test all: 0.7819017628688435, AUROC test unknown: 0.8617007580139733, AUPR test unknown: 0.748432131679684
+Epoch: 52, Best AUROC test all: 0.8730537457448044, AUPR test all: 0.7828051885804932, AUROC test unknown: 0.8617007580139733, AUPR test unknown: 0.7500600958685548
+pseudo_counter: Counter({0: 17333, -1: 929, 1: 71})
+max_probs: 0.9196643233299255， num of >0.5: 926
+AUROC test all: 0.8741312824069838, AUPR test all: 0.7852204022028539, AUROC test unknown: 0.8630730500128263, AUPR test unknown: 0.7530151263269079
+Epoch: 53, Best AUROC test all: 0.8741312824069838, AUPR test all: 0.7852204022028539, AUROC test unknown: 0.8630730500128263, AUPR test unknown: 0.7530151263269079
+pseudo_counter: Counter({0: 17316, -1: 929, 1: 88})
+max_probs: 0.998421311378479， num of >0.5: 1047
+AUROC test all: 0.8733783663821515, AUPR test all: 0.7865822412900474, AUROC test unknown: 0.862176229446353, AUPR test unknown: 0.754254254915141
+Epoch: 54, Best AUROC test all: 0.8741312824069838, AUPR test all: 0.7865822412900474, AUROC test unknown: 0.8630730500128263, AUPR test unknown: 0.754254254915141
+pseudo_counter: Counter({0: 17297, -1: 929, 1: 107})
+max_probs: 0.9904944896697998， num of >0.5: 1114
+AUROC test all: 0.8759486630602816, AUPR test all: 0.787221883568683, AUROC test unknown: 0.8647999034248954, AUPR test unknown: 0.7542186168698153
+Epoch: 55, Best AUROC test all: 0.8759486630602816, AUPR test all: 0.787221883568683, AUROC test unknown: 0.8647999034248954, AUPR test unknown: 0.754254254915141
+pseudo_counter: Counter({0: 17285, -1: 929, 1: 119})
+max_probs: 0.9892519116401672， num of >0.5: 1132
+AUROC test all: 0.8751766587385074, AUPR test all: 0.7901737023416578, AUROC test unknown: 0.8640194256799241, AUPR test unknown: 0.7580293730809315
+Epoch: 56, Best AUROC test all: 0.8759486630602816, AUPR test all: 0.7901737023416578, AUROC test unknown: 0.8647999034248954, AUPR test unknown: 0.7580293730809315
+pseudo_counter: Counter({0: 17274, -1: 929, 1: 130})
+max_probs: 0.9914548397064209， num of >0.5: 1117
+AUROC test all: 0.873245180664981, AUPR test all: 0.7843969165788294, AUROC test unknown: 0.8620813846455643, AUPR test unknown: 0.7516165287408514
+Epoch: 57, Best AUROC test all: 0.8759486630602816, AUPR test all: 0.7901737023416578, AUROC test unknown: 0.8647999034248954, AUPR test unknown: 0.7580293730809315
+pseudo_counter: Counter({0: 17263, -1: 929, 1: 141})
+max_probs: 0.9981751441955566， num of >0.5: 1109
+AUROC test all: 0.8735060233925929, AUPR test all: 0.7874837566339903, AUROC test unknown: 0.8621435649291531, AUPR test unknown: 0.7545755613149108
+Epoch: 58, Best AUROC test all: 0.8759486630602816, AUPR test all: 0.7901737023416578, AUROC test unknown: 0.8647999034248954, AUPR test unknown: 0.7580293730809315
+pseudo_counter: Counter({0: 17258, -1: 929, 1: 146})
+max_probs: 0.9980229139328003， num of >0.5: 1116
+AUROC test all: 0.8737151023385693, AUPR test all: 0.7866009615929295, AUROC test unknown: 0.8624119431212872, AUPR test unknown: 0.7536368933628323
+Epoch: 59, Best AUROC test all: 0.8759486630602816, AUPR test all: 0.7901737023416578, AUROC test unknown: 0.8647999034248954, AUPR test unknown: 0.7580293730809315
+pseudo_counter: Counter({0: 17250, -1: 929, 1: 154})
+max_probs: 0.9999278783798218， num of >0.5: 1188
+AUROC test all: 0.8754841781016296, AUPR test all: 0.7914273075955354, AUROC test unknown: 0.8644481487256612, AUPR test unknown: 0.7596249210096837
+Epoch: 60, Best AUROC test all: 0.8759486630602816, AUPR test all: 0.7914273075955354, AUROC test unknown: 0.8647999034248954, AUPR test unknown: 0.7596249210096837
+pseudo_counter: Counter({0: 17242, -1: 929, 1: 162})
+max_probs: 0.9998838901519775， num of >0.5: 1229
+AUROC test all: 0.8796406524609874, AUPR test all: 0.7973247535924608, AUROC test unknown: 0.8688329502185514, AUPR test unknown: 0.7662041229699342
+Epoch: 61, Best AUROC test all: 0.8796406524609874, AUPR test all: 0.7973247535924608, AUROC test unknown: 0.8688329502185514, AUPR test unknown: 0.7662041229699342
+pseudo_counter: Counter({0: 17233, -1: 929, 1: 171})
+max_probs: 0.9998641014099121， num of >0.5: 1398
+AUROC test all: 0.8838549804586435, AUPR test all: 0.8013454376510782, AUROC test unknown: 0.873541831607221, AUPR test unknown: 0.771248256873847
+Epoch: 62, Best AUROC test all: 0.8838549804586435, AUPR test all: 0.8013454376510782, AUROC test unknown: 0.873541831607221, AUPR test unknown: 0.771248256873847
+pseudo_counter: Counter({0: 17228, -1: 929, 1: 176})
+max_probs: 0.9999983310699463， num of >0.5: 1580
+AUROC test all: 0.8878876982595614, AUPR test all: 0.8051183476155239, AUROC test unknown: 0.877903787051894, AUPR test unknown: 0.775141875992967
+Epoch: 63, Best AUROC test all: 0.8878876982595614, AUPR test all: 0.8051183476155239, AUROC test unknown: 0.877903787051894, AUPR test unknown: 0.775141875992967
+pseudo_counter: Counter({0: 17214, -1: 929, 1: 190})
+max_probs: 0.9999996423721313， num of >0.5: 1837
+AUROC test all: 0.8955285365439696, AUPR test all: 0.8134966405141913, AUROC test unknown: 0.8861693484701397, AUPR test unknown: 0.7842954470674075
+Epoch: 64, Best AUROC test all: 0.8955285365439696, AUPR test all: 0.8134966405141913, AUROC test unknown: 0.8861693484701397, AUPR test unknown: 0.7842954470674075
+pseudo_counter: Counter({0: 17199, -1: 929, 1: 205})
+max_probs: 1.0， num of >0.5: 2267
+AUROC test all: 0.9055612258274318, AUPR test all: 0.8198914679021262, AUROC test unknown: 0.8972725178437596, AUPR test unknown: 0.7916990621841371
+Epoch: 65, Best AUROC test all: 0.9055612258274318, AUPR test all: 0.8198914679021262, AUROC test unknown: 0.8972725178437596, AUPR test unknown: 0.7916990621841371
+pseudo_counter: Counter({0: 17179, -1: 929, 1: 225})
+max_probs: 1.0， num of >0.5: 2697
+AUROC test all: 0.9092341729270915, AUPR test all: 0.8309515534117003, AUROC test unknown: 0.9012359702025562, AUPR test unknown: 0.8045086021009025
+Epoch: 66, Best AUROC test all: 0.9092341729270915, AUPR test all: 0.8309515534117003, AUROC test unknown: 0.9012359702025562, AUPR test unknown: 0.8045086021009025
+pseudo_counter: Counter({0: 17151, -1: 929, 1: 253})
+max_probs: 1.0， num of >0.5: 2344
+AUROC test all: 0.9081216057903313, AUPR test all: 0.833909830499791, AUROC test unknown: 0.9000589812332439, AUPR test unknown: 0.8084831635850482
+Epoch: 67, Best AUROC test all: 0.9092341729270915, AUPR test all: 0.833909830499791, AUROC test unknown: 0.9012359702025562, AUPR test unknown: 0.8084831635850482
+pseudo_counter: Counter({0: 17133, -1: 929, 1: 271})
+max_probs: 0.9999996423721313， num of >0.5: 2091
+AUROC test all: 0.9096754023606013, AUPR test all: 0.8368270545092772, AUROC test unknown: 0.9017367523603056, AUPR test unknown: 0.8118138665099717
+Epoch: 68, Best AUROC test all: 0.9096754023606013, AUPR test all: 0.8368270545092772, AUROC test unknown: 0.9017367523603056, AUPR test unknown: 0.8118138665099717
+pseudo_counter: Counter({0: 17111, -1: 929, 1: 293})
+max_probs: 0.9999991655349731， num of >0.5: 1899
+AUROC test all: 0.9093470008605833, AUPR test all: 0.8369645787823956, AUROC test unknown: 0.9016295640539411, AUPR test unknown: 0.8123812039261958
+Epoch: 69, Best AUROC test all: 0.9096754023606013, AUPR test all: 0.8369645787823956, AUROC test unknown: 0.9017367523603056, AUPR test unknown: 0.8123812039261958
+pseudo_counter: Counter({0: 17101, -1: 929, 1: 303})
+max_probs: 0.9999988079071045， num of >0.5: 1825
+AUROC test all: 0.9134369099588936, AUPR test all: 0.8404683023658335, AUROC test unknown: 0.9059694983627502, AUPR test unknown: 0.8164884598708879
+Epoch: 70, Best AUROC test all: 0.9134369099588936, AUPR test all: 0.8404683023658335, AUROC test unknown: 0.9059694983627502, AUPR test unknown: 0.8164884598708879
+pseudo_counter: Counter({0: 17090, -1: 929, 1: 314})
+max_probs: 0.9999998807907104， num of >0.5: 1810
+AUROC test all: 0.9181542950737936, AUPR test all: 0.8473051967775469, AUROC test unknown: 0.911256311333994, AUPR test unknown: 0.8242902604520109
+Epoch: 71, Best AUROC test all: 0.9181542950737936, AUPR test all: 0.8473051967775469, AUROC test unknown: 0.911256311333994, AUPR test unknown: 0.8242902604520109
+pseudo_counter: Counter({0: 17073, -1: 929, 1: 331})
+max_probs: 0.9999997615814209， num of >0.5: 1879
+AUROC test all: 0.9228297963255716, AUPR test all: 0.8542931436131508, AUROC test unknown: 0.916279926965077, AUPR test unknown: 0.8321618693645068
+Epoch: 72, Best AUROC test all: 0.9228297963255716, AUPR test all: 0.8542931436131508, AUROC test unknown: 0.916279926965077, AUPR test unknown: 0.8321618693645068
+pseudo_counter: Counter({0: 17057, -1: 929, 1: 347})
+max_probs: 1.0， num of >0.5: 1954
+AUROC test all: 0.9305358383924985, AUPR test all: 0.8648504708360385, AUROC test unknown: 0.9249275435216716, AUPR test unknown: 0.8445602301060177
+Epoch: 73, Best AUROC test all: 0.9305358383924985, AUPR test all: 0.8648504708360385, AUROC test unknown: 0.9249275435216716, AUPR test unknown: 0.8445602301060177
+pseudo_counter: Counter({0: 17039, -1: 929, 1: 365})
+max_probs: 1.0， num of >0.5: 2045
+AUROC test all: 0.9374443484152344, AUPR test all: 0.8759499743056935, AUROC test unknown: 0.9323227620479958, AUPR test unknown: 0.8569957048620196
+Epoch: 74, Best AUROC test all: 0.9374443484152344, AUPR test all: 0.8759499743056935, AUROC test unknown: 0.9323227620479958, AUPR test unknown: 0.8569957048620196
+pseudo_counter: Counter({0: 17027, -1: 929, 1: 377})
+max_probs: 1.0， num of >0.5: 2235
+AUROC test all: 0.9434354978848787, AUPR test all: 0.8852725648137354, AUROC test unknown: 0.9389001503956058, AUPR test unknown: 0.8677494873619185
+Epoch: 75, Best AUROC test all: 0.9434354978848787, AUPR test all: 0.8852725648137354, AUROC test unknown: 0.9389001503956058, AUPR test unknown: 0.8677494873619185
+pseudo_counter: Counter({0: 17016, -1: 929, 1: 388})
+max_probs: 1.0， num of >0.5: 2415
+AUROC test all: 0.9466862578520744, AUPR test all: 0.889563046156052, AUROC test unknown: 0.9425466653924117, AUPR test unknown: 0.8730170482632952
+Epoch: 76, Best AUROC test all: 0.9466862578520744, AUPR test all: 0.889563046156052, AUROC test unknown: 0.9425466653924117, AUPR test unknown: 0.8730170482632952
+pseudo_counter: Counter({0: 17005, -1: 929, 1: 399})
+max_probs: 1.0， num of >0.5: 2615
+AUROC test all: 0.9518246986003908, AUPR test all: 0.8962744667907016, AUROC test unknown: 0.9481849111458737, AUPR test unknown: 0.8807377911998309
+Epoch: 77, Best AUROC test all: 0.9518246986003908, AUPR test all: 0.8962744667907016, AUROC test unknown: 0.9481849111458737, AUPR test unknown: 0.8807377911998309
+pseudo_counter: Counter({0: 16986, -1: 929, 1: 418})
+max_probs: 1.0， num of >0.5: 2703
+AUROC test all: 0.954061423839765, AUPR test all: 0.9000164312804566, AUROC test unknown: 0.9506297199824958, AUPR test unknown: 0.8849815217484345
+Epoch: 78, Best AUROC test all: 0.954061423839765, AUPR test all: 0.9000164312804566, AUROC test unknown: 0.9506297199824958, AUPR test unknown: 0.8849815217484345
+pseudo_counter: Counter({0: 16965, -1: 929, 1: 439})
+max_probs: 1.0， num of >0.5: 2724
+AUROC test all: 0.9533925147198367, AUPR test all: 0.9001563067677765, AUROC test unknown: 0.9497699299327497, AUPR test unknown: 0.8849307668272145
+Epoch: 79, Best AUROC test all: 0.954061423839765, AUPR test all: 0.9001563067677765, AUROC test unknown: 0.9506297199824958, AUPR test unknown: 0.8849815217484345
+pseudo_counter: Counter({0: 16945, -1: 929, 1: 459})
+max_probs: 1.0， num of >0.5: 2606
+AUROC test all: 0.951283777661357, AUPR test all: 0.8976612580971273, AUROC test unknown: 0.9472601843980906, AUPR test unknown: 0.8818374375993182
+Epoch: 80, Best AUROC test all: 0.954061423839765, AUPR test all: 0.9001563067677765, AUROC test unknown: 0.9506297199824958, AUPR test unknown: 0.8849815217484345
+pseudo_counter: Counter({0: 16933, -1: 929, 1: 471})
+max_probs: 1.0， num of >0.5: 2483
+AUROC test all: 0.9514411112240567, AUPR test all: 0.8980303638396967, AUROC test unknown: 0.9476755177079508, AUPR test unknown: 0.8826808855057582
+Epoch: 81, Best AUROC test all: 0.954061423839765, AUPR test all: 0.9001563067677765, AUROC test unknown: 0.9506297199824958, AUPR test unknown: 0.8849815217484345
+pseudo_counter: Counter({0: 16919, -1: 929, 1: 485})
+max_probs: 1.0， num of >0.5: 2414
+AUROC test all: 0.9489244733584871, AUPR test all: 0.8961970526514317, AUROC test unknown: 0.9448508568525571, AUPR test unknown: 0.8805556539727479
+Epoch: 82, Best AUROC test all: 0.954061423839765, AUPR test all: 0.9001563067677765, AUROC test unknown: 0.9506297199824958, AUPR test unknown: 0.8849815217484345
+pseudo_counter: Counter({0: 16913, -1: 929, 1: 491})
+max_probs: 1.0， num of >0.5: 2292
+AUROC test all: 0.9496950886041947, AUPR test all: 0.8956596138793123, AUROC test unknown: 0.9455481089890297, AUPR test unknown: 0.8795984586523974
+Epoch: 83, Best AUROC test all: 0.954061423839765, AUPR test all: 0.9001563067677765, AUROC test unknown: 0.9506297199824958, AUPR test unknown: 0.8849815217484345
+pseudo_counter: Counter({0: 16909, -1: 929, 1: 495})
+max_probs: 0.9999998807907104， num of >0.5: 2234
+AUROC test all: 0.9483229114298423, AUPR test all: 0.8940698276131162, AUROC test unknown: 0.94412466236438, AUPR test unknown: 0.8779876835866042
+Epoch: 84, Best AUROC test all: 0.954061423839765, AUPR test all: 0.9001563067677765, AUROC test unknown: 0.9506297199824958, AUPR test unknown: 0.8849815217484345
+pseudo_counter: Counter({0: 16907, -1: 929, 1: 497})
+max_probs: 1.0， num of >0.5: 2228
+AUROC test all: 0.9524688527289598, AUPR test all: 0.9013140576533387, AUROC test unknown: 0.9487040727532454, AUPR test unknown: 0.8864720874542629
+Epoch: 85, Best AUROC test all: 0.954061423839765, AUPR test all: 0.9013140576533387, AUROC test unknown: 0.9506297199824958, AUPR test unknown: 0.8864720874542629
+pseudo_counter: Counter({0: 16900, -1: 929, 1: 504})
+max_probs: 1.0， num of >0.5: 2306
+AUROC test all: 0.9564633387409176, AUPR test all: 0.9079542331031312, AUROC test unknown: 0.9531545151376446, AUPR test unknown: 0.8942466241700572
+Epoch: 86, Best AUROC test all: 0.9564633387409176, AUPR test all: 0.9079542331031312, AUROC test unknown: 0.9531545151376446, AUPR test unknown: 0.8942466241700572
+pseudo_counter: Counter({0: 16892, -1: 929, 1: 512})
+max_probs: 1.0， num of >0.5: 2468
+AUROC test all: 0.9611716810626156, AUPR test all: 0.9147674399962458, AUROC test unknown: 0.9581240487100684, AUPR test unknown: 0.9020231709670177
+Epoch: 87, Best AUROC test all: 0.9611716810626156, AUPR test all: 0.9147674399962458, AUROC test unknown: 0.9581240487100684, AUPR test unknown: 0.9020231709670177
+pseudo_counter: Counter({0: 16888, -1: 929, 1: 516})
+max_probs: 1.0， num of >0.5: 2678
+AUROC test all: 0.9644648860428673, AUPR test all: 0.9185497305858624, AUROC test unknown: 0.9616761313622623, AUPR test unknown: 0.9062821270873808
+Epoch: 88, Best AUROC test all: 0.9644648860428673, AUPR test all: 0.9185497305858624, AUROC test unknown: 0.9616761313622623, AUPR test unknown: 0.9062821270873808
+pseudo_counter: Counter({0: 16876, -1: 929, 1: 528})
+max_probs: 1.0， num of >0.5: 3022
+AUROC test all: 0.9670723658035228, AUPR test all: 0.9234642277169504, AUROC test unknown: 0.9646104351412661, AUPR test unknown: 0.9122501368251519
+Epoch: 89, Best AUROC test all: 0.9670723658035228, AUPR test all: 0.9234642277169504, AUROC test unknown: 0.9646104351412661, AUPR test unknown: 0.9122501368251519
+pseudo_counter: Counter({0: 16868, -1: 929, 1: 536})
+max_probs: 1.0， num of >0.5: 3331
+AUROC test all: 0.9670486319210603, AUPR test all: 0.9216132388025107, AUROC test unknown: 0.9647853467398357, AUPR test unknown: 0.9103092947268384
+Epoch: 90, Best AUROC test all: 0.9670723658035228, AUPR test all: 0.9234642277169504, AUROC test unknown: 0.9647853467398357, AUPR test unknown: 0.9122501368251519
+pseudo_counter: Counter({0: 16851, -1: 929, 1: 553})
+max_probs: 1.0， num of >0.5: 3496
+AUROC test all: 0.9682678359436772, AUPR test all: 0.9245370299479612, AUROC test unknown: 0.9658467172009316, AUPR test unknown: 0.9135506016096222
+Epoch: 91, Best AUROC test all: 0.9682678359436772, AUPR test all: 0.9245370299479612, AUROC test unknown: 0.9658467172009316, AUPR test unknown: 0.9135506016096222
+pseudo_counter: Counter({0: 16831, -1: 929, 1: 573})
+max_probs: 1.0， num of >0.5: 3335
+AUROC test all: 0.9684167430581844, AUPR test all: 0.926544172192474, AUROC test unknown: 0.9660778938579239, AUPR test unknown: 0.9158280311414668
+Epoch: 92, Best AUROC test all: 0.9684167430581844, AUPR test all: 0.926544172192474, AUROC test unknown: 0.9660778938579239, AUPR test unknown: 0.9158280311414668
+pseudo_counter: Counter({0: 16817, -1: 929, 1: 587})
+max_probs: 1.0， num of >0.5: 3341
+AUROC test all: 0.9690563067963077, AUPR test all: 0.9273055524985253, AUROC test unknown: 0.9668059896684756, AUPR test unknown: 0.9168193242939959
+Epoch: 93, Best AUROC test all: 0.9690563067963077, AUPR test all: 0.9273055524985253, AUROC test unknown: 0.9668059896684756, AUPR test unknown: 0.9168193242939959
+pseudo_counter: Counter({0: 16809, -1: 929, 1: 595})
+max_probs: 1.0， num of >0.5: 3191
+AUROC test all: 0.969104933657819, AUPR test all: 0.9281664415896922, AUROC test unknown: 0.9668070358987773, AUPR test unknown: 0.9177006990099406
+Epoch: 94, Best AUROC test all: 0.969104933657819, AUPR test all: 0.9281664415896922, AUROC test unknown: 0.9668070358987773, AUPR test unknown: 0.9177006990099406
+pseudo_counter: Counter({0: 16803, -1: 929, 1: 601})
+max_probs: 1.0， num of >0.5: 3088
+AUROC test all: 0.9679076604785322, AUPR test all: 0.9302581470606202, AUROC test unknown: 0.9655935395278885, AUPR test unknown: 0.9202670398796543
+Epoch: 95, Best AUROC test all: 0.969104933657819, AUPR test all: 0.9302581470606202, AUROC test unknown: 0.9668070358987773, AUPR test unknown: 0.9202670398796543
+pseudo_counter: Counter({0: 16794, -1: 929, 1: 610})
+max_probs: 1.0， num of >0.5: 2987
+AUROC test all: 0.9685040156717217, AUPR test all: 0.9301192378624108, AUROC test unknown: 0.9662272029938282, AUPR test unknown: 0.9201170463137041
+Epoch: 96, Best AUROC test all: 0.969104933657819, AUPR test all: 0.9302581470606202, AUROC test unknown: 0.9668070358987773, AUPR test unknown: 0.9202670398796543
+pseudo_counter: Counter({0: 16782, -1: 929, 1: 622})
+max_probs: 1.0， num of >0.5: 2851
+AUROC test all: 0.9677699671635297, AUPR test all: 0.9316667964336555, AUROC test unknown: 0.9654527410730902, AUPR test unknown: 0.9218742924556074
+Epoch: 97, Best AUROC test all: 0.969104933657819, AUPR test all: 0.9316667964336555, AUROC test unknown: 0.9668070358987773, AUPR test unknown: 0.9218742924556074
+pseudo_counter: Counter({0: 16780, -1: 929, 1: 624})
+max_probs: 1.0， num of >0.5: 2855
+AUROC test all: 0.9691562834763884, AUPR test all: 0.9334128103942259, AUROC test unknown: 0.9668944061888546, AUPR test unknown: 0.9238426009339695
+Epoch: 98, Best AUROC test all: 0.9691562834763884, AUPR test all: 0.9334128103942259, AUROC test unknown: 0.9668944061888546, AUPR test unknown: 0.9238426009339695
+pseudo_counter: Counter({0: 16778, -1: 929, 1: 626})
+max_probs: 1.0， num of >0.5: 2875
+AUROC test all: 0.969659404987887, AUPR test all: 0.9347324565725238, AUROC test unknown: 0.9674876187697741, AUPR test unknown: 0.9255086566707034
+Epoch: 99, Best AUROC test all: 0.969659404987887, AUPR test all: 0.9347324565725238, AUROC test unknown: 0.9674876187697741, AUPR test unknown: 0.9255086566707034
+pseudo_counter: Counter({0: 16772, -1: 929, 1: 632})
+max_probs: 1.0， num of >0.5: 2987
+AUROC test all: 0.9720738031752807, AUPR test all: 0.9373042677322432, AUROC test unknown: 0.9701182039042499, AUPR test unknown: 0.9286017570861572
+Epoch: 100, Best AUROC test all: 0.9720738031752807, AUPR test all: 0.9373042677322432, AUROC test unknown: 0.9701182039042499, AUPR test unknown: 0.9286017570861572
+pseudo_counter: Counter({0: 16761, -1: 929, 1: 643})
+max_probs: 1.0， num of >0.5: 3086
+AUROC test all: 0.9728282278655097, AUPR test all: 0.9389829807049666, AUROC test unknown: 0.9711319407069096, AUPR test unknown: 0.9307992861253387
+Epoch: 101, Best AUROC test all: 0.9728282278655097, AUPR test all: 0.9389829807049666, AUROC test unknown: 0.9711319407069096, AUPR test unknown: 0.9307992861253387
+pseudo_counter: Counter({0: 16752, -1: 929, 1: 652})
+max_probs: 1.0， num of >0.5: 3235
+AUROC test all: 0.973302316767298, AUPR test all: 0.9393203507805503, AUROC test unknown: 0.9716058629136509, AUPR test unknown: 0.9310729296290762
+Epoch: 102, Best AUROC test all: 0.973302316767298, AUPR test all: 0.9393203507805503, AUROC test unknown: 0.9716058629136509, AUPR test unknown: 0.9310729296290762
+pseudo_counter: Counter({0: 16747, -1: 929, 1: 657})
+max_probs: 1.0， num of >0.5: 3346
+AUROC test all: 0.9748791388832289, AUPR test all: 0.9414468807705383, AUROC test unknown: 0.973171757817805, AUPR test unknown: 0.933470176462398
+Epoch: 103, Best AUROC test all: 0.9748791388832289, AUPR test all: 0.9414468807705383, AUROC test unknown: 0.973171757817805, AUPR test unknown: 0.933470176462398
+pseudo_counter: Counter({0: 16743, -1: 929, 1: 661})
+max_probs: 1.0， num of >0.5: 3426
+AUROC test all: 0.9755982571234996, AUPR test all: 0.9440588595013626, AUROC test unknown: 0.9738717663687257, AUPR test unknown: 0.9363832710927315
+Epoch: 104, Best AUROC test all: 0.9755982571234996, AUPR test all: 0.9440588595013626, AUROC test unknown: 0.9738717663687257, AUPR test unknown: 0.9363832710927315
+pseudo_counter: Counter({0: 16736, -1: 929, 1: 668})
+max_probs: 0.9999998807907104， num of >0.5: 3444
+AUROC test all: 0.9763579805409761, AUPR test all: 0.9447248424035128, AUROC test unknown: 0.9748801311811841, AUPR test unknown: 0.9373544651617662
+Epoch: 105, Best AUROC test all: 0.9763579805409761, AUPR test all: 0.9447248424035128, AUROC test unknown: 0.9748801311811841, AUPR test unknown: 0.9373544651617662
+pseudo_counter: Counter({0: 16729, -1: 929, 1: 675})
+max_probs: 1.0， num of >0.5: 3487
+AUROC test all: 0.9753357953403397, AUPR test all: 0.9452888561891383, AUROC test unknown: 0.9736965730927675, AUPR test unknown: 0.9379885636228227
+Epoch: 106, Best AUROC test all: 0.9763579805409761, AUPR test all: 0.9452888561891383, AUROC test unknown: 0.9748801311811841, AUPR test unknown: 0.9379885636228227
+pseudo_counter: Counter({0: 16726, -1: 929, 1: 678})
+max_probs: 1.0， num of >0.5: 3482
+AUROC test all: 0.9770557106894924, AUPR test all: 0.9458698747125056, AUROC test unknown: 0.9756654980408331, AUPR test unknown: 0.9389082630182956
+Epoch: 107, Best AUROC test all: 0.9770557106894924, AUPR test all: 0.9458698747125056, AUROC test unknown: 0.9756654980408331, AUPR test unknown: 0.9389082630182956
+pseudo_counter: Counter({0: 16718, -1: 929, 1: 686})
+max_probs: 0.9999998807907104， num of >0.5: 3524
+AUROC test all: 0.9756534338006364, AUPR test all: 0.9456977394162762, AUROC test unknown: 0.9740320005633547, AUPR test unknown: 0.938592649555096
+Epoch: 108, Best AUROC test all: 0.9770557106894924, AUPR test all: 0.9458698747125056, AUROC test unknown: 0.9756654980408331, AUPR test unknown: 0.9389082630182956
+pseudo_counter: Counter({0: 16712, -1: 929, 1: 692})
+max_probs: 1.0， num of >0.5: 3601
+AUROC test all: 0.977071606871235, AUPR test all: 0.9478744238406291, AUROC test unknown: 0.9757442671106439, AUPR test unknown: 0.9412625308653877
+Epoch: 109, Best AUROC test all: 0.977071606871235, AUPR test all: 0.9478744238406291, AUROC test unknown: 0.9757442671106439, AUPR test unknown: 0.9412625308653877
+pseudo_counter: Counter({0: 16706, -1: 929, 1: 698})
+max_probs: 1.0， num of >0.5: 3630
+AUROC test all: 0.9783087952892843, AUPR test all: 0.9495774591750299, AUROC test unknown: 0.9771410549824203, AUPR test unknown: 0.9431966798200306
+Epoch: 110, Best AUROC test all: 0.9783087952892843, AUPR test all: 0.9495774591750299, AUROC test unknown: 0.9771410549824203, AUPR test unknown: 0.9431966798200306
+pseudo_counter: Counter({0: 16697, -1: 929, 1: 707})
+max_probs: 1.0， num of >0.5: 3670
+AUROC test all: 0.9788338384449341, AUPR test all: 0.9508484801057575, AUROC test unknown: 0.9774753959830792, AUPR test unknown: 0.9445319566800299
+Epoch: 111, Best AUROC test all: 0.9788338384449341, AUPR test all: 0.9508484801057575, AUROC test unknown: 0.9774753959830792, AUPR test unknown: 0.9445319566800299
+pseudo_counter: Counter({0: 16690, -1: 929, 1: 714})
+max_probs: 1.0， num of >0.5: 3698
+AUROC test all: 0.977729688557187, AUPR test all: 0.9500377448684659, AUROC test unknown: 0.9763407089216284, AUPR test unknown: 0.943731963283195
+Epoch: 112, Best AUROC test all: 0.9788338384449341, AUPR test all: 0.9508484801057575, AUROC test unknown: 0.9774753959830792, AUPR test unknown: 0.9445319566800299
+pseudo_counter: Counter({0: 16684, -1: 929, 1: 720})
+max_probs: 1.0， num of >0.5: 3644
+AUROC test all: 0.9784768274974507, AUPR test all: 0.9506955250330558, AUROC test unknown: 0.9772865614735751, AUPR test unknown: 0.9445975344597717
+Epoch: 113, Best AUROC test all: 0.9788338384449341, AUPR test all: 0.9508484801057575, AUROC test unknown: 0.9774753959830792, AUPR test unknown: 0.9445975344597717
+pseudo_counter: Counter({0: 16679, -1: 929, 1: 725})
+max_probs: 1.0， num of >0.5: 3655
+AUROC test all: 0.9798301371551631, AUPR test all: 0.9525240531034292, AUROC test unknown: 0.9786318325629121, AUPR test unknown: 0.9466043054261392
+Epoch: 114, Best AUROC test all: 0.9798301371551631, AUPR test all: 0.9525240531034292, AUROC test unknown: 0.9786318325629121, AUPR test unknown: 0.9466043054261392
+pseudo_counter: Counter({0: 16674, -1: 929, 1: 730})
+max_probs: 1.0， num of >0.5: 3739
+AUROC test all: 0.9788376469051431, AUPR test all: 0.9501098654731406, AUROC test unknown: 0.9777434120185705, AUPR test unknown: 0.9443963503300242
+Epoch: 115, Best AUROC test all: 0.9798301371551631, AUPR test all: 0.9525240531034292, AUROC test unknown: 0.9786318325629121, AUPR test unknown: 0.9466043054261392
+pseudo_counter: Counter({0: 16669, -1: 929, 1: 735})
+max_probs: 1.0， num of >0.5: 3763
+AUROC test all: 0.97919730721625, AUPR test all: 0.9513654229058393, AUROC test unknown: 0.9782256940078168, AUPR test unknown: 0.9458804979198262
+Epoch: 116, Best AUROC test all: 0.9798301371551631, AUPR test all: 0.9525240531034292, AUROC test unknown: 0.9786318325629121, AUPR test unknown: 0.9466043054261392
+pseudo_counter: Counter({0: 16663, -1: 929, 1: 741})
+max_probs: 1.0， num of >0.5: 3827
+AUROC test all: 0.9790441040850335, AUPR test all: 0.9500134357497843, AUROC test unknown: 0.9780221519146518, AUPR test unknown: 0.9442366550240626
+Epoch: 117, Best AUROC test all: 0.9798301371551631, AUPR test all: 0.9525240531034292, AUROC test unknown: 0.9786318325629121, AUPR test unknown: 0.9466043054261392
+pseudo_counter: Counter({0: 16652, -1: 929, 1: 752})
+max_probs: 1.0， num of >0.5: 3801
+AUROC test all: 0.979504955367882, AUPR test all: 0.95010412952016, AUROC test unknown: 0.978409237006373, AUPR test unknown: 0.9441516528442889
+Epoch: 118, Best AUROC test all: 0.9798301371551631, AUPR test all: 0.9525240531034292, AUROC test unknown: 0.9786318325629121, AUPR test unknown: 0.9466043054261392
+pseudo_counter: Counter({0: 16645, -1: 929, 1: 759})
+max_probs: 1.0， num of >0.5: 3699
+AUROC test all: 0.9787767851352301, AUPR test all: 0.9520093399681764, AUROC test unknown: 0.9775494167769065, AUPR test unknown: 0.9461113233222644
+Epoch: 119, Best AUROC test all: 0.9798301371551631, AUPR test all: 0.9525240531034292, AUROC test unknown: 0.9786318325629121, AUPR test unknown: 0.9466043054261392
+pseudo_counter: Counter({0: 16639, -1: 929, 1: 765})
+max_probs: 0.9999998807907104， num of >0.5: 3630
+AUROC test all: 0.9786389262350014, AUPR test all: 0.9514494458086575, AUROC test unknown: 0.9774548134138796, AUPR test unknown: 0.9454555940357257
+Epoch: 120, Best AUROC test all: 0.9798301371551631, AUPR test all: 0.9525240531034292, AUROC test unknown: 0.9786318325629121, AUPR test unknown: 0.9466043054261392
+pseudo_counter: Counter({0: 16634, -1: 929, 1: 770})
+max_probs: 1.0， num of >0.5: 3546
+AUROC test all: 0.9775969995956961, AUPR test all: 0.9517278669949372, AUROC test unknown: 0.9760135607542917, AUPR test unknown: 0.9453867384003924
+Epoch: 121, Best AUROC test all: 0.9798301371551631, AUPR test all: 0.9525240531034292, AUROC test unknown: 0.9786318325629121, AUPR test unknown: 0.9466043054261392
+pseudo_counter: Counter({0: 16627, -1: 929, 1: 777})
+max_probs: 1.0， num of >0.5: 3509
+AUROC test all: 0.9772576878690882, AUPR test all: 0.9503240628149846, AUROC test unknown: 0.9758382970589862, AUPR test unknown: 0.9440162900766902
+Epoch: 122, Best AUROC test all: 0.9798301371551631, AUPR test all: 0.9525240531034292, AUROC test unknown: 0.9786318325629121, AUPR test unknown: 0.9466043054261392
+pseudo_counter: Counter({0: 16621, -1: 929, 1: 783})
+max_probs: 1.0， num of >0.5: 3480
+AUROC test all: 0.9774977220532385, AUPR test all: 0.9489976683544679, AUROC test unknown: 0.9762676941184755, AUPR test unknown: 0.9427450800588824
+Epoch: 123, Best AUROC test all: 0.9798301371551631, AUPR test all: 0.9525240531034292, AUROC test unknown: 0.9786318325629121, AUPR test unknown: 0.9466043054261392
+pseudo_counter: Counter({0: 16614, -1: 929, 1: 790})
+max_probs: 1.0， num of >0.5: 3501
+AUROC test all: 0.9775480415637317, AUPR test all: 0.9513594561840295, AUROC test unknown: 0.9760049092344913, AUPR test unknown: 0.9449579344592839
+Epoch: 124, Best AUROC test all: 0.9798301371551631, AUPR test all: 0.9525240531034292, AUROC test unknown: 0.9786318325629121, AUPR test unknown: 0.9466043054261392
+pseudo_counter: Counter({0: 16612, -1: 929, 1: 792})
+max_probs: 1.0， num of >0.5: 3483
+AUROC test all: 0.9780160314096779, AUPR test all: 0.9514646963263406, AUROC test unknown: 0.9765571276954264, AUPR test unknown: 0.9451443154359285
+Epoch: 125, Best AUROC test all: 0.9798301371551631, AUPR test all: 0.9525240531034292, AUROC test unknown: 0.9786318325629121, AUPR test unknown: 0.9466043054261392
+pseudo_counter: Counter({0: 16608, -1: 929, 1: 796})
+max_probs: 1.0， num of >0.5: 3490
+AUROC test all: 0.9772289404339344, AUPR test all: 0.9504997020373385, AUROC test unknown: 0.9757598096665645, AUPR test unknown: 0.9442051942020528
+Epoch: 126, Best AUROC test all: 0.9798301371551631, AUPR test all: 0.9525240531034292, AUROC test unknown: 0.9786318325629121, AUPR test unknown: 0.9466043054261392
+pseudo_counter: Counter({0: 16600, -1: 929, 1: 804})
+max_probs: 1.0， num of >0.5: 3505
+AUROC test all: 0.9770367879777767, AUPR test all: 0.9484860320965124, AUROC test unknown: 0.9755654522682573, AUPR test unknown: 0.9420060680176763
+Epoch: 127, Best AUROC test all: 0.9798301371551631, AUPR test all: 0.9525240531034292, AUROC test unknown: 0.9786318325629121, AUPR test unknown: 0.9466043054261392
+pseudo_counter: Counter({0: 16595, -1: 929, 1: 809})
+max_probs: 0.9999998807907104， num of >0.5: 3569
+AUROC test all: 0.9787188763018564, AUPR test all: 0.9497928376785829, AUROC test unknown: 0.9774114250360899, AUPR test unknown: 0.9434047864347405
+Epoch: 128, Best AUROC test all: 0.9798301371551631, AUPR test all: 0.9525240531034292, AUROC test unknown: 0.9786318325629121, AUPR test unknown: 0.9466043054261392
+pseudo_counter: Counter({0: 16594, -1: 929, 1: 810})
+max_probs: 1.0， num of >0.5: 3645
+AUROC test all: 0.9790681967354872, AUPR test all: 0.9528467082718304, AUROC test unknown: 0.9779601426494776, AUPR test unknown: 0.9470590931121843
+Epoch: 129, Best AUROC test all: 0.9798301371551631, AUPR test all: 0.9528467082718304, AUROC test unknown: 0.9786318325629121, AUPR test unknown: 0.9470590931121843
+pseudo_counter: Counter({0: 16591, -1: 929, 1: 813})
+max_probs: 1.0， num of >0.5: 3694
+AUROC test all: 0.9788924004200344, AUPR test all: 0.9528949756624474, AUROC test unknown: 0.9775084125970154, AUPR test unknown: 0.9468677186687217
+Epoch: 130, Best AUROC test all: 0.9798301371551631, AUPR test all: 0.9528949756624474, AUROC test unknown: 0.9786318325629121, AUPR test unknown: 0.9470590931121843
+pseudo_counter: Counter({0: 16586, -1: 929, 1: 818})
+max_probs: 1.0， num of >0.5: 3754
+AUROC test all: 0.9799548320298863, AUPR test all: 0.9543090343958436, AUROC test unknown: 0.9786666096605285, AUPR test unknown: 0.9484056512818415
+Epoch: 131, Best AUROC test all: 0.9799548320298863, AUPR test all: 0.9543090343958436, AUROC test unknown: 0.9786666096605285, AUPR test unknown: 0.9484056512818415
+pseudo_counter: Counter({0: 16582, -1: 929, 1: 822})
+max_probs: 1.0， num of >0.5: 3790
+AUROC test all: 0.9788470392671565, AUPR test all: 0.9514519845134195, AUROC test unknown: 0.9777567615148208, AUPR test unknown: 0.9455488461582199
+Epoch: 132, Best AUROC test all: 0.9799548320298863, AUPR test all: 0.9543090343958436, AUROC test unknown: 0.9786666096605285, AUPR test unknown: 0.9484056512818415
+pseudo_counter: Counter({0: 16572, -1: 929, 1: 832})
+max_probs: 1.0， num of >0.5: 3755
+AUROC test all: 0.979373664681637, AUPR test all: 0.9529172494946565, AUROC test unknown: 0.9779501833418004, AUPR test unknown: 0.9466575877765686
+Epoch: 133, Best AUROC test all: 0.9799548320298863, AUPR test all: 0.9543090343958436, AUROC test unknown: 0.9786666096605285, AUPR test unknown: 0.9484056512818415
+pseudo_counter: Counter({0: 16565, -1: 929, 1: 839})
+max_probs: 1.0， num of >0.5: 3762
+AUROC test all: 0.978758947926666, AUPR test all: 0.9530500919251136, AUROC test unknown: 0.9776198663038393, AUPR test unknown: 0.947284593422894
+Epoch: 134, Best AUROC test all: 0.9799548320298863, AUPR test all: 0.9543090343958436, AUROC test unknown: 0.9786666096605285, AUPR test unknown: 0.9484056512818415
+pseudo_counter: Counter({0: 16561, -1: 929, 1: 843})
+max_probs: 1.0， num of >0.5: 3778
+AUROC test all: 0.9803298181736226, AUPR test all: 0.9536957685841765, AUROC test unknown: 0.9791455819404553, AUPR test unknown: 0.947852870151179
+Epoch: 135, Best AUROC test all: 0.9803298181736226, AUPR test all: 0.9543090343958436, AUROC test unknown: 0.9791455819404553, AUPR test unknown: 0.9484056512818415
+pseudo_counter: Counter({0: 16557, -1: 929, 1: 847})
+max_probs: 1.0， num of >0.5: 3755
+AUROC test all: 0.9802852665485187, AUPR test all: 0.9526623759304527, AUROC test unknown: 0.9790793776941688, AUPR test unknown: 0.946611563765638
+Epoch: 136, Best AUROC test all: 0.9803298181736226, AUPR test all: 0.9543090343958436, AUROC test unknown: 0.9791455819404553, AUPR test unknown: 0.9484056512818415
+pseudo_counter: Counter({0: 16551, -1: 929, 1: 853})
+max_probs: 1.0， num of >0.5: 3697
+AUROC test all: 0.9788525495755269, AUPR test all: 0.9524468199251965, AUROC test unknown: 0.9775213697569024, AUPR test unknown: 0.9462886873895497
+Epoch: 137, Best AUROC test all: 0.9803298181736226, AUPR test all: 0.9543090343958436, AUROC test unknown: 0.9791455819404553, AUPR test unknown: 0.9484056512818415
+pseudo_counter: Counter({0: 16546, -1: 929, 1: 858})
+max_probs: 1.0， num of >0.5: 3621
+AUROC test all: 0.9785390415467133, AUPR test all: 0.9529887521563876, AUROC test unknown: 0.9772309603689974, AUPR test unknown: 0.9470618716275305
+Epoch: 138, Best AUROC test all: 0.9803298181736226, AUPR test all: 0.9543090343958436, AUROC test unknown: 0.9791455819404553, AUPR test unknown: 0.9484056512818415
+pseudo_counter: Counter({0: 16546, -1: 929, 1: 858})
+max_probs: 1.0， num of >0.5: 3586
+AUROC test all: 0.9786969270601676, AUPR test all: 0.9525088814632113, AUROC test unknown: 0.9776099673556026, AUPR test unknown: 0.9466555897272124
+Epoch: 139, Best AUROC test all: 0.9803298181736226, AUPR test all: 0.9543090343958436, AUROC test unknown: 0.9791455819404553, AUPR test unknown: 0.9484056512818415
+pseudo_counter: Counter({0: 16543, -1: 929, 1: 861})
+max_probs: 1.0， num of >0.5: 3585
+AUROC test all: 0.9787642926498098, AUPR test all: 0.9524592912514525, AUROC test unknown: 0.9774048156773587, AUPR test unknown: 0.9464578852700708
+Epoch: 140, Best AUROC test all: 0.9803298181736226, AUPR test all: 0.9543090343958436, AUROC test unknown: 0.9791455819404553, AUPR test unknown: 0.9484056512818415
+pseudo_counter: Counter({0: 16540, -1: 929, 1: 864})
+max_probs: 1.0， num of >0.5: 3645
+AUROC test all: 0.9805531558474353, AUPR test all: 0.9559915811259554, AUROC test unknown: 0.9793134918439307, AUPR test unknown: 0.9501021588421332
+Epoch: 141, Best AUROC test all: 0.9805531558474353, AUPR test all: 0.9559915811259554, AUROC test unknown: 0.9793134918439307, AUPR test unknown: 0.9501021588421332
+pseudo_counter: Counter({0: 16537, -1: 929, 1: 867})
+max_probs: 1.0， num of >0.5: 3636
+AUROC test all: 0.9794067909261137, AUPR test all: 0.9529120611852716, AUROC test unknown: 0.9783555271642633, AUPR test unknown: 0.9470490185223924
+Epoch: 142, Best AUROC test all: 0.9805531558474353, AUPR test all: 0.9559915811259554, AUROC test unknown: 0.9793134918439307, AUPR test unknown: 0.9501021588421332
+pseudo_counter: Counter({0: 16532, -1: 929, 1: 872})
+max_probs: 1.0， num of >0.5: 3751
+AUROC test all: 0.9816982052861244, AUPR test all: 0.9559465173156216, AUROC test unknown: 0.9805876092128625, AUPR test unknown: 0.9502133714511409
+Epoch: 143, Best AUROC test all: 0.9816982052861244, AUPR test all: 0.9559915811259554, AUROC test unknown: 0.9805876092128625, AUPR test unknown: 0.9502133714511409
+pseudo_counter: Counter({0: 16530, -1: 929, 1: 874})
+max_probs: 1.0， num of >0.5: 3833
+AUROC test all: 0.9802461424391714, AUPR test all: 0.9526792974727634, AUROC test unknown: 0.979178065379334, AUPR test unknown: 0.9467392372166035
+Epoch: 144, Best AUROC test all: 0.9816982052861244, AUPR test all: 0.9559915811259554, AUROC test unknown: 0.9805876092128625, AUPR test unknown: 0.9502133714511409
+pseudo_counter: Counter({0: 16525, -1: 929, 1: 879})
+max_probs: 1.0， num of >0.5: 3873
+AUROC test all: 0.9817030256560509, AUPR test all: 0.9542504829977574, AUROC test unknown: 0.9807676312440584, AUPR test unknown: 0.9486294641893818
+Epoch: 145, Best AUROC test all: 0.9817030256560509, AUPR test all: 0.9559915811259554, AUROC test unknown: 0.9807676312440584, AUPR test unknown: 0.9502133714511409
+pseudo_counter: Counter({0: 16520, -1: 929, 1: 884})
+max_probs: 1.0， num of >0.5: 3908
+AUROC test all: 0.9829048892257832, AUPR test all: 0.9580625734659558, AUROC test unknown: 0.9820162266295791, AUPR test unknown: 0.9528097434943059
+Epoch: 146, Best AUROC test all: 0.9829048892257832, AUPR test all: 0.9580625734659558, AUROC test unknown: 0.9820162266295791, AUPR test unknown: 0.9528097434943059
+pseudo_counter: Counter({0: 16517, -1: 929, 1: 887})
+max_probs: 1.0， num of >0.5: 3854
+AUROC test all: 0.980853637838432, AUPR test all: 0.9555392644349778, AUROC test unknown: 0.9797062306032425, AUPR test unknown: 0.9497796975632488
+Epoch: 147, Best AUROC test all: 0.9829048892257832, AUPR test all: 0.9580625734659558, AUROC test unknown: 0.9820162266295791, AUPR test unknown: 0.9528097434943059
+pseudo_counter: Counter({0: 16509, -1: 929, 1: 895})
+max_probs: 1.0， num of >0.5: 3790
+AUROC test all: 0.9800987439900612, AUPR test all: 0.9542533016011766, AUROC test unknown: 0.9790248630595195, AUPR test unknown: 0.9486789838376792
+Epoch: 148, Best AUROC test all: 0.9829048892257832, AUPR test all: 0.9580625734659558, AUROC test unknown: 0.9820162266295791, AUPR test unknown: 0.9528097434943059
+pseudo_counter: Counter({0: 16504, -1: 929, 1: 900})
+max_probs: 1.0， num of >0.5: 3659
+AUROC test all: 0.9803112818274354, AUPR test all: 0.95453083587501, AUROC test unknown: 0.9790904134118675, AUPR test unknown: 0.9487097713409545
+Epoch: 149, Best AUROC test all: 0.9829048892257832, AUPR test all: 0.9580625734659558, AUROC test unknown: 0.9820162266295791, AUPR test unknown: 0.9528097434943059
+pseudo_counter: Counter({0: 16502, -1: 929, 1: 902})
+max_probs: 1.0， num of >0.5: 3601
+AUROC test all: 0.9809364120533168, AUPR test all: 0.9558235582788978, AUROC test unknown: 0.9797589445145842, AUPR test unknown: 0.9500804616715762
+Epoch: 150, Best AUROC test all: 0.9829048892257832, AUPR test all: 0.9580625734659558, AUROC test unknown: 0.9820162266295791, AUPR test unknown: 0.9528097434943059
+pseudo_counter: Counter({0: 16501, -1: 929, 1: 903})
+max_probs: 1.0， num of >0.5: 3646
+AUROC test all: 0.9817816510410943, AUPR test all: 0.9566079851746261, AUROC test unknown: 0.980629911120724, AUPR test unknown: 0.9508570094625018
+Epoch: 151, Best AUROC test all: 0.9829048892257832, AUPR test all: 0.9580625734659558, AUROC test unknown: 0.9820162266295791, AUPR test unknown: 0.9528097434943059
+pseudo_counter: Counter({0: 16497, -1: 929, 1: 907})
+max_probs: 0.9999997615814209， num of >0.5: 3696
+AUROC test all: 0.9805971095258882, AUPR test all: 0.9541436066208946, AUROC test unknown: 0.979420086615797, AUPR test unknown: 0.9484093287791344
+Epoch: 152, Best AUROC test all: 0.9829048892257832, AUPR test all: 0.9580625734659558, AUROC test unknown: 0.9820162266295791, AUPR test unknown: 0.9528097434943059
+pseudo_counter: Counter({0: 16492, -1: 929, 1: 912})
+max_probs: 1.0， num of >0.5: 3898
+AUROC test all: 0.981657664503173, AUPR test all: 0.9549507169030437, AUROC test unknown: 0.9807187602170926, AUPR test unknown: 0.9494432606044685
+Epoch: 153, Best AUROC test all: 0.9829048892257832, AUPR test all: 0.9580625734659558, AUROC test unknown: 0.9820162266295791, AUPR test unknown: 0.9528097434943059
+pseudo_counter: Counter({0: 16484, -1: 929, 1: 920})
+max_probs: 1.0， num of >0.5: 3956
+AUROC test all: 0.9815089597706093, AUPR test all: 0.9543655622924953, AUROC test unknown: 0.9808315820712341, AUPR test unknown: 0.9490689299738252
+Epoch: 154, Best AUROC test all: 0.9829048892257832, AUPR test all: 0.9580625734659558, AUROC test unknown: 0.9820162266295791, AUPR test unknown: 0.9528097434943059
+pseudo_counter: Counter({0: 16475, 1: 929, -1: 929})
+max_probs: 1.0， num of >0.5: 4007
+AUROC test all: 0.9811963440621826, AUPR test all: 0.9551025548066361, AUROC test unknown: 0.9802935078391823, AUPR test unknown: 0.9498155231394922
+Epoch: 155, Best AUROC test all: 0.9829048892257832, AUPR test all: 0.9580625734659558, AUROC test unknown: 0.9820162266295791, AUPR test unknown: 0.9528097434943059
+pseudo_counter: Counter({0: 16468, 1: 936, -1: 929})
+max_probs: 1.0， num of >0.5: 3994
+AUROC test all: 0.9821765534079048, AUPR test all: 0.9561122182121087, AUROC test unknown: 0.9813738412244919, AUPR test unknown: 0.950780732130203
+Epoch: 156, Best AUROC test all: 0.9829048892257832, AUPR test all: 0.9580625734659558, AUROC test unknown: 0.9820162266295791, AUPR test unknown: 0.9528097434943059
+pseudo_counter: Counter({0: 16464, 1: 940, -1: 929})
+max_probs: 1.0， num of >0.5: 3960
+AUROC test all: 0.9827088363176237, AUPR test all: 0.9575431547040681, AUROC test unknown: 0.9819266532199246, AUPR test unknown: 0.952425184568916
+Epoch: 157, Best AUROC test all: 0.9829048892257832, AUPR test all: 0.9580625734659558, AUROC test unknown: 0.9820162266295791, AUPR test unknown: 0.9528097434943059
+pseudo_counter: Counter({0: 16453, 1: 951, -1: 929})
+max_probs: 1.0， num of >0.5: 3915
+AUROC test all: 0.9822756193692399, AUPR test all: 0.9565554808969972, AUROC test unknown: 0.9813642943729912, AUPR test unknown: 0.9513202249118631
+Epoch: 158, Best AUROC test all: 0.9829048892257832, AUPR test all: 0.9580625734659558, AUROC test unknown: 0.9820162266295791, AUPR test unknown: 0.9528097434943059
+pseudo_counter: Counter({0: 16449, 1: 955, -1: 929})
+max_probs: 1.0， num of >0.5: 3931
+AUROC test all: 0.9813647074408022, AUPR test all: 0.9557100662134266, AUROC test unknown: 0.980336000885272, AUPR test unknown: 0.9501884155538872
+Epoch: 159, Best AUROC test all: 0.9829048892257832, AUPR test all: 0.9580625734659558, AUROC test unknown: 0.9820162266295791, AUPR test unknown: 0.9528097434943059
+pseudo_counter: Counter({0: 16444, 1: 960, -1: 929})
+max_probs: 1.0， num of >0.5: 3873
+AUROC test all: 0.9822568162468545, AUPR test all: 0.956671049002955, AUROC test unknown: 0.9814229939288461, AUPR test unknown: 0.9513217646571381
+Epoch: 160, Best AUROC test all: 0.9829048892257832, AUPR test all: 0.9580625734659558, AUROC test unknown: 0.9820162266295791, AUPR test unknown: 0.9528097434943059
+pseudo_counter: Counter({0: 16437, 1: 967, -1: 929})
+max_probs: 1.0， num of >0.5: 3790
+AUROC test all: 0.9816320355897845, AUPR test all: 0.955507938729204, AUROC test unknown: 0.9806560467584465, AUPR test unknown: 0.9499647614346229
+Epoch: 161, Best AUROC test all: 0.9829048892257832, AUPR test all: 0.9580625734659558, AUROC test unknown: 0.9820162266295791, AUPR test unknown: 0.9528097434943059
+pseudo_counter: Counter({0: 16429, 1: 975, -1: 929})
+max_probs: 1.0， num of >0.5: 3734
+AUROC test all: 0.9827799643715788, AUPR test all: 0.9583090338134972, AUROC test unknown: 0.9817215417813078, AUPR test unknown: 0.9528373518105575
+Epoch: 162, Best AUROC test all: 0.9829048892257832, AUPR test all: 0.9583090338134972, AUROC test unknown: 0.9820162266295791, AUPR test unknown: 0.9528373518105575
+pseudo_counter: Counter({0: 16425, 1: 979, -1: 929})
+max_probs: 0.9999997615814209， num of >0.5: 3728
+AUROC test all: 0.9822780755500995, AUPR test all: 0.9579342480638215, AUROC test unknown: 0.9814823473786398, AUPR test unknown: 0.9528497950099863
+Epoch: 163, Best AUROC test all: 0.9829048892257832, AUPR test all: 0.9583090338134972, AUROC test unknown: 0.9820162266295791, AUPR test unknown: 0.9528497950099863
+pseudo_counter: Counter({0: 16417, 1: 987, -1: 929})
+max_probs: 1.0， num of >0.5: 3813
+AUROC test all: 0.9824280129726827, AUPR test all: 0.9564716842100058, AUROC test unknown: 0.9813705717547998, AUPR test unknown: 0.9508367583584204
+Epoch: 164, Best AUROC test all: 0.9829048892257832, AUPR test all: 0.9583090338134972, AUROC test unknown: 0.9820162266295791, AUPR test unknown: 0.9528497950099863
+pseudo_counter: Counter({0: 16412, 1: 992, -1: 929})
+max_probs: 1.0， num of >0.5: 3932
+AUROC test all: 0.9829062599034912, AUPR test all: 0.9578936285276344, AUROC test unknown: 0.9818917956430543, AUPR test unknown: 0.9524408034590316
+Epoch: 165, Best AUROC test all: 0.9829062599034912, AUPR test all: 0.9583090338134972, AUROC test unknown: 0.9820162266295791, AUPR test unknown: 0.9528497950099863
+pseudo_counter: Counter({0: 16407, 1: 997, -1: 929})
+max_probs: 1.0， num of >0.5: 3944
+AUROC test all: 0.9819161798384348, AUPR test all: 0.9562947815551321, AUROC test unknown: 0.9812658984251217, AUPR test unknown: 0.9512549901110162
+Epoch: 166, Best AUROC test all: 0.9829062599034912, AUPR test all: 0.9583090338134972, AUROC test unknown: 0.9820162266295791, AUPR test unknown: 0.9528497950099863
+pseudo_counter: Counter({0: 16402, 1: 1002, -1: 929})
+max_probs: 1.0， num of >0.5: 3958
+AUROC test all: 0.9829276571944251, AUPR test all: 0.9579185316056691, AUROC test unknown: 0.9820258137207069, AUPR test unknown: 0.9526551312519509
+Epoch: 167, Best AUROC test all: 0.9829276571944251, AUPR test all: 0.9583090338134972, AUROC test unknown: 0.9820258137207069, AUPR test unknown: 0.9528497950099863
+pseudo_counter: Counter({0: 16398, 1: 1006, -1: 929})
+max_probs: 1.0， num of >0.5: 3965
+AUROC test all: 0.9826128428821581, AUPR test all: 0.9587580543316897, AUROC test unknown: 0.9815505434864618, AUPR test unknown: 0.9533662663026892
+Epoch: 168, Best AUROC test all: 0.9829276571944251, AUPR test all: 0.9587580543316897, AUROC test unknown: 0.9820258137207069, AUPR test unknown: 0.9533662663026892
+pseudo_counter: Counter({0: 16394, 1: 1010, -1: 929})
+max_probs: 1.0， num of >0.5: 3897
+AUROC test all: 0.9823650445907217, AUPR test all: 0.9569561672009318, AUROC test unknown: 0.9814189699661485, AUPR test unknown: 0.9515545551416799
+Epoch: 169, Best AUROC test all: 0.9829276571944251, AUPR test all: 0.9587580543316897, AUROC test unknown: 0.9820258137207069, AUPR test unknown: 0.9533662663026892
+pseudo_counter: Counter({0: 16393, 1: 1011, -1: 929})
+max_probs: 1.0， num of >0.5: 3822
+AUROC test all: 0.9837497602463908, AUPR test all: 0.9597819745121345, AUROC test unknown: 0.9828795175268725, AUPR test unknown: 0.9546350346449947
+Epoch: 170, Best AUROC test all: 0.9837497602463908, AUPR test all: 0.9597819745121345, AUROC test unknown: 0.9828795175268725, AUPR test unknown: 0.9546350346449947
+pseudo_counter: Counter({0: 16392, 1: 1012, -1: 929})
+max_probs: 1.0， num of >0.5: 3856
+AUROC test all: 0.9818466892383862, AUPR test all: 0.9566180741721342, AUROC test unknown: 0.9807087003103481, AUPR test unknown: 0.9510167113457388
+Epoch: 171, Best AUROC test all: 0.9837497602463908, AUPR test all: 0.9597819745121345, AUROC test unknown: 0.9828795175268725, AUPR test unknown: 0.9546350346449947
+pseudo_counter: Counter({0: 16388, 1: 1016, -1: 929})
+max_probs: 1.0， num of >0.5: 3820
+AUROC test all: 0.9820651053513005, AUPR test all: 0.9569977690163294, AUROC test unknown: 0.9809618880432978, AUPR test unknown: 0.9513397761383466
+Epoch: 172, Best AUROC test all: 0.9837497602463908, AUPR test all: 0.9597819745121345, AUROC test unknown: 0.9828795175268725, AUPR test unknown: 0.9546350346449947
+pseudo_counter: Counter({0: 16383, 1: 1021, -1: 929})
+max_probs: 1.0， num of >0.5: 3805
+AUROC test all: 0.9827709767734523, AUPR test all: 0.9573208761318275, AUROC test unknown: 0.9819527787977406, AUPR test unknown: 0.952104986798254
+Epoch: 173, Best AUROC test all: 0.9837497602463908, AUPR test all: 0.9597819745121345, AUROC test unknown: 0.9828795175268725, AUPR test unknown: 0.9546350346449947
+pseudo_counter: Counter({0: 16380, 1: 1024, -1: 929})
+max_probs: 1.0， num of >0.5: 3941
+AUROC test all: 0.9829008507860929, AUPR test all: 0.9559134049893815, AUROC test unknown: 0.9820733367201686, AUPR test unknown: 0.9506373987156116
+Epoch: 174, Best AUROC test all: 0.9837497602463908, AUPR test all: 0.9597819745121345, AUROC test unknown: 0.9828795175268725, AUPR test unknown: 0.9546350346449947
+pseudo_counter: Counter({0: 16379, 1: 1025, -1: 929})
+max_probs: 1.0， num of >0.5: 4043
+AUROC test all: 0.9822829787126393, AUPR test all: 0.9566973852716498, AUROC test unknown: 0.981689259540564, AUPR test unknown: 0.9517680601624596
+Epoch: 175, Best AUROC test all: 0.9837497602463908, AUPR test all: 0.9597819745121345, AUROC test unknown: 0.9828795175268725, AUPR test unknown: 0.9546350346449947
+pseudo_counter: Counter({0: 16371, 1: 1033, -1: 929})
+max_probs: 1.0， num of >0.5: 4016
+AUROC test all: 0.9821409617833897, AUPR test all: 0.9577292456633176, AUROC test unknown: 0.9812251558028057, AUPR test unknown: 0.9525868830834643
+Epoch: 176, Best AUROC test all: 0.9837497602463908, AUPR test all: 0.9597819745121345, AUROC test unknown: 0.9828795175268725, AUPR test unknown: 0.9546350346449947
+pseudo_counter: Counter({0: 16366, 1: 1038, -1: 929})
+max_probs: 1.0， num of >0.5: 3981
+AUROC test all: 0.9821940318484784, AUPR test all: 0.955011933842959, AUROC test unknown: 0.9815043383347836, AUPR test unknown: 0.9498305581103829
+Epoch: 177, Best AUROC test all: 0.9837497602463908, AUPR test all: 0.9597819745121345, AUROC test unknown: 0.9828795175268725, AUPR test unknown: 0.9546350346449947
+pseudo_counter: Counter({0: 16362, 1: 1042, -1: 929})
+max_probs: 1.0， num of >0.5: 3980
+AUROC test all: 0.9823564433581237, AUPR test all: 0.9562679088449131, AUROC test unknown: 0.9813459853427159, AUPR test unknown: 0.9508226411406462
+Epoch: 178, Best AUROC test all: 0.9837497602463908, AUPR test all: 0.9597819745121345, AUROC test unknown: 0.9828795175268725, AUPR test unknown: 0.9546350346449947
+pseudo_counter: Counter({0: 16358, 1: 1046, -1: 929})
+max_probs: 1.0， num of >0.5: 3897
+AUROC test all: 0.9819830762699354, AUPR test all: 0.9570605618342862, AUROC test unknown: 0.9811350793978139, AUPR test unknown: 0.9519213389374888
+Epoch: 179, Best AUROC test all: 0.9837497602463908, AUPR test all: 0.9597819745121345, AUROC test unknown: 0.9828795175268725, AUPR test unknown: 0.9546350346449947
+pseudo_counter: Counter({0: 16349, 1: 1055, -1: 929})
+max_probs: 1.0， num of >0.5: 3893
+AUROC test all: 0.9819492692861942, AUPR test all: 0.9566659832038182, AUROC test unknown: 0.9808872334753456, AUPR test unknown: 0.9512264542528448
+Epoch: 180, Best AUROC test all: 0.9837497602463908, AUPR test all: 0.9597819745121345, AUROC test unknown: 0.9828795175268725, AUPR test unknown: 0.9546350346449947
+pseudo_counter: Counter({0: 16342, 1: 1062, -1: 929})
+max_probs: 1.0， num of >0.5: 3854
+AUROC test all: 0.9818266534259812, AUPR test all: 0.9566983635393222, AUROC test unknown: 0.9811000508025289, AUPR test unknown: 0.9517576427895438
+Epoch: 181, Best AUROC test all: 0.9837497602463908, AUPR test all: 0.9597819745121345, AUROC test unknown: 0.9828795175268725, AUPR test unknown: 0.9546350346449947
+pseudo_counter: Counter({0: 16339, 1: 1065, -1: 929})
+max_probs: 1.0， num of >0.5: 3953
+AUROC test all: 0.9822861156327632, AUPR test all: 0.953672952217795, AUROC test unknown: 0.9814462121936129, AUPR test unknown: 0.9480742497687411
+Epoch: 182, Best AUROC test all: 0.9837497602463908, AUPR test all: 0.9597819745121345, AUROC test unknown: 0.9828795175268725, AUPR test unknown: 0.9546350346449947
+pseudo_counter: Counter({0: 16338, 1: 1066, -1: 929})
+max_probs: 1.0， num of >0.5: 3958
+AUROC test all: 0.98221472080261, AUPR test all: 0.9558651194470873, AUROC test unknown: 0.9812872254274202, AUPR test unknown: 0.9505103560342099
+Epoch: 183, Best AUROC test all: 0.9837497602463908, AUPR test all: 0.9597819745121345, AUROC test unknown: 0.9828795175268725, AUPR test unknown: 0.9546350346449947
+pseudo_counter: Counter({0: 16332, 1: 1072, -1: 929})
+max_probs: 1.0， num of >0.5: 4140
+AUROC test all: 0.9817451486978332, AUPR test all: 0.9534055350624756, AUROC test unknown: 0.9810132136875089, AUPR test unknown: 0.9479725363077276
+Epoch: 184, Best AUROC test all: 0.9837497602463908, AUPR test all: 0.9597819745121345, AUROC test unknown: 0.9828795175268725, AUPR test unknown: 0.9546350346449947
+pseudo_counter: Counter({0: 16327, 1: 1077, -1: 929})
+max_probs: 1.0， num of >0.5: 4191
+AUROC test all: 0.9827991446603135, AUPR test all: 0.9551587085787248, AUROC test unknown: 0.9819036260933862, AUPR test unknown: 0.9497154944582782
+Epoch: 185, Best AUROC test all: 0.9837497602463908, AUPR test all: 0.9597819745121345, AUROC test unknown: 0.9828795175268725, AUPR test unknown: 0.9546350346449947
+pseudo_counter: Counter({0: 16321, 1: 1083, -1: 929})
+max_probs: 1.0， num of >0.5: 4116
+AUROC test all: 0.9835790234795251, AUPR test all: 0.9578743520074497, AUROC test unknown: 0.9829677328491163, AUPR test unknown: 0.9529793299495117
+Epoch: 186, Best AUROC test all: 0.9837497602463908, AUPR test all: 0.9597819745121345, AUROC test unknown: 0.9829677328491163, AUPR test unknown: 0.9546350346449947
+pseudo_counter: Counter({0: 16315, 1: 1089, -1: 929})
+max_probs: 1.0， num of >0.5: 4029
+AUROC test all: 0.9817806391313767, AUPR test all: 0.9539253385326247, AUROC test unknown: 0.9809652882917775, AUPR test unknown: 0.9484405222601553
+Epoch: 187, Best AUROC test all: 0.9837497602463908, AUPR test all: 0.9597819745121345, AUROC test unknown: 0.9829677328491163, AUPR test unknown: 0.9546350346449947
+pseudo_counter: Counter({0: 16309, 1: 1095, -1: 929})
+max_probs: 1.0， num of >0.5: 3942
+AUROC test all: 0.9823827346124178, AUPR test all: 0.956502091520562, AUROC test unknown: 0.9814772570658271, AUPR test unknown: 0.9511249988592698
+Epoch: 188, Best AUROC test all: 0.9837497602463908, AUPR test all: 0.9597819745121345, AUROC test unknown: 0.9829677328491163, AUPR test unknown: 0.9546350346449947
+pseudo_counter: Counter({0: 16306, 1: 1098, -1: 929})
+max_probs: 1.0， num of >0.5: 3841
+AUROC test all: 0.9824727669797301, AUPR test all: 0.957458765713275, AUROC test unknown: 0.9816342519704844, AUPR test unknown: 0.952268693722589
+Epoch: 189, Best AUROC test all: 0.9837497602463908, AUPR test all: 0.9597819745121345, AUROC test unknown: 0.9829677328491163, AUPR test unknown: 0.9546350346449947
+pseudo_counter: Counter({0: 16302, 1: 1102, -1: 929})
+max_probs: 1.0， num of >0.5: 3874
+AUROC test all: 0.9813764179959864, AUPR test all: 0.956238783825502, AUROC test unknown: 0.980394499242992, AUPR test unknown: 0.9508696951530191
+Epoch: 190, Best AUROC test all: 0.9837497602463908, AUPR test all: 0.9597819745121345, AUROC test unknown: 0.9829677328491163, AUPR test unknown: 0.9546350346449947
+pseudo_counter: Counter({0: 16296, 1: 1108, -1: 929})
+max_probs: 1.0， num of >0.5: 3941
+AUROC test all: 0.9815084262182128, AUPR test all: 0.9533470623283338, AUROC test unknown: 0.9805999024189046, AUPR test unknown: 0.9475668615270909
+Epoch: 191, Best AUROC test all: 0.9837497602463908, AUPR test all: 0.9597819745121345, AUROC test unknown: 0.9829677328491163, AUPR test unknown: 0.9546350346449947
+pseudo_counter: Counter({0: 16292, 1: 1112, -1: 929})
+max_probs: 1.0， num of >0.5: 3954
+AUROC test all: 0.9824217391324347, AUPR test all: 0.9565200495483923, AUROC test unknown: 0.9815185731028272, AUPR test unknown: 0.9512177480564763
+Epoch: 192, Best AUROC test all: 0.9837497602463908, AUPR test all: 0.9597819745121345, AUROC test unknown: 0.9829677328491163, AUPR test unknown: 0.9546350346449947
+pseudo_counter: Counter({0: 16285, 1: 1119, -1: 929})
+max_probs: 0.9999998807907104， num of >0.5: 4030
+AUROC test all: 0.9818648300198658, AUPR test all: 0.9563023329852112, AUROC test unknown: 0.9809477639342283, AUPR test unknown: 0.9510040725973168
+Epoch: 193, Best AUROC test all: 0.9837497602463908, AUPR test all: 0.9597819745121345, AUROC test unknown: 0.9829677328491163, AUPR test unknown: 0.9546350346449947
+pseudo_counter: Counter({0: 16281, 1: 1123, -1: 929})
+max_probs: 1.0， num of >0.5: 3922
+AUROC test all: 0.9825669389777043, AUPR test all: 0.9575163237307693, AUROC test unknown: 0.9816382658732753, AUPR test unknown: 0.9522125309520659
+Epoch: 194, Best AUROC test all: 0.9837497602463908, AUPR test all: 0.9597819745121345, AUROC test unknown: 0.9829677328491163, AUPR test unknown: 0.9546350346449947
+pseudo_counter: Counter({0: 16278, 1: 1126, -1: 929})
+max_probs: 1.0， num of >0.5: 3780
+AUROC test all: 0.9825074754830374, AUPR test all: 0.9583960213746239, AUROC test unknown: 0.9815539135552215, AUPR test unknown: 0.9531203775471986
+Epoch: 195, Best AUROC test all: 0.9837497602463908, AUPR test all: 0.9597819745121345, AUROC test unknown: 0.9829677328491163, AUPR test unknown: 0.9546350346449947
+pseudo_counter: Counter({0: 16273, 1: 1131, -1: 929})
+max_probs: 1.0， num of >0.5: 3735
+AUROC test all: 0.981417151961702, AUPR test all: 0.9559289202507424, AUROC test unknown: 0.9803416042533285, AUPR test unknown: 0.9503163318687184
+Epoch: 196, Best AUROC test all: 0.9837497602463908, AUPR test all: 0.9597819745121345, AUROC test unknown: 0.9829677328491163, AUPR test unknown: 0.9546350346449947
+pseudo_counter: Counter({0: 16270, 1: 1134, -1: 929})
+max_probs: 1.0， num of >0.5: 3608
+AUROC test all: 0.9824531451303915, AUPR test all: 0.9578870615317578, AUROC test unknown: 0.9815651705908687, AUPR test unknown: 0.952509830779765
+Epoch: 197, Best AUROC test all: 0.9837497602463908, AUPR test all: 0.9597819745121345, AUROC test unknown: 0.9829677328491163, AUPR test unknown: 0.9546350346449947
+pseudo_counter: Counter({0: 16268, 1: 1136, -1: 929})
+max_probs: 0.9999997615814209， num of >0.5: 3601
+AUROC test all: 0.9829746098053131, AUPR test all: 0.9586613572046575, AUROC test unknown: 0.9822659034550748, AUPR test unknown: 0.9537534058684942
+Epoch: 198, Best AUROC test all: 0.9837497602463908, AUPR test all: 0.9597819745121345, AUROC test unknown: 0.9829677328491163, AUPR test unknown: 0.9546350346449947
+pseudo_counter: Counter({0: 16262, 1: 1142, -1: 929})
+max_probs: 1.0， num of >0.5: 3680
+AUROC test all: 0.9832815680185014, AUPR test all: 0.9591330416190584, AUROC test unknown: 0.9824298598151996, AUPR test unknown: 0.9541241620192598
+Epoch: 199, Best AUROC test all: 0.9837497602463908, AUPR test all: 0.9597819745121345, AUROC test unknown: 0.9829677328491163, AUPR test unknown: 0.9546350346449947
+  rotation 3: ROC 0.9837 PR 0.9598
+[cs] params 47648399, peak GPU 28.60 GB, 62.8 min total
+[cs] ran 1/8 rotations; no results.csv row written. Merge the shards with:
+    python analysis/scripts/merge_rotations.py

@@ -1,0 +1,41 @@
+# gpu=6 cmd=/usr/bin/python3 -u main.py --dataset yelp --seed 3 --method outpost --tag A_main
+/nas/home/jahin/.local/lib/python3.10/site-packages/torch_geometric/__init__.py:4: UserWarning: An issue occurred while importing 'torch-scatter'. Disabling its usage. Stacktrace: /nas/home/jahin/.local/lib/python3.10/site-packages/torch_scatter/_version_cuda.so: undefined symbol: _ZN5torch3jit17parseSchemaOrNameERKSsb
+  import torch_geometric.typing
+/nas/home/jahin/.local/lib/python3.10/site-packages/torch_geometric/__init__.py:4: UserWarning: An issue occurred while importing 'torch-sparse'. Disabling its usage. Stacktrace: /nas/home/jahin/.local/lib/python3.10/site-packages/torch_sparse/_version_cuda.so: undefined symbol: _ZN5torch3jit17parseSchemaOrNameERKSsb
+  import torch_geometric.typing
+/nas/home/jahin/.local/lib/python3.10/site-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (1.26.5) or chardet (7.2.0)/charset_normalizer (3.4.4) doesn't match a supported version!
+  warnings.warn(
+Disabling PyTorch because PyTorch >= 2.1 is required but found 2.0.1
+None of PyTorch, TensorFlow >= 2.0, or Flax have been found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+/nas/home/jahin/.local/lib/python3.10/site-packages/outdated/__init__.py:36: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+[utils] PPR/dgl path unavailable (libcudart.so.12: cannot open shared object file: No such file or directory); OUTPOST path unaffected.
+[yelp] anomaly classes (rotations): [1]
+Normal classes: [0] in yelp
+Building multi-layer GraphSage
+[OUTPOST-v4] epoch 0: test-all ROC 0.5296 PR 0.1701 | unseen ROC 0.5000 PR 0.0000 | valAUC 0.5454 | tau+ 0.500
+[OUTPOST-v4] epoch 1: test-all ROC 0.5308 PR 0.1741 | unseen ROC 0.5000 PR 0.0000 | valAUC 0.5337 | tau+ 0.500
+[OUTPOST-v4] epoch 2: test-all ROC 0.5515 PR 0.1869 | unseen ROC 0.5000 PR 0.0000 | valAUC 0.5082 | tau+ 0.500
+[OUTPOST-v4] epoch 3: test-all ROC 0.5507 PR 0.1876 | unseen ROC 0.5000 PR 0.0000 | valAUC 0.5161 | tau+ 0.500
+[OUTPOST-v4] epoch 4: test-all ROC 0.5488 PR 0.1879 | unseen ROC 0.5000 PR 0.0000 | valAUC 0.5193 | tau+ 0.500
+[OUTPOST-v4] epoch 5: test-all ROC 0.5464 PR 0.1871 | unseen ROC 0.5000 PR 0.0000 | valAUC 0.5223 | tau+ 0.500
+[OUTPOST-v4] epoch 6: test-all ROC 0.5444 PR 0.1868 | unseen ROC 0.5000 PR 0.0000 | valAUC 0.5279 | tau+ 0.500
+[OUTPOST-v4] epoch 7: test-all ROC 0.5431 PR 0.1866 | unseen ROC 0.5000 PR 0.0000 | valAUC 0.5322 | tau+ 0.500
+[OUTPOST-v4] epoch 8: test-all ROC 0.5423 PR 0.1863 | unseen ROC 0.5000 PR 0.0000 | valAUC 0.5366 | tau+ 0.500
+[OUTPOST-v4] epoch 9: test-all ROC 0.5430 PR 0.1866 | unseen ROC 0.5000 PR 0.0000 | valAUC 0.5409 | tau+ 0.500
+[OUTPOST-v4] epoch 10: test-all ROC 0.5425 PR 0.1863 | unseen ROC 0.5000 PR 0.0000 | valAUC 0.5446 | tau+ 0.500
+[OUTPOST-v4] epoch 11: test-all ROC 0.5420 PR 0.1855 | unseen ROC 0.5000 PR 0.0000 | valAUC 0.5495 | tau+ 0.500
+[OUTPOST-v4] epoch 12: test-all ROC 0.5415 PR 0.1848 | unseen ROC 0.5000 PR 0.0000 | valAUC 0.5523 | tau+ 0.500
+[OUTPOST-v4] epoch 13: test-all ROC 0.5412 PR 0.1839 | unseen ROC 0.5000 PR 0.0000 | valAUC 0.5556 | tau+ 0.500
+[OUTPOST-v4] epoch 14: test-all ROC 0.5409 PR 0.1830 | unseen ROC 0.5000 PR 0.0000 | valAUC 0.5620 | tau+ 0.500
+[OUTPOST-v4] epoch 15: test-all ROC 0.5408 PR 0.1821 | unseen ROC 0.5000 PR 0.0000 | valAUC 0.5669 | tau+ 0.500
+[OUTPOST-v4] epoch 16: test-all ROC 0.5408 PR 0.1812 | unseen ROC 0.5000 PR 0.0000 | valAUC 0.5689 | tau+ 0.500
+[OUTPOST-v4] epoch 17: test-all ROC 0.5410 PR 0.1806 | unseen ROC 0.5000 PR 0.0000 | valAUC 0.5719 | tau+ 0.500
+[OUTPOST-v4] epoch 18: test-all ROC 0.5410 PR 0.1799 | unseen ROC 0.5000 PR 0.0000 | valAUC 0.5734 | tau+ 0.500
+[OUTPOST-v4] epoch 19: test-all ROC 0.5412 PR 0.1792 | unseen ROC 0.5000 PR 0.0000 | valAUC 0.5751 | tau+ 0.500
+[OUTPOST-v4] epoch 20: test-all ROC 0.5413 PR 0.1787 | unseen ROC 0.5000 PR 0.0000 | valAUC 0.5763 | tau+ 0.500
+[OUTPOST-v4] epoch 21: test-all ROC 0.5415 PR 0.1782 | unseen ROC 0.5000 PR 0.0000 | valAUC 0.5764 | tau+ 0.500
+[OUTPOST-v4] epoch 22: test-all ROC 0.5420 PR 0.1780 | unseen ROC 0.5000 PR 0.0000 | valAUC 0.5778 | tau+ 0.500
+[OUTPOST-v4] epoch 23: test-all ROC 0.5423 PR 0.1777 | unseen ROC 0.5000 PR 0.0000 | valAUC 0.5786 | tau+ 0.500
+[OUTPOST-v4] epoch 24: test-all ROC 0.5426 PR 0.1775 | unseen ROC 0.5000 PR 0.0000 | valAUC 0.5785 | tau+ 0.500
+[OUTPOST-v4] epoch 25: test-all ROC 0.5429 PR 0.1775 | unseen ROC 0.5000 PR 0.0000 | valAUC 0.5787 | tau+ 0.500
