@@ -1,11 +1,11 @@
-# OUTPOST — Open-Set Graph Anomaly Detection
+# OUTPOST: Open-Set Graph Anomaly Detection
 
 Detecting anomalies from classes that were never labelled during training.
 
 This repository is the full record of the study, not a demo: the method, the
 baselines' runners, every per-rotation result the tables are built from, the
 scripts that turn those into tables and figures, and the checks that fail loudly
-when any of it drifts. `METHODOLOGY.md` is the long form — protocol, ablations,
+when any of it drifts. `METHODOLOGY.md` is the long form: protocol, ablations,
 pre-registered predictions with their verdicts, and every correction made along
 the way, including the ones that went against the method.
 
@@ -24,7 +24,7 @@ python reproduce.py --seeds 42 0 1
 
 Checks the environment, unpacks the data, trains, and writes the tables and
 figures. Interruption is safe; `--resume` continues. This covers six of the eight
-graphs — Photo, Computers, CS, Yelp, ogbn-arxiv, ogbn-mag. Amazon and T-Finance
+graphs: Photo, Computers, CS, Yelp, ogbn-arxiv, ogbn-mag. Amazon and T-Finance
 were added later and live in the campaigns below, because they only ever ran as
 part of the full matrix. A three-epoch pipeline check, roughly ten minutes:
 
@@ -42,7 +42,7 @@ bash analysis/scripts/refresh_all.sh
 ## Data
 
 Not in the repository. `ogbn-arxiv` and `ogbn-mag` download on first use (~480 MB
-and ~1 GB unpacked). The other four — Photo, Computers, CS, Yelp — ship as a
+and ~1 GB unpacked). The other four: Photo, Computers, CS, Yelp, ship as a
 132 MB `dataset.zip`, which exceeds GitHub's 100 MB file limit, so it is attached
 to the GitHub release instead. Put it in the repository root and `reproduce.py`
 unpacks it:
@@ -54,7 +54,7 @@ python reproduce.py --quick      # verifies the unpack before any long run
 
 ## Baselines
 
-Not vendored, for licensing reasons set out in `baselines/README.md` — GGAD's
+Not vendored, for licensing reasons set out in `baselines/README.md`: GGAD's
 upstream grants no licence at all. Fetch them:
 
 ```bash
@@ -82,16 +82,15 @@ Two things worth knowing before you read them. The headline depends on the
 selection rule: reporting the best epoch per metric flatters every method, and the
 `*_valsel` tables, which select at the peak-validation epoch, are the ones that
 describe a deployable system. And of the 40 pre-registered predictions, 18 came out
-CONFIRMED, 12 FALSIFIED, 3 SPLIT and 1 NULL, with the rest superseded or restated —
-several of the falsified ones are load-bearing. That is the point of having written
+CONFIRMED, 12 FALSIFIED, 3 SPLIT and 1 NULL, with the rest superseded or restated; several of the falsified ones are load-bearing. That is the point of having written
 them down before running anything; `METHODOLOGY.md` §5.4, §6.5 and §11 are where
 those negative results live.
 
 ## The full experiment matrix
 
-`reproduce.py` runs six datasets in sequence. The paper's matrix is larger — ten
+`reproduce.py` runs six datasets in sequence. The paper's matrix is larger: ten
 seeds, re-run DEMO and NSReg baselines at matched seeds and splits, ablation arms,
-sensitivity sweeps — so it is expressed as *campaigns*: job lists a scheduler
+sensitivity sweeps, so it is expressed as *campaigns*: job lists a scheduler
 spreads across free GPUs, skipping anything already finished.
 
 ```bash
@@ -115,7 +114,7 @@ METHODOLOGY.md          protocol, verdicts, corrections, known limits
 
 campaigns/              the experiment matrix as job lists
 baselines/              our runners; upstream code is fetched, not vendored
-results/                results.csv and one JSON per rotation — the run record
+results/                results.csv and one JSON per rotation: the run record
 figures/                every figure, .pdf and .png
 analysis/
   REVIEWER_PROOFING.md  what was audited, by objection
