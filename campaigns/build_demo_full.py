@@ -9,7 +9,7 @@ The rule adopted: a baseline we make a PAIRED claim about must be the full
 published method, or we make no paired claim. Concretely:
 
   yelp   run here, mixup ON      PPR 8.4 GB float32, built in 74 s
-  photo, computers, cs           run by Farhan on Kaggle with mixup ON
+  photo, computers, cs           run on Kaggle with mixup ON
   ogbn-arxiv                     PPR is 115 GB dense - possible in host RAM,
                                  not attempted; no paired claim
   ogbn-mag                       PPR is 2.2 TB - structurally impossible; no

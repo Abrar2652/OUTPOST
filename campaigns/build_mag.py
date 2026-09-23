@@ -2,7 +2,7 @@
 
 Deferred throughout because on the RTX A5000 it was 77 s per post-warmup epoch,
 i.e. 128 GPU-hours per seed. Re-measured on the A6000: 45 s/epoch, 75 GPU-hours
-per seed, and five idle cards make that ~15 h wall-clock. Farhan's condition -
+per seed, and five idle cards make that ~15 h wall-clock. The agreed condition -
 run one seed if time remains after the machine-confound re-run, the cs DEMO arm
 and the hyperparameter sweeps - is now met; all three are complete.
 

@@ -244,7 +244,7 @@ def main():
 
     ppr = None
     if args_cli.method == "demo":
-        # Farhan's idea, adopted verbatim in spirit: state the variant on every
+        # Co-author's idea, adopted verbatim in spirit: state the variant on every
         # run. Our entire DEMO arm was silently the w/o-Mix ablation for two
         # weeks because nothing ever printed which configuration was active.
         _v = ("FULL published method (mixup ON)" if cfg.get("mixup")

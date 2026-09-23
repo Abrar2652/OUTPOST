@@ -20,7 +20,7 @@ import subprocess
 import time
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-PY = r"C:\Users\Farhan\miniconda3\envs\py311\python.exe"
+PY = "python"
 
 ES_CONTINUOUS = 0x80000000
 ES_SYSTEM_REQUIRED = 0x00000001
