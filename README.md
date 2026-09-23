@@ -14,7 +14,7 @@ pip install -r requirements.txt
 Ensure `dataset.zip` is placed in the repository root if you are running Photo, Computers, CS, or Yelp. (ogbn datasets will download automatically).
 
 ```bash
-python reproduce.py --quick           # 3-epoch end-to-end check, about 10 min
+python reproduce.py --quick           # 3-epoch end-to-end check
 python reproduce.py --seeds 42 0 1    # Photo, Computers, CS, Yelp, ogbn-arxiv, ogbn-mag
 ```
 
