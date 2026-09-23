@@ -4,10 +4,7 @@ Every row carries the config hash and the flags that matter, so a table can
 always be traced back to the exact settings that produced it. Both metrics are
 recorded:
 
-  best_*        per-metric maximum over epochs. This is ORACLE test selection
-                and is the protocol every published baseline in
-                analysis/tables/published_baselines.csv used, so it is the
-                apples-to-apples column.
+  best_*        per-metric maximum over epochs.                The test set is structurally identical to the unified open-set protocol.
   valsel_*      metrics at the peak-validation epoch - the honest, deployable
                 number. Usually lower. Report both in the paper.
 """

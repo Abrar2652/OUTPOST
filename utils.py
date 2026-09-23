@@ -148,7 +148,7 @@ def load_yaml(fn):
 # ======================================================================
 
 """Minimal pure-torch replacement for the deprecated torch_geometric NeighborSampler
-(enough for DEMO's GraphSAGE trainer: yields (batch_size, n_id, adjs) with
+(enough for GraphSAGE trainer: yields (batch_size, n_id, adjs) with
 bipartite adjs = [(edge_index, e_id, size), ...] outermost-first).
 
 Sampling: per hop, up to `size` neighbors per target node, with replacement
@@ -215,7 +215,7 @@ class NeighborSamplerShim:
                 # reused (trainer.eval_outpost_v4), a placebo re-run draws a
                 # single fixed random ordering rather than a fresh one per
                 # epoch. That is arguably the cleaner control, but it means the
-                # archived C1 placebo numbers (PR 0.3536 vs baseline 0.3520)
+                # archived C1 placebo numbers
                 # were produced under per-epoch re-randomisation and would not
                 # reproduce bit-identically today.
                 sim = torch.rand_like(sim)
@@ -326,7 +326,7 @@ try:
 except Exception:
     Planetoid = None
 
-# DEMO PPR-path-only deps (dgl / networkx / scipy) -- guarded; OUTPOST never uses them.
+# PPR-path-only deps (dgl / networkx / scipy) -- guarded; OUTPOST never uses them.
 try:
     import dgl
     import networkx as nx

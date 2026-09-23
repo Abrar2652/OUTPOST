@@ -268,10 +268,10 @@ def _get(args, key, default):
 class OUTPOST_V4(nn.Module):
     """OUTPOST v4 — stochastic sampled-subgraph regime.
 
-    Backbone = DEMO-capacity GraphSAGE over neighbor-sampled bipartite graphs
+    Backbone = GraphSAGE over neighbor-sampled bipartite graphs
     (the sampling stochasticity is the proven driver of unseen-anomaly
-    bootstrap), plus OUTPOST's atlas.  Forward signature matches DEMO's
-    train_model: (x, adjs) with adjs from a NeighborSampler(-shim).
+    bootstrap), plus OUTPOST's atlas.  Forward signature is (x, adjs) 
+    with adjs from a NeighborSampler(-shim).
     """
 
     def __init__(self, d0, h, K_p, n_layers=2, dropout=0.5, tau_mu=0.05, alpha_r=0.1):

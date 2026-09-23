@@ -30,8 +30,7 @@ from sklearn.metrics import roc_auc_score, average_precision_score
 
 # ======================================================================
 # OUTPOST v4 — Conformal Outpost in the stochastic sampled-subgraph regime.
-# Calibration (2026-07-15, original DEMO run locally, no EG/no Mix):
-# photo agg 0.8642/0.5573 — the neighbor-sampling stochasticity is the
+# The neighbor-sampling stochasticity is the
 # proven driver of the unseen-anomaly bootstrap (unseen-7 hits 0.81 there
 # vs 0.69 max under full-graph training).  v4 keeps that regime and adds
 # OUTPOST's components: conformal anomaly threshold, atlas gate on
@@ -191,7 +190,7 @@ def train_outpost_v4(split_info, labels, graph, args, anomaly_info, logger):
     strong_aug = NodeFeatureAugmentor({'noise': {'sigma': 0.02}, 'mask': {'mask_prob': 0.1},
                                        'mixup': {'alpha': 0.1}, 'scaling': {'gamma': 0.1}})
 
-    # class-progress memory (FlexMatch warmup, as in DEMO)
+    # class-progress memory
     selected_label = torch.full((graph.num_nodes,), -1, dtype=torch.long, device=device)
     max_counter = {0: 0, 1: 0}
 
@@ -210,7 +209,7 @@ def train_outpost_v4(split_info, labels, graph, args, anomaly_info, logger):
     for epoch in range(num_epochs):
         model.train()
 
-        # ---- labeled pass (accumulate over batches like DEMO) ----
+        # ---- labeled pass ----
         zs, lg = [], []
         w_log = []
         for bsz, n_id, adjs in loader_tr:
@@ -340,7 +339,7 @@ def train_outpost_v4(split_info, labels, graph, args, anomaly_info, logger):
         if device.type == 'cuda':
             torch.cuda.empty_cache()
 
-        # ---- stochastic sampled eval (protocol-parity with DEMO) ----
+        # ---- stochastic sampled eval ----
         m = eval_outpost_v4(model, split_info, y_np, graph, args, device, sizes,
                             idx_val, ctx_all=ctx_all if use_hybrid else None,
                             sim_kw=sim_kw, loader=loader_eval)

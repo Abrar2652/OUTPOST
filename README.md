@@ -26,10 +26,10 @@ Not included. `ogbn-arxiv` and `ogbn-mag` download on first use. Photo, Computer
 
 ```text
 reproduce.py, main.py      entry points
-model.py, trainer.py, losses.py, utils.py
+model.py, trainer.py, utils.py
 config.json                default and per-dataset settings
 ```
 
 ## License
 
-MIT (see `LICENSE`). Datasets and fetched baselines keep their own licenses.
+MIT (see `LICENSE`).
