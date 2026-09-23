@@ -1,20 +1,4 @@
-"""OUTPOST entry point.
-
-Runs OUTPOST on one dataset, over every
-anomaly-class rotation, and appends the aggregated row to results/results.csv.
-
-Examples
---------
-    python main.py --dataset yelp                    # OUTPOST, seed 42
-    python main.py --dataset ogbn-arxiv              # large-scale (Table 2)
-    python main.py --dataset photo --seed 0
-    python main.py --dataset computers --set sim_topk_frac=1.0   # ablation
-    python main.py --dataset photo --epochs 3        # quick smoke test
-
-Config comes from config.json ('default' merged with the per-dataset block);
---set overrides any key on the command line, which is how the ablations in
-analysis/ were produced.
-"""
+"""OUTPOST entry point."""
 
 import argparse
 import json
@@ -30,7 +14,6 @@ from utils import aggregate_rotations, ad_split_num, load_data, set_seed, split_
 
 
 def load_config(dataset, method="outpost", overrides=None):
-    """default -> per-dataset -> CLI overrides."""
     cfg_all = json.load(open("config.json"))
     cfg = dict(cfg_all.get("default", {}))
     ds = dict(cfg_all.get(dataset, {}))
@@ -41,7 +24,6 @@ def load_config(dataset, method="outpost", overrides=None):
 
 
 def parse_set(pairs):
-    """--set key=value ... with json-ish coercion"""
     out = {}
     for p in pairs or []:
         if "=" not in p:
@@ -55,11 +37,6 @@ def parse_set(pairs):
 
 
 def anomaly_classes(dataset, dset_info):
-    """Open-set protocol: minority classes are 'anomalies'.
-
-    Binary fraud graphs (yelp, amazon) have a single anomaly class and therefore no
-    unseen-class rotation.
-    """
     per = np.asarray(dset_info["class_per"])
     if dataset in ("yelp", "tfinance", "amazon"):
         return np.array([1])
@@ -80,21 +57,8 @@ def rotation_path(args_cli, rotation_class):
 
 
 def write_rotation(args_cli, cfg, res):
-    """One file per rotation.
-
-    The results.csv row is a mean over rotations, which is the number the paper
-    reports but is also the number that cannot be tested: the paired tests in
-    analysis/scripts/stats.py need the individual rotations, and a sharded run
-    needs somewhere to put a rotation that finished before its siblings.
-    """
     os.makedirs("results/rotations", exist_ok=True)
     path = rotation_path(args_cli, res["rotation_class"])
-    # Host, GPU and torch version, stamped on every rotation. This campaign
-    # silently moved between machines - ckg10 (RTX A5000, 24 GB, torch 2.0.1) to
-    # ckg12 (RTX A6000, 49 GB, torch 2.7.1) - and the only record was a single
-    # environment.json that had overwritten itself. Six result cells ended up
-    # straddling that change, and it took a segfault hunt to notice. A few bytes
-    # per rotation makes it impossible to lose again.
     import platform, socket
     try:
         import torch as _t
@@ -108,12 +72,6 @@ def write_rotation(args_cli, cfg, res):
                "host": socket.gethostname(), "gpu": _gpu, "torch": _tv,
                "python": platform.python_version(),
                "rotations": [{k: v for k, v in res.items() if k != "scores"}]}
-    # Write atomically. open(path, "w") truncates first and writes second, so two
-    # processes finishing the same shard interleave: on 2026-09-17 a ckg10 and a
-    # ckg12 run of the same mag rotation left a complete JSON object followed by
-    # three stray bytes, and merge skipped it as unreadable. A per-process temp
-    # file plus os.replace is atomic on one filesystem, so the last writer wins
-    # whole. Runs are deterministic, so either writer's metrics are the same.
     tmp = f"{path}.{socket.gethostname()}.{os.getpid()}.tmp"
     with open(tmp, "w") as fh:
         json.dump(payload, fh, indent=1, default=str)
@@ -124,15 +82,8 @@ def write_rotation(args_cli, cfg, res):
 
 
 def save_scores(args_cli, res, split, labels_np, info, idx):
-    """Per-node scores at two epochs, from the trainer's [T, N] score log.
-
-    best   : the epoch with the highest test-all AUC-ROC (oracle selection)
-    valsel : the epoch with the highest validation AUC (deployable selection)
-    Both are recomputed here from the log and the split, so the saved epoch is
-    the one the reported number came from. float16: 736k nodes -> 1.5 MB.
-    """
     from sklearn.metrics import roc_auc_score
-    S = res["scores"]                                  # [T, N]
+    S = res["scores"]
     y = np.isin(labels_np, list(info["all_anomaly"])).astype(int)
     iv = np.asarray(split["idx_val"]); it = np.asarray(split["idx_test"]["all"])
     def auc(idx, s):
@@ -149,7 +100,7 @@ def save_scores(args_cli, res, split, labels_np, info, idx):
                "n_epochs_logged": int(S.shape[0]), "split_sha": res.get("split_sha")},
               open(f"results/scores/{stem}.json", "w"), indent=1)
     res["scores_saved"] = {"best_epoch": e_best, "valsel_epoch": e_val}
-    del res["scores"]                                  # never into the shard
+    del res["scores"]
 
 
 def main():
@@ -166,38 +117,22 @@ def main():
                     help="override any config key, e.g. --set sim_topk_frac=1.0")
     ap.add_argument("--tag", default=None, help="label for the results row")
     ap.add_argument("--save-scores", action="store_true",
-                    help="keep per-node scores at the best-ROC epoch and the "
-                         "peak-validation epoch (results/scores/*.npy). Makes "
-                         "per-class AUCs computable after the fact: P8, and the "
-                         "trained-model side of the detectability law.")
+                    help="keep per-node scores for evaluation")
     ap.add_argument("--rotations", type=int, nargs="*", default=None,
                     metavar="CLASS",
-                    help="run only these seen-anomaly classes instead of the "
-                         "full rotation set. Rotations are independent by "
-                         "construction - each builds its own split from --seed "
-                         "and trains from scratch - so a long dataset can be "
-                         "spread over several GPUs and merged afterwards with "
-                         "analysis/scripts/merge_rotations.py. The dataset's "
-                         "score is the mean over the complete set either way.")
+                    help="run only specified seen-anomaly classes")
     args_cli = ap.parse_args()
 
     ov = parse_set(args_cli.set)
     if args_cli.epochs is not None:
         ov["num_epochs"] = args_cli.epochs
     if args_cli.save_scores:
-        ov["record_scores"] = True      # trainer keeps the [T, N] score log
+        ov["record_scores"] = True
 
     cfg = load_config(args_cli.dataset, args_cli.method, ov)
     args = Dict(cfg)
     args.dataname = args_cli.dataset
     args.num_classes = 2
-    # The open-set label budget. These are the protocol defaults and are the same
-    # for every method, but they must remain OVERRIDABLE: they were previously
-    # assigned unconditionally here, after the config merge, so `--set
-    # train_anormaly_num=100` was silently discarded and the run reproduced the
-    # default protocol while claiming to vary it. Any sensitivity analysis over
-    # the label budget would have produced five identical arms and concluded that
-    # the budget does not matter.
     args.train_normal_ratio = cfg.get("train_normal_ratio", 0.05)
     args.train_anormaly_num = cfg.get("train_anormaly_num", 50)
     args.val_normal_ratio = cfg.get("val_normal_ratio", 0.01)
@@ -231,17 +166,10 @@ def main():
 
     rotations = []
     for ri, idx in enumerate(acls):
-        # The unseen-anomaly set is always the FULL rotation set minus the seen
-        # class. Deriving it from a --rotations subset would quietly shrink the
-        # open-set task and inflate the score.
         info = {"known_anomaly": idx,
                 "unknown_anomaly": [i for i in acls_full if i != idx],
                 "normal": [i for i in dset_info["class_idx"] if i not in acls_full],
                 "all_anomaly": acls_full}
-        # Re-seed per rotation so a rotation's split and initialisation are a
-        # function of (seed, rotation) alone, not of how many rotations ran
-        # before it in this process. Without this, `--rotations` would produce
-        # different splits from a full run and the shards could not be merged.
         set_seed(args_cli.seed)
         split = ad_split_num(labels_np, args, info)
         if args_cli.train_seed is not None:
@@ -261,8 +189,6 @@ def main():
         rotations.append(res)
         b = res["best"]
         print(f"  rotation {idx}: ROC {b['auroc_all']:.4f} PR {b['aupr_all']:.4f}")
-        # Written as each rotation lands, not at the end: a 15-rotation
-        # ogbn-mag run is many GPU-hours and must survive an interruption.
         write_rotation(args_cli, cfg, res)
 
     if not rotations:

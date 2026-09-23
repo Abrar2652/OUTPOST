@@ -1,18 +1,4 @@
-"""Data loading, splits, augmentation and the neighbour sampler.
-
-Consolidated from utils.py + tools/io.py + tools/neighbor_sampler.py.
-
-  load_data             dataset loader (photo / computers / cs / yelp)
-  ad_split_num          the open-set split protocol (50 labelled anomalies,
-                        5% normals train / 30 + 1% val / rest test)
-  NodeFeatureAugmentor  weak & strong feature augmentation
-  NeighborSamplerShim   pure-torch NeighborSampler replacement; also the home of
-  get_neighbor_sampler  SimSample (similarity-ordered sampling, sim_topk_frac)
-  aggregate_rotations   mean over anomaly-class rotations, as main.py reports
-
-Heavy optional deps (ogb, dgl, networkx) are import-guarded: the four datasets
-in dataset.zip need none of them.
-"""
+"""Data loading, splits, augmentation and the neighbour sampler."""
 
 import datetime
 import os
@@ -29,11 +15,6 @@ from torch_geometric.utils import (dense_to_sparse, from_scipy_sparse_matrix,
 
 
 
-# ======================================================================
-# npz -> PyG graph  (was tools/io.py)
-# ======================================================================
-
-# from utils.data import DglDataset
 
 
 def load_npz(fp):
@@ -59,8 +40,6 @@ def make_pyg_graph(x, adj, undirected=True):
     return data
 
 
-# data is the return of the load_npz function
-# Heavily modified https://github.com/shchur/gnn-benchmark/blob/master/gnnbench/data/io.py
 def npz_data_to_pyg_graph(data):
     # Load adj matrix
     adj_matrix = sp.csr_matrix((data['adj_data'], data['adj_indices'], data['adj_indptr']), shape=data['adj_shape'])
@@ -109,17 +88,7 @@ def load_yaml(fn):
     return config
 
 
-# ======================================================================
-# neighbour sampler + SimSample  (was tools/neighbor_sampler.py)
-# ======================================================================
 
-"""Minimal pure-torch replacement for the deprecated torch_geometric NeighborSampler
-(enough for GraphSAGE trainer: yields (batch_size, n_id, adjs) with
-bipartite adjs = [(edge_index, e_id, size), ...] outermost-first).
-
-Sampling: per hop, up to `size` neighbors per target node, with replacement
-then de-duplicated (close to classic without-replacement sampling).
-"""
 
 
 class EdgeIndexTuple(tuple):
@@ -130,19 +99,6 @@ class EdgeIndexTuple(tuple):
 
 
 class NeighborSamplerShim:
-    """Pure-torch NeighborSampler replacement.
-
-    Optionally performs SIMILARITY-ORDERED sampling (`sim_x` + `sim_topk_frac`):
-    each node's neighbour list is sorted once by feature cosine similarity to
-    that node, and a fraction of the per-hop budget is then filled from the most
-    similar neighbours instead of uniformly at random. Motivation
-    (analysis/PHASE0_FINDINGS.md): on dense fraud graphs (Yelp: ~167 avg degree,
-    anomaly same-class fraction 0.16) uniform sampling fills the receptive field
-    with camouflage edges, which is precisely how low-pass propagation averages
-    scattered anomalies into normality. Costs zero parameters and no extra
-    sampling-time work — the ordering is materialised once at construction.
-    """
-
     def __init__(self, edge_index, node_idx=None, sizes=(25, 10), batch_size=512,
                  shuffle=False, drop_last=False, sim_x=None, sim_topk_frac=0.0,
                  sim_shuffle=False, **kwargs):
@@ -158,32 +114,12 @@ class NeighborSamplerShim:
         if sim_x is not None and self.sim_topk_frac > 0:
             # cosine similarity per edge, then stable dst-major / sim-descending
             xn = torch.nn.functional.normalize(sim_x.float(), dim=1)
-            # Chunked over edges rather than materialising [E, D] in one go.
-            # The direct form allocates a single tensor of E*D float32: on cs
-            # that is 163,788 x 6,805 = 4.46 GB, past the 2^32-byte boundary
-            # where some torch 2.0 CPU gather kernels overflow a 32-bit offset
-            # and segfault. It killed every cs SimSample run at ~1.8 min while
-            # the host held 721 GB free - not a memory shortage, an indexing
-            # limit. Per-edge dot products are independent, so chunking is
-            # exactly the same arithmetic in the same order.
             sim = torch.empty(src_s.numel(), dtype=xn.dtype)
             step = max(1, 200_000_000 // max(1, xn.size(1)))
             for lo in range(0, src_s.numel(), step):
                 hi = min(lo + step, src_s.numel())
                 sim[lo:hi] = (xn[src_s[lo:hi]] * xn[dst_s[lo:hi]]).sum(1)
             if sim_shuffle:
-                # PLACEBO CONTROL: identical determinism, meaningless ordering.
-                # Isolates "similarity" from "deterministic neighbourhoods" —
-                # sim_topk_frac changes BOTH, so a gain here would mean the
-                # effect is not about neighbour purity at all.
-                # NOTE: this branch is the ONLY one that consumes RNG at
-                # construction. Since the eval loader is now built once and
-                # reused (trainer.eval_outpost_v4), a placebo re-run draws a
-                # single fixed random ordering rather than a fresh one per
-                # epoch. That is arguably the cleaner control, but it means the
-                # archived C1 placebo numbers
-                # were produced under per-epoch re-randomisation and would not
-                # reproduce bit-identically today.
                 sim = torch.rand_like(sim)
             i = torch.argsort(-sim, stable=True)
             i = i[torch.argsort(dst_s[i], stable=True)]
@@ -269,7 +205,6 @@ class NeighborSamplerShim:
 
 
 def get_neighbor_sampler(edge_index, **kwargs):
-    """Prefer PyG's NeighborSampler (needs torch-sparse); fall back to the shim."""
     try:
         from torch_geometric.loader import NeighborSampler
         return NeighborSampler(edge_index, **kwargs)
@@ -277,9 +212,6 @@ def get_neighbor_sampler(edge_index, **kwargs):
         return NeighborSamplerShim(edge_index, **kwargs)
 
 
-# ======================================================================
-# data loading / splits / augmentation  (was utils.py)
-# ======================================================================
 
 
 # ogb / Planetoid are needed for ogbn-* loading; guard so a minimal env still imports.
@@ -293,11 +225,6 @@ except Exception:
     Planetoid = None
 
 def split_fingerprint(split):
-    """Order-independent hash of a split: sorted train / val / test-all /
-    test-unknown indices. Stored in every rotation shard so that two methods
-    claiming to share a split can be checked rather than believed. The NSReg
-    wrapper and main.py both call this; the first cross-check (photo, seed 42,
-    rotation 0) matched: ff3524eb571910b7 from both entry points."""
     import hashlib
     h = hashlib.sha256()
     for part in (split["idx_train"], split["idx_val"], split["idx_test"]["all"],
@@ -334,10 +261,6 @@ def merge_configs(cmd_args, yaml_args):
     return yaml_args
 
 def aggregate_rotations(rotation_results, which='best'):
-    """Mean over seen-class rotations of the per-rotation metric dicts returned by
-    train_outpost.  `which` in {'best','val_selected','final'}.  Returns the 4
-    all-anomaly / unseen-only cells the paper reports.  (The 5-run mean over seeds
-    is done across process invocations by the run driver.)"""
     keys = ['auroc_all', 'aupr_all', 'auroc_unknown', 'aupr_unknown']
     out = {}
     for k in keys:
@@ -376,13 +299,6 @@ def log(message, data_name=None, level="INFO", log_dir="logs"):
     return log.filename
 
 def _allow_pyg_globals():
-    """Make ogb's cached graphs loadable under torch >= 2.6.
-
-    ogb (<=1.3.6) calls torch.load() without weights_only=False, while torch
-    2.6 flipped that default to True and therefore refuses to unpickle PyG's
-    data classes. Allowlist exactly those classes; nothing else is relaxed.
-    Harmless on older torch (add_safe_globals simply does not exist).
-    """
     try:
         import torch.serialization as _ts
         safe = []
@@ -431,11 +347,10 @@ def load_data(data_name):
             raise ImportError("ogbn-* needs the 'ogb' package: pip install ogb")
         _allow_pyg_globals()
         data = PygNodePropPredDataset(name=data_name, root='data')
-        paper_x = data[0]['x_dict']['paper'] # x为torch.float32类型 [num_paper_nodes, feat_dim]data
-        paper_y = data[0]['y_dict']['paper']# [num_paper_nodes]
-        edge_index = data[0]['edge_index_dict']['paper', 'cites', 'paper']# [2, num_edges]
-
-        # 构造一个新的 PyG 同构图对象
+        paper_x = data[0]['x_dict']['paper']
+        paper_y = data[0]['y_dict']['paper']
+        edge_index = data[0]['edge_index_dict']['paper', 'cites', 'paper']
+        
         graph = Data(x=paper_x, y=paper_y, edge_index=edge_index)
         labels = graph.y.long().squeeze(-1)
         class_idx, class_size = torch.unique(labels, return_counts=True)
@@ -450,11 +365,10 @@ def load_data(data_name):
             'class_per': np.array(class_per),
         }
     elif data_name in ['tfinance', 'yelp', 'amazon']:
-        # the torch archive may ship as '<name>' or '<name>.zip' (same format)
         _p = f'data/{data_name}/{data_name}'
         if not os.path.exists(_p):
             _p = _p + '.zip'
-        graph = torch.load(_p, weights_only=False) #x为torch.float32类型
+        graph = torch.load(_p, weights_only=False)
         labels = graph.y.long().squeeze(-1)
         class_idx, class_size = torch.unique(labels, return_counts=True)
         class_per = class_size.float() / labels.shape[0]
@@ -604,25 +518,6 @@ class NodeFeatureAugmentor:
 
 
 class DeviceFeatures:
-    """The node feature table, resident on the GPU, indexed with CPU node ids.
-
-    Neighbour sampling runs on the CPU and yields CPU id tensors, so the natural
-    spelling `graph.x[n_id].to(device)` gathers on the host and copies the result
-    across PCIe. For a wide feature table that copy is the whole run: on cs
-    (6805 dimensions) a 512-node batch with fan-out [25, 10] materialises about
-    3.5 GB, roughly a hundred times per epoch, which measured at 37 s/epoch --
-    against under 4 s/epoch once the table lives on the device and only the
-    integer ids cross the bus.
-
-    Holding the table on the device and moving the ids instead gathers exactly
-    the same rows in exactly the same order, so results are unchanged; the
-    equality is checked by analysis/scripts/check_invariance.py.
-
-    The object is a stand-in for the tensor: indexing returns a device tensor
-    (so the `.to(device)` at every call site becomes a no-op) and anything else
-    is delegated.
-    """
-
     def __init__(self, x, device):
         object.__setattr__(self, "_x", x.to(device))
 
@@ -634,15 +529,7 @@ class DeviceFeatures:
             idx = torch.as_tensor(np.asarray(idx), device=self._x.device)
         return self._x[idx]
 
-    # a tensor stand-in: everything that is not indexing goes to the tensor
     def __getattr__(self, name):
-        # object.__getattribute__, not self._x. `self._x` inside __getattr__ is
-        # the standard footgun: if `_x` is ever missing - during unpickling, a
-        # copy, or an __init__ that raised partway - the lookup re-enters
-        # __getattr__ forever. Python does not always convert that into a
-        # RecursionError; deep enough C-level attribute recursion overruns the
-        # C stack and the process dies with SIGSEGV and no traceback. This form
-        # raises a clean AttributeError instead.
         return getattr(object.__getattribute__(self, "_x"), name)
 
     def __len__(self):
@@ -650,18 +537,6 @@ class DeviceFeatures:
 
 
 class _GraphView:
-    """A graph whose `.x` is device-resident; everything else is the original.
-
-    The wrapper exists so that `features_to_device` does not MUTATE the caller's
-    graph. It used to, and the consequence was subtle: `main.py` passes one graph
-    object through every anomaly-class rotation, so rotation 2 inherited rotation
-    1's device-resident tensor. SimSample then built its similarity ordering from
-    a CUDA tensor and indexed a host-side one with the result -
-    `RuntimeError: indices should be either on cpu or on the same device`. It
-    only ever fired where sim_topk_frac > 0 AND the dataset has more than one
-    rotation, which is why Yelp (binary, one rotation) never showed it.
-    """
-
     def __init__(self, graph, x):
         object.__setattr__(self, "_graph", graph)
         object.__setattr__(self, "x", x)
@@ -671,12 +546,6 @@ class _GraphView:
 
 
 def features_to_device(graph, device, max_gb=4.0, enabled=None):
-    """Return a view of `graph` whose features live on `device`, if worthwhile.
-
-    The input graph is left untouched. Call AFTER anything that needs the
-    host-side tensor - the similarity ordering used by SimSample and the
-    node-context features are both computed on the CPU.
-    """
     if device is None or str(device) == "cpu" or not torch.cuda.is_available():
         return graph
     x = getattr(graph, "x", None)
@@ -687,5 +556,5 @@ def features_to_device(graph, device, max_gb=4.0, enabled=None):
         return graph
     try:
         return _GraphView(graph, DeviceFeatures(x, device))
-    except RuntimeError:      # out of memory: the host-side path still works
+    except RuntimeError:
         return graph

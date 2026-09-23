@@ -1,27 +1,4 @@
-"""ONE COMMAND to reproduce the paper end to end.
-
-    python reproduce.py
-
-Runs OUTPOST on all six datasets, then builds both paper tables and every
-figure. Nothing else needs to be typed - the environment is checked, the data is
-unpacked, and results are written as each dataset finishes.
-
-    python reproduce.py --quick          # 3 epochs/dataset, ~10 min: proves the
-                                         # pipeline works before committing hours
-    python reproduce.py --seeds 42 0 1   # 3 seeds each (paper-grade, slower)
-    python reproduce.py --small-only     # Photo/Computers/CS only
-    python reproduce.py --resume         # skip datasets already finished
-
-Every dataset is run FRESH by default so the numbers are yours, not ours; our
-measurements sit in results/reference_runs.csv and are printed side by side for
-comparison. Interrupting is safe - finished datasets are already written to
-results/results.csv, and --resume continues from there.
-
-Wall-clock, one seed, on a >=16 GB GPU:
-    photo ~20 min | computers ~30 min | cs 2-4 h
-    yelp ~30 min  | ogbn-arxiv 2-4 h  | ogbn-mag 6-12 h
-CS and ogbn-mag OOM on cards below ~16 GB; use --small-only or skip them there.
-"""
+"""ONE COMMAND to reproduce the paper end to end."""
 
 import argparse
 import os
@@ -44,7 +21,6 @@ def step(n, total, msg):
 
 
 def check_env():
-    """Fail early and clearly rather than deep inside a training loop."""
     problems, notes = [], []
     try:
         import torch
@@ -74,7 +50,6 @@ def check_env():
 
 
 def ensure_data(datasets):
-    """Unpack dataset.zip if needed. ogbn-* are fetched by ogb on first use."""
     need = [d for d in datasets if d in ("photo", "computers", "cs", "yelp")]
     missing = []
     for d in need:

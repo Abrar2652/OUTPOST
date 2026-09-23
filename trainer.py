@@ -1,20 +1,4 @@
-"""Training / evaluation loops.
-
-Two paths only:
-  train_outpost_v4()  OUTPOST - the method reported in the paper
-
-The v1-v3 OUTPOST research iterations were removed for clarity; they are in git
-history and none of the reported numbers depend on them.
-
-OUTPOST ablation flags (all read from the dataset config, see config.json):
-  use_pl          conformal pseudo-labelling            (default on)
-  use_conformal   conformal vs fixed 0.95 threshold     (default on)
-  use_mixup/halo  anomaly synthesis                     (per-dataset)
-  use_atlas_gate  geometric veto on pseudo-normals      (default on)
-  use_fview_gate  spectral gate     - tested, rejected  (default off)
-  use_hybrid      HopMix fusion     - tested, rejected  (default off)
-  sim_topk_frac   SimSample similarity-ordered sampling (0 = off)
-"""
+"""Training / evaluation loops."""
 
 import os
 
@@ -27,26 +11,8 @@ from copy import deepcopy
 from sklearn.metrics import roc_auc_score, average_precision_score
 
 
-
-# ======================================================================
-# OUTPOST v4 — Conformal Outpost in the stochastic sampled-subgraph regime.
-# The neighbor-sampling stochasticity is the
-# proven driver of the unseen-anomaly bootstrap (unseen-7 hits 0.81 there
-# vs 0.69 max under full-graph training).  v4 keeps that regime and adds
-# OUTPOST's components: conformal anomaly threshold, atlas gate on
-# pseudo-normals, multi-sample mixup + hull-escape halo positives.
-# ======================================================================
-
 def node_context(graph, dataname, cache=True):
-    """Label-free per-node scatter context for HopMix: [feat_dissim, log1p(deg)].
-
-    feat_dissim = 1 - cos(x_v, mean of neighbour features) measures how much a
-    node stands out from its neighbourhood; together with degree it is the
-    deployable stand-in for the local-homophily term of the Phase-0 law (see
-    analysis/proxy_validation.py, where these were validated against
-    ground-truth same-class fraction). Uses no labels. Standardized to zero
-    mean / unit variance and cached per dataset.
-    """
+    """Label-free per-node scatter context for HopMix."""
     import torch.nn.functional as F
     path = f"data/{dataname.replace('-', '_')}/node_ctx.pt"
     if cache and os.path.exists(path):
@@ -110,11 +76,9 @@ def train_outpost_v4(split_info, labels, graph, args, anomaly_info, logger):
     use_halo = bool(g('use_halo', True))
     use_atlas_loss = bool(g('use_atlas_loss', False))
     use_atlas_gate = bool(g('use_atlas_gate', True))
-    # Spectral Gate (Phase-0/Step-1, see analysis/): propagation-free F-view
-    # vetoes pseudo-normal labels for nodes it finds suspicious.
     use_fview_gate = bool(g('use_fview_gate', False))
-    alpha_f = float(g('alpha_f', 0.2))       # conformal veto budget on cal normals
-    lam_f = float(g('lambda_f', 1.0))        # F-view labeled BCE weight
+    alpha_f = float(g('alpha_f', 0.2))
+    lam_f = float(g('lambda_f', 1.0))
 
     lam_un = float(g('lambda_un', 0.5))
     lam_mix = float(g('lambda_mixup', 0.1))
@@ -127,10 +91,7 @@ def train_outpost_v4(split_info, labels, graph, args, anomaly_info, logger):
     eta_min = float(g('eta_min', 1.2))
     eta_max = float(g('eta_max', 2.0))
 
-    use_hybrid = bool(g('use_hybrid', False))   # HopMix per-node view fusion
-    # The two rejected view-ablations are mutually exclusive: OUTPOST_V4HM has no
-    # fview_logit, so enabling both would crash deep inside the labelled pass.
-    # Fail loudly here instead.
+    use_hybrid = bool(g('use_hybrid', False))
     if use_hybrid and use_fview_gate:
         raise ValueError(
             "use_hybrid and use_fview_gate are mutually exclusive (both are "
@@ -158,8 +119,6 @@ def train_outpost_v4(split_info, labels, graph, args, anomaly_info, logger):
                         lr=args.lr, weight_decay=args.weight_decay)
     bce = torch.nn.BCEWithLogitsLoss()
 
-    # similarity-ordered neighbour sampling (zero-parameter; see
-    # tools/neighbor_sampler.py and analysis/PHASE0_FINDINGS.md)
     sim_frac = float(g('sim_topk_frac', 0.0))
     sim_kw = ({'sim_x': graph.x, 'sim_topk_frac': sim_frac,
                'sim_shuffle': bool(g('sim_shuffle', False))}
@@ -170,19 +129,10 @@ def train_outpost_v4(split_info, labels, graph, args, anomaly_info, logger):
     loader_un = get_neighbor_sampler(graph.edge_index, node_idx=pool,
                                      sizes=sizes, batch_size=bs, shuffle=False,
                                      **sim_kw)
-    # Built once, reused every epoch (see eval_outpost_v4). `eval_batch_mult`
-    # only sets how many nodes are scored per forward pass; scores are
-    # concatenated, so it changes peak memory and nothing else. It exists
-    # because a wide-feature graph (cs: 6805 dims) at mult 4 materialises a
-    # 2048*25*10 x 6805 activation and exhausts a 24 GB card.
     loader_eval = get_neighbor_sampler(graph.edge_index, node_idx=None,
                                        sizes=sizes,
                                        batch_size=bs * int(g('eval_batch_mult', 4)),
                                        shuffle=False, **sim_kw)
-    # Only now is the host-side feature tensor no longer needed: SimSample's
-    # similarity ordering (sim_kw) and the node-context features are both built
-    # on the CPU above. From here everything indexes graph.x with sampled ids,
-    # so the table is better off on the device.
     from utils import features_to_device
     graph = features_to_device(graph, device, enabled=g('features_on_gpu', None))
 
@@ -190,7 +140,6 @@ def train_outpost_v4(split_info, labels, graph, args, anomaly_info, logger):
     strong_aug = NodeFeatureAugmentor({'noise': {'sigma': 0.02}, 'mask': {'mask_prob': 0.1},
                                        'mixup': {'alpha': 0.1}, 'scaling': {'gamma': 0.1}})
 
-    # class-progress memory
     selected_label = torch.full((graph.num_nodes,), -1, dtype=torch.long, device=device)
     max_counter = {0: 0, 1: 0}
 
@@ -209,7 +158,6 @@ def train_outpost_v4(split_info, labels, graph, args, anomaly_info, logger):
     for epoch in range(num_epochs):
         model.train()
 
-        # ---- labeled pass ----
         zs, lg = [], []
         w_log = []
         for bsz, n_id, adjs in loader_tr:
@@ -225,8 +173,6 @@ def train_outpost_v4(split_info, labels, graph, args, anomaly_info, logger):
         logits_tr = torch.cat(lg, 0) if use_hybrid else model.pdh_logit(z_tr)
         loss = bce(logits_tr, rest_labels_t[idx_train])
 
-        # F-view trains on the LABELED loss only (independent witness — no
-        # pseudo-label feedback, so self-training cannot contaminate it).
         n_veto = 0
         if use_fview_gate:
             x_tr = graph.x[idx_train].to(device).float()
@@ -242,7 +188,6 @@ def train_outpost_v4(split_info, labels, graph, args, anomaly_info, logger):
             if float(model.atlas.initialized) > 0:
                 model.atlas.ema_update(F.normalize(z_n.detach(), dim=-1))
 
-            # ---- FixMatch-CR on the unlabeled pool (sampled subgraphs) ----
             if use_pl:
                 cnt = {c: int((selected_label == c).sum()) for c in (0, 1)}
                 acc = {}
@@ -252,8 +197,6 @@ def train_outpost_v4(split_info, labels, graph, args, anomaly_info, logger):
                 thr_a = tau_plus_cur * (acc[1] / (2 - acc[1]))
                 thr_n = 2 * tau_minus - tau_minus * (acc[0] / (2 - acc[0]))
 
-                # Spectral-gate veto threshold: conformal (1-alpha_f) quantile
-                # of F-view scores over calibration normals, this epoch.
                 tau_f = None
                 if use_fview_gate and len(cal_n) > 0:
                     with torch.no_grad():
@@ -278,14 +221,11 @@ def train_outpost_v4(split_info, labels, graph, args, anomaly_info, logger):
                             p_w = torch.sigmoid(model.pdh_logit(z_w))
                     pred = (p_w >= 0.5).float()
                     mask = torch.where(pred == 1, (p_w >= thr_a).float(), (p_w <= thr_n).float())
-                    # atlas gate: pseudo-normal only if inside normality
                     if use_atlas_gate and float(model.atlas.initialized) > 0:
                         d_at = model.d_atlas(z_w)
                         gate_ref = model.d_atlas(z_n.detach())
                         gate = torch.quantile(gate_ref, atlas_gate_q) + 1e-6
                         mask = torch.where(pred == 0, mask * (d_at <= gate).float(), mask)
-                    # spectral gate: the propagation-free view must AGREE the
-                    # node is normal before a pseudo-normal label is allowed
                     if tau_f is not None:
                         with torch.no_grad():
                             p_f = torch.sigmoid(model.fview_logit(
@@ -300,7 +240,6 @@ def train_outpost_v4(split_info, labels, graph, args, anomaly_info, logger):
                     l_un_sum = l_un_sum + (F.binary_cross_entropy_with_logits(
                         logits_s, pred, reduction='none') * mask).sum()
                     n_un += bsz
-                    # memory update from quantile extremes (class-progress signal)
                     with torch.no_grad():
                         a_probs = p_w[p_w >= 0.5]; np_ = p_w[p_w < 0.5]
                         a_cut = a_probs.quantile(0.95) if a_probs.numel() > 0 else torch.tensor(1.0, device=device)
@@ -310,7 +249,6 @@ def train_outpost_v4(split_info, labels, graph, args, anomaly_info, logger):
                         selected_label[b_nid[sel_mem]] = pred[sel_mem].long()
                 loss = loss + lam_un * (l_un_sum / max(n_un, 1))
 
-            # ---- multi-sample mixup + hull-escape halo positives ----
             z_mix = None
             if use_mixup and z_a.size(0) > 1:
                 with torch.no_grad():
@@ -339,11 +277,9 @@ def train_outpost_v4(split_info, labels, graph, args, anomaly_info, logger):
         if device.type == 'cuda':
             torch.cuda.empty_cache()
 
-        # ---- stochastic sampled eval ----
         m = eval_outpost_v4(model, split_info, y_np, graph, args, device, sizes,
                             idx_val, ctx_all=ctx_all if use_hybrid else None,
                             sim_kw=sim_kw, loader=loader_eval)
-        # conformal anomaly threshold from calibration-normal scores (this epoch)
         if use_conformal and len(cal_n) > 0:
             pc = np.sort(m['scores_sig'][cal_n])
             k_idx = min(int(np.ceil((len(pc) + 1) * (1 - alpha_plus))) - 1, len(pc) - 1)
@@ -371,7 +307,7 @@ def train_outpost_v4(split_info, labels, graph, args, anomaly_info, logger):
     out = {'best': best, 'val_selected': val_sel, 'final': final,
            'n_params': sum(p.numel() for p in model.parameters())}
     if record_scores:
-        out['scores'] = np.stack(score_log)   # [T, N] per-epoch sigmoid scores
+        out['scores'] = np.stack(score_log)
     return out
 
 
@@ -380,12 +316,6 @@ def eval_outpost_v4(model, split_info, y_np, graph, args, device, sizes, idx_val
     from utils import get_neighbor_sampler
     model.eval()
     bs = int(args.batch_size) * int(args.get('eval_batch_mult') or 4)
-    # eval must use the SAME neighbourhood construction as training.
-    # `loader` is built ONCE by the caller and reused: the sampler's CSR (and,
-    # for SimSample, the similarity ordering over every edge) is deterministic
-    # and epoch-independent, while the stochasticity lives in __iter__. Building
-    # it per epoch cost 0.74 s plain / 3.47 s with SimSample on Yelp -> 5-23 min
-    # of pure waste per 400-epoch run.
     if loader is None:
         loader = get_neighbor_sampler(graph.edge_index, node_idx=None,
                                       sizes=sizes, batch_size=bs, shuffle=False,

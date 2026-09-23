@@ -1,17 +1,4 @@
-"""OUTPOST model definitions.
-
-Consolidated from the development tree (model/{base_nns,base_gnns,atlas,outpost}.py).
-Only components used by the final method (v4) are retained;
-the v1-v3 research scaffolding (BGTE / HES / SEH / energy model / nnPU / fusion)
-remains in git history and is not needed to reproduce any reported number.
-
-  MLP, CLF, Proj, MSA     generic heads
-  GraphSAGE               Backbone
-  PrototypeAtlas          normality atlas (union of hyperspherical caps)
-  OUTPOST_V4              the method: GraphSAGE + proj + clf + atlas
-  OUTPOST_V4SG            + spectral gate  (ablation flag: use_fview_gate)
-  OUTPOST_V4HM            + HopMix fusion  (ablation flag: use_hybrid)
-"""
+"""OUTPOST model definitions."""
 
 import math
 
@@ -22,10 +9,6 @@ from torch_geometric.nn import SAGEConv, inits
 from torch_geometric.utils import dropout_adj
 
 
-
-# ======================================================================
-# generic heads  (model/base_nns.py)
-# ======================================================================
 
 
 class MLP(nn.Module):
@@ -89,7 +72,7 @@ class MSA(nn.Module):
     def forward(self, x):
         B, N, C = x.shape
         qkv = self.qkv(x).reshape(B, N, 3, self.num_heads, C // self.num_heads).permute(2, 0, 3, 1, 4)
-        q, k, v = qkv.unbind(0)  # make torchscript happy (cannot use tensor as tuple)
+        q, k, v = qkv.unbind(0)
 
         attn = (q @ k.transpose(-2, -1)) * self.scale
         attn = attn.softmax(dim=-1)
@@ -101,17 +84,12 @@ class MSA(nn.Module):
         return x
 
 
-# ======================================================================
-# backbone  (model/base_gnns.py)
-# ======================================================================
-
 class GraphSAGE(torch.nn.Module):
     def __init__(self, in_channels, hidden_channels, out_channels, num_layers, dropout, output_type="logit", adj_dropout=0.0):
         super(GraphSAGE, self).__init__()
 
         self.num_layers = num_layers
         self.drop_out = dropout
-        # self.device = device
         self.output_type = output_type
 
         self.convs = torch.nn.ModuleList()
@@ -123,36 +101,25 @@ class GraphSAGE(torch.nn.Module):
         self.adj_dropout = adj_dropout
 
         if self.num_layers == 1:
-            print("Building single-layer GraphSage")
             self.convs.append(SAGEConv(in_channels, out_channels))
         else:
-            print("Building multi-layer GraphSage")
             self.convs.append(SAGEConv(in_channels, hidden_channels, normalize=self.normalise))
 
             for _ in range(num_layers - 2):
-                print("One hidden layer added.")
                 self.convs.append(SAGEConv(hidden_channels, hidden_channels, normalize=self.normalise))
 
             self.convs.append(SAGEConv(hidden_channels, out_channels, normalize=self.normalise))
 
     def reset_parameters(self):
-        print("Initialising")
         for conv in self.convs:
             inits.kaiming_uniform(conv.lin_l.weight, conv.lin_l.in_channels, a=math.sqrt(5))
             inits.kaiming_uniform(conv.lin_r.weight, conv.lin_r.in_channels, a=math.sqrt(5))
             inits.zeros(conv.lin_l.in_channels)
             inits.zeros(conv.lin_r.in_channels)
-            # conv.reset_parameters()
 
     def forward(self, x, adjs, pp_matrix=None):
-        # `train_loader` computes the k-hop neighborhood of a batch of nodes,
-        # and returns, for each layer, a bipartite graph object, holding the
-        # bipartite edges `edge_index`, the index `e_id` of the original edges,
-        # and the size/shape `size` of the bipartite graph.
-        # Target nodes are also included in the source nodes so that one can
-        # easily apply skip-connections or add self-loops.
         for i, (edge_index, _, size) in enumerate(adjs):
-            x_target = x[:size[1]]  # Target nodes are always placed first.
+            x_target = x[:size[1]]
 
             if self.adj_dropout > 0:
                 edge_index = dropout_adj(edge_index, p=self.adj_dropout, force_undirected=True, training=self.training)[0]
@@ -163,18 +130,12 @@ class GraphSAGE(torch.nn.Module):
                 x = F.dropout(x, p=self.drop_out, training=self.training)
 
         if self.output_type == "ebd":
-            # x = F.relu(x)
-            # x = F.dropout(x, p=self.drop_out, training=self.training)
             return x
 
         return x.log_softmax(dim=-1).float()
 
 
 
-
-# ======================================================================
-# normality atlas  (model/atlas.py)
-# ======================================================================
 
 def geodesic_dist(z, mu):
     """Pairwise geodesic (arc) distance between z [B,d] and mu [Kp,d] -> [B,Kp]."""
@@ -217,7 +178,6 @@ class PrototypeAtlas(nn.Module):
                     break
                 mu = new
             self.mu.copy_(mu)
-        # radii from assigned geodesic distances
         assign = (z @ self.mu.t()).argmax(dim=1)
         dg = geodesic_dist(z, self.mu)
         for j in range(self.K_p):
@@ -254,10 +214,6 @@ class PrototypeAtlas(nn.Module):
 
 
 
-# ======================================================================
-# OUTPOST  (model/outpost.py)
-# ======================================================================
-
 def _get(args, key, default):
     v = args.get(key) if hasattr(args, 'get') else getattr(args, key, None)
     if v is None or (hasattr(v, '__len__') and len(v) == 0 and not isinstance(v, (str,))):
@@ -266,13 +222,7 @@ def _get(args, key, default):
 
 
 class OUTPOST_V4(nn.Module):
-    """OUTPOST v4 — stochastic sampled-subgraph regime.
-
-    Backbone = GraphSAGE over neighbor-sampled bipartite graphs
-    (the sampling stochasticity is the proven driver of unseen-anomaly
-    bootstrap), plus OUTPOST's atlas.  Forward signature is (x, adjs) 
-    with adjs from a NeighborSampler(-shim).
-    """
+    """OUTPOST v4."""
 
     def __init__(self, d0, h, K_p, n_layers=2, dropout=0.5, tau_mu=0.05, alpha_r=0.1):
         super().__init__()
@@ -299,36 +249,14 @@ class OUTPOST_V4(nn.Module):
 
 
 class OUTPOST_V4HM(OUTPOST_V4):
-    """v4 + HopMix: per-node adaptive fusion of a propagation-free view.
-
-    Motivation (measured, analysis/PHASE0_FINDINGS.md): propagation amplifies
-    clustered anomalies and *erases* scattered ones — on Yelp the training-free
-    detector scores 0.631 AUC at hop 0 and only ~0.55 after propagation. So the
-    useful receptive field is node-dependent, and a single 2-layer GNN score
-    throws away raw-feature evidence for exactly the nodes it cannot see.
-
-    HopMix keeps the GNN score s_gnn and adds a propagation-free score s_mlp on
-    raw features, blending them per node:
-
-        s(v) = (1 - w_v) * s_gnn(v) + w_v * s_mlp(v),
-        w_v  = sigmoid(g(c_v)),   c_v = label-free local-scatter context
-
-    c_v uses only graph/feature statistics (neighbour feature dissimilarity and
-    log-degree), never labels, so the blend is deployable. Cost is ~2.2k params
-    on Yelp (a small MLP head + a 33-parameter mixer), keeping the model
-    lightweight. Setting w_v == 0 recovers v4 exactly.
-    """
+    """v4 + HopMix: per-node adaptive fusion of a propagation-free view."""
 
     def __init__(self, d0, h, K_p, n_layers=2, dropout=0.5, tau_mu=0.05,
                  alpha_r=0.1, n_ctx=2, fview_hidden=64):
         super().__init__(d0, h, K_p, n_layers=n_layers, dropout=dropout,
                          tau_mu=tau_mu, alpha_r=alpha_r)
-        self.fview = MLP(d0, fview_hidden, 1)          # propagation-free scorer
+        self.fview = MLP(d0, fview_hidden, 1)
         self.mixer = nn.Sequential(nn.Linear(n_ctx, 8), nn.ReLU(), nn.Linear(8, 1))
-        # Start blend GNN-leaning (bias<0) but keep the ctx-dependent weights
-        # randomly initialised: zero-init made w a global constant (identical
-        # for anomalies and normals) because ctx had no influence at step 0 and
-        # symmetry broke far too slowly to matter over training.
         nn.init.constant_(self.mixer[2].bias, -1.0)
 
     def mix_weight(self, ctx):
@@ -350,16 +278,7 @@ class OUTPOST_V4HM(OUTPOST_V4):
 
 
 class OUTPOST_V4SG(OUTPOST_V4):
-    """v4 + Spectral Gate: adds a propagation-free feature view (F-view).
-
-    Motivated by Phase-0/Step-1 (analysis/): scattered anomalies are erased by
-    low-pass propagation and then pseudo-labeled normal; raw-feature proxies
-    cannot flag the feature-bland ones, but supervised, propagation-free
-    representations can. The F-view is an MLP on raw features co-trained on
-    the LABELED loss only — an independent witness that self-training cannot
-    contaminate. Its score vetoes pseudo-normal assignments (two-view
-    agreement gate); it never assigns labels itself.
-    """
+    """v4 + Spectral Gate: adds a propagation-free feature view (F-view)."""
 
     def __init__(self, d0, h, K_p, n_layers=2, dropout=0.5, tau_mu=0.05, alpha_r=0.1):
         super().__init__(d0, h, K_p, n_layers=n_layers, dropout=dropout,

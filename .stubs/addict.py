@@ -1,14 +1,4 @@
-"""Minimal addict.Dict stub.
-
-ckg08 has no `addict` and its Python is externally managed (PEP 668), so it
-cannot be installed. OUTPOST uses exactly one feature of it -- `Dict(cfg)` in
-main.py, giving attribute access over a config dict -- so the real package is not
-needed to run. Same mechanism as the torch_sparse/torch_scatter stubs already
-here; reached via PYTHONPATH=.stubs.
-
-Attribute access on a missing key returns an empty Dict in the real addict rather
-than raising, and config lookups rely on that, so it is reproduced.
-"""
+"""Minimal addict.Dict stub."""
 
 
 class Dict(dict):
