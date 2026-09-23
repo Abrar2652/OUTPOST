@@ -18,7 +18,7 @@ import math
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from torch_geometric.nn import SAGEConv, GCNConv, GATConv, inits
+from torch_geometric.nn import SAGEConv, inits
 from torch_geometric.utils import dropout_adj
 
 

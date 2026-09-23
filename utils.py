@@ -43,20 +43,6 @@ def load_npz(fp):
 
 
 
-def make_pyg_graph_dgl(x, adj, undirected=True):
-    edge_index = dense_to_sparse(adj)[0]
-    if undirected:
-        if not is_undirected(edge_index):
-            edge_index = to_undirected(edge_index)
-
-    data = Data(x=x, edge_index=edge_index)
-
-    if undirected:
-        assert data.is_undirected()
-
-    return data
-
-
 def make_pyg_graph(x, adj, undirected=True):
     features = torch.from_numpy(x.todense()).float()
     edge_index, _ = from_scipy_sparse_matrix(adj)
@@ -71,24 +57,6 @@ def make_pyg_graph(x, adj, undirected=True):
         assert data.is_undirected()
 
     return data
-
-
-def dgl_data_to_pyg_graph(x_all, adj, class_labels):
-    pyg_graph = make_pyg_graph_dgl(x_all, adj, undirected=True)
-
-    class_idx, class_size = torch.unique(class_labels, return_counts=True)
-    class_per = class_size / class_labels.size(0)
-    class_names = ["n_%2d" % i for i in range(class_idx.size(0))] + ["a_%2d" % i for i in range(class_idx.size(0))]
-    print(class_per)
-
-    dset_info = {
-        'class_idx': class_idx,
-        'class_size': class_size,
-        'class_per': class_per,
-        'class_names': class_names
-    }
-
-    return pyg_graph, dset_info
 
 
 # data is the return of the load_npz function
@@ -121,8 +89,6 @@ def npz_data_to_pyg_graph(data):
 
     class_idx, class_size = np.unique(labels, return_counts=True)
     class_per = class_size/labels.shape[0]
-
-    print(class_per)
 
     graph = make_pyg_graph(attr_matrix, adj_matrix, undirected=True)
     dset_info = {
@@ -326,18 +292,6 @@ try:
 except Exception:
     Planetoid = None
 
-# PPR-path-only deps (dgl / networkx / scipy) -- guarded; OUTPOST never uses them.
-try:
-    import dgl
-    import networkx as nx
-    from scipy.linalg import fractional_matrix_power, inv
-    from dgl import graph as dgl_graph
-    from dgl.nn import APPNPConv
-    from torch_geometric.utils import to_networkx
-except Exception as _ppr_import_err:  # pragma: no cover
-    dgl = nx = None
-    print(f"[utils] PPR/dgl path unavailable ({_ppr_import_err}); OUTPOST path unaffected.")
-
 def split_fingerprint(split):
     """Order-independent hash of a split: sorted train / val / test-all /
     test-unknown indices. Stored in every rotation shard so that two methods
@@ -361,9 +315,6 @@ def set_seed(seed):
     torch.cuda.manual_seed(seed)
     torch.cuda.manual_seed_all(seed)
     torch.use_deterministic_algorithms(True)
-    if dgl is not None:
-        dgl.seed(seed)
-        dgl.random.seed(seed)
     torch.backends.cudnn.enabled = False
     torch.backends.cudnn.deterministic = True
     torch.backends.cudnn.benchmark = False
@@ -595,25 +546,6 @@ def random_split(idx, train_ratio, valid_ratio):
 def num_split(idx, n_train, n_val):
     randperm = torch.randperm(idx.shape[0])
     return idx[randperm[:n_train]], idx[randperm[n_train:n_train+n_val]], idx[randperm[n_train+n_val:]]
-
-def compute_ppr(graph, dataname: str, alpha=0.2, self_loop=True):
-    if dataname in ['photo', 'computers']:
-        graph = to_networkx(graph)
-        a = nx.convert_matrix.to_numpy_array(graph)
-        if self_loop:
-            a = a + np.eye(a.shape[0])                                # A^ = A + I_n
-        d = np.diag(np.sum(a, 1))                                     # D^ = Sigma A^_ii
-        dinv = fractional_matrix_power(d, -0.5)                       # D^(-1/2)
-        at = np.matmul(np.matmul(dinv, a), dinv)                      # A~ = D^(-1/2) x A^ x D^(-1/2)
-        ppr_matrix = alpha * inv((np.eye(a.shape[0]) - (1 - alpha) * at))   # a(I_n-(1-a)A~)^-1
-    else:
-        appnp = APPNPConv(20, 0.2)
-        id = torch.eye(graph.num_nodes).float()
-        src, dst = graph.edge_index
-        g = dgl_graph((src, dst), num_nodes=graph.num_nodes)
-        g.ndata['feat'] = graph.x
-        ppr_matrix = appnp(g.add_self_loop(), id).numpy()
-    return ppr_matrix
 
 class NodeFeatureAugmentor:
     def __init__(self, augmentation_config):
