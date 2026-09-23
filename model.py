@@ -1,12 +1,12 @@
 """OUTPOST model definitions.
 
 Consolidated from the development tree (model/{base_nns,base_gnns,atlas,outpost}.py).
-Only components used by the final method (v4) and the DEMO baseline are retained;
+Only components used by the final method (v4) are retained;
 the v1-v3 research scaffolding (BGTE / HES / SEH / energy model / nnPU / fusion)
 remains in git history and is not needed to reproduce any reported number.
 
   MLP, CLF, Proj, MSA     generic heads
-  GraphSAGE, train_model  DEMO-compatible backbone (train_model IS the DEMO model)
+  GraphSAGE               Backbone
   PrototypeAtlas          normality atlas (union of hyperspherical caps)
   OUTPOST_V4              the method: GraphSAGE + proj + clf + atlas
   OUTPOST_V4SG            + spectral gate  (ablation flag: use_fview_gate)
@@ -169,63 +169,7 @@ class GraphSAGE(torch.nn.Module):
 
         return x.log_softmax(dim=-1).float()
 
-class train_model(torch.nn.Module):
-    def __init__(self, args):
-        super().__init__()
-        input_dim = args.input_dim
-        hidden_dim = args.hidden_dim
-        n_layers = args.n_layers
-        drop_out = args.drop_out
-        ebd_dim = args.ebd_dim
-        self.encoder = GraphSAGE(input_dim, hidden_dim, hidden_dim, n_layers, drop_out, output_type="ebds", adj_dropout=0.0)
-        self.linear = nn.ModuleList([
-            nn.Sequential(
-                nn.Linear(input_dim, input_dim),
-                nn.ReLU(),
-                nn.Dropout(drop_out)
-            ),
-            nn.Linear(input_dim, hidden_dim)
-        ])
-        self.lin1 = nn.Linear(hidden_dim, hidden_dim, bias=False)
-        self.lin2 = nn.Linear(hidden_dim, hidden_dim, bias=False)
-        self.proj = MLP(ebd_dim, ebd_dim, ebd_dim)
-        if args.loss == 'bce':
-            self.clf = MLP(ebd_dim, 32, 1)
-        elif args.loss == 'dev':
-            self.clf = torch.nn.Linear(hidden_dim, 1)
-    def forward(self, x, adjs, ppr_matrix=None, loss_type='consistency', return_ebds=False):
-        ebds = self.encoder(x, adjs, ppr_matrix)
-        if ppr_matrix is not None:
-            # div_loss
-            out_1 = F.normalize(self.lin1(ebds), dim=-1)
-            out_2 = F.normalize(self.lin2(ebds), dim=-1)
-            div_loss = ((out_1 - out_2) ** 2).sum(dim=-1).mean()
-            # return ebds, div_loss
-            for i, (edge_index, _, size) in enumerate(adjs):
-                x_target = x[:size[1]]
-                ppr_matrix_target = ppr_matrix[:size[1], :size[1]]
-                x = ppr_matrix_target @ x_target # H， similarity matrix
-                x = self.linear[i](x)
-            graph1 = F.normalize(ebds, dim=-1) # for x and adj
-            graph2 = F.normalize(x, dim=-1) # for x and ppr_matrix
-            if loss_type == 'contrastive':
-                logits = graph1 @ graph2.t()
-                return logits, div_loss
-            elif loss_type == 'consistency':
-                embed1 = self.proj(graph1)
-                embed2 = self.proj(graph2)
-                logits1 = self.clf(embed1)
-                logits2 = self.clf(embed2)
-                return (logits1, logits2), div_loss
-        ebds = self.proj(ebds)
-        logits = self.clf(ebds)
-        if return_ebds:
-            return logits, ebds
-        else:
-            return logits
 
-    def energy(self, logits):
-        return -torch.logsumexp(logits, dim=1)
 
 
 # ======================================================================

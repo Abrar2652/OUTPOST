@@ -1,6 +1,6 @@
 """OUTPOST entry point.
 
-Runs OUTPOST (default) or the DEMO baseline on one dataset, over every
+Runs OUTPOST on one dataset, over every
 anomaly-class rotation, and appends the aggregated row to results/results.csv.
 
 Examples
@@ -8,7 +8,6 @@ Examples
     python main.py --dataset yelp                    # OUTPOST, seed 42
     python main.py --dataset ogbn-arxiv              # large-scale (Table 2)
     python main.py --dataset photo --seed 0
-    python main.py --dataset yelp --method demo      # DEMO baseline
     python main.py --dataset computers --set sim_topk_frac=1.0   # ablation
     python main.py --dataset photo --epochs 3        # quick smoke test
 
@@ -31,22 +30,10 @@ from utils import aggregate_rotations, ad_split_num, load_data, set_seed, split_
 
 
 def load_config(dataset, method="outpost", overrides=None):
-    """default -> (demo_default if method==demo) -> per-dataset -> CLI overrides."""
+    """default -> per-dataset -> CLI overrides."""
     cfg_all = json.load(open("config.json"))
     cfg = dict(cfg_all.get("default", {}))
-    if method == "demo":
-        cfg.update(cfg_all.get("demo_default", {}))
     ds = dict(cfg_all.get(dataset, {}))
-    if method == "demo":
-        # The DEMO baseline keeps its own hyperparameters; from the OUTPOST
-        # block it takes only what is a property of the DATASET rather than of
-        # the method: the feature dimension, and how many nodes fit in an
-        # evaluation forward pass. `eval_batch_mult` is memory chunking - the
-        # scores are concatenated either way - and cs needs it at 1 because its
-        # 6805-dimensional features make the default batch exhaust a 24 GB card
-        # for either method. Withholding it would not leave DEMO unmodified, it
-        # would leave DEMO unable to run on cs at all.
-        ds = {k: v for k, v in ds.items() if k in ("input_dim", "eval_batch_mult")}
     cfg.update(ds)
     for k, v in (overrides or {}).items():
         cfg[k] = v
@@ -170,7 +157,7 @@ def main():
     ap.add_argument("--dataset", default="yelp",
                     choices=["photo", "computers", "cs",
                              "yelp", "amazon", "tfinance", "ogbn-arxiv", "ogbn-mag"])
-    ap.add_argument("--method", default="outpost", choices=["outpost", "demo"])
+    ap.add_argument("--method", default="outpost", choices=["outpost"])
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--train_seed", type=int, default=None,
                     help="vary training randomness while holding the split fixed")
@@ -240,27 +227,7 @@ def main():
         acls = np.array([c for c in acls_full if int(c) in args_cli.rotations])
         print(f"[{args_cli.dataset}] running subset: {list(acls)}")
 
-    from trainer import train, train_outpost_v4
-
-    ppr = None
-    if args_cli.method == "demo":
-        # Co-author's idea, adopted verbatim in spirit: state the variant on every
-        # run. Our entire DEMO arm was silently the w/o-Mix ablation for two
-        # weeks because nothing ever printed which configuration was active.
-        _v = ("FULL published method (mixup ON)" if cfg.get("mixup")
-              else "ABLATION: w/o Mix (mixup OFF) - NOT the published method")
-        print("=" * 66 + f"\nDEMO variant: {_v}\n" + "=" * 66, flush=True)
-    if args_cli.method == "demo" and cfg.get("mixup"):
-        ppr_path = f"data/{args_cli.dataset.replace('-', '_')}/ppr_matrix.npy"
-        if not os.path.exists(ppr_path):
-            raise SystemExit(
-                f"--method demo with mixup=True needs {ppr_path}.\n"
-                f"Build it with: python analysis/scripts/make_ppr.py "
-                f"--dataset {args_cli.dataset}\n"
-                f"Refusing to run: silently falling back to mixup=False is how "
-                f"the baseline came to be its own ablation in the first place.")
-        ppr = np.load(ppr_path, mmap_mode="r")
-        print(f"[{args_cli.dataset}] DEMO mixup ON, PPR {ppr.shape} from {ppr_path}")
+    from trainer import train_outpost_v4
 
     rotations = []
     for ri, idx in enumerate(acls):
@@ -280,16 +247,7 @@ def main():
         if args_cli.train_seed is not None:
             set_seed(args_cli.train_seed)
         t_rot = time.time()
-        if args_cli.method == "demo":
-            # DEMO's mixup is its headline contribution and needs a dense
-            # PPR matrix. The shipped config has mixup=False and this call used
-            # to pass None, so every DEMO arm was really DEMO *w/o Mix* - the
-            # baseline's own ablation. Precompute with
-            # analysis/scripts/make_ppr.py; None is still allowed, but only
-            # when mixup is genuinely off.
-            res = train(split, labels_np, graph, args, info, logger, ppr)
-        else:
-            res = train_outpost_v4(split, labels_np, graph, args, info, logger)
+        res = train_outpost_v4(split, labels_np, graph, args, info, logger)
         res["rotation_class"] = int(idx)
         res["split_sha"] = split_fingerprint(split)
         if args_cli.save_scores and "scores" in res:

@@ -82,42 +82,6 @@
     "use_hybrid": false,
     "sim_topk_frac": 1.0
   },
-  "demo_default": {
-    "loss": "bce",
-    "optimiser": "adam",
-    "lr": 0.001,
-    "weight_decay": 0.0001,
-    "batch_size": 512,
-    "num_epochs": 200,
-    "hidden_dim": 64,
-    "ebd_dim": 64,
-    "n_layers": 2,
-    "drop_out": 0.5,
-    "sampling_sizes": [
-      25,
-      10
-    ],
-    "gamma": 0.1,
-    "damping": 0.001,
-    "p_cutoff": [
-      0.05,
-      0.95
-    ],
-    "unlabeled_loss": 0.5,
-    "mixup_loss": 0.1,
-    "energy_loss_weight": 0.1,
-    "used_unlabeled_data": true,
-    "energy_loss": true,
-    "mixup": true,
-    "thresh_warmup": true,
-    "used_augment_for_anormaly": true,
-    "batch_size_for_anormaly": 20,
-    "sample_size_for_anormaly": 25,
-    "div_loss_alpha": 0.5,
-    "mixup_loss_type": "consistency",
-    "device": 0
-  },
-  "_comment_demo": "demo_default holds the DEMO baseline's own hyperparameters (--method demo merges default + demo_default + the dataset's input_dim and eval_batch_mult). mixup=True is DEMO's PUBLISHED configuration: their released main.py defaults it to False, which reproduces the paper's 'w/o Mix' ablation rather than the method, and every DEMO arm we ran before 2026-08-20 inherited that. It needs a dense NxN PPR matrix - build with analysis/scripts/make_ppr.py (photo 0.2GB, computers 0.8GB, cs 1.3GB, yelp 8.4GB in float32; ogbn-arxiv 115GB; ogbn-mag 2.2TB is not computable). Use --set mixup=false to run the ablation on purpose. energy_loss=True is DEMO's per-node second-order reweighting; measured on Photo it costs 6.5x the compute and changes nothing (METHODOLOGY section 4).",
   "ogbn-arxiv": {
     "input_dim": 128,
     "hidden_dim": 64,

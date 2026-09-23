@@ -9,8 +9,7 @@ unpacked, and results are written as each dataset finishes.
     python reproduce.py --quick          # 3 epochs/dataset, ~10 min: proves the
                                          # pipeline works before committing hours
     python reproduce.py --seeds 42 0 1   # 3 seeds each (paper-grade, slower)
-    python reproduce.py --small-only     # Photo/Computers/CS only (Table 1)
-    python reproduce.py --with-demo      # also run the DEMO baseline
+    python reproduce.py --small-only     # Photo/Computers/CS only
     python reproduce.py --resume         # skip datasets already finished
 
 Every dataset is run FRESH by default so the numbers are yours, not ours; our
@@ -131,7 +130,6 @@ def main():
     ap.add_argument("--small-only", action="store_true", help="Table 1 datasets only")
     ap.add_argument("--large-only", action="store_true", help="Table 2 datasets only")
     ap.add_argument("--datasets", nargs="*", default=None, help="explicit list")
-    ap.add_argument("--with-demo", action="store_true", help="also run DEMO baseline")
     ap.add_argument("--resume", action="store_true",
                     help="skip datasets already completed in results/results.csv")
     a = ap.parse_args()
@@ -166,7 +164,7 @@ def main():
     if not ensure_data(datasets):
         sys.exit(1)
 
-    methods = ["outpost"] + (["demo"] if a.with_demo else [])
+    methods = ["outpost"]
     jobs = [(d, s, m) for m in methods for d in datasets for s in a.seeds]
     if a.resume:
         jobs = [(d, s, m) for (d, s, m) in jobs if not finished(d, m)]
@@ -189,21 +187,10 @@ def main():
             if not run_one(d, s, m, epochs, log):
                 failed.append((d, s, m))
 
-    step(4, total, "Building tables and figures")
-    for script in ("analysis/scripts/make_paper_tables.py",
-                   "analysis/scripts/make_figures.py"):
-        subprocess.run([sys.executable, script])
-
     print(f"\n{BAR}\nDONE\n{BAR}")
-    print("  tables   analysis/tables/table1_small.{csv,tex}")
-    print("           analysis/tables/table2_large.{csv,tex}")
-    print("  figures  figures/*.pdf  *.png")
     print("  raw      results/results.csv   (one row per run)")
     if a.quick:
-        print("\n  --quick used 3 epochs, so THE TABLES ARE INTENTIONALLY EMPTY:")
-        print("  runs under 100 epochs are excluded so a smoke test can never")
-        print("  reach a paper table. Runs above with rc=0 mean the pipeline is")
-        print("  verified. Now do the real run:\n")
+        print("\n  --quick used 3 epochs. Now do the real run:\n")
         print("      python reproduce.py --seeds 42 0 1")
     if failed:
         print("\n  FAILED runs (re-run individually to see the error):")
