@@ -22,23 +22,12 @@ Runs can be interrupted; `--resume` continues.
 
 Not included. `ogbn-arxiv` and `ogbn-mag` download on first use. Photo, Computers, CS and Yelp come in `dataset.zip` (132 MB), distributed separately because it exceeds the 100 MB per-file limit. Place it in the repository root and `reproduce.py` unpacks it.
 
-## Baselines
-
-Not included, for licensing reasons. Fetch NSReg, ConsisGAD and GGAD with:
-
-```bash
-bash baselines/fetch_baselines.sh
-```
-
-`baselines/run_nsreg.py` runs NSReg's own trainer on graphs loaded through this repository's `utils.load_data`, so both methods see identical tensors, splits and seeds.
-
 ## Layout
 
 ```text
 reproduce.py, main.py      entry points
 model.py, trainer.py, losses.py, utils.py
 config.json                default and per-dataset settings
-baselines/                 baseline runners
 ```
 
 ## License
